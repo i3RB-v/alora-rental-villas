@@ -9,6 +9,9 @@
   <meta name="keywords" content="Alora villas, alora rental villas, dead sea villas, luxury chalets jordan, amman private villas, فلل أورا, شاليهات البحر الميت, فلل الأردن">
   <meta name="author" content="ALORA Rental Villas LLC">
   <meta name="theme-color" content="#16402e">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 
   <!-- OpenGraph / Instagram / WhatsApp sharing metadata -->
   <meta property="og:type" content="website">
@@ -7422,24 +7425,45 @@ a:focus-visible {
   }
 }
 
-/* All Site Icons Animated as the Theme Icon */
+/* 3. Theme Sparkle Spin & Site-Wide Universal Animated Icons */
+/* Ensure zero duplicate buttons in top utility bar */
+.top-bar-lang-btn,
+.top-bar-theme-btn {
+  display: none !important;
+}
+
+/* ALL BUTTONS SITE-WIDE: Animated Icons exactly as the theme icon */
+button > span:first-child,
 .btn > span:first-child,
+.btn-primary > span:first-child,
+.btn-outline > span:first-child,
+.btn-secondary > span:first-child,
+.btn-sm > span:first-child,
+.btn-lg > span:first-child,
+.btn-xs > span:first-child,
 .btn-nav-reserve > span:first-child,
+.nav-control-btn .btn-icon,
+.nav-theme-btn .theme-sparkle-icon,
 .top-bar-admin-btn > span:first-child,
 .top-bar-contact a > span:first-child,
-.nav-control-btn .btn-icon,
 .mobile-quick-btn span:first-child,
 .btn-whatsapp-floating,
 .btn-icon-animated,
+.admin-btn-primary > span:first-child,
+.admin-btn-outline > span:first-child,
+.admin-btn-danger > span:first-child,
+.admin-demo-btn > span:first-child,
+.btn-admin-create-res > span:first-child,
+.admin-sidebar-link > span:first-child,
+.admin-nav-item > span:first-child,
 .brand-logo-icon,
 .why-icon,
 .farm-specs-row span,
 .farm-card-location,
 .kpi-icon,
-.admin-sidebar-link span:first-child,
 .feature-icon-wrap {
   display: inline-block !important;
-  animation: iconFloatBreathe 3.6s ease-in-out infinite !important;
+  animation: themeSparkleSpin 4s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
   transform-origin: center center !important;
   will-change: transform, filter !important;
 }
@@ -7468,12 +7492,18 @@ a:focus-visible {
 .farm-specs-row span:nth-child(2) { animation-delay: 0.35s !important; }
 .farm-specs-row span:nth-child(3) { animation-delay: 0.6s !important; }
 
-/* Interactive Hover Acceleration on All Icons */
+/* Interactive Hover Acceleration on All Buttons & Icons */
+button:hover > span:first-child,
 .btn:hover > span:first-child,
+.btn-nav-reserve:hover > span:first-child,
 .nav-control-btn:hover .btn-icon,
 .nav-theme-btn:hover .theme-sparkle-icon,
+.top-bar-admin-btn:hover > span:first-child,
+.admin-btn-primary:hover > span:first-child,
+.admin-btn-outline:hover > span:first-child,
+.admin-demo-btn:hover > span:first-child,
+.btn-admin-create-res:hover > span:first-child,
 .why-card:hover .why-icon,
-.top-bar-admin-btn:hover span:first-child,
 .btn-whatsapp-floating:hover {
   animation: themeSparkleSpin 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
 }
@@ -7601,20 +7631,129 @@ html[data-theme="midnight"] .feature-card,
 html[data-theme="midnight"] .review-card,
 html[data-theme="midnight"] .filter-bar,
 html[data-theme="midnight"] .modal-content,
-html[data-theme="midnight"] .admin-card {
+html[data-theme="midnight"] .modal-card,
+html[data-theme="midnight"] .modal-header,
+html[data-theme="midnight"] .modal-footer,
+html[data-theme="midnight"] .admin-card,
+html[data-theme="midnight"] .admin-kpi-card,
+html[data-theme="midnight"] .admin-kpi-mini-card,
+html[data-theme="midnight"] .admin-login-card,
+html[data-theme="midnight"] .admin-notif-panel,
+html[data-theme="midnight"] .admin-search-results,
+html[data-theme="midnight"] .villa-specs-card,
+html[data-theme="midnight"] .wizard-summary-box,
+html[data-theme="midnight"] .receipt-card,
+html[data-theme="midnight"] .policy-card,
+html[data-theme="midnight"] .booking-lookup-card {
   background: #0d1733 !important;
   border-color: rgba(59, 130, 246, 0.25) !important;
   color: #f1f5f9 !important;
   box-shadow: 0 10px 30px rgba(3, 7, 18, 0.6) !important;
 }
 
+html[data-theme="midnight"] .admin-shell,
+html[data-theme="midnight"] .admin-main,
+html[data-theme="midnight"] .admin-content,
+html[data-theme="midnight"] .admin-content-wrap,
+html[data-theme="midnight"] .admin-main-container {
+  background: #060a17 !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .admin-sidebar,
+html[data-theme="midnight"] .admin-mobile-drawer,
+html[data-theme="midnight"] .admin-topbar,
+html[data-theme="midnight"] .admin-sidebar-header {
+  background: #080f24 !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .admin-login-wrapper {
+  background: radial-gradient(circle at 50% 50%, #0d1733 0%, #060a17 100%) !important;
+}
+
+html[data-theme="midnight"] .admin-demo-box {
+  background: #09122a !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .admin-form-input,
+html[data-theme="midnight"] .admin-form-select,
+html[data-theme="midnight"] .admin-form-textarea,
+html[data-theme="midnight"] .form-input,
+html[data-theme="midnight"] .form-select,
+html[data-theme="midnight"] .form-textarea,
+html[data-theme="midnight"] .admin-search-input {
+  background: #080f24 !important;
+  color: #f8fafc !important;
+  border-color: rgba(59, 130, 246, 0.35) !important;
+}
+
+html[data-theme="midnight"] .admin-table,
+html[data-theme="midnight"] table {
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .admin-table th,
+html[data-theme="midnight"] table th {
+  background: #09122a !important;
+  color: #cbd5e1 !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+}
+
+html[data-theme="midnight"] .admin-table td,
+html[data-theme="midnight"] table td {
+  border-color: rgba(59, 130, 246, 0.15) !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .admin-table tr:hover,
+html[data-theme="midnight"] table tr:hover {
+  background: rgba(37, 99, 235, 0.12) !important;
+}
+
+html[data-theme="midnight"] .customer-cliq-option {
+  background: #080f24 !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .customer-cliq-option.selected {
+  background: rgba(37, 99, 235, 0.18) !important;
+  border-color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .villa-preview-card {
+  background: #080f24 !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .wiz-deposit-callout {
+  background: linear-gradient(135deg, #09122a 0%, #172554 100%) !important;
+  border: 1px solid rgba(59, 130, 246, 0.4) !important;
+}
+
 html[data-theme="midnight"] .farm-card-title,
 html[data-theme="midnight"] .section-title,
+html[data-theme="midnight"] .admin-page-title,
+html[data-theme="midnight"] .admin-card-title,
+html[data-theme="midnight"] .kpi-value,
+html[data-theme="midnight"] .modal-title,
 html[data-theme="midnight"] h1, 
 html[data-theme="midnight"] h2, 
 html[data-theme="midnight"] h3, 
 html[data-theme="midnight"] h4 {
   color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .admin-card-subtitle,
+html[data-theme="midnight"] .kpi-title,
+html[data-theme="midnight"] .kpi-subtitle,
+html[data-theme="midnight"] .admin-form-label {
+  color: #94a3b8 !important;
 }
 
 html[data-theme="midnight"] .btn-primary {
@@ -7704,20 +7843,129 @@ html[data-theme="sunset"] .feature-card,
 html[data-theme="sunset"] .review-card,
 html[data-theme="sunset"] .filter-bar,
 html[data-theme="sunset"] .modal-content,
-html[data-theme="sunset"] .admin-card {
+html[data-theme="sunset"] .modal-card,
+html[data-theme="sunset"] .modal-header,
+html[data-theme="sunset"] .modal-footer,
+html[data-theme="sunset"] .admin-card,
+html[data-theme="sunset"] .admin-kpi-card,
+html[data-theme="sunset"] .admin-kpi-mini-card,
+html[data-theme="sunset"] .admin-login-card,
+html[data-theme="sunset"] .admin-notif-panel,
+html[data-theme="sunset"] .admin-search-results,
+html[data-theme="sunset"] .villa-specs-card,
+html[data-theme="sunset"] .wizard-summary-box,
+html[data-theme="sunset"] .receipt-card,
+html[data-theme="sunset"] .policy-card,
+html[data-theme="sunset"] .booking-lookup-card {
   background: #1f0817 !important;
   border-color: rgba(244, 63, 94, 0.25) !important;
   color: #fff1f2 !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
+html[data-theme="sunset"] .admin-shell,
+html[data-theme="sunset"] .admin-main,
+html[data-theme="sunset"] .admin-content,
+html[data-theme="sunset"] .admin-content-wrap,
+html[data-theme="sunset"] .admin-main-container {
+  background: #12040e !important;
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .admin-sidebar,
+html[data-theme="sunset"] .admin-mobile-drawer,
+html[data-theme="sunset"] .admin-topbar,
+html[data-theme="sunset"] .admin-sidebar-header {
+  background: #180413 !important;
+  border-color: rgba(244, 63, 94, 0.25) !important;
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .admin-login-wrapper {
+  background: radial-gradient(circle at 50% 50%, #1f0817 0%, #12040e 100%) !important;
+}
+
+html[data-theme="sunset"] .admin-demo-box {
+  background: #2a0a20 !important;
+  border-color: rgba(244, 63, 94, 0.3) !important;
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .admin-form-input,
+html[data-theme="sunset"] .admin-form-select,
+html[data-theme="sunset"] .admin-form-textarea,
+html[data-theme="sunset"] .form-input,
+html[data-theme="sunset"] .form-select,
+html[data-theme="sunset"] .form-textarea,
+html[data-theme="sunset"] .admin-search-input {
+  background: #190513 !important;
+  color: #fff1f2 !important;
+  border-color: rgba(244, 63, 94, 0.35) !important;
+}
+
+html[data-theme="sunset"] .admin-table,
+html[data-theme="sunset"] table {
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .admin-table th,
+html[data-theme="sunset"] table th {
+  background: #190513 !important;
+  color: #fecdd3 !important;
+  border-color: rgba(244, 63, 94, 0.25) !important;
+}
+
+html[data-theme="sunset"] .admin-table td,
+html[data-theme="sunset"] table td {
+  border-color: rgba(244, 63, 94, 0.15) !important;
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .admin-table tr:hover,
+html[data-theme="sunset"] table tr:hover {
+  background: rgba(244, 63, 94, 0.12) !important;
+}
+
+html[data-theme="sunset"] .customer-cliq-option {
+  background: #190513 !important;
+  border-color: rgba(244, 63, 94, 0.3) !important;
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .customer-cliq-option.selected {
+  background: rgba(244, 63, 94, 0.2) !important;
+  border-color: #fb7185 !important;
+}
+
+html[data-theme="sunset"] .villa-preview-card {
+  background: #190513 !important;
+  border-color: rgba(244, 63, 94, 0.25) !important;
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .wiz-deposit-callout {
+  background: linear-gradient(135deg, #1f0817 0%, #4a0d2e 100%) !important;
+  border: 1px solid rgba(244, 63, 94, 0.4) !important;
+}
+
 html[data-theme="sunset"] .farm-card-title,
 html[data-theme="sunset"] .section-title,
+html[data-theme="sunset"] .admin-page-title,
+html[data-theme="sunset"] .admin-card-title,
+html[data-theme="sunset"] .kpi-value,
+html[data-theme="sunset"] .modal-title,
 html[data-theme="sunset"] h1, 
 html[data-theme="sunset"] h2, 
 html[data-theme="sunset"] h3, 
 html[data-theme="sunset"] h4 {
   color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .admin-card-subtitle,
+html[data-theme="sunset"] .kpi-title,
+html[data-theme="sunset"] .kpi-subtitle,
+html[data-theme="sunset"] .admin-form-label {
+  color: #fda4af !important;
 }
 
 html[data-theme="sunset"] .btn-primary {
@@ -7730,6 +7978,200 @@ html[data-theme="sunset"] .btn-primary {
 
 html[data-theme="sunset"] .hero::after {
   background: radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.25) 0%, rgba(251, 191, 36, 0.12) 40%, transparent 70%) !important;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS & SCREEN SIZING AUDIT FIXES (ALL PAGES & POPUPS)
+   ========================================================================== */
+
+/* 1. Global Viewport & Overflow Protection */
+html, body {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* 2. Public Modals & Popups Mobile Geometry */
+@media (max-width: 768px) {
+  .modal-backdrop {
+    padding: 0.5rem !important;
+    align-items: flex-end !important;
+  }
+  .modal-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 94vh !important;
+    border-radius: 20px 20px 0 0 !important;
+    margin: 0 auto !important;
+  }
+  .modal-header {
+    padding: 0.85rem 1rem !important;
+    border-radius: 20px 20px 0 0 !important;
+  }
+  .modal-body {
+    padding: 0.85rem 1rem !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .modal-footer {
+    padding: 0.75rem 1rem !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  .modal-footer .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* 3. Booking Wizard Modal Mobile Geometry */
+@media (max-width: 580px) {
+  .wizard-modal-card {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .villa-preview-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+    padding: 0.85rem !important;
+  }
+  .villa-preview-img {
+    width: 100% !important;
+    height: 140px !important;
+  }
+  .wiz-deposit-callout {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+    text-align: center !important;
+  }
+  .wiz-deposit-callout > div:last-child {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-wizard-steps {
+    margin-bottom: 1.25rem !important;
+  }
+  .wizard-step-node {
+    padding: 0 0.15rem !important;
+    gap: 0.25rem !important;
+  }
+  .step-node-circle {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.8rem !important;
+  }
+  .step-node-label {
+    font-size: 0.65rem !important;
+    max-width: 65px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  .wiz-stay-type-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+  .wiz-dates-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+  .wiz-action-footer {
+    flex-direction: column-reverse !important;
+    gap: 0.6rem !important;
+  }
+  .wiz-action-footer .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .step-node-label {
+    display: none !important;
+  }
+}
+
+/* 4. Villa Details Page Mobile Layout */
+@media (max-width: 768px) {
+  .villa-hero-gallery {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+  .villa-hero-main-img {
+    height: 240px !important;
+  }
+  .villa-hero-side-thumbs {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0.5rem !important;
+  }
+  .villa-hero-side-thumbs img {
+    width: 120px !important;
+    height: 85px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .villa-details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .villa-highlights-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* 5. Admin Mobile Responsiveness */
+@media (max-width: 480px) {
+  .admin-login-wrapper {
+    padding: 0.75rem !important;
+  }
+  .admin-login-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.25rem 1rem !important;
+  }
+  .admin-demo-box {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    text-align: center !important;
+  }
+  .admin-notif-panel {
+    width: calc(100vw - 20px) !important;
+    max-width: 320px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+  .admin-search-results {
+    width: calc(100vw - 20px) !important;
+    max-width: 320px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* 6. Admin Table Touch Scrolling Guard */
+.admin-table-container,
+.admin-table-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 
 </style>
@@ -11435,16 +11877,16 @@ const TRANSLATIONS = {
           </div>
 
           <!-- Hero Gallery -->
-          <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-bottom:2rem;border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
-            <img src="${farm.images[0]}" alt="${name}" style="width:100%;height:450px;object-fit:cover;" />
-            <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="villa-hero-gallery" style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-bottom:2rem;border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
+            <img src="${farm.images[0]}" alt="${name}" class="villa-hero-main-img" style="width:100%;height:450px;object-fit:cover;" />
+            <div class="villa-hero-side-thumbs" style="display:flex;flex-direction:column;gap:1rem;">
               <img src="${farm.images[1] || farm.images[0]}" alt="${name}" style="width:100%;height:217px;object-fit:cover;" />
               <img src="${farm.images[2] || farm.images[0]}" alt="${name}" style="width:100%;height:217px;object-fit:cover;" />
             </div>
           </div>
 
           <!-- Main Details & Booking Sidebar Grid -->
-          <div style="display:grid;grid-template-columns:2fr 1.15fr;gap:2.5rem;align-items:start;">
+          <div class="villa-details-grid" style="display:grid;grid-template-columns:2fr 1.15fr;gap:2.5rem;align-items:start;">
             <!-- Left Info Column -->
             <div>
               <div class="gold-badge">📍 ${city} • ${area}</div>
@@ -11456,9 +11898,9 @@ const TRANSLATIONS = {
               </p>
 
               <!-- Specs Card -->
-              <div style="background:#fff;padding:1.5rem;border-radius:var(--radius-lg);box-shadow:0 4px 15px rgba(0,0,0,0.03);margin-bottom:2rem;">
+              <div class="villa-specs-card" style="background:#fff;padding:1.5rem;border-radius:var(--radius-lg);box-shadow:0 4px 15px rgba(0,0,0,0.03);margin-bottom:2rem;">
                 <h3 style="font-size:1.15rem;font-weight:800;color:var(--primary-900);margin-bottom:1rem;">${t('propertyHighlights')}</h3>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:1rem;">
+                <div class="villa-highlights-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:1rem;">
                   <div style="padding:10px;background:var(--neutral-50);border-radius:6px;text-align:center;">
                     <div style="font-size:1.5rem;">👥</div>
                     <div style="font-size:0.8rem;color:var(--neutral-500);">${t('capacityLabel')}</div>
@@ -11949,7 +12391,7 @@ const TRANSLATIONS = {
 
     return `
       <div class="modal-backdrop active" id="bookingWizardBackdrop" onclick="if(event.target===this) window.Alora.closeBookingWizard()">
-        <div class="modal-card" style="max-width:700px;">
+        <div class="modal-card wizard-modal-card" style="max-width:700px;">
           <div class="modal-header">
             <div>
               <h3 class="modal-title">${t('bookingModalTitle')}</h3>
@@ -11996,7 +12438,7 @@ const TRANSLATIONS = {
                 <!-- Stay Type -->
                 <div class="form-group" style="margin-bottom:1.25rem;">
                   <label class="form-label" style="font-weight:700;">${t('stayTypeLabel')}</label>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                  <div class="wiz-stay-type-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
                     <label style="display:flex;align-items:center;gap:8px;padding:12px;border:1px solid #cbd5e0;border-radius:6px;cursor:pointer;background:${w.stayType === 'overnight' ? '#f4faf6' : '#fff'};border-color:${w.stayType === 'overnight' ? 'var(--primary-700)' : '#cbd5e0'};">
                       <input type="radio" name="wizStayType" value="overnight" ${w.stayType === 'overnight' ? 'checked' : ''} onchange="window.Alora.updateWizardState('stayType', 'overnight')" />
                       <div>
@@ -12015,7 +12457,7 @@ const TRANSLATIONS = {
                 </div>
 
                 <!-- Dates Grid -->
-                <div style="display:grid;grid-template-columns:${w.stayType === 'overnight' ? '1fr 1fr' : '1fr'};gap:1rem;margin-bottom:1.25rem;">
+                <div class="wiz-dates-grid" style="display:grid;grid-template-columns:${w.stayType === 'overnight' ? '1fr 1fr' : '1fr'};gap:1rem;margin-bottom:1.25rem;">
                   <div class="form-group">
                     <label class="form-label" style="font-weight:700;">${t('checkInDateLabel')}</label>
                     <input type="date" id="wizCheckIn" class="form-input" value="${w.checkIn}" min="${new Date().toISOString().split('T')[0]}" onchange="window.Alora.updateWizardState('checkIn', this.value)" required />
@@ -12098,7 +12540,7 @@ const TRANSLATIONS = {
                   <textarea class="form-textarea" rows="2" placeholder="e.g. Special celebration, pool heating..." oninput="window.Alora.updateWizardState('notes', this.value, false)">${w.notes}</textarea>
                 </div>
 
-                <div style="display:flex;justify-content:space-between;">
+                <div class="wiz-action-footer" style="display:flex;justify-content:space-between;gap:0.75rem;">
                   <button class="btn btn-outline" onclick="window.Alora.setWizardStep(1)">
                     ${t('backToDates')}
                   </button>
@@ -12123,7 +12565,7 @@ const TRANSLATIONS = {
                 </div>
 
                 <!-- Deposit Financial Callout -->
-                <div style="background:#0a1f16;color:#ffffff;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;">
+                <div class="wiz-deposit-callout" style="background:#0a1f16;color:#ffffff;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;">
                   <div>
                     <div style="font-size:0.8rem;color:#C5A059;text-transform:uppercase;font-weight:700;">${t('depositNowLabel', { percent: w.bookingFeePercent })}</div>
                     <div style="font-size:2rem;font-weight:900;color:#ffffff;">${w.bookingFee} JOD</div>
@@ -12195,7 +12637,7 @@ const TRANSLATIONS = {
                   </button>
                 </div>
 
-                <div style="display:flex;justify-content:space-between;">
+                <div class="wiz-action-footer" style="display:flex;justify-content:space-between;gap:0.75rem;">
                   <button class="btn btn-outline" onclick="window.Alora.setWizardStep(2)">
                     ${t('backToCustomer')}
                   </button>
@@ -12276,7 +12718,7 @@ const TRANSLATIONS = {
                   ${t('adminVerifyNotice')}
                 </div>
 
-                <div style="display:flex;justify-content:space-between;">
+                <div class="wiz-action-footer" style="display:flex;justify-content:space-between;gap:0.75rem;">
                   <button class="btn btn-outline" onclick="window.Alora.setWizardStep(3)">
                     ${t('backToPayment')}
                   </button>
@@ -12303,10 +12745,14 @@ const TRANSLATIONS = {
     return `
       <div class="admin-login-wrapper" dir="${isAr ? 'rtl' : 'ltr'}">
         <div class="admin-login-card">
-          <!-- Topbar Language Switcher -->
-          <div class="admin-login-topbar">
+          <!-- Topbar Language & Theme Switcher -->
+          <div class="admin-login-topbar" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
             <button type="button" class="btn-lang" onclick="window.Alora.toggleLanguage()">
-              🌐 ${isAr ? 'English' : 'العربية'}
+              <span class="btn-icon">🌐</span> <span>${isAr ? 'English' : 'العربية'}</span>
+            </button>
+            <button type="button" class="nav-control-btn nav-theme-btn" onclick="window.Alora.toggleTheme()" title="${isAr ? 'تغيير المظهر والألوان الحركية' : 'Change Theme & Motion FX'}">
+              <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
+              <span class="btn-text">${isAr ? 'المظهر' : 'Theme'}</span>
             </button>
           </div>
 
@@ -12450,8 +12896,17 @@ const TRANSLATIONS = {
               `).join('')}
             </nav>
 
-            <!-- Bottom Action Buttons: View Site & Logout -->
+            <!-- Bottom Action Buttons: Quick Controls, View Site & Logout -->
             <div class="admin-drawer-footer">
+              <div style="display:flex;gap:6px;margin-bottom:8px;">
+                <button class="btn btn-outline btn-sm" style="flex:1;justify-content:center;color:#cbd5e0;border-color:#4a5568;" onclick="window.Alora.toggleLanguage()">
+                  <span class="btn-icon">🌐</span> <span>${State.lang === 'en' ? 'العربية' : 'English'}</span>
+                </button>
+                <button class="btn btn-outline btn-sm nav-theme-btn" style="flex:1;justify-content:center;" onclick="window.Alora.toggleTheme()">
+                  <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
+                  <span class="btn-text">${isAr ? 'المظهر' : 'Theme'}</span>
+                </button>
+              </div>
               <button class="btn btn-outline btn-sm" style="color:#cbd5e0;border-color:#4a5568;width:100%;justify-content:center;margin-bottom:8px;" onclick="window.Alora.navigate('home'); window.Alora.closeAdminMenu();">
                 🌐 ${t('viewSite')}
               </button>
@@ -12489,9 +12944,14 @@ const TRANSLATIONS = {
                   ${State.notifOpen ? renderNotificationsDropdown() : ''}
                 </div>
 
+                <!-- Theme Switch (Mobile) -->
+                <button class="nav-control-btn nav-theme-btn" style="padding:0.25rem 0.5rem;font-size:0.75rem;min-height:30px;" onclick="window.Alora.toggleTheme()" title="${State.lang === 'ar' ? 'تغيير المظهر والألوان الحركية' : 'Change Theme & Motion FX'}">
+                  <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
+                </button>
+
                 <!-- Language Switch -->
                 <button class="btn-lang" onclick="window.Alora.toggleLanguage()" title="Change Language">
-                  🌐 ${State.lang === 'en' ? 'AR' : 'EN'}
+                  <span class="btn-icon">🌐</span> <span>${State.lang === 'en' ? 'AR' : 'EN'}</span>
                 </button>
               </div>
             </div>
@@ -12531,9 +12991,15 @@ const TRANSLATIONS = {
                 ${State.notifOpen ? renderNotificationsDropdown() : ''}
               </div>
 
+              <!-- Theme Switch (Desktop) -->
+              <button class="nav-control-btn nav-theme-btn admin-topbar-desktop-only" onclick="window.Alora.toggleTheme()" title="${State.lang === 'ar' ? 'تغيير المظهر والألوان الحركية' : 'Change Theme & Motion FX'}">
+                <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
+                <span class="btn-text">${State.lang === 'ar' ? 'المظهر' : 'Theme'}</span>
+              </button>
+
               <!-- Language Switch (Desktop) -->
               <button class="btn-lang admin-topbar-desktop-only" onclick="window.Alora.toggleLanguage()">
-                🌐 ${State.lang === 'en' ? 'AR' : 'EN'}
+                <span class="btn-icon">🌐</span> <span>${State.lang === 'en' ? 'AR' : 'EN'}</span>
               </button>
             </div>
           </header>
