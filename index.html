@@ -4157,7 +4157,7 @@ html[dir="rtl"] .user-menu-dropdown {
   color: #C5A059;
 }
 
-/* PROMINENT TOP ADMIN BUTTON ALONG THE WEBSITE */
+/* PROMINENT TOP ADMIN BUTTON ALONG THE WEBSITE (STABLE RESTING STATE & SMOOTH HOVER ELEVATION) */
 .top-bar-admin-btn {
   background: linear-gradient(135deg, rgba(197, 160, 89, 0.35), rgba(197, 160, 89, 0.2));
   border: 1.5px solid #C5A059;
@@ -4170,20 +4170,31 @@ html[dir="rtl"] .user-menu-dropdown {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.25s ease;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.22s ease, box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease !important;
   box-shadow: 0 2px 8px rgba(197, 160, 89, 0.2);
+  transform: none !important;
+  animation: none !important;
+  will-change: transform, box-shadow;
 }
 
 .top-bar-admin-btn * {
   color: #0a1f16 !important;
 }
 
-.top-bar-admin-btn:hover,
-.top-bar-admin-btn:hover * {
-  background: #C5A059;
+.top-bar-admin-btn:hover {
+  background: #C5A059 !important;
   color: #0a1f16 !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.4);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.45) !important;
+}
+
+.top-bar-admin-btn:hover * {
+  color: #0a1f16 !important;
+}
+
+.top-bar-admin-btn:active {
+  transform: translateY(0px) !important;
+  box-shadow: 0 2px 6px rgba(197, 160, 89, 0.3) !important;
 }
 
 /* Main Clean Sticky Navbar */
@@ -7420,8 +7431,7 @@ a:focus-visible {
 .gold-badge,
 .hero-badge,
 .badge-featured,
-.badge-popular,
-.top-bar-admin-btn {
+.badge-popular {
   animation: ambientFloatBadge 3.8s ease-in-out infinite;
   display: inline-flex;
 }
@@ -10866,7 +10876,7 @@ const TRANSLATIONS = {
     "topBarWhatsApp": "واتساب 24/7",
     "topBarTagline": "حيث تلتقي الفخامة بالراحة المطلقة • حجز مباشر ورسمي",
     "topAdminLogin": "دخول الإدارة",
-    "topAdminPanel": "لوحة التحكم",
+    "topAdminPanel": "لوحة الإدارة",
     "heroBadge": "✨ حيث تلتقي الفخامة بالراحة المطلقة ✨",
     "heroTitle": "احجز أفخم الفلل والشاليهات الخاصة في الأردن",
     "heroSubtitle": "اكتشف أرقى الشاليهات والفلل الخاصة في البحر الميت، عمان، جرش، والسلط. مصممة خصيصاً لأجمل اللحظات العائلية.",
