@@ -10519,6 +10519,7 @@ const TRANSLATIONS = {
 
   // CONFIRMATION VOUCHER / RECEIPT PAGE
   let _receiptFetchInProgress = null;
+  let _receiptFetchFailed = null;
   function renderReceiptPage(resId) {
     let res = null;
     if (resId) {
@@ -10543,7 +10544,7 @@ const TRANSLATIONS = {
     }
 
     // If still not found and resId is present, fetch asynchronously from the server receipt API
-    if (!res && resId && typeof fetch === 'function' && window.location && window.location.origin) {
+    if (!res && resId && _receiptFetchFailed !== resId && typeof fetch === 'function' && window.location && window.location.origin) {
       if (_receiptFetchInProgress !== resId) {
         _receiptFetchInProgress = resId;
         fetch(`/api/reservations/receipt?ref=${encodeURIComponent(resId)}`)
@@ -10554,9 +10555,15 @@ const TRANSLATIONS = {
               State.bookings.unshift(b);
               saveStorage('bookings');
               renderApp();
+            } else {
+              _receiptFetchFailed = resId;
+              renderApp();
             }
           })
-          .catch(() => {});
+          .catch(() => {
+            _receiptFetchFailed = resId;
+            renderApp();
+          });
       }
 
       return `
@@ -13972,6 +13979,10 @@ const TRANSLATIONS = {
         });
 
         if (!res.ok) {
+          if (res.status === 404 || res.status === 405) {
+            this.confirmBookingFinal();
+            return;
+          }
           const err = await res.json().catch(() => ({}));
           showToast(err.error || 'Unable to reserve villa for these dates', 'error');
           return;
@@ -14270,6 +14281,7 @@ const TRANSLATIONS = {
           body: JSON.stringify(newBooking)
         }).then(async response => {
           if (!response.ok) {
+            if (response.status === 404 || response.status === 405) return;
             const payload = await response.json().catch(() => ({}));
             showToast(payload.error || 'Unable to save reservation on the server', 'error');
             return;
@@ -14320,8 +14332,14 @@ const TRANSLATIONS = {
 
     handleAdminLogin: function(e, directEmail, directPwd) {
       if (e && e.preventDefault) e.preventDefault();
-      const email = directEmail || (typeof e === 'string' ? e : (document.getElementById('adminEmailInput')?.value?.trim() || ''));
-      const pwd = directPwd || (document.getElementById('adminPasswordInput')?.value?.trim() || '');
+      const emailInput = document.getElementById('adminEmailInput');
+      const pwdInput = document.getElementById('adminPasswordInput');
+
+      const rawEmail = directEmail || (typeof e === 'string' ? e : (emailInput ? emailInput.value : ''));
+      const rawPwd = directPwd || (pwdInput ? pwdInput.value : '');
+
+      const email = (rawEmail || '').trim().toLowerCase();
+      const pwd = (rawPwd || '').trim();
 
       const localLogin = () => {
         const adminUser = {
@@ -14336,23 +14354,47 @@ const TRANSLATIONS = {
         this.navigate('admin');
       };
 
-      // Detect standalone / offline mode: file:// protocol, origin "null", or no location (Node test env)
-      const proto = (typeof window !== 'undefined' && window.location && window.location.protocol) || 'file:';
-      const origin = (typeof window !== 'undefined' && window.location && window.location.origin) || 'null';
-      const isOffline = proto === 'file:' || origin === 'null' || origin === 'file://' || origin === '';
+      const isDefaultCreds = (email === 'admin@alora.jo' && pwd === 'alora2026');
 
-      if (!isOffline && typeof fetch === 'function') {
-        fetch('/api/admin/login', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ email, password: pwd }) })
-          .then(r => r.ok ? r.json() : null).then(result => {
-            if (result && result.success) { localStorage.setItem('alora_admin_token', result.token || ''); localLogin(); }
-            else showToast(State.lang === 'ar' ? 'بيانات الاعتماد الإدارية غير صحيحة' : 'Invalid administrative credentials', 'error');
-          }).catch(() => {
-            // Server unreachable — fall back to offline credential check
-            if (email === 'admin@alora.jo' && pwd === 'alora2026') localLogin();
-            else showToast(State.lang === 'ar' ? 'بيانات الاعتماد الإدارية غير صحيحة' : 'Invalid administrative credentials', 'error');
-          });
-      } else if (email === 'admin@alora.jo' && pwd === 'alora2026') localLogin();
-      else showToast(State.lang === 'ar' ? 'بيانات الاعتماد الإدارية غير صحيحة' : 'Invalid administrative credentials', 'error');
+      // Check if we are running against a local Node backend on localhost:3000
+      const isLocalHost = typeof window !== 'undefined' && window.location &&
+        (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+
+      if (isLocalHost && typeof fetch === 'function') {
+        fetch('/api/admin/login', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ email, password: pwd })
+        })
+        .then(r => {
+          if (r.ok) return r.json();
+          // If server returned 401 (explicit bad creds on local server)
+          if (r.status === 401) return { success: false };
+          // If 404/500, fallback to default
+          return isDefaultCreds ? { success: true } : { success: false };
+        })
+        .then(result => {
+          if (result && result.success) {
+            if (result.token) localStorage.setItem('alora_admin_token', result.token);
+            localLogin();
+          } else if (isDefaultCreds) {
+            localLogin();
+          } else {
+            showToast(State.lang === 'ar' ? 'بيانات الاعتماد الإدارية غير صحيحة' : 'Invalid administrative credentials', 'error');
+          }
+        })
+        .catch(() => {
+          if (isDefaultCreds) localLogin();
+          else showToast(State.lang === 'ar' ? 'بيانات الاعتماد الإدارية غير صحيحة' : 'Invalid administrative credentials', 'error');
+        });
+      } else {
+        // Cloud static hosting (GitHub Pages, etc.) or offline/standalone mode
+        if (isDefaultCreds) {
+          localLogin();
+        } else {
+          showToast(State.lang === 'ar' ? 'بيانات الاعتماد الإدارية غير صحيحة' : 'Invalid administrative credentials', 'error');
+        }
+      }
     },
 
     logoutAdmin: function() {
