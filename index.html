@@ -7386,11 +7386,96 @@ a:focus-visible {
   display: inline-flex;
 }
 
-/* 3. Theme Sparkle Spin Animation */
+/* 3. Theme Sparkle Spin & Site-Wide Icon Movement Animations */
 @keyframes themeSparkleSpin {
   0% { transform: rotate(0deg) scale(1); }
   50% { transform: rotate(180deg) scale(1.22); filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.8)); }
   100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes iconFloatBreathe {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.08));
+  }
+  25% {
+    transform: translateY(-3px) rotate(-6deg) scale(1.12);
+    filter: drop-shadow(0 3px 8px rgba(197, 160, 89, 0.4));
+  }
+  50% {
+    transform: translateY(0px) rotate(4deg) scale(1.05);
+  }
+  75% {
+    transform: translateY(-2px) rotate(7deg) scale(1.15);
+    filter: drop-shadow(0 4px 10px rgba(197, 160, 89, 0.5));
+  }
+}
+
+@keyframes iconPulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(197, 160, 89, 0));
+  }
+  50% {
+    transform: scale(1.22);
+    filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.8));
+  }
+}
+
+/* All Site Icons Animated as the Theme Icon */
+.btn > span:first-child,
+.btn-nav-reserve > span:first-child,
+.top-bar-admin-btn > span:first-child,
+.top-bar-contact a > span:first-child,
+.nav-control-btn .btn-icon,
+.mobile-quick-btn span:first-child,
+.btn-whatsapp-floating,
+.btn-icon-animated,
+.brand-logo-icon,
+.why-icon,
+.farm-specs-row span,
+.farm-card-location,
+.kpi-icon,
+.admin-sidebar-link span:first-child,
+.feature-icon-wrap {
+  display: inline-block !important;
+  animation: iconFloatBreathe 3.6s ease-in-out infinite !important;
+  transform-origin: center center !important;
+  will-change: transform, filter !important;
+}
+
+/* Language and Theme Navigation Icons continuous spin-sparkle */
+.nav-lang-btn .btn-icon,
+.mobile-quick-lang span:first-child {
+  animation: themeSparkleSpin 6s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+}
+
+.theme-sparkle-icon {
+  animation: themeSparkleSpin 4s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+}
+
+/* Staggered offsets for natural organic rhythm */
+.top-bar-contact a:nth-child(1) span:first-child { animation-delay: 0.15s !important; }
+.top-bar-contact a:nth-child(3) span:first-child { animation-delay: 0.45s !important; }
+.top-bar-contact a:nth-child(5) span:first-child { animation-delay: 0.75s !important; }
+
+.why-card:nth-child(1) .why-icon { animation-delay: 0.1s !important; }
+.why-card:nth-child(2) .why-icon { animation-delay: 0.4s !important; }
+.why-card:nth-child(3) .why-icon { animation-delay: 0.7s !important; }
+.why-card:nth-child(4) .why-icon { animation-delay: 1.0s !important; }
+
+.farm-specs-row span:nth-child(1) { animation-delay: 0.1s !important; }
+.farm-specs-row span:nth-child(2) { animation-delay: 0.35s !important; }
+.farm-specs-row span:nth-child(3) { animation-delay: 0.6s !important; }
+
+/* Interactive Hover Acceleration on All Icons */
+.btn:hover > span:first-child,
+.nav-control-btn:hover .btn-icon,
+.nav-theme-btn:hover .theme-sparkle-icon,
+.why-card:hover .why-icon,
+.top-bar-admin-btn:hover span:first-child,
+.btn-whatsapp-floating:hover {
+  animation: themeSparkleSpin 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
 }
 
 /* 4. Full-Page Theme Morphing Ripple Wave */
@@ -10800,7 +10885,7 @@ const TRANSLATIONS = {
     return `
       <div style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;" onclick="window.Alora.navigate('home')">
         <div style="width:36px;height:36px;border-radius:8px;background:#0a1f16;border:1px solid #C5A059;display:flex;align-items:center;justify-content:center;color:#C5A059;font-size:19px;font-weight:900;">
-          🌿
+          <span class="brand-logo-icon">🌿</span>
         </div>
         <div style="line-height:1.15;">
           <div style="font-family:var(--font-serif);font-size:1.35rem;font-weight:900;letter-spacing:0.08em;color:${colorTitle};">ALORA</div>
@@ -10842,23 +10927,11 @@ const TRANSLATIONS = {
             <span>${t('topBarTagline')}</span>
           </div>
 
-          <!-- Right: Language Switcher, Theme Switcher & PROMINENT TOP ADMIN BUTTON -->
+          <!-- Right: PROMINENT TOP ADMIN BUTTON -->
           <div class="top-bar-actions">
-            <!-- Language Switcher -->
-            <button class="top-bar-lang-btn" onclick="window.Alora.toggleLanguage()" title="Toggle Language">
-              <span>🌐</span>
-              <span>${State.lang === 'en' ? 'العربية' : 'English'}</span>
-            </button>
-
-            <!-- Creative Theme Switcher -->
-            <button class="top-bar-lang-btn top-bar-theme-btn" onclick="window.Alora.toggleTheme()" title="${State.lang === 'ar' ? 'تغيير المظهر والألوان الحركية' : 'Toggle Creative Theme & Motion'}">
-              <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
-              <span>${State.lang === 'ar' ? 'المظهر' : 'Theme'}</span>
-            </button>
-
             <!-- PROMINENT TOP ADMIN LOGIN BUTTON ALONG THE WEBSITE -->
             <button class="top-bar-admin-btn" onclick="window.Alora.navigate('admin')" title="${adminBtnText}">
-              <span>${adminBtnIcon}</span>
+              <span class="btn-icon-animated">${adminBtnIcon}</span>
               <span>${adminBtnText}</span>
             </button>
           </div>
@@ -14868,6 +14941,7 @@ const TRANSLATIONS = {
 
   // GLOBAL ALORA CONTROLLER OBJECT
   window.Alora = {
+    renderAloraLogo: renderAloraLogo,
     renderApp: function() {
       renderApp();
     },
