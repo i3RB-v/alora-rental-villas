@@ -6289,23 +6289,181 @@ body, .main-content, .page-wrapper {
   border-bottom-color: #C5A059;
 }
 
-/* ─── RESPONSIVE — ADMIN SIDEBAR COLLAPSED (900px) ──────────────────────── */
-@media (max-width: 900px) {
-  .admin-sidebar { width: 68px; }
-  .admin-sidebar .admin-logo-text,
-  .admin-sidebar .admin-badge,
-  .admin-sidebar .admin-user-details,
-  .admin-sidebar .admin-sidebar-footer { display: none !important; }
-  .admin-nav-item {
-    justify-content: center;
-    padding: 0.75rem;
-    gap: 0;
-  }
-  .admin-nav-item > span:last-child { display: none !important; }
-  .admin-nav-item > span:first-child { width: auto; }
-  .admin-nav-badge { position: absolute; top: 4px; right: 4px; padding: 1px 5px; }
-  .admin-content-wrap { margin-left: 68px; }
-  [dir="rtl"] .admin-content-wrap { margin-left: 0; margin-right: 68px; }
+/* ─── BASE ADMIN DRAWER & MOBILE TOPBAR CONTROLS ───────────────────────── */
+.admin-menu-toggle-btn {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: #0a1f16;
+  color: #C5A059;
+  border: 1.5px solid rgba(197, 160, 89, 0.45);
+  border-radius: 9999px;
+  padding: 0.48rem 0.95rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 42px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+}
+.admin-menu-toggle-btn:hover,
+.admin-menu-toggle-btn:active {
+  background: #143526;
+  border-color: #C5A059;
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35);
+  transform: translateY(-1px);
+}
+.admin-topbar-mobile-header {
+  display: none;
+}
+.admin-topbar-desktop-only {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.admin-topbar-mobile-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+.admin-topbar-mobile-quick {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Mobile Slide-Out Drawer Navigation */
+.admin-mobile-drawer-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.admin-mobile-drawer-backdrop.active {
+  display: block !important;
+  opacity: 1 !important;
+}
+.admin-mobile-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 320px;
+  max-width: 86vw;
+  background: #0a1f16;
+  color: #ffffff;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  z-index: 10000;
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+[dir="rtl"] .admin-mobile-drawer {
+  left: auto;
+  right: 0;
+  transform: translateX(100%);
+  box-shadow: -4px 0 25px rgba(0, 0, 0, 0.5);
+}
+.admin-mobile-drawer-backdrop.active .admin-mobile-drawer {
+  transform: translateX(0) !important;
+}
+.admin-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+.admin-drawer-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.admin-drawer-close-btn:hover {
+  background: rgba(229, 62, 62, 0.25);
+  color: #feb2b2;
+  border-color: #e53e3e;
+}
+.admin-drawer-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.admin-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.85rem 0.75rem;
+  flex: 1;
+  overflow-y: auto;
+}
+.admin-drawer-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: #e2e8f0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: inherit;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  font-family: inherit;
+}
+.admin-drawer-nav-item:hover {
+  background: rgba(197, 160, 89, 0.12);
+  color: #ffffff;
+  border-color: rgba(197, 160, 89, 0.3);
+  transform: translateX(4px);
+}
+[dir="rtl"] .admin-drawer-nav-item:hover {
+  transform: translateX(-4px);
+}
+.admin-drawer-nav-item.active {
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.32), rgba(197, 160, 89, 0.15));
+  color: #C5A059;
+  border-color: rgba(197, 160, 89, 0.6);
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.admin-drawer-tab-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.admin-drawer-tab-label {
+  flex: 1;
+}
+.admin-drawer-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /* ─── RESPONSIVE — ADMIN DEDICATED PORTAL OVERHAUL ─────────────────────── */
@@ -6348,37 +6506,25 @@ body, .main-content, .page-wrapper {
   }
 }
 
-/* TABLETS PORTRAIT & MOBILE (<= 768px) */
-@media (max-width: 768px) {
+/* TABLETS & MOBILE PHONES (<= 900px) */
+@media (max-width: 900px) {
   .admin-shell {
     flex-direction: column !important;
     min-height: 100vh !important;
   }
-  
-  /* STICKY LUXURY HORIZONTAL TAB BAR */
+
+  /* Admin sidebar replaced by sleek drawer on mobile to eliminate header clipping */
   .admin-sidebar {
+    display: none !important;
     position: sticky !important;
     top: 0 !important;
     z-index: 990 !important;
-    background: #0a1f16 !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 54px !important;
-    flex-direction: row !important;
     overflow-x: auto !important;
-    overflow-y: hidden !important;
-    border-right: none !important;
-    border-bottom: 1.5px solid rgba(197,160,89,0.3) !important;
-    padding: 0.45rem 0.65rem !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none;
+    width: 100% !important;
   }
-  .admin-sidebar::-webkit-scrollbar { display: none; }
-  [dir="rtl"] .admin-sidebar { border-left: none !important; }
   .admin-sidebar-header { display: none !important; }
   .admin-sidebar-footer { display: none !important; }
-  
+
   .admin-nav {
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -6388,68 +6534,50 @@ body, .main-content, .page-wrapper {
   }
   .admin-nav-item {
     flex-shrink: 0 !important;
-    flex-direction: column !important;
-    min-height: 50px !important;
-    padding: 0.45rem 0.85rem !important;
-    gap: 2px !important;
-    border-radius: 10px !important;
-    font-size: 0.68rem !important;
-    justify-content: center !important;
-    align-items: center !important;
-    transition: all 0.2s ease !important;
-  }
-  .admin-nav-item > span:first-child {
-    font-size: 1.15rem !important;
-    width: auto !important;
-    line-height: 1 !important;
-  }
-  .admin-nav-item > span:last-child {
-    display: block !important;
-    font-size: 0.65rem !important;
-    font-weight: 700 !important;
-    white-space: nowrap !important;
-    line-height: 1.1 !important;
   }
   .admin-nav-item.active {
-    background: linear-gradient(135deg, rgba(197,160,89,0.28), rgba(197,160,89,0.12)) !important;
     color: #C5A059 !important;
-    border: 1px solid rgba(197,160,89,0.5) !important;
-    box-shadow: 0 2px 8px rgba(197,160,89,0.25) !important;
-  }
-  .admin-nav-item.active::before { display: none !important; }
-  .admin-nav-badge {
-    position: absolute;
-    top: 3px;
-    right: 3px;
-    padding: 1px 5px !important;
-    font-size: 0.65rem !important;
   }
 
-  /* ADMIN CONTENT AREA & WRAPPERS */
   .admin-content-wrap {
     margin-left: 0 !important;
     margin-right: 0 !important;
     width: 100% !important;
     min-width: 0 !important;
   }
-  .admin-content,
-  .admin-main-container {
-    padding: 1rem 0.85rem !important;
+
+  /* Mobile Header Row in Topbar */
+  .admin-topbar-mobile-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     width: 100% !important;
-    max-width: 100vw !important;
-    box-sizing: border-box !important;
+    padding-bottom: 0.65rem !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    gap: 8px !important;
+  }
+  .admin-menu-toggle-btn {
+    display: inline-flex !important;
+  }
+  .admin-topbar-desktop-only {
+    display: none !important;
   }
 
-  /* TOPBAR RESPONSIVENESS */
+  /* TOPBAR RESPONSIVENESS — FIX HEIGHT & KILL OVERLAPS */
   .admin-topbar {
     position: relative !important;
     top: auto !important;
-    padding: 0.85rem 1rem !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0.85rem 1rem 1rem !important;
     flex-direction: column !important;
     align-items: stretch !important;
     gap: 0.75rem !important;
     background: #ffffff !important;
     border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
   }
   .admin-topbar-brand-search {
     display: flex !important;
@@ -6459,9 +6587,10 @@ body, .main-content, .page-wrapper {
     width: 100% !important;
   }
   .admin-page-title {
-    font-size: 1.15rem !important;
+    font-size: 1.25rem !important;
     font-weight: 800 !important;
     color: #0a1f16 !important;
+    margin: 0 !important;
   }
   .admin-search-wrapper {
     width: 100% !important;
@@ -6470,7 +6599,7 @@ body, .main-content, .page-wrapper {
   }
   .admin-search-input {
     width: 100% !important;
-    min-height: 42px !important;
+    min-height: 44px !important;
     font-size: 16px !important;
   }
   .admin-topbar-actions {
@@ -6483,14 +6612,29 @@ body, .main-content, .page-wrapper {
   }
   .admin-topbar-actions .btn {
     flex: 1 !important;
-    min-height: 40px !important;
-    font-size: 0.82rem !important;
+    min-height: 44px !important;
+    font-size: 0.85rem !important;
     justify-content: center !important;
+  }
+  .btn-admin-create-res {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
   }
   .admin-tab-search-wrap {
     width: 100% !important;
     max-width: 100% !important;
     margin-top: 0.5rem !important;
+  }
+
+  .admin-content,
+  .admin-main-container {
+    padding: 1.25rem 1rem 2.5rem !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    margin-top: 0 !important;
+    clear: both !important;
   }
 
   /* 13-KPI GRID ON TABLETS / PHONES */
@@ -6916,29 +7060,61 @@ textarea:focus {
   }
 }
 
-/* ─── MAIN SITE PRIMARY BUTTONS — ENFORCE BRAND ──────────────────────────── */
-.btn-primary:not(.btn-xs):not(.admin-btn-primary) {
-  background: linear-gradient(135deg, #C5A059, #b08030) !important;
+/* ─── UNIFIED LUXURY BRAND BUTTONS (PUBLIC + ADMIN EVERYWHERE) ──────────── */
+.btn-primary:not(.btn-xs),
+.admin-btn-primary,
+.btn-admin-create-res,
+.admin-demo-btn,
+button.btn-primary {
+  background: linear-gradient(135deg, #C5A059 0%, #b08030 100%) !important;
   color: #0a1f16 !important;
   border: none !important;
   border-radius: 9999px !important;
   font-weight: 800 !important;
-  box-shadow: 0 4px 14px rgba(197,160,89,0.35) !important;
-  transition: all 0.22s cubic-bezier(0.16,1,0.3,1) !important;
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35) !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
 }
-.btn-primary:not(.btn-xs):not(.admin-btn-primary):hover {
-  background: linear-gradient(135deg, #d4b06e, #C5A059) !important;
-  box-shadow: 0 6px 20px rgba(197,160,89,0.45) !important;
+.btn-primary:not(.btn-xs):hover,
+.admin-btn-primary:hover,
+.btn-admin-create-res:hover,
+.admin-demo-btn:hover,
+button.btn-primary:hover {
+  background: linear-gradient(135deg, #d4b06e 0%, #C5A059 100%) !important;
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.45) !important;
   transform: translateY(-2px) !important;
+}
+.btn-primary:not(.btn-xs):active,
+.admin-btn-primary:active,
+.btn-admin-create-res:active,
+.admin-demo-btn:active,
+button.btn-primary:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 8px rgba(197, 160, 89, 0.3) !important;
 }
 
-.btn-outline:not(.btn-xs):not(.admin-btn-outline) {
+.btn-outline:not(.btn-xs),
+.admin-btn-outline,
+button.btn-outline {
   border-radius: 9999px !important;
   font-weight: 700 !important;
-  transition: all 0.22s cubic-bezier(0.16,1,0.3,1) !important;
+  border: 1.5px solid #cbd5e0 !important;
+  background: transparent !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
 }
-.btn-outline:not(.btn-xs):not(.admin-btn-outline):hover {
+.btn-outline:not(.btn-xs):hover,
+.admin-btn-outline:hover,
+button.btn-outline:hover {
   transform: translateY(-2px) !important;
+  border-color: #0a1f16 !important;
+  background: #0a1f16 !important;
+  color: #ffffff !important;
+}
+.btn-outline:not(.btn-xs):active,
+.admin-btn-outline:active,
+button.btn-outline:active {
+  transform: translateY(0) !important;
 }
 
 /* ─── SMOOTH PAGE TRANSITIONS ─────────────────────────────────────────────── */
@@ -9711,6 +9887,7 @@ const TRANSLATIONS = {
     adminSearchActive: false,
     notifOpen: false,
     mobileMenuOpen: false,
+    adminMenuOpen: false,
 
     // Public Filters
     searchQuery: '',
@@ -11610,13 +11787,30 @@ const TRANSLATIONS = {
 
   // DEDICATED ADMIN SHELL
   function renderDedicatedAdminPortal() {
+    const isAr = State.lang === 'ar';
     const pendingReservations = State.bookings.filter(b => b.bookingStatus === 'Pending').length;
     const pendingPayments = State.payments.filter(p => p.status === 'Submitted' || p.status === 'Pending').length;
     const unreadNotifs = State.notifications.filter(n => !n.read).length;
 
+    const adminTabs = [
+      { id: 'overview', icon: '📊', label: t('tabOverview'), badge: 0 },
+      { id: 'reservations', icon: '📑', label: t('tabReservations'), badge: pendingReservations },
+      { id: 'villas', icon: '🏡', label: t('tabVillas'), badge: 0 },
+      { id: 'availability', icon: '📅', label: t('tabAvailability'), badge: 0 },
+      { id: 'customers', icon: '👥', label: t('tabCustomers'), badge: 0 },
+      { id: 'payments', icon: '💳', label: t('tabPayments'), badge: pendingPayments },
+      { id: 'cliq', icon: '⚡', label: t('tabCliq'), badge: 0 },
+      { id: 'pricing', icon: '🏷️', label: t('tabPricing'), badge: 0 },
+      { id: 'emails', icon: '✉️', label: t('tabEmails'), badge: 0 },
+      { id: 'website', icon: '🌐', label: t('tabWebsite'), badge: 0 },
+      { id: 'gallery', icon: '🖼️', label: t('tabGallery'), badge: 0 },
+      { id: 'settings', icon: '⚙️', label: t('tabSettings'), badge: 0 },
+      { id: 'account', icon: '👤', label: t('tabAccount'), badge: 0 }
+    ];
+
     return `
       <div class="admin-shell">
-        <!-- FIXED DARK SIDEBAR -->
+        <!-- DESKTOP FIXED DARK SIDEBAR -->
         <aside class="admin-sidebar">
           <div class="admin-sidebar-header">
             ${renderAloraLogo('light')}
@@ -11624,72 +11818,13 @@ const TRANSLATIONS = {
           </div>
 
           <nav class="admin-nav">
-            <div class="admin-nav-item ${State.activeAdminTab === 'overview' ? 'active' : ''}" onclick="window.Alora.setAdminTab('overview')">
-              <span>📊</span>
-              <span>${t('tabOverview')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'reservations' ? 'active' : ''}" onclick="window.Alora.setAdminTab('reservations')">
-              <span>📑</span>
-              <span>${t('tabReservations')}</span>
-              ${pendingReservations > 0 ? `<span class="admin-nav-badge">${pendingReservations}</span>` : ''}
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'villas' ? 'active' : ''}" onclick="window.Alora.setAdminTab('villas')">
-              <span>🏡</span>
-              <span>${t('tabVillas')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'availability' ? 'active' : ''}" onclick="window.Alora.setAdminTab('availability')">
-              <span>📅</span>
-              <span>${t('tabAvailability')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'customers' ? 'active' : ''}" onclick="window.Alora.setAdminTab('customers')">
-              <span>👥</span>
-              <span>${t('tabCustomers')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'payments' ? 'active' : ''}" onclick="window.Alora.setAdminTab('payments')">
-              <span>💳</span>
-              <span>${t('tabPayments')}</span>
-              ${pendingPayments > 0 ? `<span class="admin-nav-badge">${pendingPayments}</span>` : ''}
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'cliq' ? 'active' : ''}" onclick="window.Alora.setAdminTab('cliq')">
-              <span>⚡</span>
-              <span>${t('tabCliq')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'pricing' ? 'active' : ''}" onclick="window.Alora.setAdminTab('pricing')">
-              <span>🏷️</span>
-              <span>${t('tabPricing')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'emails' ? 'active' : ''}" onclick="window.Alora.setAdminTab('emails')">
-              <span>✉️</span>
-              <span>${t('tabEmails')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'website' ? 'active' : ''}" onclick="window.Alora.setAdminTab('website')">
-              <span>🌐</span>
-              <span>${t('tabWebsite')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'gallery' ? 'active' : ''}" onclick="window.Alora.setAdminTab('gallery')">
-              <span>🖼️</span>
-              <span>${t('tabGallery')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'settings' ? 'active' : ''}" onclick="window.Alora.setAdminTab('settings')">
-              <span>⚙️</span>
-              <span>${t('tabSettings')}</span>
-            </div>
-
-            <div class="admin-nav-item ${State.activeAdminTab === 'account' ? 'active' : ''}" onclick="window.Alora.setAdminTab('account')">
-              <span>👤</span>
-              <span>${t('tabAccount')}</span>
-            </div>
+            ${adminTabs.map(tab => `
+              <div class="admin-nav-item ${State.activeAdminTab === tab.id ? 'active' : ''}" onclick="window.Alora.setAdminTab('${tab.id}')">
+                <span>${tab.icon}</span>
+                <span>${tab.label}</span>
+                ${tab.badge > 0 ? `<span class="admin-nav-badge">${tab.badge}</span>` : ''}
+              </div>
+            `).join('')}
           </nav>
 
           <div class="admin-sidebar-footer">
@@ -11711,10 +11846,84 @@ const TRANSLATIONS = {
           </div>
         </aside>
 
+        <!-- MOBILE SLIDE-OUT NAVIGATION DRAWER (HAMBURGER MENU) -->
+        <div class="admin-mobile-drawer-backdrop ${State.adminMenuOpen ? 'active' : ''}" onclick="if(event.target===this) window.Alora.closeAdminMenu()">
+          <div class="admin-mobile-drawer" dir="${isAr ? 'rtl' : 'ltr'}">
+            <div class="admin-drawer-header">
+              <div style="display:flex;align-items:center;gap:10px;">
+                ${renderAloraLogo('light')}
+                <span class="admin-badge">${t('adminBadge')}</span>
+              </div>
+              <button class="admin-drawer-close-btn" onclick="window.Alora.closeAdminMenu()" title="${isAr ? 'إغلاق القائمة' : 'Close Menu'}">✕</button>
+            </div>
+
+            <!-- Admin Profile Banner in Drawer -->
+            <div class="admin-drawer-user">
+              <div class="admin-avatar">A</div>
+              <div>
+                <div style="font-weight:800;color:#fff;font-size:0.95rem;">${t('adminRoleOps')}</div>
+                <div style="font-size:0.78rem;color:#a0aec0;">admin@alora.jo • ${t('adminRoleSuper')}</div>
+              </div>
+            </div>
+
+            <!-- All 13 Tabs in Drawer -->
+            <nav class="admin-drawer-nav">
+              ${adminTabs.map(tab => `
+                <button class="admin-drawer-nav-item ${State.activeAdminTab === tab.id ? 'active' : ''}" onclick="window.Alora.setAdminTab('${tab.id}'); window.Alora.closeAdminMenu();">
+                  <span class="admin-drawer-tab-icon">${tab.icon}</span>
+                  <span class="admin-drawer-tab-label">${tab.label}</span>
+                  ${tab.badge > 0 ? `<span class="admin-nav-badge">${tab.badge}</span>` : ''}
+                </button>
+              `).join('')}
+            </nav>
+
+            <!-- Bottom Action Buttons: View Site & Logout -->
+            <div class="admin-drawer-footer">
+              <button class="btn btn-outline btn-sm" style="color:#cbd5e0;border-color:#4a5568;width:100%;justify-content:center;margin-bottom:8px;" onclick="window.Alora.navigate('home'); window.Alora.closeAdminMenu();">
+                🌐 ${t('viewSite')}
+              </button>
+              <button class="btn btn-outline btn-sm" style="color:#feb2b2;border-color:#e53e3e;width:100%;justify-content:center;" onclick="window.Alora.logoutAdmin()">
+                🚪 ${t('navLogout')}
+              </button>
+            </div>
+          </div>
+        </div>
+
         <!-- MAIN ADMIN CONTENT AREA -->
         <main class="admin-content-wrap">
-          <!-- TOPBAR WITH SEARCH, NOTIFICATIONS & ACTIONS -->
+          <!-- TOPBAR WITH SEARCH, NOTIFICATIONS, ACTIONS & MOBILE HAMBURGER MENU BUTTON -->
           <header class="admin-topbar">
+            <!-- Mobile Row 1: Hamburger Menu Button + Logo + Quick Actions -->
+            <div class="admin-topbar-mobile-header">
+              <button class="admin-menu-toggle-btn" onclick="window.Alora.toggleAdminMenu()" title="${isAr ? 'فتح قائمة الإدارة' : 'Open Admin Menu'}" aria-label="Toggle Admin Menu">
+                <span style="font-size:1.35rem;line-height:1;">☰</span>
+                <span class="admin-menu-label">${isAr ? 'القائمة' : 'Menu'}</span>
+              </button>
+
+              <div class="admin-topbar-mobile-brand">
+                <span style="font-size:1.15rem;">🏡</span>
+                <span style="font-weight:900;color:var(--primary-900);letter-spacing:0.04em;">ALORA</span>
+                <span class="admin-badge" style="font-size:0.65rem;padding:2px 6px;">${t('adminBadge')}</span>
+              </div>
+
+              <div class="admin-topbar-mobile-quick">
+                <!-- Notifications Bell -->
+                <div style="position:relative;">
+                  <button class="admin-notif-btn" onclick="window.Alora.toggleNotifications()" title="${t('notificationsTitle')}">
+                    🔔
+                    ${unreadNotifs > 0 ? `<span class="admin-notif-badge">${unreadNotifs}</span>` : ''}
+                  </button>
+                  ${State.notifOpen ? renderNotificationsDropdown() : ''}
+                </div>
+
+                <!-- Language Switch -->
+                <button class="btn-lang" onclick="window.Alora.toggleLanguage()" title="Change Language">
+                  🌐 ${State.lang === 'en' ? 'AR' : 'EN'}
+                </button>
+              </div>
+            </div>
+
+            <!-- Brand-Search Container -->
             <div class="admin-topbar-brand-search">
               <h1 class="admin-page-title">
                 ${t(`tab${State.activeAdminTab.charAt(0).toUpperCase() + State.activeAdminTab.slice(1)}`)}
@@ -11734,12 +11943,13 @@ const TRANSLATIONS = {
 
             <div class="admin-topbar-actions">
               <!-- Create Reservation (Admin) -->
-              <button class="btn btn-primary btn-sm" onclick="window.Alora.openAdminCreateReservation()">
-                ${t('btnAdminCreateRes') || '+ Create Reservation (Admin)'}
+              <button class="btn btn-primary btn-sm btn-admin-create-res" onclick="window.Alora.openAdminCreateReservation()">
+                <span>➕</span>
+                <span>${t('btnAdminCreateRes') || '+ Create Reservation (Admin)'}</span>
               </button>
 
-              <!-- Notifications Bell -->
-              <div style="position:relative;">
+              <!-- Notifications Bell (Desktop) -->
+              <div class="admin-topbar-desktop-only" style="position:relative;">
                 <button class="admin-notif-btn" onclick="window.Alora.toggleNotifications()">
                   🔔
                   ${unreadNotifs > 0 ? `<span class="admin-notif-badge">${unreadNotifs}</span>` : ''}
@@ -11748,8 +11958,8 @@ const TRANSLATIONS = {
                 ${State.notifOpen ? renderNotificationsDropdown() : ''}
               </div>
 
-              <!-- Language Switch -->
-              <button class="btn-lang" onclick="window.Alora.toggleLanguage()">
+              <!-- Language Switch (Desktop) -->
+              <button class="btn-lang admin-topbar-desktop-only" onclick="window.Alora.toggleLanguage()">
                 🌐 ${State.lang === 'en' ? 'AR' : 'EN'}
               </button>
             </div>
@@ -14156,6 +14366,7 @@ const TRANSLATIONS = {
     },
     navigate: function(page, params = {}) {
       State.mobileMenuOpen = false;
+      State.adminMenuOpen = false;
       State.currentPage = page;
       State.params = params;
       if (params.id) State.selectedFarmId = params.id;
@@ -14176,6 +14387,7 @@ const TRANSLATIONS = {
 
     scrollToSection: function(id) {
       State.mobileMenuOpen = false;
+      State.adminMenuOpen = false;
       const targetId = (id || '').replace(/^#/, '');
       if (State.currentPage !== 'home') {
         State.currentPage = 'home';
@@ -14208,6 +14420,16 @@ const TRANSLATIONS = {
 
     closeMobileMenu: function() {
       State.mobileMenuOpen = false;
+      renderApp();
+    },
+
+    toggleAdminMenu: function() {
+      State.adminMenuOpen = !State.adminMenuOpen;
+      renderApp();
+    },
+
+    closeAdminMenu: function() {
+      State.adminMenuOpen = false;
       renderApp();
     },
 
@@ -14743,6 +14965,7 @@ const TRANSLATIONS = {
 
     logoutAdmin: function() {
       State.currentUser = null;
+      State.adminMenuOpen = false;
       localStorage.removeItem('alora_admin_user');
       showToast(State.lang === 'ar' ? 'تم تسجيل الخروج من لوحة الإدارة' : 'Logged out of Admin Console', 'info');
       this.navigate('home');
@@ -14751,6 +14974,7 @@ const TRANSLATIONS = {
     setAdminTab: function(tab) {
       State.activeAdminTab = tab;
       State.adminSearchActive = false;
+      State.adminMenuOpen = false;
       renderApp();
     },
 
