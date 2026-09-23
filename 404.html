@@ -7536,29 +7536,71 @@ body {
   position: static !important;
 }
 
-/* 6. Light Theme High-Contrast Button Typography */
-html[data-theme="emerald"] .btn-primary,
-html[data-theme="emerald"] .btn-primary *,
-html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary,
-html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary *,
+/* 6. Universal High-Contrast Button Typography (All Yellow & Gold Action Buttons Across All Themes) */
 .btn-primary,
 .btn-primary *,
 button.btn-primary,
 button.btn-primary *,
+.btn-admin-create-res,
+.btn-admin-create-res *,
+.btn-admin-create-res span,
+.btn-xs.btn-primary,
+.btn-xs.btn-primary *,
+.btn-sm.btn-primary,
+.btn-sm.btn-primary *,
+table .btn-primary,
+table .btn-primary *,
+table .btn-xs.btn-primary,
+table .btn-xs.btn-primary *,
 .btn-book-sidebar,
-.btn-book-sidebar * {
+.btn-book-sidebar *,
+.nav-reserve-btn,
+.nav-reserve-btn *,
+.top-bar-admin-btn,
+.top-bar-admin-btn *,
+button[style*="background:#d69e2e"],
+button[style*="background:#d69e2e"] *,
+button[style*="background: #d69e2e"],
+button[style*="background: #d69e2e"] *,
+button[style*="background:#C5A059"],
+button[style*="background:#C5A059"] *,
+button[style*="background: #C5A059"],
+button[style*="background: #C5A059"] *,
+button[style*="background:yellow"],
+button[style*="background:yellow"] *,
+button[style*="background: yellow"],
+button[style*="background: yellow"] *,
+html[data-theme="emerald"] .btn-primary,
+html[data-theme="emerald"] .btn-primary *,
+html[data-theme="emerald"] .btn-admin-create-res,
+html[data-theme="emerald"] .btn-admin-create-res *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-admin-create-res,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-admin-create-res * {
   color: #0a1f16 !important;
   font-weight: 800 !important;
 }
 
-html[data-theme="emerald"] .btn-primary:hover,
-html[data-theme="emerald"] .btn-primary:hover *,
-html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:hover,
-html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:hover *,
 .btn-primary:hover,
 .btn-primary:hover *,
 button.btn-primary:hover,
-button.btn-primary:hover * {
+button.btn-primary:hover *,
+.btn-admin-create-res:hover,
+.btn-admin-create-res:hover *,
+.btn-admin-create-res:hover span,
+.btn-xs.btn-primary:hover,
+.btn-xs.btn-primary:hover *,
+table .btn-primary:hover,
+table .btn-primary:hover *,
+table .btn-xs.btn-primary:hover,
+table .btn-xs.btn-primary:hover *,
+.btn-book-sidebar:hover,
+.btn-book-sidebar:hover *,
+html[data-theme="emerald"] .btn-primary:hover,
+html[data-theme="emerald"] .btn-primary:hover *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:hover,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:hover * {
   color: #0a1f16 !important;
 }
 
@@ -8216,6 +8258,161 @@ html, body {
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch !important;
 }
+
+/* ==========================================================================
+   PRODUCTION REFINEMENTS: RTL/LTR, NOTIFICATION PULSE, SIDEBAR CONTRAST & MODAL PADDING
+   ========================================================================== */
+
+/* 1. Explicit LTR Directionality for Phone, Email & URL inputs in RTL Arabic */
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input#webContactPhone,
+input#settingPhone,
+input#cliqPhoneInput,
+input#wizCustPhone,
+input#admResCustPhone,
+input#editResCustPhone,
+.input-ltr,
+[dir="rtl"] input[type="tel"],
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="url"],
+[dir="rtl"] input#webContactPhone,
+[dir="rtl"] input#settingPhone {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: embed !important;
+}
+
+/* 2. Notification Bell Icon: Gentle Heartbeat Pulse (Zero Rotational Spinning or Flipping) */
+.admin-notif-btn {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  color: var(--neutral-700);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.admin-notif-btn:hover {
+  transform: scale(1.08) !important;
+}
+
+.admin-notif-btn .notif-bell-icon,
+.admin-notif-btn span:not(.admin-notif-badge) {
+  display: inline-block;
+  animation: iconHeartbeatPulse 2.8s ease-in-out infinite !important;
+}
+
+/* 3. Sidebar Active State Legibility (High Contrast Across All Themes) */
+.admin-nav-item.active,
+html[data-theme="emerald"] .admin-nav-item.active,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .admin-nav-item.active {
+  background: linear-gradient(135deg, #C5A059 0%, #b08030 100%) !important;
+  color: #0a1f16 !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.4) !important;
+}
+
+.admin-nav-item.active *,
+.admin-nav-item.active span,
+html[data-theme="emerald"] .admin-nav-item.active *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .admin-nav-item.active * {
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="midnight"] .admin-nav-item.active {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+  color: #050b17 !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.45) !important;
+}
+
+html[data-theme="midnight"] .admin-nav-item.active *,
+html[data-theme="midnight"] .admin-nav-item.active span {
+  color: #050b17 !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="sunset"] .admin-nav-item.active {
+  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(244, 63, 94, 0.45) !important;
+}
+
+html[data-theme="sunset"] .admin-nav-item.active *,
+html[data-theme="sunset"] .admin-nav-item.active span {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* 4. Customer History & Modal Table Generous Padding & Layout Breathing Room */
+.modal-card .admin-table-container,
+.customer-history-modal .admin-table-container {
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.modal-card table,
+.customer-history-modal table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+.modal-card table thead th,
+.customer-history-modal table thead th {
+  padding: 0.95rem 1.25rem !important;
+  background: #f8fafc !important;
+  color: #475569 !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  white-space: nowrap !important;
+}
+
+[dir="rtl"] .modal-card table thead th,
+[dir="rtl"] .customer-history-modal table thead th {
+  text-align: right !important;
+}
+
+.modal-card table tbody td,
+.customer-history-modal table tbody td {
+  padding: 1rem 1.25rem !important;
+  font-size: 0.88rem !important;
+  color: #1e293b !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  line-height: 1.5 !important;
+  vertical-align: middle !important;
+}
+
+[dir="rtl"] .modal-card table tbody td,
+[dir="rtl"] .customer-history-modal table tbody td {
+  text-align: right !important;
+}
+
+.modal-card table tbody tr:last-child td,
+.customer-history-modal table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.modal-card table tbody tr:hover td,
+.customer-history-modal table tbody tr:hover td {
+  background: #f8fafc !important;
+}
+
 
 </style>
 </head>
@@ -10108,7 +10305,17 @@ const TRANSLATIONS = {
     "saltChalets": "Zai Country Chalets (Al-Salt)",
     "footerOfficialSystem": "Official Booking System • Powered by ALORA Technology Suite",
     "errInvalidCliqRef": "Please enter a valid bank CliQ reference number with digits (e.g. 99120482 or CLIQ-123456)",
-    "errCheckOutAfterCheckIn": "Check-out date must be after check-in date"
+    "errCheckOutAfterCheckIn": "Check-out date must be after check-in date",
+    "tableWeekend": "Weekend Rate",
+    "weekend": "Weekend",
+    "modalPricingTitle": "Update Rates —",
+    "modalPricingStandard": "Standard Rate (JOD / night)",
+    "modalPricingWeekend": "Weekend Rate (JOD / night)",
+    "modalPricingHoliday": "Holiday Rate (JOD / night)",
+    "modalPricingSeasonal": "Seasonal Rate (JOD / night)",
+    "modalPricingCleaning": "Cleaning Fee (JOD)",
+    "modalPricingExtraGuest": "Extra Guest Fee (JOD)",
+    "modalPricingSave": "Save Rates"
   },
   "ar": {
     "tabOverview": "لوحة المؤشرات",
@@ -10741,7 +10948,9 @@ const TRANSLATIONS = {
     "tableProof": "الإشعار",
     "tableLocation": "الموقع",
     "tableStandardPrice": "السعر الاعتيادي",
-    "tableWeekendPrice": "عطلة نهاية الأسبوع",
+    "tableWeekendPrice": "سعر نهاية الأسبوع",
+    "tableWeekend": "سعر نهاية الأسبوع",
+    "weekend": "نهاية الأسبوع",
     "tableHolidayRate": "سعر العطلات",
     "tableSeasonalRate": "السعر الموسمي",
     "tableSpecialOffer": "عرض خاص",
@@ -10923,7 +11132,15 @@ const TRANSLATIONS = {
     "saltChalets": "شاليهات زي الريفية (السلط)",
     "footerOfficialSystem": "نظام الحجز الرسمي المعتمد • مدعوم بتقنيات أورا الفندقية",
     "errInvalidCliqRef": "يرجى إدخال رقم مرجعي صحيح للتحويل البنكي (يجب أن يحتوي على أرقام الإيصال مثل: 99120482 أو CLIQ-123456)",
-    "errCheckOutAfterCheckIn": "تاريخ المغادرة يجب أن يكون بعد تاريخ الوصول"
+    "errCheckOutAfterCheckIn": "تاريخ المغادرة يجب أن يكون بعد تاريخ الوصول",
+    "modalPricingTitle": "تعديل أسعار —",
+    "modalPricingStandard": "السعر القياسي (دينار / ليلة)",
+    "modalPricingWeekend": "سعر نهاية الأسبوع (دينار / ليلة)",
+    "modalPricingHoliday": "سعر العطلات (دينار / ليلة)",
+    "modalPricingSeasonal": "السعر الموسمي (دينار / ليلة)",
+    "modalPricingCleaning": "رسوم التنظيف (دينار)",
+    "modalPricingExtraGuest": "رسوم الضيف الإضافي (دينار)",
+    "modalPricingSave": "حفظ الأسعار"
   }
 };
 
@@ -10965,6 +11182,7 @@ const TRANSLATIONS = {
     selectedPaymentProof: null,
     viewingCustomer: null,
     editingVilla: null,
+    editingVillaPricing: null,
     addingVilla: false,
     editingCliq: null,
     addingCliq: false,
@@ -13108,15 +13326,15 @@ const TRANSLATIONS = {
 
             <div class="admin-topbar-actions">
               <!-- Create Reservation (Admin) -->
-              <button class="btn btn-primary btn-sm btn-admin-create-res" onclick="window.Alora.openAdminCreateReservation()">
-                <span>➕</span>
-                <span>${t('btnAdminCreateRes') || '+ Create Reservation (Admin)'}</span>
+              <button class="btn btn-primary btn-sm btn-admin-create-res" style="color:#0a1f16 !important;font-weight:800 !important;" onclick="window.Alora.openAdminCreateReservation()">
+                <span style="color:#0a1f16 !important;font-weight:800 !important;">➕</span>
+                <span style="color:#0a1f16 !important;font-weight:800 !important;">${t('btnAdminCreateRes') || '+ Create Reservation (Admin)'}</span>
               </button>
 
               <!-- Notifications Bell (Desktop) -->
               <div class="admin-topbar-desktop-only" style="position:relative;">
-                <button class="admin-notif-btn" onclick="window.Alora.toggleNotifications()">
-                  🔔
+                <button class="admin-notif-btn" onclick="window.Alora.toggleNotifications()" title="${State.lang === 'ar' ? 'الإشعارات والتنبيهات' : 'Notifications & Alerts'}">
+                  <span class="notif-bell-icon">🔔</span>
                   ${unreadNotifs > 0 ? `<span class="admin-notif-badge">${unreadNotifs}</span>` : ''}
                 </button>
 
@@ -13216,8 +13434,38 @@ const TRANSLATIONS = {
     `;
   }
 
-  // NOTIFICATIONS DROPDOWN
+  // NOTIFICATIONS DROPDOWN WITH DYNAMIC LOCALIZATION
+  function localizeNotification(n, isAr) {
+    if (!isAr) return { title: n.title, message: n.message };
+    let title = n.title;
+    let message = n.message;
+    const titleMap = {
+      'New Payment Verification Required': 'مطلوب التحقق من دفعة جديدة',
+      'Reservation Confirmed': 'تم تأكيد الحجز',
+      'Payment Received': 'تم استلام الدفعة',
+      'New Reservation': 'حجز جديد',
+      'Reservation Cancelled': 'تم إلغاء الحجز',
+      'Reservation Rejected': 'تم رفض الحجز'
+    };
+    if (titleMap[title]) title = titleMap[title];
+
+    if (message.includes('submitted') && (message.includes('via') || message.includes('JOD'))) {
+      message = message
+        .replace(/Customer\s+([^]+?)\s+submitted\s+(\d+(?:\.\d+)?)\s*JOD\s+for\s+(#?[A-Z0-9-]+)\s+via\s+([^]+?)\s*\(([^)]+)\)/, (m, cust, amt, ref, cliq, proof) => {
+          return `قام العميل ${formatCustomerName(cust)} بتقديم ${amt} دينار للحجز ${ref} عبر ${cliq} (${proof})`;
+        })
+        .replace(/Customer\s+([^]+?)\s+submitted/, 'قام العميل بتقديم')
+        .replace(/via\s+/, 'عبر ');
+    } else if (message.includes('verified and confirmed by ALORA Operations')) {
+      message = message.replace(/Reservation\s+(#?[A-Z0-9-]+)\s+verified and confirmed by ALORA Operations\.?/, (m, ref) => {
+        return `تم التحقق من الحجز ${ref} وتأكيده بنجاح من قِبل إدارة أورا.`;
+      });
+    }
+    return { title, message };
+  }
+
   function renderNotificationsDropdown() {
+    const isAr = State.lang === 'ar';
     return `
       <div class="admin-notif-dropdown" onclick="event.stopPropagation()">
         <div class="admin-notif-header">
@@ -13225,13 +13473,16 @@ const TRANSLATIONS = {
           <button class="btn-xs btn-outline" onclick="window.Alora.markAllNotifsRead()">${t('markAllRead')}</button>
         </div>
         <div style="max-height:320px;overflow-y:auto;">
-          ${State.notifications.map(n => `
+          ${State.notifications.map(n => {
+            const loc = localizeNotification(n, isAr);
+            return `
             <div class="admin-notif-item ${!n.read ? 'unread' : ''}" onclick="window.Alora.handleNotificationClick('${n.id}', '${n.link}')">
-              <div style="font-weight:700;font-size:0.88rem;color:var(--primary-900);">${n.title}</div>
-              <div style="font-size:0.8rem;color:var(--neutral-600);margin-top:2px;">${n.message}</div>
-              <div style="font-size:0.7rem;color:var(--neutral-400);margin-top:4px;">${new Date(n.time).toLocaleString()}</div>
+              <div style="font-weight:700;font-size:0.88rem;color:var(--primary-900);">${loc.title}</div>
+              <div style="font-size:0.8rem;color:var(--neutral-600);margin-top:2px;">${loc.message}</div>
+              <div style="font-size:0.7rem;color:var(--neutral-400);margin-top:4px;">${new Date(n.time).toLocaleString(isAr ? 'ar-JO' : 'en-US')}</div>
             </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
       </div>
     `;
@@ -13788,13 +14039,13 @@ const TRANSLATIONS = {
                   <td><strong style="color:#C5A059;">${f.weekendPrice || Math.round(f.price * 1.3)} JOD</strong></td>
                   <td>${f.capacity} ${isAr ? 'ضيوف' : 'guests'}</td>
                   <td>
-                    <button class="btn-xs ${f.active ? 'btn-primary' : 'btn-outline'}" onclick="window.Alora.toggleVillaActive('${f.id}')">
-                      ${f.active ? '✓ ' + t('statusActive') : t('statusInactive')}
+                    <button class="btn-xs ${f.active ? 'btn-primary' : 'btn-outline'}" style="${f.active ? 'color:#0a1f16 !important;font-weight:800 !important;' : ''}" onclick="window.Alora.toggleVillaActive('${f.id}')">
+                      <span style="${f.active ? 'color:#0a1f16 !important;font-weight:800 !important;' : ''}">${f.active ? '✓ ' + t('statusActive') : t('statusInactive')}</span>
                     </button>
                   </td>
                   <td>
-                    <button class="btn-xs ${f.featured ? 'btn-primary' : 'btn-outline'}" style="${f.featured ? 'background:#d69e2e;border-color:#d69e2e;' : ''}" onclick="window.Alora.toggleVillaFeatured('${f.id}')">
-                      ${f.featured ? '★ ' + t('statusFeatured') : '☆ ' + t('statusStandard')}
+                    <button class="btn-xs ${f.featured ? 'btn-primary' : 'btn-outline'}" style="${f.featured ? 'background:#d69e2e;border-color:#d69e2e;color:#0a1f16 !important;font-weight:800 !important;' : ''}" onclick="window.Alora.toggleVillaFeatured('${f.id}')">
+                      <span style="${f.featured ? 'color:#0a1f16 !important;font-weight:800 !important;' : ''}">${f.featured ? '★ ' + t('statusFeatured') : '☆ ' + t('statusStandard')}</span>
                     </button>
                   </td>
                   <td>
@@ -14272,8 +14523,8 @@ const TRANSLATIONS = {
                   <td>${f.cleaningFee || 25} JOD</td>
                   <td>${f.extraGuestFee || 10} JOD</td>
                   <td>
-                    <button class="btn-xs btn-primary" onclick="window.Alora.openEditVillaPricingModal('${f.id}')">
-                      ${t('btnUpdateRates')}
+                    <button class="btn-xs btn-primary" style="color:#0a1f16 !important;font-weight:800 !important;" onclick="window.Alora.openEditVillaPricingModal('${f.id}')">
+                      <span style="color:#0a1f16 !important;font-weight:800 !important;">${t('btnUpdateRates')}</span>
                     </button>
                   </td>
                 </tr>
@@ -14409,16 +14660,16 @@ const TRANSLATIONS = {
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
               <div class="form-group">
                 <label class="form-label" style="font-weight:700;">${t('tablePhone')}</label>
-                <input type="text" id="webContactPhone" class="form-input" value="${contact.phone || '+962 7 9184 5632'}" required />
+                <input type="tel" id="webContactPhone" class="form-input" dir="ltr" style="direction:ltr;text-align:left;" value="${contact.phone || '+962 7 9184 5632'}" required />
               </div>
               <div class="form-group">
                 <label class="form-label" style="font-weight:700;">${t('tableEmail')}</label>
-                <input type="email" id="webContactEmail" class="form-input" value="${contact.email || 'info@alora.jo'}" required />
+                <input type="email" id="webContactEmail" class="form-input" dir="ltr" style="direction:ltr;text-align:left;" value="${contact.email || 'info@alora.jo'}" required />
               </div>
             </div>
             <div class="form-group" style="margin-bottom:1rem;">
               <label class="form-label" style="font-weight:700;">${isAr ? 'رابط حساب إنستغرام الرسمي' : 'Official Instagram URL'}</label>
-              <input type="url" id="webInstagram" class="form-input" value="${contact.instagram || 'https://www.instagram.com/alora.villas/'}" required />
+              <input type="url" id="webInstagram" class="form-input" dir="ltr" style="direction:ltr;text-align:left;" value="${contact.instagram || 'https://www.instagram.com/alora.villas/'}" required />
             </div>
           </div>
 
@@ -14527,11 +14778,11 @@ const TRANSLATIONS = {
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
               <div class="form-group">
                 <label class="form-label" style="font-weight:700;">${isAr ? 'الهاتف الرسمي' : 'Official Phone'}</label>
-                <input type="text" id="settingPhone" class="form-input" value="${s.phone || '+962 7 9184 5632'}" required />
+                <input type="tel" id="settingPhone" class="form-input" dir="ltr" style="direction:ltr;text-align:left;" value="${s.phone || '+962 7 9184 5632'}" required />
               </div>
               <div class="form-group">
                 <label class="form-label" style="font-weight:700;">${isAr ? 'البريد الرسمي' : 'Official Email'}</label>
-                <input type="email" id="settingEmail" class="form-input" value="${s.email || 'info@alora.jo'}" required />
+                <input type="email" id="settingEmail" class="form-input" dir="ltr" style="direction:ltr;text-align:left;" value="${s.email || 'info@alora.jo'}" required />
               </div>
             </div>
           </div>
@@ -14628,6 +14879,77 @@ const TRANSLATIONS = {
     `;
   }
 
+  function localizeActivityLog(l, isAr) {
+    if (!isAr) return { admin: l.admin, action: l.action, details: l.details };
+    let admin = l.admin;
+    if (admin === 'ALORA Operations Team') admin = 'فريق عمليات أورا';
+    else if (admin === 'ALORA Admin') admin = 'مسؤول النظام';
+    else if (admin === 'Customer') admin = 'العميل';
+
+    let action = l.action;
+    const actionMap = {
+      'Admin verified payment and confirmed reservation': 'تحقق المسؤول من الدفعة وتأكيد الحجز',
+      'Admin updated villa pricing': 'تحديث أسعار الفيلا من المسؤول',
+      'Admin edited reservation details': 'تعديل تفاصيل الحجز من المسؤول',
+      'Customer submitted reservation & CLIQ deposit': 'تقديم حجز جديد وإيداع إشعار كليك من العميل',
+      'Customer submitted reservation': 'تقديم حجز من العميل',
+      'Admin cancelled reservation': 'إلغاء حجز من المسؤول',
+      'Admin deleted reservation': 'حذف حجز من المسؤول',
+      'Admin created manual reservation': 'إنشاء حجز يدوي مباشر من المسؤول',
+      'Admin edited payment notes': 'تعديل ملاحظات التدقيق للدفع',
+      'Admin toggled villa active status': 'تغيير حالة تفعيل الفيلا',
+      'Admin toggled villa featured status': 'تغيير حالة تمييز الفيلا',
+      'Admin updated villa': 'تحديث بيانات الفيلا',
+      'Admin added new villa': 'إضافة فيلا جديدة',
+      'Admin deleted villa': 'حذف فيلا من النظام',
+      'Admin changed villa price': 'تعديل سعر الفيلا',
+      'Admin blocked date': 'حظر موعد في التقويم',
+      'Admin unblocked date': 'إلغاء حظر موعد في التقويم',
+      'Admin toggled CliQ method status': 'تغيير حالة حساب كليك',
+      'Admin set default CliQ method': 'تعيين حساب كليك الافتراضي',
+      'Admin updated CliQ method': 'تحديث حساب كليك',
+      'Admin added new CliQ method': 'إضافة حساب كليك جديد',
+      'Admin deleted CliQ method': 'حذف حساب كليك',
+      'Admin updated website content & Instagram links': 'تحديث محتوى الموقع وروابط إنستغرام',
+      'Admin added gallery image': 'إضافة صورة إلى المعرض',
+      'Admin deleted gallery image': 'حذف صورة من المعرض',
+      'Admin changed system settings & policies': 'تعديل إعدادات وسياسات النظام',
+      'Admin resent email': 'إعادة إرسال البريد الإلكتروني',
+      'Admin logged in': 'تسجيل دخول المسؤول',
+      'Admin logged out': 'تسجيل خروج المسؤول'
+    };
+    if (actionMap[action]) {
+      action = actionMap[action];
+    } else {
+      action = action
+        .replace(/^Admin verified payment/, 'تحقق المسؤول من الدفع')
+        .replace(/^Admin updated/, 'تحديث من المسؤول:')
+        .replace(/^Admin edited/, 'تعديل من المسؤول:')
+        .replace(/^Admin created/, 'إنشاء من المسؤول:')
+        .replace(/^Admin deleted/, 'حذف من المسؤول:')
+        .replace(/^Customer submitted/, 'تقديم من العميل:');
+    }
+
+    let details = l.details || '';
+    if (details.includes('Verified') && details.includes('deposit via')) {
+      details = details
+        .replace(/Verified\s+(\d+(?:\.\d+)?)\s*JOD\s+deposit via\s+([^]+?)\s*\(Ref:\s*([^)]+)\)/, 'تم التحقق من إيداع $1 دينار عبر $2 (مرجع: $3)')
+        .replace(/Verified\s+(\d+(?:\.\d+)?)\s*JOD\s+deposit/, 'تم التحقق من إيداع $1 دينار');
+    } else if (details.includes('Updated weekend price to')) {
+      details = details.replace(/Updated weekend price to\s+(\d+)\s*JOD and holiday price to\s+(\d+)\s*JOD/, 'تحديث سعر نهاية الأسبوع إلى $1 دينار وسعر العطلات إلى $2 دينار');
+    } else if (details.includes('Direct booking for')) {
+      details = details.replace(/Direct booking for\s+([^]+)/, (m, c) => `حجز مباشر للعميل ${formatCustomerName(c)}`);
+    } else if (details.includes('New standard rate:')) {
+      details = details.replace(/New standard rate:\s+(\d+)\s*JOD/, 'السعر القياسي الجديد: $1 دينار');
+    } else if (details.includes('Status is now')) {
+      details = details.replace(/Status is now Active/, 'الحالة الآن: مفعل').replace(/Status is now Inactive/, 'الحالة الآن: معطل');
+    } else if (details.includes('Featured:')) {
+      details = details.replace(/Featured:\s*true/, 'مميز: نعم').replace(/Featured:\s*false/, 'مميز: لا');
+    }
+
+    return { admin, action, details };
+  }
+
   function renderAdminAccountTab() {
     const isAr = State.lang === 'ar';
     return `
@@ -14669,15 +14991,18 @@ const TRANSLATIONS = {
                 </tr>
               </thead>
               <tbody>
-                ${State.activityLogs.map(l => `
+                ${State.activityLogs.map(l => {
+                  const actLoc = localizeActivityLog(l, isAr);
+                  return `
                   <tr>
                     <td><small style="color:var(--neutral-500);">${l.date} ${l.time}</small></td>
-                    <td><strong>${l.admin}</strong></td>
-                    <td><span class="badge-submitted">${l.action}</span></td>
+                    <td><strong>${actLoc.admin}</strong></td>
+                    <td><span class="badge-submitted">${actLoc.action}</span></td>
                     <td><strong style="font-family:monospace;color:var(--primary-900);">${l.record}</strong></td>
-                    <td><small style="color:var(--neutral-700);">${l.details}</small></td>
+                    <td><small style="color:var(--neutral-700);">${actLoc.details}</small></td>
                   </tr>
-                `).join('')}
+                  `;
+                }).join('')}
               </tbody>
             </table>
           </div>
@@ -14964,7 +15289,7 @@ const TRANSLATIONS = {
       const c = State.viewingCustomer;
       html += `
         <div class="modal-backdrop active" onclick="if(event.target===this) window.Alora.closeCustomerHistoryModal()">
-          <div class="modal-card" style="max-width:700px;" dir="${isAr ? 'rtl' : 'ltr'}">
+          <div class="modal-card customer-history-modal" style="max-width:760px;" dir="${isAr ? 'rtl' : 'ltr'}">
             <div class="modal-header">
               <div>
                 <h3 class="modal-title">${t('modalCustHistoryTitle')} — ${formatCustomerName(c.name)}</h3>
@@ -14973,7 +15298,7 @@ const TRANSLATIONS = {
               <button class="btn-modal-close" onclick="window.Alora.closeCustomerHistoryModal()">✕</button>
             </div>
             <div class="modal-body">
-              <div style="display:flex;gap:1.5rem;background:#f8fafc;padding:1rem;border-radius:var(--radius-md);margin-bottom:1.5rem;flex-wrap:wrap;">
+              <div style="display:flex;gap:1.5rem;background:#f8fafc;padding:1.2rem 1.5rem;border-radius:12px;margin-bottom:1.5rem;flex-wrap:wrap;border:1px solid #e2e8f0;">
                 <div>${t('modalTotalStays')} <strong>${c.bookingsCount}</strong></div>
                 <div>${t('modalTotalBooked')} <strong>${c.totalBooked} JOD</strong></div>
                 <div>${t('modalTotalPaid')} <strong style="color:#276749;">${c.totalPaid} JOD</strong></div>
@@ -15183,6 +15508,62 @@ const TRANSLATIONS = {
           </div>
         </div>
       `;
+    }
+
+    // 7b. Edit Villa Pricing Modal (Replaces browser prompt with custom design system modal)
+    if (State.editingVillaPricing) {
+      const f = State.farms.find(item => item.id === State.editingVillaPricing);
+      if (f) {
+        const vTitle = isAr ? (f.name.ar || f.name.en) : f.name.en;
+        html += `
+          <div class="modal-backdrop active" onclick="if(event.target===this) window.Alora.closeEditVillaPricingModal()">
+            <div class="modal-card" style="max-width:560px;" dir="${isAr ? 'rtl' : 'ltr'}">
+              <div class="modal-header">
+                <h3 class="modal-title">${t('modalPricingTitle')} ${vTitle}</h3>
+                <button class="btn-modal-close" onclick="window.Alora.closeEditVillaPricingModal()">✕</button>
+              </div>
+              <div class="modal-body">
+                <form onsubmit="window.Alora.saveVillaPricing(event, '${f.id}')">
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                    <div class="form-group">
+                      <label class="form-label" style="font-weight:700;">${t('modalPricingStandard')}</label>
+                      <input type="number" id="editRateStandard" class="form-input" min="1" step="1" value="${f.price}" required />
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" style="font-weight:700;">${t('modalPricingWeekend')}</label>
+                      <input type="number" id="editRateWeekend" class="form-input" min="1" step="1" value="${f.weekendPrice || Math.round(f.price * 1.3)}" required />
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                    <div class="form-group">
+                      <label class="form-label" style="font-weight:700;">${t('modalPricingHoliday')}</label>
+                      <input type="number" id="editRateHoliday" class="form-input" min="1" step="1" value="${f.holidayPrice || Math.round(f.price * 1.6)}" />
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" style="font-weight:700;">${t('modalPricingSeasonal')}</label>
+                      <input type="number" id="editRateSeasonal" class="form-input" min="1" step="1" value="${f.seasonalPrice || Math.round(f.price * 1.2)}" />
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                    <div class="form-group">
+                      <label class="form-label" style="font-weight:700;">${t('modalPricingCleaning')}</label>
+                      <input type="number" id="editRateCleaning" class="form-input" min="0" step="1" value="${f.cleaningFee || 25}" />
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" style="font-weight:700;">${t('modalPricingExtraGuest')}</label>
+                      <input type="number" id="editRateExtraGuest" class="form-input" min="0" step="1" value="${f.extraGuestFee || 10}" />
+                    </div>
+                  </div>
+                  <div style="display:flex;justify-content:flex-end;gap:10px;">
+                    <button type="button" class="btn btn-outline" onclick="window.Alora.closeEditVillaPricingModal()">${t('modalBtnCancel')}</button>
+                    <button type="submit" class="btn btn-primary" style="color:#0a1f16 !important;font-weight:800 !important;">${t('modalPricingSave')}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        `;
+      }
     }
 
     // 8. Block Date Range Modal
@@ -16725,17 +17106,39 @@ Official Instagram: @alora.villas
     },
 
     openEditVillaPricingModal: function(farmId) {
+      State.editingVillaPricing = farmId;
+      renderApp();
+    },
+
+    closeEditVillaPricingModal: function() {
+      State.editingVillaPricing = null;
+      renderApp();
+    },
+
+    saveVillaPricing: function(e, farmId) {
+      e.preventDefault();
       const f = State.farms.find(item => item.id === farmId);
       if (!f) return;
-      const newPrice = prompt(State.lang === 'ar' ? `أدخل السعر القياسي الجديد لـ ${f.name.ar || f.name.en} (دينار):` : `Enter new Standard Rate for ${f.name.en} (JOD):`, f.price);
-      if (newPrice !== null && !isNaN(parseFloat(newPrice))) {
-        f.price = parseFloat(newPrice);
-        f.weekendPrice = Math.round(f.price * 1.3);
-        saveStorage('farms');
-        recordActivity('Admin changed villa price', f.name.en, `New standard rate: ${f.price} JOD`);
-        showToast(State.lang === 'ar' ? `تم تحديث سعر ${f.name.ar || f.name.en} إلى ${f.price} دينار` : `Updated price for ${f.name.en} to ${f.price} JOD`, 'success');
-        renderApp();
-      }
+      const stdPrice = parseFloat(document.getElementById('editRateStandard').value);
+      const wkPrice = parseFloat(document.getElementById('editRateWeekend').value);
+      const holPrice = parseFloat(document.getElementById('editRateHoliday').value);
+      const seaPrice = parseFloat(document.getElementById('editRateSeasonal').value);
+      const cleanFee = parseFloat(document.getElementById('editRateCleaning').value);
+      const extraGuest = parseFloat(document.getElementById('editRateExtraGuest').value);
+
+      if (!isNaN(stdPrice) && stdPrice > 0) f.price = stdPrice;
+      if (!isNaN(wkPrice) && wkPrice > 0) f.weekendPrice = wkPrice;
+      if (!isNaN(holPrice)) f.holidayPrice = holPrice;
+      if (!isNaN(seaPrice)) f.seasonalPrice = seaPrice;
+      if (!isNaN(cleanFee)) f.cleaningFee = cleanFee;
+      if (!isNaN(extraGuest)) f.extraGuestFee = extraGuest;
+
+      saveStorage('farms');
+      const isAr = State.lang === 'ar';
+      recordActivity('Admin updated villa pricing', f.name.en, `Standard: ${f.price} JOD | Weekend: ${f.weekendPrice || Math.round(f.price * 1.3)} JOD`);
+      showToast(isAr ? `تم تحديث أسعار ${f.name.ar || f.name.en} بنجاح` : `Updated pricing for ${f.name.en} successfully`, 'success');
+      State.editingVillaPricing = null;
+      renderApp();
     },
 
     // AVAILABILITY CALENDAR HANDLERS
