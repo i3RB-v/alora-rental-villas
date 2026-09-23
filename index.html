@@ -670,60 +670,90 @@ html[dir="rtl"] .form-select {
   transform: scale(1.06);
 }
 
+/* Isolated, fixed high-contrast overlay badges on villa cards (immune to theme variable shifts) */
 .farm-badge-top,
 .farm-badge {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  right: auto;
-  background: rgba(15, 44, 31, 0.88);
-  backdrop-filter: blur(8px);
-  color: var(--white);
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-full);
-  font-size: 0.8rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  z-index: 5;
+  position: absolute !important;
+  top: 0.85rem !important;
+  left: 0.85rem !important;
+  right: auto !important;
+  background: rgba(10, 28, 20, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: #ffffff !important;
+  padding: 0.35rem 0.8rem !important;
+  border-radius: var(--radius-full) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(197, 160, 89, 0.45) !important;
+  z-index: 10 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.farm-badge-top .badge-star,
+.farm-badge .badge-star {
+  color: #fbbf24 !important;
+  font-size: 0.9rem !important;
 }
 
 html[dir="rtl"] .farm-badge-top,
 html[dir="rtl"] .farm-badge {
-  left: auto;
-  right: 1rem;
+  left: auto !important;
+  right: 0.85rem !important;
 }
 
 .farm-rating-top,
 .farm-rating-pill {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  left: auto;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  color: var(--neutral-900);
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 800;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-  z-index: 5;
+  position: absolute !important;
+  top: 0.85rem !important;
+  right: 0.85rem !important;
+  left: auto !important;
+  background: rgba(8, 18, 14, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: #ffffff !important;
+  padding: 0.35rem 0.8rem !important;
+  border-radius: var(--radius-full) !important;
+  font-size: 0.85rem !important;
+  font-weight: 800 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  z-index: 10 !important;
 }
 
 html[dir="rtl"] .farm-rating-top,
 html[dir="rtl"] .farm-rating-pill {
-  right: auto;
-  left: 1rem;
+  right: auto !important;
+  left: 0.85rem !important;
 }
 
+.farm-rating-top .rating-star,
+.farm-rating-pill .rating-star,
 .farm-rating-top svg,
 .farm-rating-pill svg {
-  color: #f59e0b;
+  color: #fbbf24 !important;
+  font-size: 0.95rem !important;
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.5) !important;
+}
+
+.farm-rating-top .rating-score,
+.farm-rating-pill .rating-score {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.farm-rating-top .rating-count,
+.farm-rating-pill .rating-count {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
 }
 
 .farm-card-body {
@@ -7107,8 +7137,9 @@ button.btn-primary:active {
 button.btn-outline {
   border-radius: 9999px !important;
   font-weight: 700 !important;
-  border: 1.5px solid #cbd5e0 !important;
-  background: transparent !important;
+  border: 1.5px solid #0a1f16 !important;
+  background: rgba(10, 31, 22, 0.04) !important;
+  color: #0a1f16 !important;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
   cursor: pointer !important;
 }
@@ -8412,6 +8443,131 @@ html[data-theme="sunset"] .admin-nav-item.active span {
 .customer-history-modal table tbody tr:hover td {
   background: #f8fafc !important;
 }
+
+/* ==========================================================================
+   VILLA LISTING CARDS — ACTION BUTTON & BADGE HIGH-CONTRAST ISOLATION
+   Guaranteed unhovered button legibility & theme-independent badge contrast
+   ========================================================================== */
+
+/* 1. Unhovered Secondary Action Button ("تفاصيل الفيلا" / Villa Details) */
+.farm-card .btn-outline,
+.farm-card .btn-villa-details,
+.btn-villa-details {
+  background: rgba(10, 31, 22, 0.05) !important;
+  border: 1.5px solid #0a1f16 !important;
+  color: #0a1f16 !important;
+  font-weight: 700 !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.farm-card .btn-outline:hover,
+.farm-card .btn-villa-details:hover,
+.btn-villa-details:hover {
+  background: #0a1f16 !important;
+  border-color: #0a1f16 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 2. Theme 2 (Midnight Sapphire): Unhovered & Hovered Contrast on Dark Cards */
+html[data-theme="midnight"] .farm-card .btn-outline,
+html[data-theme="midnight"] .farm-card .btn-villa-details,
+html[data-theme="midnight"] .btn-villa-details {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1.5px solid #93c5fd !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+}
+
+html[data-theme="midnight"] .farm-card .btn-outline:hover,
+html[data-theme="midnight"] .farm-card .btn-villa-details:hover,
+html[data-theme="midnight"] .btn-villa-details:hover {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+  border-color: #fbbf24 !important;
+  color: #050b17 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.4) !important;
+}
+
+/* 3. Theme 3 (Sunset Rose Royale): Unhovered & Hovered Contrast on Dark Cards */
+html[data-theme="sunset"] .farm-card .btn-outline,
+html[data-theme="sunset"] .farm-card .btn-villa-details,
+html[data-theme="sunset"] .btn-villa-details {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1.5px solid #fda4af !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+}
+
+html[data-theme="sunset"] .farm-card .btn-outline:hover,
+html[data-theme="sunset"] .farm-card .btn-villa-details:hover,
+html[data-theme="sunset"] .btn-villa-details:hover {
+  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
+  border-color: #fb7185 !important;
+  color: #1a0513 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 16px rgba(251, 113, 133, 0.4) !important;
+}
+
+/* 4. Complete Theme Immunity for Overlay Image Badges */
+html[data-theme="midnight"] .farm-badge-top,
+html[data-theme="midnight"] .farm-badge,
+html[data-theme="sunset"] .farm-badge-top,
+html[data-theme="sunset"] .farm-badge,
+html[data-theme="emerald"] .farm-badge-top,
+html[data-theme="emerald"] .farm-badge {
+  background: rgba(10, 28, 20, 0.88) !important;
+  color: #ffffff !important;
+  border-color: rgba(197, 160, 89, 0.45) !important;
+}
+
+html[data-theme="midnight"] .farm-rating-top,
+html[data-theme="midnight"] .farm-rating-pill,
+html[data-theme="sunset"] .farm-rating-top,
+html[data-theme="sunset"] .farm-rating-pill,
+html[data-theme="emerald"] .farm-rating-top,
+html[data-theme="emerald"] .farm-rating-pill {
+  background: rgba(8, 18, 14, 0.88) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+html[data-theme="midnight"] .farm-badge *,
+html[data-theme="sunset"] .farm-badge *,
+html[data-theme="emerald"] .farm-badge * {
+  color: #ffffff !important;
+}
+
+html[data-theme="midnight"] .farm-badge .badge-star,
+html[data-theme="sunset"] .farm-badge .badge-star,
+html[data-theme="emerald"] .farm-badge .badge-star,
+.farm-badge .badge-star {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .farm-rating-pill *,
+html[data-theme="sunset"] .farm-rating-pill *,
+html[data-theme="emerald"] .farm-rating-pill * {
+  color: #ffffff !important;
+}
+
+html[data-theme="midnight"] .farm-rating-pill .rating-star,
+html[data-theme="sunset"] .farm-rating-pill .rating-star,
+html[data-theme="emerald"] .farm-rating-pill .rating-star,
+.farm-rating-pill .rating-star {
+  color: #fbbf24 !important;
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.5) !important;
+}
+
+html[data-theme="midnight"] .farm-rating-pill .rating-count,
+html[data-theme="sunset"] .farm-rating-pill .rating-count,
+html[data-theme="emerald"] .farm-rating-pill .rating-count,
+.farm-rating-pill .rating-count {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
 
 
 </style>
@@ -11892,9 +12048,9 @@ const TRANSLATIONS = {
       <div class="farm-card" id="villaCard_${f.id}">
         <div class="farm-card-media farm-card-image-wrap">
           <img src="${f.images[0]}" alt="${name}" class="farm-card-img" loading="lazy" />
-          ${f.featured ? `<span class="farm-badge-top farm-badge">★ ${t('featuredFarm')}</span>` : ''}
+          ${f.featured ? `<span class="farm-badge-top farm-badge"><span class="badge-star">★</span> ${t('featuredFarm')}</span>` : ''}
           <div class="farm-rating-top farm-rating-pill">
-            ★ ${f.rating || '4.95'} <span style="opacity:0.8;font-size:0.75rem;">(${f.reviewCount || 40}+)</span>
+            <span class="rating-star">★</span> <span class="rating-score">${f.rating || '4.95'}</span> <span class="rating-count">(${f.reviewCount || 40}+)</span>
           </div>
         </div>
         <div class="farm-card-body">
@@ -11915,10 +12071,10 @@ const TRANSLATIONS = {
               ${f.weekendPrice ? `<div style="font-size:0.75rem;color:var(--neutral-500);">${t('weekendLabel')} ${f.weekendPrice} JOD</div>` : ''}
             </div>
             <div style="display:flex;gap:6px;">
-              <button class="btn btn-outline btn-sm" onclick="window.Alora.viewFarmDetails('${f.id}')">
+              <button class="btn btn-outline btn-sm btn-villa-details" onclick="window.Alora.viewFarmDetails('${f.id}')">
                 ${t('viewFarm')}
               </button>
-              <button class="btn btn-primary btn-sm" onclick="window.Alora.openBookingWizard('${f.id}')">
+              <button class="btn btn-primary btn-sm btn-villa-book" onclick="window.Alora.openBookingWizard('${f.id}')">
                 ${t('bookNow')}
               </button>
             </div>
