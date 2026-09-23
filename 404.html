@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="notranslate">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>ALORA Rental Villas | Luxury Private Vacation Villas in Jordan | أورا فلل وشاليهات فاخرة</title>
   
+  <meta name="google" content="notranslate">
   <meta name="description" content="Discover and reserve exclusive private rental villas and designer chalets across the Dead Sea, Amman, Jerash, and Salt. Official booking platform for Instagram @alora.villas.">
   <meta name="keywords" content="Alora villas, alora rental villas, dead sea villas, luxury chalets jordan, amman private villas, فلل أورا, شاليهات البحر الميت, فلل الأردن">
   <meta name="author" content="ALORA Rental Villas LLC">
@@ -4128,9 +4129,9 @@ html[dir="rtl"] .user-menu-dropdown {
 
 /* PROMINENT TOP ADMIN BUTTON ALONG THE WEBSITE */
 .top-bar-admin-btn {
-  background: linear-gradient(135deg, rgba(197, 160, 89, 0.25), rgba(197, 160, 89, 0.1));
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.35), rgba(197, 160, 89, 0.2));
   border: 1.5px solid #C5A059;
-  color: #ffffff;
+  color: #0a1f16 !important;
   padding: 0.35rem 0.95rem;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -4143,9 +4144,14 @@ html[dir="rtl"] .user-menu-dropdown {
   box-shadow: 0 2px 8px rgba(197, 160, 89, 0.2);
 }
 
-.top-bar-admin-btn:hover {
+.top-bar-admin-btn * {
+  color: #0a1f16 !important;
+}
+
+.top-bar-admin-btn:hover,
+.top-bar-admin-btn:hover * {
   background: #C5A059;
-  color: #0a1f16;
+  color: #0a1f16 !important;
   transform: translateY(-1px);
   box-shadow: 0 4px 14px rgba(197, 160, 89, 0.4);
 }
@@ -7425,98 +7431,135 @@ a:focus-visible {
   }
 }
 
-/* 3. Theme Sparkle Spin & Site-Wide Universal Animated Icons */
+/* 3. Subtle Heartbeat Pulse for Icons (Zero Rotational Spinning, Zero Looping Text) */
+@keyframes iconHeartbeatPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(197, 160, 89, 0));
+  }
+  50% {
+    transform: scale(1.14);
+    filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.45));
+  }
+}
+
 /* Ensure zero duplicate buttons in top utility bar */
 .top-bar-lang-btn,
 .top-bar-theme-btn {
   display: none !important;
 }
 
-/* ALL BUTTONS SITE-WIDE: Animated Icons exactly as the theme icon */
-button > span:first-child,
-.btn > span:first-child,
-.btn-primary > span:first-child,
-.btn-outline > span:first-child,
-.btn-secondary > span:first-child,
-.btn-sm > span:first-child,
-.btn-lg > span:first-child,
-.btn-xs > span:first-child,
-.btn-nav-reserve > span:first-child,
+/* Explicit static text guard: prevent text from ever animating or rotating */
+.btn-text,
+.farm-card,
+.farm-card *,
+.farm-card-title,
+.farm-card-location,
+.farm-specs-row,
+.farm-specs-row span,
+.farm-card-price,
+.farm-card-price *,
+.section-title,
+.section-subtitle,
+.modal-title,
+.why-card h3,
+.why-card p {
+  transform: none !important;
+  animation: none !important;
+}
+
+/* ONLY animated icon containers receive the luxurious subtle heartbeat pulse */
+.btn-icon,
+.theme-sparkle-icon,
+.btn-icon-animated,
 .nav-control-btn .btn-icon,
 .nav-theme-btn .theme-sparkle-icon,
-.top-bar-admin-btn > span:first-child,
-.top-bar-contact a > span:first-child,
-.mobile-quick-btn span:first-child,
+.mobile-quick-btn .theme-sparkle-icon,
 .btn-whatsapp-floating,
-.btn-icon-animated,
-.admin-btn-primary > span:first-child,
-.admin-btn-outline > span:first-child,
-.admin-btn-danger > span:first-child,
-.admin-demo-btn > span:first-child,
-.btn-admin-create-res > span:first-child,
-.admin-sidebar-link > span:first-child,
-.admin-nav-item > span:first-child,
-.brand-logo-icon,
 .why-icon,
-.farm-specs-row span,
-.farm-card-location,
 .kpi-icon,
 .feature-icon-wrap {
   display: inline-block !important;
-  animation: themeSparkleSpin 4s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+  animation: iconHeartbeatPulse 3.5s ease-in-out infinite !important;
   transform-origin: center center !important;
   will-change: transform, filter !important;
 }
 
-/* Language and Theme Navigation Icons continuous spin-sparkle */
-.nav-lang-btn .btn-icon,
-.mobile-quick-lang span:first-child {
-  animation: themeSparkleSpin 6s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
-}
-
-.theme-sparkle-icon {
-  animation: themeSparkleSpin 4s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
-}
-
-/* Staggered offsets for natural organic rhythm */
-.top-bar-contact a:nth-child(1) span:first-child { animation-delay: 0.15s !important; }
-.top-bar-contact a:nth-child(3) span:first-child { animation-delay: 0.45s !important; }
-.top-bar-contact a:nth-child(5) span:first-child { animation-delay: 0.75s !important; }
-
-.why-card:nth-child(1) .why-icon { animation-delay: 0.1s !important; }
-.why-card:nth-child(2) .why-icon { animation-delay: 0.4s !important; }
-.why-card:nth-child(3) .why-icon { animation-delay: 0.7s !important; }
-.why-card:nth-child(4) .why-icon { animation-delay: 1.0s !important; }
-
-.farm-specs-row span:nth-child(1) { animation-delay: 0.1s !important; }
-.farm-specs-row span:nth-child(2) { animation-delay: 0.35s !important; }
-.farm-specs-row span:nth-child(3) { animation-delay: 0.6s !important; }
-
-/* Interactive Hover Acceleration on All Buttons & Icons */
-button:hover > span:first-child,
-.btn:hover > span:first-child,
-.btn-nav-reserve:hover > span:first-child,
+/* Interactive subtle acceleration on hover */
+button:hover .btn-icon,
+button:hover .theme-sparkle-icon,
+button:hover .btn-icon-animated,
 .nav-control-btn:hover .btn-icon,
 .nav-theme-btn:hover .theme-sparkle-icon,
-.top-bar-admin-btn:hover > span:first-child,
-.admin-btn-primary:hover > span:first-child,
-.admin-btn-outline:hover > span:first-child,
-.admin-demo-btn:hover > span:first-child,
-.btn-admin-create-res:hover > span:first-child,
-.why-card:hover .why-icon,
-.btn-whatsapp-floating:hover {
-  animation: themeSparkleSpin 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
+.btn-whatsapp-floating:hover,
+.why-card:hover .why-icon {
+  animation: iconHeartbeatPulse 1.2s ease-in-out infinite !important;
 }
 
-/* 4. Full-Page Theme Morphing Ripple Wave */
+/* 4. Full-Page Theme Morphing Ripple Wave (Gentle, Zero Blinding White Flash) */
 @keyframes themeMorphWave {
-  0% { filter: blur(0px) brightness(1); }
-  50% { filter: blur(1.5px) brightness(1.2); }
-  100% { filter: blur(0px) brightness(1); }
+  0% {
+    opacity: 0.96;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 body.theme-morphing {
-  animation: themeMorphWave 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: themeMorphWave 0.4s ease-in-out forwards;
+}
+
+/* 5. Google Translate UI & Banner Suppression */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-menu-value,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-text-highlight {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+/* 6. Light Theme High-Contrast Button Typography */
+html[data-theme="emerald"] .btn-primary,
+html[data-theme="emerald"] .btn-primary *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary *,
+.btn-primary,
+.btn-primary *,
+button.btn-primary,
+button.btn-primary *,
+.btn-book-sidebar,
+.btn-book-sidebar * {
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="emerald"] .btn-primary:hover,
+html[data-theme="emerald"] .btn-primary:hover *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:hover,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:hover *,
+.btn-primary:hover,
+.btn-primary:hover *,
+button.btn-primary:hover,
+button.btn-primary:hover * {
+  color: #0a1f16 !important;
 }
 
 /* 5. Smooth Spring Movement on Villa & Farm Cards */
@@ -9199,29 +9242,53 @@ const INITIAL_DATA = {
     {
       id: "rev_001",
       farmId: "villa_001",
+      villaId: "villa_001",
       author: "Zaid Al-Khateeb",
+      authorAr: "زيد الخطيب",
+      reviewerName: "Zaid Al-Khateeb",
+      reviewerNameAr: "زيد الخطيب",
+      location: "Amman, Jordan",
+      locationAr: "عمّان، الأردن",
       rating: 5,
       date: "2026-09-10",
       comment: "Unbelievable luxury. The Swiss cabin design is truly the first of its kind in Jordan. Pristine cleanliness and complete privacy.",
-      farmName: "The East Wing Villa — By ALORA"
+      commentAr: "فخامة استثنائية ونظافة لا غبار عليها. تصميم الكابين السويسري هو الأول من نوعه في الأردن، والخصوصية كانت تامة ومريحة جداً للعائلة.",
+      farmName: "The East Wing Villa — By ALORA",
+      farmNameAr: "فيلا الجناح الشرقي — أورا"
     },
     {
       id: "rev_002",
       farmId: "villa_002",
+      villaId: "villa_002",
       author: "Haya Qutob",
+      authorAr: "هيا قطب",
+      reviewerName: "Haya Qutob",
+      reviewerNameAr: "هيا قطب",
+      location: "Dead Sea, Jordan",
+      locationAr: "البحر الميت، الأردن",
       rating: 5,
       date: "2026-08-28",
       comment: "The sunset view from the pergola deck is unforgettable. Heated pool and sound system made our family weekend magical.",
-      farmName: "The West Wing Villa — By ALORA"
+      commentAr: "إطلالة الغروب من ترّاس العريشة لا تُنسى. المسبح الدافئ والنظام الصوتي جعلا عطلتنا العائلية ساحرة وممتعة للغاية.",
+      farmName: "The West Wing Villa — By ALORA",
+      farmNameAr: "فيلا الجناح الغربي — أورا"
     },
     {
       id: "rev_003",
       farmId: "villa_003",
+      villaId: "villa_003",
       author: "Mohammad Shaker",
+      authorAr: "محمد شاكر",
+      reviewerName: "Mohammad Shaker",
+      reviewerNameAr: "محمد شاكر",
+      location: "Jerash, Jordan",
+      locationAr: "جرش، الأردن",
       rating: 5,
       date: "2026-09-02",
       comment: "Barasti Villa gave us total resort vibes right in the Dead Sea! The thatch umbrellas and BBQ setup were top tier.",
-      farmName: "Barasti Villa — Managed by ALORA"
+      commentAr: "فيلا برستي أخذتنا في أجواء منتجع استوائي متكامل في قلب البحر الميت! المظلات القش ومرافق الشواء كانت على أعلى مستوى.",
+      farmName: "Barasti Villa — Managed by ALORA",
+      farmNameAr: "فيلا برستي — إدارة أورا"
     }
   ]
 };
@@ -10030,7 +10097,18 @@ const TRANSLATIONS = {
     "themeToggle": "Change Theme & Motion",
     "themeEmerald": "Emerald Oasis & Royal Gold",
     "themeMidnight": "Royal Midnight Sapphire & Astral Gold",
-    "themeSunset": "Sunset Rose Royale & Warm Amber"
+    "themeSunset": "Sunset Rose Royale & Warm Amber",
+    "status": "Status",
+    "footerQuickLinks": "Quick Links",
+    "footerVillasByRegion": "Villas by Region",
+    "footerContactConcierge": "Contact Concierge",
+    "deadSeaChalets": "Dead Sea Cabin Chalets",
+    "ammanMansions": "Airport Road & Amman Mansions",
+    "jerashEstates": "Dibbeen Pine Estates (Jerash)",
+    "saltChalets": "Zai Country Chalets (Al-Salt)",
+    "footerOfficialSystem": "Official Booking System • Powered by ALORA Technology Suite",
+    "errInvalidCliqRef": "Please enter a valid bank CliQ reference number with digits (e.g. 99120482 or CLIQ-123456)",
+    "errCheckOutAfterCheckIn": "Check-out date must be after check-in date"
   },
   "ar": {
     "tabOverview": "لوحة المؤشرات",
@@ -10834,7 +10912,18 @@ const TRANSLATIONS = {
     "themeToggle": "تغيير المظهر والألوان الحركية",
     "themeEmerald": "الأخضر الزمردي والذهب الملكي",
     "themeMidnight": "الأزرق الملكي الليلي والذهب المشع",
-    "themeSunset": "الوردي المخملي وعنبر الغروب"
+    "themeSunset": "الوردي المخملي وعنبر الغروب",
+    "status": "حالة الحجز",
+    "footerQuickLinks": "روابط سريعة",
+    "footerVillasByRegion": "الفلل حسب المنطقة",
+    "footerContactConcierge": "تواصل مع الكونسيرج",
+    "deadSeaChalets": "شاليهات وأكواخ البحر الميت",
+    "ammanMansions": "قصور وفلل طريق المطار وعمان",
+    "jerashEstates": "شاليهات غابات دبين (جرش)",
+    "saltChalets": "شاليهات زي الريفية (السلط)",
+    "footerOfficialSystem": "نظام الحجز الرسمي المعتمد • مدعوم بتقنيات أورا الفندقية",
+    "errInvalidCliqRef": "يرجى إدخال رقم مرجعي صحيح للتحويل البنكي (يجب أن يحتوي على أرقام الإيصال مثل: 99120482 أو CLIQ-123456)",
+    "errCheckOutAfterCheckIn": "تاريخ المغادرة يجب أن يكون بعد تاريخ الوصول"
   }
 };
 
@@ -11047,9 +11136,20 @@ const TRANSLATIONS = {
     return jordanianRegex.test(clean) || intlRegex.test(clean);
   }
 
+  function isValidCliqReference(ref) {
+    if (!ref) return false;
+    const clean = ref.trim();
+    if (clean.length < 4 || clean.length > 30) return false;
+    // Must be alphanumeric (may include hyphens, slashes, or underscores) and contain at least 3 digits
+    const allowedRegex = /^[A-Za-z0-9\-\/_]+$/;
+    if (!allowedRegex.test(clean)) return false;
+    const digitsCount = (clean.match(/\d/g) || []).length;
+    return digitsCount >= 3;
+  }
+
   // PRICING CALCULATION ENGINE
   function calculateStayPrice(farm, checkInDate, checkOutDate, stayType, guestsCount, promoCodeStr) {
-    if (!farm) return { baseRental: 0, weekendSurcharge: 0, extraGuestFee: 0, cleaningFee: 0, discount: 0, total: 0 };
+    if (!farm) return { nights: 1, isWeekend: false, baseRental: 0, weekendSurcharge: 0, extraGuestFee: 0, cleaningFee: 0, discount: 0, total: 0, valid: false };
 
     let nights = 1;
     let isWeekend = false;
@@ -11061,8 +11161,22 @@ const TRANSLATIONS = {
       if (stayType === 'overnight' && checkOutDate) {
         const d1 = new Date(checkInDate);
         const d2 = new Date(checkOutDate);
-        const diffTime = Math.abs(d2 - d1);
-        nights = Math.max(1, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+        const diffTime = d2 - d1;
+        const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+        if (diffDays <= 0) {
+          return {
+            nights: 0,
+            isWeekend,
+            baseRental: 0,
+            weekendSurcharge: 0,
+            extraGuestFee: 0,
+            cleaningFee: 0,
+            discount: 0,
+            total: 0,
+            valid: false
+          };
+        }
+        nights = diffDays;
       }
     }
 
@@ -11100,7 +11214,8 @@ const TRANSLATIONS = {
       extraGuestFee,
       cleaningFee,
       discount,
-      total
+      total,
+      valid: true
     };
   }
 
@@ -11445,7 +11560,7 @@ const TRANSLATIONS = {
             <div class="mobile-nav-quick-bar">
               <button class="mobile-quick-btn mobile-quick-lang" onclick="window.Alora.toggleLanguage(); window.Alora.closeMobileMenu();">
                 <span>🌐</span>
-                <span>${isAr ? 'Switch to English' : 'تغيير اللغة إلى العربية'}</span>
+                <span>${isAr ? 'English (الإنجليزية)' : 'العربية (Arabic)'}</span>
               </button>
               <button class="mobile-quick-btn mobile-quick-theme" onclick="window.Alora.toggleTheme();">
                 <span class="theme-sparkle-icon">${themeIcon}</span>
@@ -11674,6 +11789,7 @@ const TRANSLATIONS = {
 
   // REVIEWS SECTION
   function renderReviewsSection() {
+    const isAr = State.lang === 'ar';
     return `
       <section class="section" id="reviews">
         <div class="container">
@@ -11684,14 +11800,25 @@ const TRANSLATIONS = {
           </div>
 
           <div class="why-grid">
-            ${State.reviews.map(r => `
-              <div class="why-card" style="text-align:start;">
-                <div style="color:#C5A059;font-size:1.1rem;margin-bottom:0.5rem;">★★★★★</div>
-                <p style="font-style:italic;color:var(--neutral-700);font-size:0.92rem;line-height:1.6;">"${r.comment}"</p>
-                <div style="margin-top:1rem;font-weight:800;color:var(--primary-900);font-size:0.95rem;">${r.author}</div>
-                <div style="font-size:0.8rem;color:var(--neutral-500);">${r.farmName}</div>
-              </div>
-            `).join('')}
+            ${(State.reviews || []).map(r => {
+              const matchedFarm = (State.farms || []).find(f => f.id === (r.farmId || r.villaId || r.villa_id));
+              const farmNameEn = r.farmName || (matchedFarm && matchedFarm.name && matchedFarm.name.en) || 'ALORA Villa';
+              const farmNameAr = r.farmNameAr || (matchedFarm && matchedFarm.name && matchedFarm.name.ar) || farmNameEn;
+              const displayFarmName = isAr ? farmNameAr : farmNameEn;
+
+              const author = isAr ? (r.authorAr || r.reviewerNameAr || r.author || r.reviewerName || 'ضيف مميز') : (r.author || r.reviewerName || 'Valued Guest');
+              const comment = isAr ? (r.commentAr || r.comment || '') : (r.comment || r.commentAr || '');
+              const location = isAr ? (r.locationAr || r.location || '') : (r.location || r.locationAr || '');
+
+              return `
+                <div class="why-card" style="text-align:start;">
+                  <div style="color:#C5A059;font-size:1.1rem;margin-bottom:0.5rem;">★★★★★</div>
+                  <p style="font-style:italic;color:var(--neutral-700);font-size:0.92rem;line-height:1.6;">"${comment}"</p>
+                  <div style="margin-top:1rem;font-weight:800;color:var(--primary-900);font-size:0.95rem;">${author}</div>
+                  <div style="font-size:0.8rem;color:var(--neutral-500);">${displayFarmName}${location ? ` • ${location}` : ''}</div>
+                </div>
+              `;
+            }).join('')}
           </div>
         </div>
       </section>
@@ -11701,6 +11828,7 @@ const TRANSLATIONS = {
   // CONTACT SECTION
   function renderContactSection() {
     const s = State.settings || {};
+    const isAr = State.lang === 'ar';
     return `
       <section class="section bg-sand" id="contact">
         <div class="container">
@@ -11714,10 +11842,10 @@ const TRANSLATIONS = {
                 ${t('contactDesc')}
               </p>
               <div style="display:flex;flex-direction:column;gap:0.75rem;font-size:0.95rem;">
-                <div>📞 <strong>Phone:</strong> <a href="tel:${s.phone || '+962791845632'}" style="color:var(--primary-900);" dir="ltr">${s.phone || '+962 7 9184 5632'}</a></div>
-                <div>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/962791845632" target="_blank" style="color:#25d366;font-weight:700;">${t('topBarWhatsApp')}</a></div>
-                <div>✉️ <strong>Email:</strong> <a href="mailto:${s.email || 'info@alora.jo'}" style="color:var(--primary-900);">${s.email || 'info@alora.jo'}</a></div>
-                <div>📍 <strong>Locations:</strong> Dead Sea, Amman, Jerash, Al-Salt (Jordan)</div>
+                <div>📞 <strong>${isAr ? 'الهاتف:' : 'Phone:'}</strong> <a href="tel:${s.phone || '+962791845632'}" style="color:var(--primary-900);" dir="ltr">${s.phone || '+962 7 9184 5632'}</a></div>
+                <div>💬 <strong>${isAr ? 'واتساب:' : 'WhatsApp:'}</strong> <a href="https://wa.me/962791845632" target="_blank" style="color:#25d366;font-weight:700;">${t('topBarWhatsApp')}</a></div>
+                <div>✉️ <strong>${isAr ? 'البريد الإلكتروني:' : 'Email:'}</strong> <a href="mailto:${s.email || 'info@alora.jo'}" style="color:var(--primary-900);">${s.email || 'info@alora.jo'}</a></div>
+                <div>📍 <strong>${isAr ? 'المواقع:' : 'Locations:'}</strong> ${isAr ? 'البحر الميت، عمّان، جرش، السلط (الأردن)' : 'Dead Sea, Amman, Jerash, Al-Salt (Jordan)'}</div>
               </div>
             </div>
             <div style="text-align:center;background:#fff;padding:2rem;border-radius:var(--radius-lg);box-shadow:0 6px 20px rgba(0,0,0,0.04);">
@@ -12145,8 +12273,13 @@ const TRANSLATIONS = {
     if (isOvernight && checkInDate && checkOutDate) {
       const d1 = new Date(checkInDate);
       const d2 = new Date(checkOutDate);
-      const diffDays = Math.max(1, Math.ceil(Math.abs(d2 - d1) / (1000 * 60 * 60 * 24)));
-      durationText = diffDays === 1 ? t('resOneNight') : t('resNightCount', { count: diffDays });
+      const diffTime = d2 - d1;
+      const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+      if (diffDays <= 0) {
+        durationText = State.lang === 'ar' ? 'تواريخ غير صالحة' : 'Invalid Date Range';
+      } else {
+        durationText = diffDays === 1 ? t('resOneNight') : t('resNightCount', { count: diffDays });
+      }
     }
 
     const isVerified = (res.bookingStatus === 'Confirmed' || res.booking_status === 'Confirmed') && 
@@ -12290,10 +12423,9 @@ const TRANSLATIONS = {
   }
 
   // PUBLIC FOOTER
-
-  // PUBLIC FOOTER
   function renderFooter() {
     const s = State.settings || {};
+    const isAr = State.lang === 'ar';
     return `
       <footer class="footer">
         <div class="container footer-grid">
@@ -12305,7 +12437,7 @@ const TRANSLATIONS = {
           </div>
 
           <div>
-            <h4 class="footer-title">Quick Links</h4>
+            <h4 class="footer-title">${t('footerQuickLinks')}</h4>
             <ul class="footer-links">
               <li><a onclick="window.Alora.navigate('home')">${t('navHome')}</a></li>
               <li><a onclick="window.Alora.navigate('farms')">${t('navFarms')}</a></li>
@@ -12316,22 +12448,22 @@ const TRANSLATIONS = {
           </div>
 
           <div>
-            <h4 class="footer-title">Villas by Region</h4>
+            <h4 class="footer-title">${t('footerVillasByRegion')}</h4>
             <ul class="footer-links">
-              <li><a onclick="window.Alora.navigate('farms')">Dead Sea Cabin Chalets</a></li>
-              <li><a onclick="window.Alora.navigate('farms')">Airport Road & Amman Mansions</a></li>
-              <li><a onclick="window.Alora.navigate('farms')">Dibbeen Pine Estates (Jerash)</a></li>
-              <li><a onclick="window.Alora.navigate('farms')">Zai Country Chalets (Al-Salt)</a></li>
+              <li><a onclick="window.Alora.navigate('farms')">${t('deadSeaChalets')}</a></li>
+              <li><a onclick="window.Alora.navigate('farms')">${t('ammanMansions')}</a></li>
+              <li><a onclick="window.Alora.navigate('farms')">${t('jerashEstates')}</a></li>
+              <li><a onclick="window.Alora.navigate('farms')">${t('saltChalets')}</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 class="footer-title">Contact Concierge</h4>
+            <h4 class="footer-title">${t('footerContactConcierge')}</h4>
             <p style="font-size:0.9rem;color:#a0aec0;line-height:1.6;">
               📞 <span dir="ltr">${s.phone || '+962 7 9184 5632'}</span><br>
               💬 ${t('topBarWhatsApp')}<br>
               ✉️ ${s.email || 'info@alora.jo'}<br>
-              📍 ${s.address || 'Amman & Dead Sea, Jordan'}
+              📍 ${s.address || (isAr ? 'عمّان والبحر الميت، الأردن' : 'Amman & Dead Sea, Jordan')}
             </p>
           </div>
         </div>
@@ -12339,7 +12471,7 @@ const TRANSLATIONS = {
         <div class="container footer-bottom">
           <div>${t('footerCopyright')}</div>
           <div style="font-size:0.8rem;color:#718096;">
-            Official Booking System • Powered by ALORA Technology Suite
+            ${t('footerOfficialSystem')}
           </div>
         </div>
       </footer>
@@ -15762,6 +15894,10 @@ const TRANSLATIONS = {
         if (!State.wizard.checkOut || State.wizard.checkOut <= val) {
           State.wizard.checkOut = next;
         }
+      } else if (field === 'checkOut' && State.wizard.stayType === 'overnight') {
+        if (State.wizard.checkIn && val <= State.wizard.checkIn) {
+          showToast(t('errCheckOutAfterCheckIn') || t('errOvernightCheckOutSubsequent'), 'error');
+        }
       } else if (field === 'stayType' && val === 'overnight') {
         if (!State.wizard.checkOut || State.wizard.checkOut <= State.wizard.checkIn) {
           State.wizard.checkOut = getNextCalendarDay(State.wizard.checkIn || new Date().toISOString().split('T')[0]);
@@ -15784,7 +15920,7 @@ const TRANSLATIONS = {
           return;
         }
         if (w.checkOut <= w.checkIn) {
-          showToast(t('errOvernightCheckOutSubsequent'), 'error');
+          showToast(t('errCheckOutAfterCheckIn') || t('errOvernightCheckOutSubsequent'), 'error');
           return;
         }
       }
@@ -15827,11 +15963,11 @@ const TRANSLATIONS = {
       const ref = document.getElementById('wizPaymentRef')?.value.trim();
 
       if (!w.selectedCliqId) {
-        showToast('Please select a CliQ payment method', 'error');
+        showToast(State.lang === 'ar' ? 'يرجى اختيار حساب كليك للتحويل' : 'Please select a CliQ payment method', 'error');
         return;
       }
-      if (!ref || ref.length < 3) {
-        showToast('Please enter your CliQ transfer reference number', 'error');
+      if (!ref || !isValidCliqReference(ref)) {
+        showToast(t('errInvalidCliqRef') || (State.lang === 'ar' ? 'يرجى إدخال رقم مرجع كليك صالح يحتوي على أرقام وحروف' : 'Please enter a valid CliQ reference containing letters and at least 3 digits'), 'error');
         return;
       }
 
