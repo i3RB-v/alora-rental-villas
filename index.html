@@ -10315,7 +10315,19 @@ const TRANSLATIONS = {
     "modalPricingSeasonal": "Seasonal Rate (JOD / night)",
     "modalPricingCleaning": "Cleaning Fee (JOD)",
     "modalPricingExtraGuest": "Extra Guest Fee (JOD)",
-    "modalPricingSave": "Save Rates"
+    "modalPricingSave": "Save Rates",
+    "modalPaymentNotesTitle": "Edit Payment Audit Notes",
+    "modalPaymentNotesLabel": "Internal Audit Notes",
+    "modalPaymentNotesPlaceholder": "Enter audit notes and reconciliation details...",
+    "modalPaymentNotesSave": "Save Notes",
+    "modalGalleryTitle": "Add New Gallery Photo",
+    "modalGalleryUrl": "Image URL *",
+    "modalGalleryTitleEn": "Title (English)",
+    "modalGalleryTitleAr": "Title (Arabic)",
+    "modalGalleryCaptionEn": "Caption (English)",
+    "modalGalleryCaptionAr": "Caption (Arabic)",
+    "modalGalleryCategory": "Category",
+    "modalGalleryAdd": "Add to Gallery"
   },
   "ar": {
     "tabOverview": "لوحة المؤشرات",
@@ -11140,7 +11152,19 @@ const TRANSLATIONS = {
     "modalPricingSeasonal": "السعر الموسمي (دينار / ليلة)",
     "modalPricingCleaning": "رسوم التنظيف (دينار)",
     "modalPricingExtraGuest": "رسوم الضيف الإضافي (دينار)",
-    "modalPricingSave": "حفظ الأسعار"
+    "modalPricingSave": "حفظ الأسعار",
+    "modalPaymentNotesTitle": "تعديل ملاحظات التدقيق المالي",
+    "modalPaymentNotesLabel": "ملاحظات التدقيق الداخلي",
+    "modalPaymentNotesPlaceholder": "أدخل ملاحظات التدقيق والتسوية البنكية...",
+    "modalPaymentNotesSave": "حفظ الملاحظات",
+    "modalGalleryTitle": "إضافة صورة جديدة للمعرض",
+    "modalGalleryUrl": "رابط الصورة (URL) *",
+    "modalGalleryTitleEn": "العنوان (إنجليزي)",
+    "modalGalleryTitleAr": "العنوان (عربي)",
+    "modalGalleryCaptionEn": "الوصف (إنجليزي)",
+    "modalGalleryCaptionAr": "الوصف (عربي)",
+    "modalGalleryCategory": "التصنيف",
+    "modalGalleryAdd": "إضافة إلى المعرض"
   }
 };
 
@@ -11187,6 +11211,8 @@ const TRANSLATIONS = {
     editingCliq: null,
     addingCliq: false,
     blockingDate: false,
+    blockingDatePrefill: '',
+    editingPaymentNotes: null,
     addingGallery: false,
     adminCreatingReservation: false,
     activeEmailPreview: null,
@@ -12297,7 +12323,7 @@ const TRANSLATIONS = {
                 <div style="display:grid;grid-template-columns:repeat(7, 1fr);gap:8px;">
                   ${days.map(d => `
                     <div style="padding:8px 4px;text-align:center;border-radius:6px;border:1px solid ${d.isAvailable ? '#c6f6d5' : '#fed7d7'};background:${d.isAvailable ? '#f0fff4' : '#fff5f5'};cursor:${d.isAvailable ? 'pointer' : 'not-allowed'};"
-                         onclick="${d.isAvailable ? `window.Alora.openBookingWizard('${farm.id}', '${d.date}')` : `alert('${t('errDoubleBooking')}')`}">
+                         onclick="${d.isAvailable ? `window.Alora.openBookingWizard('${farm.id}', '${d.date}')` : `window.Alora.showToast('${t('errDoubleBooking')}', 'warning')`}">
                       <div style="font-size:0.65rem;color:var(--neutral-500);">${d.weekday}</div>
                       <div style="font-size:1.05rem;font-weight:800;color:${d.isAvailable ? '#22543d' : '#9b2c2c'};">${d.dayNum}</div>
                       <div style="font-size:0.65rem;color:${d.isAvailable ? '#38a169' : '#e53e3e'};font-weight:700;">
@@ -13508,6 +13534,16 @@ const TRANSLATIONS = {
       case 'account': return renderAdminAccountTab();
       default: return renderAdminOverviewTab();
     }
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 
   // TAB 1: OVERVIEW WITH 13 REAL-TIME KPI CARDS
@@ -15569,6 +15605,7 @@ const TRANSLATIONS = {
     // 8. Block Date Range Modal
     if (State.blockingDate) {
       const farmId = State.selectedAvailVilla || State.farms[0].id;
+      const prefillVal = State.blockingDatePrefill ? `value="${State.blockingDatePrefill}"` : '';
       html += `
         <div class="modal-backdrop active" onclick="if(event.target===this) window.Alora.closeBlockDateModal()">
           <div class="modal-card" style="max-width:480px;" dir="${isAr ? 'rtl' : 'ltr'}">
@@ -15580,7 +15617,7 @@ const TRANSLATIONS = {
               <form onsubmit="window.Alora.saveBlockedDate(event, '${farmId}')">
                 <div class="form-group" style="margin-bottom:1rem;">
                   <label class="form-label" style="font-weight:700;">${t('modalDateToBlock')}</label>
-                  <input type="date" id="blockDateInput" class="form-input" required />
+                  <input type="date" id="blockDateInput" class="form-input" ${prefillVal} required />
                 </div>
                 <div class="form-group" style="margin-bottom:1.5rem;">
                   <label class="form-label" style="font-weight:700;">${t('modalBlockReason')}</label>
@@ -15593,7 +15630,101 @@ const TRANSLATIONS = {
                 </div>
                 <div style="display:flex;justify-content:flex-end;gap:10px;">
                   <button type="button" class="btn btn-outline" onclick="window.Alora.closeBlockDateModal()">${t('modalBtnCancel')}</button>
-                  <button type="submit" class="btn btn-primary">${t('modalBtnBlockDate')}</button>
+                  <button type="submit" class="btn btn-primary" style="color:#0a1f16 !important;font-weight:800 !important;">${t('modalBtnBlockDate')}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 8b. Edit Payment Notes Modal (Replaces browser prompt with custom design system modal)
+    if (State.editingPaymentNotes) {
+      const p = State.payments.find(item => item.id === State.editingPaymentNotes);
+      if (p) {
+        html += `
+          <div class="modal-backdrop active" onclick="if(event.target===this) window.Alora.closeEditPaymentNotesModal()">
+            <div class="modal-card" style="max-width:520px;" dir="${isAr ? 'rtl' : 'ltr'}">
+              <div class="modal-header">
+                <h3 class="modal-title">${t('modalPaymentNotesTitle')}</h3>
+                <button class="btn-modal-close" onclick="window.Alora.closeEditPaymentNotesModal()">✕</button>
+              </div>
+              <div class="modal-body">
+                <form onsubmit="window.Alora.savePaymentNotes(event, '${p.id}')">
+                  <div style="margin-bottom:1.25rem;padding:0.9rem;background:var(--bg-glass);border-radius:var(--radius-sm);border:1px solid var(--border-color);font-size:0.875rem;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                      <div><strong>${isAr ? 'رقم الحجز:' : 'Booking Ref:'}</strong> <span style="font-family:monospace;font-weight:700;color:var(--primary-700);">#${p.bookingNumber}</span></div>
+                      <span class="badge ${p.status === 'Verified' ? 'badge-confirmed' : 'badge-pending'}">${p.status}</span>
+                    </div>
+                    <div style="margin-top:0.4rem;display:flex;justify-content:space-between;color:var(--neutral-600);font-size:0.8rem;">
+                      <div><strong>${isAr ? 'المعرف:' : 'ID:'}</strong> <span style="font-family:monospace;">${p.id}</span></div>
+                      <div><strong>${isAr ? 'المبلغ:' : 'Amount:'}</strong> <span style="font-weight:700;color:var(--primary-800);">${p.amount} ${t('curr')}</span> (${p.method.toUpperCase()})</div>
+                    </div>
+                  </div>
+                  <div class="form-group" style="margin-bottom:1.5rem;">
+                    <label class="form-label" style="font-weight:700;">${t('modalPaymentNotesLabel')}</label>
+                    <textarea id="editPaymentNotesInput" class="form-input" rows="4" style="resize:vertical;" placeholder="${t('modalPaymentNotesPlaceholder')}">${escapeHtml(p.notes || '')}</textarea>
+                  </div>
+                  <div style="display:flex;justify-content:flex-end;gap:10px;">
+                    <button type="button" class="btn btn-outline" onclick="window.Alora.closeEditPaymentNotesModal()">${t('modalBtnCancel')}</button>
+                    <button type="submit" class="btn btn-primary" style="color:#0a1f16 !important;font-weight:800 !important;">${t('modalPaymentNotesSave')}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // 8c. Add Gallery Image Modal (Replaces browser prompt with custom design system modal)
+    if (State.addingGallery) {
+      html += `
+        <div class="modal-backdrop active" onclick="if(event.target===this) window.Alora.closeAddGalleryModal()">
+          <div class="modal-card" style="max-width:540px;" dir="${isAr ? 'rtl' : 'ltr'}">
+            <div class="modal-header">
+              <h3 class="modal-title">${t('modalGalleryTitle')}</h3>
+              <button class="btn-modal-close" onclick="window.Alora.closeAddGalleryModal()">✕</button>
+            </div>
+            <div class="modal-body">
+              <form onsubmit="window.Alora.saveGalleryImage(event)">
+                <div class="form-group" style="margin-bottom:1rem;">
+                  <label class="form-label" style="font-weight:700;">${t('modalGalleryUrl')}</label>
+                  <input type="url" id="galImgUrl" class="form-input" style="direction:ltr;text-align:left;" required placeholder="https://images.unsplash.com/..." value="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80" />
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem;">
+                  <div class="form-group">
+                    <label class="form-label" style="font-weight:700;">${t('modalGalleryTitleEn')}</label>
+                    <input type="text" id="galImgTitle" class="form-input" placeholder="ALORA Luxury Villa" value="ALORA Luxury Villa" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" style="font-weight:700;">${t('modalGalleryTitleAr')}</label>
+                    <input type="text" id="galImgTitleAr" class="form-input" placeholder="فيلا أورا الفاخرة" value="فيلا أورا الفاخرة" />
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem;">
+                  <div class="form-group">
+                    <label class="form-label" style="font-weight:700;">${t('modalGalleryCaptionEn')}</label>
+                    <input type="text" id="galImgCaption" class="form-input" placeholder="Private pool and terrace" value="Private crystal swimming pool and outdoor terrace" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" style="font-weight:700;">${t('modalGalleryCaptionAr')}</label>
+                    <input type="text" id="galImgCaptionAr" class="form-input" placeholder="مسبح خاص وترّاس" value="مسبح خاص كريستالي وترّاس خارجي فاخر" />
+                  </div>
+                </div>
+                <div class="form-group" style="margin-bottom:1.5rem;">
+                  <label class="form-label" style="font-weight:700;">${t('modalGalleryCategory')}</label>
+                  <select id="galImgCategory" class="form-select">
+                    <option value="exterior">${isAr ? 'خارجي وإطلالات (Exterior)' : 'Exterior & Views'}</option>
+                    <option value="pool" selected>${isAr ? 'مسابح وحدائق (Pool)' : 'Pool & Garden'}</option>
+                    <option value="interior">${isAr ? 'داخلي وغرف معيشة (Interior)' : 'Interior & Living'}</option>
+                    <option value="bedroom">${isAr ? 'غرف النوم والأجنحة (Bedrooms)' : 'Bedrooms & Suites'}</option>
+                  </select>
+                </div>
+                <div style="display:flex;justify-content:flex-end;gap:10px;">
+                  <button type="button" class="btn btn-outline" onclick="window.Alora.closeAddGalleryModal()">${t('modalBtnCancel')}</button>
+                  <button type="submit" class="btn btn-primary" style="color:#0a1f16 !important;font-weight:800 !important;">${t('modalGalleryAdd')}</button>
                 </div>
               </form>
             </div>
@@ -15921,6 +16052,7 @@ const TRANSLATIONS = {
   // GLOBAL ALORA CONTROLLER OBJECT
   window.Alora = {
     renderAloraLogo: renderAloraLogo,
+    showToast: showToast,
     renderApp: function() {
       renderApp();
     },
@@ -16707,7 +16839,9 @@ const TRANSLATIONS = {
       const b = State.bookings.find(item => item.id === resId || item.bookingNumber === resId);
       if (!b) return;
 
-      if (!confirm(`Are you sure you want to cancel reservation #${b.bookingNumber}?`)) return;
+      const isAr = State.lang === 'ar';
+      const confirmMsg = isAr ? `هل أنت متأكد من إلغاء الحجز #${b.bookingNumber}؟` : `Are you sure you want to cancel reservation #${b.bookingNumber}?`;
+      if (!confirm(confirmMsg)) return;
 
       b.bookingStatus = 'Cancelled';
       b.updatedAt = new Date().toISOString();
@@ -16718,12 +16852,14 @@ const TRANSLATIONS = {
         dispatchBookingEmail(b, 'Reservation Cancelled');
       }
 
-      showToast(`Reservation #${b.bookingNumber} cancelled`, 'info');
+      showToast(isAr ? `تم إلغاء الحجز #${b.bookingNumber}` : `Reservation #${b.bookingNumber} cancelled`, 'info');
       renderApp();
     },
 
     deleteBooking: function(resId) {
-      if (!confirm('Are you sure you want to delete this reservation?')) return;
+      const isAr = State.lang === 'ar';
+      const confirmMsg = isAr ? 'هل أنت متأكد من رغبتك في حذف هذا الحجز نهائياً؟' : 'Are you sure you want to delete this reservation?';
+      if (!confirm(confirmMsg)) return;
       const b = State.bookings.find(item => item.id === resId);
       if (b) {
         recordActivity('Admin deleted reservation', b.bookingNumber);
@@ -16736,7 +16872,7 @@ const TRANSLATIONS = {
       if (State.viewingReservation && State.viewingReservation.id === resId) {
         State.viewingReservation = null;
       }
-      showToast('Reservation deleted from database', 'info');
+      showToast(isAr ? 'تم حذف الحجز من قاعدة البيانات' : 'Reservation deleted from database', 'info');
       renderApp();
     },
 
@@ -16931,16 +17067,27 @@ Official Instagram: @alora.villas
     },
 
     openEditPaymentNotesModal: function(payId) {
+      State.editingPaymentNotes = payId;
+      renderApp();
+    },
+
+    closeEditPaymentNotesModal: function() {
+      State.editingPaymentNotes = null;
+      renderApp();
+    },
+
+    savePaymentNotes: function(e, payId) {
+      e.preventDefault();
       const p = State.payments.find(item => item.id === payId);
       if (!p) return;
-      const newNotes = prompt(State.lang === 'ar' ? 'تعديل ملاحظات التدقيق للدفع:' : 'Edit payment audit notes:', p.notes || '');
-      if (newNotes !== null) {
-        p.notes = newNotes;
-        saveStorage('payments');
-        recordActivity('Admin edited payment notes', p.bookingNumber, newNotes);
-        showToast(State.lang === 'ar' ? 'تم تحديث ملاحظات التدقيق بنجاح' : 'Payment notes updated', 'success');
-        renderApp();
-      }
+      const inp = document.getElementById('editPaymentNotesInput');
+      const newNotes = inp ? inp.value.trim() : '';
+      p.notes = newNotes;
+      saveStorage('payments');
+      recordActivity('Admin edited payment notes', p.bookingNumber, newNotes);
+      showToast(State.lang === 'ar' ? 'تم تحديث ملاحظات التدقيق بنجاح' : 'Payment notes updated', 'success');
+      State.editingPaymentNotes = null;
+      renderApp();
     },
 
     setPayFilter: function(filter) {
@@ -17096,12 +17243,14 @@ Official Instagram: @alora.villas
     deleteVilla: function(farmId) {
       const f = State.farms.find(item => item.id === farmId);
       if (!f) return;
-      if (!confirm(`Are you sure you want to delete ${f.name.en}?`)) return;
+      const isAr = State.lang === 'ar';
+      const vName = isAr ? (f.name.ar || f.name.en) : f.name.en;
+      if (!confirm(isAr ? `هل أنت متأكد من رغبتك في حذف فيلا "${vName}"؟` : `Are you sure you want to delete ${f.name.en}?`)) return;
 
       State.farms = State.farms.filter(item => item.id !== farmId);
       saveStorage('farms');
       recordActivity('Admin deleted villa', f.name.en);
-      showToast(`Villa ${f.name.en} deleted`, 'info');
+      showToast(isAr ? `تم حذف فيلا "${vName}"` : `Villa ${f.name.en} deleted`, 'info');
       renderApp();
     },
 
@@ -17147,14 +17296,16 @@ Official Instagram: @alora.villas
       renderApp();
     },
 
-    openBlockDateModal: function(farmId) {
+    openBlockDateModal: function(farmId, prefillDate) {
       State.selectedAvailVilla = farmId;
+      State.blockingDatePrefill = prefillDate || '';
       State.blockingDate = true;
       renderApp();
     },
 
     closeBlockDateModal: function() {
       State.blockingDate = false;
+      State.blockingDatePrefill = '';
       renderApp();
     },
 
@@ -17179,6 +17330,7 @@ Official Instagram: @alora.villas
       recordActivity('Admin blocked date', `${farmId} on ${dateStr}`, reason);
 
       State.blockingDate = false;
+      State.blockingDatePrefill = '';
       showToast(State.lang === 'ar' ? `تم حظر تاريخ ${dateStr} بسبب: ${reason}` : `Date ${dateStr} blocked for ${reason}`, 'success');
       renderApp();
     },
@@ -17195,25 +17347,7 @@ Official Instagram: @alora.villas
           renderApp();
         }
       } else if (currentStatus === 'available') {
-        const promptMsg = isAr
-          ? `حظر تاريخ ${dateStr} للصيانة أو إقامة خاصة؟ أدخل السبب:`
-          : `Block date ${dateStr} for maintenance or private stay? Enter reason:`;
-        const defaultReason = isAr ? 'تدفئة المسبح والصيانة' : 'Pool Heating & Maintenance';
-        const reason = prompt(promptMsg, defaultReason);
-        if (reason) {
-          State.blockedDates.push({
-            id: `blk_${Date.now()}`,
-            farmId: farmId,
-            date: dateStr,
-            reason: reason,
-            createdBy: 'admin@alora.jo',
-            createdAt: new Date().toISOString()
-          });
-          saveStorage('blockedDates');
-          recordActivity('Admin blocked date', `${farmId} on ${dateStr}`, reason);
-          showToast(isAr ? `تم حظر تاريخ ${dateStr}` : `Date ${dateStr} blocked`, 'success');
-          renderApp();
-        }
+        window.Alora.openBlockDateModal(farmId, dateStr);
       }
     },
 
@@ -17318,12 +17452,13 @@ Official Instagram: @alora.villas
     deleteCliqMethod: function(cliqId) {
       const m = State.cliqMethods.find(item => item.id === cliqId);
       if (!m) return;
-      if (!confirm(`Are you sure you want to delete ${m.name}?`)) return;
+      const isAr = State.lang === 'ar';
+      if (!confirm(isAr ? `هل أنت متأكد من حذف حساب كليك "${m.name}"؟` : `Are you sure you want to delete ${m.name}?`)) return;
 
       State.cliqMethods = State.cliqMethods.filter(item => item.id !== cliqId);
       saveStorage('cliqMethods');
       recordActivity('Admin deleted CliQ method', m.name);
-      showToast(`CliQ method ${m.name} deleted`, 'info');
+      showToast(isAr ? `تم حذف حساب كليك "${m.name}"` : `CliQ method ${m.name} deleted`, 'info');
       renderApp();
     },
 
@@ -17360,29 +17495,41 @@ Official Instagram: @alora.villas
 
     // GALLERY MANAGEMENT HANDLERS
     openAddGalleryModal: function() {
-      const isAr = State.lang === 'ar';
-      const url = prompt(isAr ? 'أدخل رابط الصورة للمعرض:' : 'Enter Image URL for Gallery:', 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80');
-      if (url) {
-        const title    = prompt(isAr ? 'العنوان بالإنجليزية:' : 'Image Title (English):', 'ALORA Luxury Villa');
-        const titleAr  = prompt(isAr ? 'العنوان بالعربية:'    : 'Image Title (Arabic):',  'فيلا أورا الفاخرة');
-        const caption   = prompt(isAr ? 'الوصف بالإنجليزية:'  : 'Caption (English):', 'Private crystal swimming pool and outdoor terrace');
-        const captionAr = prompt(isAr ? 'الوصف بالعربية:'     : 'Caption (Arabic):', 'مسبح خاص كريستالي وترّاس خارجي فاخر');
-        const category  = prompt(isAr ? 'التصنيف (pool, exterior, interior):' : 'Category (pool, exterior, interior):', 'pool');
+      State.addingGallery = true;
+      renderApp();
+    },
 
-        State.gallery.unshift({
-          id: `gal_${Date.now()}`,
-          title:     title     || 'ALORA Villa',
-          titleAr:   titleAr   || (title || 'فيلا أورا'),
-          caption:   caption   || '',
-          captionAr: captionAr || (caption || ''),
-          category:  category  || 'exterior',
-          url: url
-        });
-        saveStorage('gallery');
-        recordActivity('Admin added gallery image', title || 'Gallery Image');
-        showToast(isAr ? 'تمت إضافة الصورة إلى المعرض بنجاح' : 'Gallery image added', 'success');
-        renderApp();
-      }
+    closeAddGalleryModal: function() {
+      State.addingGallery = false;
+      renderApp();
+    },
+
+    saveGalleryImage: function(e) {
+      e.preventDefault();
+      const isAr = State.lang === 'ar';
+      const url = document.getElementById('galImgUrl').value.trim();
+      const title = document.getElementById('galImgTitle').value.trim();
+      const titleAr = document.getElementById('galImgTitleAr').value.trim();
+      const caption = document.getElementById('galImgCaption').value.trim();
+      const captionAr = document.getElementById('galImgCaptionAr').value.trim();
+      const category = document.getElementById('galImgCategory').value;
+
+      if (!url) return;
+
+      State.gallery.unshift({
+        id: `gal_${Date.now()}`,
+        title: title || 'ALORA Villa',
+        titleAr: titleAr || (title || 'فيلا أورا'),
+        caption: caption || '',
+        captionAr: captionAr || (caption || ''),
+        category: category || 'exterior',
+        url: url
+      });
+      saveStorage('gallery');
+      recordActivity('Admin added gallery image', title || 'Gallery Image');
+      showToast(isAr ? 'تمت إضافة الصورة إلى المعرض بنجاح' : 'Gallery image added', 'success');
+      State.addingGallery = false;
+      renderApp();
     },
 
     deleteGalleryImage: function(id) {
