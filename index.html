@@ -11010,6 +11010,12 @@ const TRANSLATIONS = {
   // PUBLIC GALLERY PAGE
   function renderGalleryPage() {
     const galleryItems = State.gallery || [];
+    const isAr = State.lang === 'ar';
+    const catMap = {
+      pool:     isAr ? 'مسبح'   : 'Pool',
+      exterior: isAr ? 'خارجي'  : 'Exterior',
+      interior: isAr ? 'داخلي'  : 'Interior'
+    };
     return `
       <div class="section bg-sand" style="padding-top:2.5rem;">
         <div class="container">
@@ -11020,16 +11026,20 @@ const TRANSLATIONS = {
           </div>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:1.5rem;">
-            ${galleryItems.map(item => `
+            ${galleryItems.map(item => {
+              const gTitle   = isAr ? (item.titleAr   || item.title)   : item.title;
+              const gCaption = isAr ? (item.captionAr || item.caption) : item.caption;
+              const catLabel = catMap[item.category] || (isAr ? 'فيلا فاخرة' : 'Luxury Villa');
+              return `
               <div style="background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.04);transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                <img src="${item.url}" alt="${item.title}" style="width:100%;height:240px;object-fit:cover;" />
+                <img src="${item.url}" alt="${gTitle}" style="width:100%;height:240px;object-fit:cover;" />
                 <div style="padding:1.25rem;">
-                  <div style="font-size:0.75rem;font-weight:700;color:#C5A059;text-transform:uppercase;margin-bottom:4px;">${item.category || 'Luxury Villa'}</div>
-                  <h3 style="font-size:1.1rem;font-weight:800;color:var(--primary-900);margin:0 0 6px 0;">${item.title}</h3>
-                  <p style="font-size:0.85rem;color:var(--neutral-600);margin:0;">${item.caption}</p>
+                  <div style="font-size:0.75rem;font-weight:700;color:#C5A059;text-transform:uppercase;margin-bottom:4px;">${catLabel}</div>
+                  <h3 style="font-size:1.1rem;font-weight:800;color:var(--primary-900);margin:0 0 6px 0;">${gTitle}</h3>
+                  <p style="font-size:0.85rem;color:var(--neutral-600);margin:0;">${gCaption}</p>
                 </div>
-              </div>
-            `).join('')}
+              </div>`;
+            }).join('')}
           </div>
         </div>
       </div>
@@ -15548,21 +15558,27 @@ Official Instagram: @alora.villas
       recordActivity('Admin blocked date', `${farmId} on ${dateStr}`, reason);
 
       State.blockingDate = false;
-      showToast(`Date ${dateStr} blocked for ${reason}`, 'success');
+      showToast(State.lang === 'ar' ? `تم حظر تاريخ ${dateStr} بسبب: ${reason}` : `Date ${dateStr} blocked for ${reason}`, 'success');
       renderApp();
     },
 
     handleDayClick: function(farmId, dateStr, currentStatus) {
+      const isAr = State.lang === 'ar';
       if (currentStatus === 'blocked') {
-        if (confirm(`Unblock date ${dateStr} for this villa?`)) {
+        const msg = isAr ? `هل تريد إلغاء حظر تاريخ ${dateStr} لهذه الفيلا؟` : `Unblock date ${dateStr} for this villa?`;
+        if (confirm(msg)) {
           State.blockedDates = State.blockedDates.filter(b => !(b.farmId === farmId && b.date === dateStr));
           saveStorage('blockedDates');
           recordActivity('Admin unblocked date', `${farmId} on ${dateStr}`);
-          showToast(`Date ${dateStr} is now available`, 'success');
+          showToast(isAr ? `تاريخ ${dateStr} متاح الآن` : `Date ${dateStr} is now available`, 'success');
           renderApp();
         }
       } else if (currentStatus === 'available') {
-        const reason = prompt(`Block date ${dateStr} for maintenance or private stay? Enter reason:`, 'Pool Heating & Maintenance');
+        const promptMsg = isAr
+          ? `حظر تاريخ ${dateStr} للصيانة أو إقامة خاصة؟ أدخل السبب:`
+          : `Block date ${dateStr} for maintenance or private stay? Enter reason:`;
+        const defaultReason = isAr ? 'تدفئة المسبح والصيانة' : 'Pool Heating & Maintenance';
+        const reason = prompt(promptMsg, defaultReason);
         if (reason) {
           State.blockedDates.push({
             id: `blk_${Date.now()}`,
@@ -15574,7 +15590,7 @@ Official Instagram: @alora.villas
           });
           saveStorage('blockedDates');
           recordActivity('Admin blocked date', `${farmId} on ${dateStr}`, reason);
-          showToast(`Date ${dateStr} blocked`, 'success');
+          showToast(isAr ? `تم حظر تاريخ ${dateStr}` : `Date ${dateStr} blocked`, 'success');
           renderApp();
         }
       }
@@ -15587,7 +15603,8 @@ Official Instagram: @alora.villas
         m.active = !m.active;
         saveStorage('cliqMethods');
         recordActivity('Admin toggled CliQ method status', m.name, `Active: ${m.active}`);
-        showToast(`CliQ method ${m.name} is now ${m.active ? 'Active' : 'Inactive'}`, 'info');
+        const isAr = State.lang === 'ar';
+        showToast(isAr ? `حساب CliQ "${m.name}" أصبح ${m.active ? 'مفعلاً' : 'معطلاً'}` : `CliQ method ${m.name} is now ${m.active ? 'Active' : 'Inactive'}`, 'info');
         renderApp();
       }
     },
@@ -15598,7 +15615,7 @@ Official Instagram: @alora.villas
       });
       saveStorage('cliqMethods');
       recordActivity('Admin set default CliQ method', cliqId);
-      showToast('Default CliQ payment account updated', 'success');
+      showToast(State.lang === 'ar' ? 'تم تحديث حساب CliQ الافتراضي' : 'Default CliQ payment account updated', 'success');
       renderApp();
     },
 
@@ -15722,22 +15739,27 @@ Official Instagram: @alora.villas
 
     // GALLERY MANAGEMENT HANDLERS
     openAddGalleryModal: function() {
-      const url = prompt(State.lang === 'ar' ? 'أدخل رابط الصورة للمعرض:' : 'Enter Image URL for Gallery:', 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80');
+      const isAr = State.lang === 'ar';
+      const url = prompt(isAr ? 'أدخل رابط الصورة للمعرض:' : 'Enter Image URL for Gallery:', 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80');
       if (url) {
-        const title = prompt(State.lang === 'ar' ? 'أدخل عنوان الصورة:' : 'Enter Image Title:', State.lang === 'ar' ? 'فيلا أورا الفاخرة' : 'ALORA Luxury Villa');
-        const caption = prompt(State.lang === 'ar' ? 'أدخل وصف الصورة:' : 'Enter Caption:', State.lang === 'ar' ? 'مسبح خاص كريستالي وترّاس خارجي فاخر' : 'Private crystal swimming pool and outdoor terrace');
-        const category = prompt(State.lang === 'ar' ? 'التصنيف (pool, exterior, interior):' : 'Category (pool, exterior, interior):', 'pool');
+        const title    = prompt(isAr ? 'العنوان بالإنجليزية:' : 'Image Title (English):', 'ALORA Luxury Villa');
+        const titleAr  = prompt(isAr ? 'العنوان بالعربية:'    : 'Image Title (Arabic):',  'فيلا أورا الفاخرة');
+        const caption   = prompt(isAr ? 'الوصف بالإنجليزية:'  : 'Caption (English):', 'Private crystal swimming pool and outdoor terrace');
+        const captionAr = prompt(isAr ? 'الوصف بالعربية:'     : 'Caption (Arabic):', 'مسبح خاص كريستالي وترّاس خارجي فاخر');
+        const category  = prompt(isAr ? 'التصنيف (pool, exterior, interior):' : 'Category (pool, exterior, interior):', 'pool');
 
         State.gallery.unshift({
           id: `gal_${Date.now()}`,
-          title: title || 'ALORA Villa',
-          caption: caption || '',
-          category: category || 'exterior',
+          title:     title     || 'ALORA Villa',
+          titleAr:   titleAr   || (title || 'فيلا أورا'),
+          caption:   caption   || '',
+          captionAr: captionAr || (caption || ''),
+          category:  category  || 'exterior',
           url: url
         });
         saveStorage('gallery');
         recordActivity('Admin added gallery image', title || 'Gallery Image');
-        showToast(State.lang === 'ar' ? 'تمت إضافة الصورة إلى المعرض بنجاح' : 'Gallery image added', 'success');
+        showToast(isAr ? 'تمت إضافة الصورة إلى المعرض بنجاح' : 'Gallery image added', 'success');
         renderApp();
       }
     },
