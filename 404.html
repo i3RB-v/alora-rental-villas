@@ -74,6 +74,22 @@
 
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+
+  /* Theme-adaptive surfaces & typography (Emerald default) */
+  --card-bg: #ffffff;
+  --card-border: rgba(10, 31, 22, 0.08);
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  --subcard-bg: #f8fafc;
+  --subcard-border: #e2e8f0;
+  --text-color-dark: #0a1f16;
+  --text-color-light: #2d3748;
+  --text-color-muted: #55635a;
+  --btn-outline-border: #0a1f16;
+  --btn-outline-text: #0a1f16;
+  --btn-outline-bg: rgba(10, 31, 22, 0.05);
+  --btn-outline-hover-border: #0a1f16;
+  --btn-outline-hover-bg: #0a1f16;
+  --btn-outline-hover-text: #ffffff;
 }
 
 /* Reset & Base */
@@ -7145,26 +7161,37 @@ button.btn-primary:active {
 
 .btn-outline:not(.btn-xs),
 .admin-btn-outline,
-button.btn-outline {
+button.btn-outline,
+a.btn-outline,
+.btn-back-to-villas {
   border-radius: 9999px !important;
   font-weight: 700 !important;
-  border: 1.5px solid #0a1f16 !important;
-  background: rgba(10, 31, 22, 0.04) !important;
-  color: #0a1f16 !important;
+  border: 1.5px solid var(--btn-outline-border, #0a1f16) !important;
+  background: var(--btn-outline-bg, rgba(10, 31, 22, 0.05)) !important;
+  color: var(--btn-outline-text, #0a1f16) !important;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
   cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  text-decoration: none !important;
 }
 .btn-outline:not(.btn-xs):hover,
 .admin-btn-outline:hover,
-button.btn-outline:hover {
+button.btn-outline:hover,
+a.btn-outline:hover,
+.btn-back-to-villas:hover {
   transform: translateY(-2px) !important;
-  border-color: #0a1f16 !important;
-  background: #0a1f16 !important;
-  color: #ffffff !important;
+  border-color: var(--btn-outline-hover-border, #0a1f16) !important;
+  background: var(--btn-outline-hover-bg, #0a1f16) !important;
+  color: var(--btn-outline-hover-text, #ffffff) !important;
 }
 .btn-outline:not(.btn-xs):active,
 .admin-btn-outline:active,
-button.btn-outline:active {
+button.btn-outline:active,
+a.btn-outline:active,
+.btn-back-to-villas:active {
   transform: translateY(0) !important;
 }
 
@@ -7708,6 +7735,21 @@ html[data-theme="midnight"] {
   --neutral-200: #1e293b;
   --neutral-100: #0f172a;
   --white: #0c1427;
+
+  --card-bg: #0d1733;
+  --card-border: rgba(59, 130, 246, 0.25);
+  --card-shadow: 0 10px 30px rgba(3, 7, 18, 0.6);
+  --subcard-bg: rgba(255, 255, 255, 0.06);
+  --subcard-border: rgba(59, 130, 246, 0.2);
+  --text-color-dark: #ffffff;
+  --text-color-light: #f1f5f9;
+  --text-color-muted: #cbd5e1;
+  --btn-outline-border: #93c5fd;
+  --btn-outline-text: #ffffff;
+  --btn-outline-bg: rgba(147, 197, 253, 0.12);
+  --btn-outline-hover-border: #fbbf24;
+  --btn-outline-hover-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  --btn-outline-hover-text: #050b17;
 }
 
 html[data-theme="midnight"] body {
@@ -7767,6 +7809,10 @@ html[data-theme="midnight"] .admin-login-card,
 html[data-theme="midnight"] .admin-notif-panel,
 html[data-theme="midnight"] .admin-search-results,
 html[data-theme="midnight"] .villa-specs-card,
+html[data-theme="midnight"] .villa-amenities-card,
+html[data-theme="midnight"] .villa-calendar-card,
+html[data-theme="midnight"] .villa-rules-card,
+html[data-theme="midnight"] .villa-booking-sidebar-card,
 html[data-theme="midnight"] .wizard-summary-box,
 html[data-theme="midnight"] .receipt-card,
 html[data-theme="midnight"] .policy-card,
@@ -7920,6 +7966,21 @@ html[data-theme="sunset"] {
   --neutral-200: #2a0b20;
   --neutral-100: #1a0614;
   --white: #1f0717;
+
+  --card-bg: #1f0817;
+  --card-border: rgba(244, 63, 94, 0.25);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --subcard-bg: rgba(255, 255, 255, 0.06);
+  --subcard-border: rgba(244, 63, 94, 0.2);
+  --text-color-dark: #ffffff;
+  --text-color-light: #fff1f2;
+  --text-color-muted: #fda4af;
+  --btn-outline-border: #fda4af;
+  --btn-outline-text: #ffffff;
+  --btn-outline-bg: rgba(253, 164, 175, 0.12);
+  --btn-outline-hover-border: #fb7185;
+  --btn-outline-hover-bg: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%);
+  --btn-outline-hover-text: #1a0513;
 }
 
 html[data-theme="sunset"] body {
@@ -7979,6 +8040,10 @@ html[data-theme="sunset"] .admin-login-card,
 html[data-theme="sunset"] .admin-notif-panel,
 html[data-theme="sunset"] .admin-search-results,
 html[data-theme="sunset"] .villa-specs-card,
+html[data-theme="sunset"] .villa-amenities-card,
+html[data-theme="sunset"] .villa-calendar-card,
+html[data-theme="sunset"] .villa-rules-card,
+html[data-theme="sunset"] .villa-booking-sidebar-card,
 html[data-theme="sunset"] .wizard-summary-box,
 html[data-theme="sunset"] .receipt-card,
 html[data-theme="sunset"] .policy-card,
@@ -8577,6 +8642,359 @@ html[data-theme="emerald"] .farm-rating-pill .rating-count,
 .farm-rating-pill .rating-count {
   color: rgba(255, 255, 255, 0.75) !important;
 }
+
+/* ==========================================================================
+   GLOBAL BUTTON CONTRAST ISOLATION (UNHOVERED & HOVERED STATES)
+   Enforces >= 4.5:1 contrast ratio across Emerald, Midnight, and Sunset themes
+   ========================================================================== */
+
+/* 1. Global Outline & Secondary Action Buttons across all Themes */
+.btn-outline,
+button.btn-outline,
+a.btn-outline,
+.admin-btn-outline,
+.btn-back-to-villas {
+  border-radius: 9999px !important;
+  font-weight: 700 !important;
+  border: 1.5px solid var(--btn-outline-border, #0a1f16) !important;
+  background: var(--btn-outline-bg, rgba(10, 31, 22, 0.05)) !important;
+  color: var(--btn-outline-text, #0a1f16) !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  text-decoration: none !important;
+}
+
+.btn-outline:hover,
+button.btn-outline:hover,
+a.btn-outline:hover,
+.admin-btn-outline:hover,
+.btn-back-to-villas:hover {
+  transform: translateY(-2px) !important;
+  border-color: var(--btn-outline-hover-border, #0a1f16) !important;
+  background: var(--btn-outline-hover-bg, #0a1f16) !important;
+  color: var(--btn-outline-hover-text, #ffffff) !important;
+}
+
+.btn-back-to-villas {
+  padding: 0.5rem 1.15rem !important;
+  font-size: 0.9rem !important;
+}
+
+/* 2. Theme 2 (Royal Midnight): Global Outline Buttons High Contrast Isolation */
+html[data-theme="midnight"] .btn-outline,
+html[data-theme="midnight"] button.btn-outline,
+html[data-theme="midnight"] a.btn-outline,
+html[data-theme="midnight"] .admin-btn-outline,
+html[data-theme="midnight"] .btn-back-to-villas {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid #93c5fd !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+html[data-theme="midnight"] .btn-outline:hover,
+html[data-theme="midnight"] button.btn-outline:hover,
+html[data-theme="midnight"] a.btn-outline:hover,
+html[data-theme="midnight"] .admin-btn-outline:hover,
+html[data-theme="midnight"] .btn-back-to-villas:hover {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+  border-color: #fbbf24 !important;
+  color: #050b17 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.45) !important;
+}
+
+/* 3. Theme 3 (Sunset Rose): Global Outline Buttons High Contrast Isolation */
+html[data-theme="sunset"] .btn-outline,
+html[data-theme="sunset"] button.btn-outline,
+html[data-theme="sunset"] a.btn-outline,
+html[data-theme="sunset"] .admin-btn-outline,
+html[data-theme="sunset"] .btn-back-to-villas {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid #fda4af !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+html[data-theme="sunset"] .btn-outline:hover,
+html[data-theme="sunset"] button.btn-outline:hover,
+html[data-theme="sunset"] a.btn-outline:hover,
+html[data-theme="sunset"] .admin-btn-outline:hover,
+html[data-theme="sunset"] .btn-back-to-villas:hover {
+  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
+  border-color: #fb7185 !important;
+  color: #1a0513 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 16px rgba(251, 113, 133, 0.45) !important;
+}
+
+/* 4. Admin Table Small Buttons Dark Themes Contrast */
+html[data-theme="midnight"] .btn-xs.btn-outline:not([style*="color:"]) {
+  border-color: rgba(147, 197, 253, 0.4) !important;
+  color: #f1f5f9 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+html[data-theme="sunset"] .btn-xs.btn-outline:not([style*="color:"]) {
+  border-color: rgba(251, 113, 133, 0.4) !important;
+  color: #fff1f2 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ==========================================================================
+   VILLA DETAILS — ADAPTIVE THEME SYSTEM & HIGH CONTRAST TYPOGRAPHY
+   Supports Emerald, Midnight, and Sunset themes with >= 4.5:1 contrast
+   ========================================================================== */
+
+/* Main Cards */
+.villa-specs-card,
+.villa-amenities-card,
+.villa-calendar-card,
+.villa-rules-card,
+.villa-booking-sidebar-card {
+  background: var(--card-bg, #ffffff) !important;
+  border: 1px solid var(--card-border, rgba(10, 31, 22, 0.08)) !important;
+  box-shadow: var(--card-shadow, 0 4px 15px rgba(0, 0, 0, 0.04)) !important;
+  color: var(--text-color-light, #2d3748) !important;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
+}
+
+/* Card Section Titles */
+.villa-section-title {
+  color: var(--text-color-dark, #0a1f16) !important;
+  font-weight: 800 !important;
+}
+
+/* Property Highlights (Capacity, Bedrooms, Bathrooms, Check-in) */
+.villa-highlight-item {
+  background: var(--subcard-bg, #f8fafc) !important;
+  border: 1px solid var(--subcard-border, #e2e8f0) !important;
+  color: var(--text-color-light, #2d3748) !important;
+  transition: all 0.2s ease !important;
+}
+.highlight-lbl {
+  color: var(--text-color-muted, #55635a) !important;
+}
+.highlight-val {
+  color: var(--text-color-dark, #0a1f16) !important;
+  font-weight: 800 !important;
+}
+
+/* Amenities List */
+.villa-amenity-item {
+  color: var(--text-color-light, #2d3748) !important;
+}
+.amenity-name {
+  color: var(--text-color-light, #2d3748) !important;
+}
+.amenity-check {
+  color: #C5A059 !important;
+  font-weight: 800 !important;
+}
+
+/* Villa Rules */
+.villa-rules-text {
+  color: var(--text-color-light, #2d3748) !important;
+}
+
+/* Booking Sidebar Pricing & Deposit */
+.rate-lbl {
+  color: var(--text-color-muted, #55635a) !important;
+}
+.rate-val {
+  color: var(--text-color-dark, #0a1f16) !important;
+}
+.weekend-val {
+  color: #C5A059 !important;
+  font-weight: 800 !important;
+}
+.per-night {
+  color: var(--text-color-muted, #55635a) !important;
+}
+
+.deposit-highlight-box {
+  background: rgba(197, 160, 89, 0.1) !important;
+  border: 1px solid rgba(197, 160, 89, 0.3) !important;
+  border-radius: 8px !important;
+}
+html[data-theme="midnight"] .deposit-highlight-box {
+  background: rgba(37, 99, 235, 0.15) !important;
+  border: 1px solid rgba(59, 130, 246, 0.4) !important;
+}
+html[data-theme="sunset"] .deposit-highlight-box {
+  background: rgba(190, 24, 93, 0.15) !important;
+  border: 1px solid rgba(244, 63, 94, 0.4) !important;
+}
+
+.deposit-title {
+  color: var(--text-color-dark, #0a1f16) !important;
+  font-weight: 700 !important;
+}
+.deposit-desc {
+  color: var(--text-color-light, #2d3748) !important;
+}
+.guarantee-note {
+  color: var(--text-color-muted, #55635a) !important;
+}
+
+/* ─── LIVE CALENDAR 4-WEEK AVAILABILITY MATRIX CONTRAST ─────────────────────── */
+.villa-day-cell {
+  border-radius: 6px !important;
+  padding: 8px 4px !important;
+  text-align: center !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Available Day Cell (Default Emerald) */
+.villa-day-cell.day-avail {
+  background: #f0fdf4 !important;
+  border: 1.5px solid #86efac !important;
+  color: #166534 !important;
+}
+.villa-day-cell.day-avail .day-weekday {
+  color: #166534 !important;
+  font-size: 0.65rem !important;
+}
+.villa-day-cell.day-avail .day-num {
+  color: #14532d !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+}
+.villa-day-cell.day-avail .day-status {
+  color: #15803d !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+}
+.villa-day-cell.day-avail:hover {
+  background: #dcfce7 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 10px rgba(22, 101, 52, 0.15) !important;
+}
+
+/* Booked / Blocked Day Cell (Default Emerald) */
+.villa-day-cell.day-booked {
+  background: #fef2f2 !important;
+  border: 1.5px solid #fecaca !important;
+  color: #991b1b !important;
+  opacity: 0.85 !important;
+}
+.villa-day-cell.day-booked .day-weekday {
+  color: #991b1b !important;
+  font-size: 0.65rem !important;
+}
+.villa-day-cell.day-booked .day-num {
+  color: #7f1d1d !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+}
+.villa-day-cell.day-booked .day-status {
+  color: #b91c1c !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+}
+
+/* Midnight Theme Calendar Matrix */
+html[data-theme="midnight"] .villa-day-cell.day-avail {
+  background: rgba(34, 197, 94, 0.18) !important;
+  border: 1.5px solid #4ade80 !important;
+  color: #86efac !important;
+}
+html[data-theme="midnight"] .villa-day-cell.day-avail .day-weekday {
+  color: #86efac !important;
+}
+html[data-theme="midnight"] .villa-day-cell.day-avail .day-num {
+  color: #ffffff !important;
+}
+html[data-theme="midnight"] .villa-day-cell.day-avail .day-status {
+  color: #4ade80 !important;
+}
+html[data-theme="midnight"] .villa-day-cell.day-avail:hover {
+  background: rgba(34, 197, 94, 0.3) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.35) !important;
+}
+html[data-theme="midnight"] .villa-day-cell.day-booked {
+  background: rgba(239, 68, 68, 0.15) !important;
+  border: 1.5px solid rgba(239, 68, 68, 0.45) !important;
+  color: #fca5a5 !important;
+  opacity: 0.85 !important;
+}
+html[data-theme="midnight"] .villa-day-cell.day-booked .day-weekday {
+  color: #fca5a5 !important;
+}
+html[data-theme="midnight"] .villa-day-cell.day-booked .day-num {
+  color: #fecaca !important;
+}
+html[data-theme="midnight"] .villa-day-cell.day-booked .day-status {
+  color: #ef4444 !important;
+}
+
+/* Sunset Theme Calendar Matrix */
+html[data-theme="sunset"] .villa-day-cell.day-avail {
+  background: rgba(34, 197, 94, 0.18) !important;
+  border: 1.5px solid #4ade80 !important;
+  color: #86efac !important;
+}
+html[data-theme="sunset"] .villa-day-cell.day-avail .day-weekday {
+  color: #86efac !important;
+}
+html[data-theme="sunset"] .villa-day-cell.day-avail .day-num {
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .villa-day-cell.day-avail .day-status {
+  color: #4ade80 !important;
+}
+html[data-theme="sunset"] .villa-day-cell.day-avail:hover {
+  background: rgba(34, 197, 94, 0.3) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.35) !important;
+}
+html[data-theme="sunset"] .villa-day-cell.day-booked {
+  background: rgba(244, 63, 94, 0.15) !important;
+  border: 1.5px solid rgba(244, 63, 94, 0.45) !important;
+  color: #fecdd3 !important;
+  opacity: 0.85 !important;
+}
+html[data-theme="sunset"] .villa-day-cell.day-booked .day-weekday {
+  color: #fecdd3 !important;
+}
+html[data-theme="sunset"] .villa-day-cell.day-booked .day-num {
+  color: #ffe4e6 !important;
+}
+html[data-theme="sunset"] .villa-day-cell.day-booked .day-status {
+  color: #fb7185 !important;
+}
+
+/* ─── Location & Feature Gold Badges Theme Contrast ────────────────────────── */
+.gold-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 5px 14px !important;
+  border-radius: 9999px !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  background: rgba(197, 160, 89, 0.12) !important;
+  color: #78582d !important;
+  border: 1px solid rgba(197, 160, 89, 0.35) !important;
+}
+html[data-theme="midnight"] .gold-badge {
+  background: rgba(37, 99, 235, 0.15) !important;
+  color: #fbbf24 !important;
+  border-color: rgba(251, 191, 36, 0.4) !important;
+}
+html[data-theme="sunset"] .gold-badge {
+  background: rgba(244, 63, 94, 0.15) !important;
+  color: #fb7185 !important;
+  border-color: rgba(251, 113, 133, 0.4) !important;
+}
+
+
 
 
 
@@ -12405,12 +12823,12 @@ const TRANSLATIONS = {
       <div class="section bg-sand" style="padding-top:2rem;">
         <div class="container">
           <!-- Breadcrumb & Back -->
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
-            <button class="btn btn-outline btn-sm" onclick="window.Alora.navigate('farms')">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:12px;">
+            <button class="btn btn-outline btn-sm btn-back-to-villas" onclick="window.Alora.navigate('farms')">
               ${t('backToAllVillas')}
             </button>
-            <div style="font-size:0.85rem;color:var(--neutral-500);">
-              ALORA &nbsp;/&nbsp; ${city} &nbsp;/&nbsp; <strong>${name}</strong>
+            <div style="font-size:0.85rem;color:var(--text-color-muted, var(--neutral-500));">
+              ALORA &nbsp;/&nbsp; ${city} &nbsp;/&nbsp; <strong style="color:var(--text-color-dark, var(--primary-900));">${name}</strong>
             </div>
           </div>
 
@@ -12428,71 +12846,71 @@ const TRANSLATIONS = {
             <!-- Left Info Column -->
             <div>
               <div class="gold-badge">📍 ${city} • ${area}</div>
-              <h1 style="font-size:2.2rem;font-weight:900;color:var(--primary-900);margin:0.5rem 0 0.75rem 0;">
+              <h1 style="font-size:2.2rem;font-weight:900;color:var(--text-color-dark, var(--primary-900));margin:0.5rem 0 0.75rem 0;">
                 ${name}
               </h1>
-              <p style="font-size:1.05rem;color:var(--neutral-600);line-height:1.7;margin-bottom:2rem;">
+              <p style="font-size:1.05rem;color:var(--text-color-light, var(--neutral-600));line-height:1.7;margin-bottom:2rem;">
                 ${desc}
               </p>
 
               <!-- Specs Card -->
-              <div class="villa-specs-card" style="background:#fff;padding:1.5rem;border-radius:var(--radius-lg);box-shadow:0 4px 15px rgba(0,0,0,0.03);margin-bottom:2rem;">
-                <h3 style="font-size:1.15rem;font-weight:800;color:var(--primary-900);margin-bottom:1rem;">${t('propertyHighlights')}</h3>
+              <div class="villa-specs-card" style="padding:1.5rem;border-radius:var(--radius-lg);margin-bottom:2rem;">
+                <h3 class="villa-section-title" style="font-size:1.15rem;font-weight:800;color:var(--text-color-dark, var(--primary-900));margin-bottom:1rem;">${t('propertyHighlights')}</h3>
                 <div class="villa-highlights-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:1rem;">
-                  <div style="padding:10px;background:var(--neutral-50);border-radius:6px;text-align:center;">
+                  <div class="villa-highlight-item" style="padding:12px;border-radius:8px;text-align:center;">
                     <div style="font-size:1.5rem;">👥</div>
-                    <div style="font-size:0.8rem;color:var(--neutral-500);">${t('capacityLabel')}</div>
-                    <strong>${t('upToGuests', { count: farm.capacity })}</strong>
+                    <div class="highlight-lbl" style="font-size:0.8rem;color:var(--text-color-muted, var(--neutral-500));">${t('capacityLabel')}</div>
+                    <strong class="highlight-val" style="color:var(--text-color-dark, var(--primary-900));">${t('upToGuests', { count: farm.capacity })}</strong>
                   </div>
-                  <div style="padding:10px;background:var(--neutral-50);border-radius:6px;text-align:center;">
+                  <div class="villa-highlight-item" style="padding:12px;border-radius:8px;text-align:center;">
                     <div style="font-size:1.5rem;">🛏️</div>
-                    <div style="font-size:0.8rem;color:var(--neutral-500);">${t('bedroomsLabel')}</div>
-                    <strong>${t('bedsCount', { count: farm.bedrooms })}</strong>
+                    <div class="highlight-lbl" style="font-size:0.8rem;color:var(--text-color-muted, var(--neutral-500));">${t('bedroomsLabel')}</div>
+                    <strong class="highlight-val" style="color:var(--text-color-dark, var(--primary-900));">${t('bedsCount', { count: farm.bedrooms })}</strong>
                   </div>
-                  <div style="padding:10px;background:var(--neutral-50);border-radius:6px;text-align:center;">
+                  <div class="villa-highlight-item" style="padding:12px;border-radius:8px;text-align:center;">
                     <div style="font-size:1.5rem;">🚿</div>
-                    <div style="font-size:0.8rem;color:var(--neutral-500);">${t('bathroomsLabel')}</div>
-                    <strong>${t('bathsCount', { count: farm.bathrooms })}</strong>
+                    <div class="highlight-lbl" style="font-size:0.8rem;color:var(--text-color-muted, var(--neutral-500));">${t('bathroomsLabel')}</div>
+                    <strong class="highlight-val" style="color:var(--text-color-dark, var(--primary-900));">${t('bathsCount', { count: farm.bathrooms })}</strong>
                   </div>
-                  <div style="padding:10px;background:var(--neutral-50);border-radius:6px;text-align:center;">
+                  <div class="villa-highlight-item" style="padding:12px;border-radius:8px;text-align:center;">
                     <div style="font-size:1.5rem;">🕒</div>
-                    <div style="font-size:0.8rem;color:var(--neutral-500);">${t('checkInOutLabel')}</div>
-                    <strong>10:00 - 10:00</strong>
+                    <div class="highlight-lbl" style="font-size:0.8rem;color:var(--text-color-muted, var(--neutral-500));">${t('checkInOutLabel')}</div>
+                    <strong class="highlight-val" style="color:var(--text-color-dark, var(--primary-900));">10:00 - 10:00</strong>
                   </div>
                 </div>
               </div>
 
               <!-- Amenities -->
-              <div style="background:#fff;padding:1.5rem;border-radius:var(--radius-lg);box-shadow:0 4px 15px rgba(0,0,0,0.03);margin-bottom:2rem;">
-                <h3 style="font-size:1.15rem;font-weight:800;color:var(--primary-900);margin-bottom:1rem;">${t('includedAmenities')}</h3>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0.75rem;">
+              <div class="villa-amenities-card" style="padding:1.5rem;border-radius:var(--radius-lg);margin-bottom:2rem;">
+                <h3 class="villa-section-title" style="font-size:1.15rem;font-weight:800;color:var(--text-color-dark, var(--primary-900));margin-bottom:1rem;">${t('includedAmenities')}</h3>
+                <div class="villa-amenities-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0.75rem;">
                   ${farm.amenities.map(a => `
-                    <div style="display:flex;align-items:center;gap:8px;font-size:0.9rem;color:var(--neutral-700);">
-                      <span>✓</span>
-                      <span>${t(`amenity_${a}`) || a.replace('_', ' ')}</span>
+                    <div class="villa-amenity-item" style="display:flex;align-items:center;gap:8px;font-size:0.92rem;color:var(--text-color-light, var(--neutral-700));">
+                      <span class="amenity-check" style="color:#C5A059;font-weight:800;">✓</span>
+                      <span class="amenity-name" style="color:var(--text-color-light, var(--neutral-700));">${t(`amenity_${a}`) || a.replace('_', ' ')}</span>
                     </div>
                   `).join('')}
                 </div>
               </div>
 
               <!-- Live 4-Week Availability Matrix -->
-              <div style="background:#fff;padding:1.5rem;border-radius:var(--radius-lg);box-shadow:0 4px 15px rgba(0,0,0,0.03);margin-bottom:2rem;">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-                  <h3 style="font-size:1.15rem;font-weight:800;color:var(--primary-900);margin:0;">
+              <div class="villa-calendar-card" style="padding:1.5rem;border-radius:var(--radius-lg);margin-bottom:2rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:8px;">
+                  <h3 class="villa-section-title" style="font-size:1.15rem;font-weight:800;color:var(--text-color-dark, var(--primary-900));margin:0;">
                     ${t('liveCalendarTitle')}
                   </h3>
                   <div style="display:flex;gap:12px;font-size:0.78rem;">
-                    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#38a169;"></span> ${t('statusAvailable')}</span>
-                    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#e53e3e;"></span> ${t('statusBookedBlocked')}</span>
+                    <span style="display:flex;align-items:center;gap:4px;color:var(--text-color-muted, var(--neutral-500));"><span style="width:10px;height:10px;border-radius:2px;background:#38a169;"></span> ${t('statusAvailable')}</span>
+                    <span style="display:flex;align-items:center;gap:4px;color:var(--text-color-muted, var(--neutral-500));"><span style="width:10px;height:10px;border-radius:2px;background:#e53e3e;"></span> ${t('statusBookedBlocked')}</span>
                   </div>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(7, 1fr);gap:8px;">
                   ${days.map(d => `
-                    <div style="padding:8px 4px;text-align:center;border-radius:6px;border:1px solid ${d.isAvailable ? '#c6f6d5' : '#fed7d7'};background:${d.isAvailable ? '#f0fff4' : '#fff5f5'};cursor:${d.isAvailable ? 'pointer' : 'not-allowed'};"
+                    <div class="villa-day-cell ${d.isAvailable ? 'day-avail' : 'day-booked'}" style="padding:8px 4px;text-align:center;border-radius:6px;cursor:${d.isAvailable ? 'pointer' : 'not-allowed'};"
                          onclick="${d.isAvailable ? `window.Alora.openBookingWizard('${farm.id}', '${d.date}')` : `window.Alora.showToast('${t('errDoubleBooking')}', 'warning')`}">
-                      <div style="font-size:0.65rem;color:var(--neutral-500);">${d.weekday}</div>
-                      <div style="font-size:1.05rem;font-weight:800;color:${d.isAvailable ? '#22543d' : '#9b2c2c'};">${d.dayNum}</div>
-                      <div style="font-size:0.65rem;color:${d.isAvailable ? '#38a169' : '#e53e3e'};font-weight:700;">
+                      <div class="day-weekday" style="font-size:0.65rem;">${d.weekday}</div>
+                      <div class="day-num" style="font-size:1.05rem;font-weight:800;">${d.dayNum}</div>
+                      <div class="day-status" style="font-size:0.65rem;font-weight:700;">
                         ${d.isAvailable ? t('statusOpen') : t('statusFull')}
                       </div>
                     </div>
@@ -12501,38 +12919,38 @@ const TRANSLATIONS = {
               </div>
 
               <!-- Villa Rules -->
-              <div style="background:#fff;padding:1.5rem;border-radius:var(--radius-lg);box-shadow:0 4px 15px rgba(0,0,0,0.03);">
-                <h3 style="font-size:1.15rem;font-weight:800;color:var(--primary-900);margin-bottom:0.75rem;">${t('ruleTitle')}</h3>
-                <p style="font-size:0.9rem;color:var(--neutral-600);line-height:1.6;">
+              <div class="villa-rules-card" style="padding:1.5rem;border-radius:var(--radius-lg);">
+                <h3 class="villa-section-title" style="font-size:1.15rem;font-weight:800;color:var(--text-color-dark, var(--primary-900));margin-bottom:0.75rem;">${t('ruleTitle')}</h3>
+                <p class="villa-rules-text" style="font-size:0.92rem;color:var(--text-color-light, var(--neutral-600));line-height:1.6;">
                   ${farm.rules ? (farm.rules[State.lang] || farm.rules.en) : t('rule1')}
                 </p>
               </div>
             </div>
 
             <!-- Right Booking Sidebar Box -->
-            <div style="position:sticky;top:100px;background:#fff;padding:2rem;border-radius:var(--radius-xl);border:1px solid var(--neutral-200);box-shadow:0 10px 30px rgba(0,0,0,0.06);">
-              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.25rem;border-bottom:1px solid var(--neutral-100);padding-bottom:1rem;">
+            <div class="villa-booking-sidebar-card" style="padding:2rem;border-radius:var(--radius-xl);">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.25rem;border-bottom:1px solid var(--card-border, var(--neutral-200));padding-bottom:1rem;">
                 <div>
-                  <div style="font-size:0.85rem;color:var(--neutral-500);">${t('standardRateLabel')}</div>
-                  <div style="font-size:1.8rem;font-weight:900;color:var(--primary-900);">${farm.price} JOD <span style="font-size:0.9rem;font-weight:500;">${t('perNight')}</span></div>
+                  <div class="rate-lbl" style="font-size:0.85rem;color:var(--text-color-muted, var(--neutral-500));">${t('standardRateLabel')}</div>
+                  <div class="rate-val" style="font-size:1.8rem;font-weight:900;color:var(--text-color-dark, var(--primary-900));">${farm.price} JOD <span class="per-night" style="font-size:0.9rem;font-weight:500;color:var(--text-color-muted, var(--neutral-500));">${t('perNight')}</span></div>
                 </div>
                 ${farm.weekendPrice ? `
                   <div style="text-align:right;">
-                    <div style="font-size:0.8rem;color:var(--neutral-500);">${t('weekendRateLabel')}</div>
-                    <div style="font-size:1.2rem;font-weight:800;color:#C5A059;">${farm.weekendPrice} JOD</div>
+                    <div class="rate-lbl" style="font-size:0.8rem;color:var(--text-color-muted, var(--neutral-500));">${t('weekendRateLabel')}</div>
+                    <div class="rate-val weekend-val" style="font-size:1.2rem;font-weight:800;color:#C5A059;">${farm.weekendPrice} JOD</div>
                   </div>
                 ` : ''}
               </div>
 
               <!-- Instant Deposit Highlight -->
-              <div style="background:#f4faf6;border:1px solid #c6f6d5;border-radius:8px;padding:12px 14px;margin-bottom:1.5rem;">
-                <div style="font-size:0.85rem;font-weight:700;color:var(--primary-900);">${t('depositHighlightTitle', { percent: State.settings.bookingFeePercent || 30 })}</div>
-                <div style="font-size:0.8rem;color:var(--primary-800);margin-top:2px;">
+              <div class="deposit-highlight-box" style="border-radius:8px;padding:12px 14px;margin-bottom:1.5rem;">
+                <div class="deposit-title" style="font-size:0.85rem;font-weight:700;color:var(--text-color-dark, var(--primary-900));">${t('depositHighlightTitle', { percent: State.settings.bookingFeePercent || 30 })}</div>
+                <div class="deposit-desc" style="font-size:0.8rem;color:var(--text-color-light, var(--primary-800));margin-top:2px;">
                   ${t('depositHighlightDesc', { amount: Math.round(farm.price * ((State.settings.bookingFeePercent || 30)/100)) })}
                 </div>
               </div>
 
-              <button class="btn btn-primary btn-lg" style="width:100%;margin-bottom:1rem;" onclick="window.Alora.openBookingWizard('${farm.id}')">
+              <button class="btn btn-primary btn-lg btn-book-sidebar" style="width:100%;margin-bottom:1rem;" onclick="window.Alora.openBookingWizard('${farm.id}')">
                 ${t('reserveVillaBtn')}
               </button>
 
@@ -12540,7 +12958,7 @@ const TRANSLATIONS = {
                 ${t('inquireWhatsAppBtn')}
               </a>
 
-              <div style="text-align:center;margin-top:1.25rem;font-size:0.8rem;color:var(--neutral-500);line-height:1.5;">
+              <div class="guarantee-note" style="text-align:center;margin-top:1.25rem;font-size:0.8rem;color:var(--text-color-muted, var(--neutral-500));line-height:1.5;">
                 ${t('guaranteedBookingNote')}
               </div>
             </div>
