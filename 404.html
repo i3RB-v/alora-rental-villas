@@ -7211,6 +7211,442 @@ a:focus-visible {
   border-radius: 6px;
 }
 
+/* ==========================================================================
+   ALORA DYNAMIC THEMES & MOVEMENT ANIMATIONS SYSTEM
+   ========================================================================== */
+
+/* ─── NAVIGATION CONTROLS (LANGUAGE & THEME BUTTONS) ─────────────────────── */
+.nav-control-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.42rem 0.85rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  background: rgba(10, 31, 22, 0.05);
+  border: 1.5px solid rgba(10, 31, 22, 0.15);
+  color: var(--primary-900);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.nav-control-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(197, 160, 89, 0.16);
+  border-color: #C5A059;
+  color: #b08030;
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25);
+}
+
+.nav-control-btn:active {
+  transform: translateY(0);
+}
+
+.nav-lang-btn {
+  border-color: rgba(197, 160, 89, 0.4);
+}
+
+.nav-theme-btn {
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.18), rgba(37, 99, 235, 0.12));
+  border-color: #C5A059;
+  color: #0a1f16;
+}
+
+.nav-theme-btn:hover {
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.28), rgba(37, 99, 235, 0.2));
+  box-shadow: 0 4px 16px rgba(197, 160, 89, 0.4);
+}
+
+.theme-sparkle-icon {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+  animation: themeSparkleSpin 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.top-bar-theme-btn {
+  background: rgba(197, 160, 89, 0.15) !important;
+  border-color: #C5A059 !important;
+  color: #C5A059 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+}
+
+.top-bar-theme-btn:hover {
+  background: rgba(197, 160, 89, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Mobile Quick Controls Bar in Dropdown */
+.mobile-nav-quick-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem 0.85rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.mobile-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 1.5px solid #C5A059;
+  cursor: pointer;
+  background: rgba(197, 160, 89, 0.1);
+  color: var(--primary-900);
+  transition: all 0.25s ease;
+}
+
+.mobile-quick-btn:hover {
+  background: #C5A059;
+  color: #0a1f16;
+}
+
+/* Responsive adjustments for mobile navbar buttons */
+@media (max-width: 992px) {
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+  }
+  .nav-control-btn {
+    padding: 0.38rem 0.65rem;
+    font-size: 0.8rem;
+    min-height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-actions {
+    gap: 0.3rem !important;
+  }
+  .nav-control-btn {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.76rem;
+    min-height: 36px;
+  }
+  .navbar-container {
+    padding: 0.6rem 0.75rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-control-btn {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.72rem;
+  }
+}
+
+/* ─── CREATIVE MOVEMENT ANIMATIONS (ALL THE WEBSITE) ────────────────────── */
+
+/* 1. Animated Gradient Shimmer on Buttons & Hero Elements */
+@keyframes movementGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn-primary,
+.btn-nav-reserve,
+.hero-cta-group .btn-primary,
+.nav-theme-btn,
+.btn-admin-create-res {
+  background-size: 200% 200% !important;
+  animation: movementGradientShift 4s ease infinite;
+}
+
+/* 2. Ambient Floating Movement for Badges & Accents */
+@keyframes ambientFloatBadge {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0.35deg);
+  }
+}
+
+.gold-badge,
+.hero-badge,
+.badge-featured,
+.badge-popular,
+.top-bar-admin-btn {
+  animation: ambientFloatBadge 3.8s ease-in-out infinite;
+  display: inline-flex;
+}
+
+/* 3. Theme Sparkle Spin Animation */
+@keyframes themeSparkleSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.22); filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.8)); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* 4. Full-Page Theme Morphing Ripple Wave */
+@keyframes themeMorphWave {
+  0% { filter: blur(0px) brightness(1); }
+  50% { filter: blur(1.5px) brightness(1.2); }
+  100% { filter: blur(0px) brightness(1); }
+}
+
+body.theme-morphing {
+  animation: themeMorphWave 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 5. Smooth Spring Movement on Villa & Farm Cards */
+.farm-card,
+.feature-card,
+.review-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+}
+
+.farm-card:hover,
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.015) !important;
+  box-shadow: 0 16px 40px rgba(10, 31, 22, 0.16), 0 0 20px rgba(197, 160, 89, 0.2) !important;
+}
+
+/* 6. Dynamic Ambient Light Orb on Hero Section */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.14) 0%, transparent 65%);
+  animation: movementGradientShift 9s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── THEME 2: ROYAL MIDNIGHT SAPPHIRE & ASTRAL GOLD ────────────────────── */
+html[data-theme="midnight"] {
+  --primary-900: #060a17;
+  --primary-800: #0c1630;
+  --primary-700: #13244d;
+  --primary-600: #1d428a;
+  --primary-500: #2563eb;
+  --primary-100: #dbeafe;
+  --primary-50: #eff6ff;
+
+  --earth-sand: #070c18;
+  --earth-sand-dark: #0f172a;
+  --earth-stone: #1e293b;
+  --earth-brown: #3b82f6;
+  --earth-gold: #fbbf24;
+  --earth-gold-light: #1e293b;
+
+  --neutral-900: #f8fafc;
+  --neutral-800: #f1f5f9;
+  --neutral-700: #cbd5e1;
+  --neutral-600: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-400: #475569;
+  --neutral-200: #1e293b;
+  --neutral-100: #0f172a;
+  --white: #0c1427;
+}
+
+html[data-theme="midnight"] body {
+  background-color: #070c18 !important;
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="midnight"] .navbar,
+html[data-theme="midnight"] .top-utility-bar {
+  background: #080f24 !important;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.25) !important;
+}
+
+html[data-theme="midnight"] .nav-control-btn {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .nav-control-btn:hover {
+  background: rgba(59, 130, 246, 0.25) !important;
+  border-color: #fbbf24 !important;
+  color: #fbbf24 !important;
+  box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35) !important;
+}
+
+html[data-theme="midnight"] .nav-theme-btn {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(251, 191, 36, 0.25)) !important;
+  border-color: #fbbf24 !important;
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .mobile-nav-dropdown {
+  background: #0c1530 !important;
+  border-top-color: #fbbf24 !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7) !important;
+}
+
+html[data-theme="midnight"] .mobile-nav-link {
+  color: #e2e8f0 !important;
+  border-bottom-color: #1e293b !important;
+}
+
+html[data-theme="midnight"] .farm-card,
+html[data-theme="midnight"] .card,
+html[data-theme="midnight"] .feature-card,
+html[data-theme="midnight"] .review-card,
+html[data-theme="midnight"] .filter-bar,
+html[data-theme="midnight"] .modal-content,
+html[data-theme="midnight"] .admin-card {
+  background: #0d1733 !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 10px 30px rgba(3, 7, 18, 0.6) !important;
+}
+
+html[data-theme="midnight"] .farm-card-title,
+html[data-theme="midnight"] .section-title,
+html[data-theme="midnight"] h1, 
+html[data-theme="midnight"] h2, 
+html[data-theme="midnight"] h3, 
+html[data-theme="midnight"] h4 {
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .btn-primary {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #2563eb 100%) !important;
+  background-size: 200% 200% !important;
+  color: #050b17 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.45) !important;
+}
+
+html[data-theme="midnight"] .hero::after {
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.25) 0%, rgba(251, 191, 36, 0.12) 40%, transparent 70%) !important;
+}
+
+/* ─── THEME 3: SUNSET ROSE ROYALE & WARM AMBER ────────────────────────── */
+html[data-theme="sunset"] {
+  --primary-900: #180612;
+  --primary-800: #290a1e;
+  --primary-700: #420f30;
+  --primary-600: #831843;
+  --primary-500: #be185d;
+  --primary-100: #fce7f3;
+  --primary-50: #fdf2f8;
+
+  --earth-sand: #12040e;
+  --earth-sand-dark: #1f0817;
+  --earth-stone: #2e0d23;
+  --earth-brown: #f43f5e;
+  --earth-gold: #fb7185;
+  --earth-gold-light: #2a0b20;
+
+  --neutral-900: #fff1f2;
+  --neutral-800: #ffe4e6;
+  --neutral-700: #fecdd3;
+  --neutral-600: #fda4af;
+  --neutral-500: #fb7185;
+  --neutral-400: #f43f5e;
+  --neutral-200: #2a0b20;
+  --neutral-100: #1a0614;
+  --white: #1f0717;
+}
+
+html[data-theme="sunset"] body {
+  background-color: #12040e !important;
+  color: #fce7f3 !important;
+}
+
+html[data-theme="sunset"] .navbar,
+html[data-theme="sunset"] .top-utility-bar {
+  background: #190513 !important;
+  border-bottom: 1px solid rgba(244, 63, 94, 0.25) !important;
+}
+
+html[data-theme="sunset"] .nav-control-btn {
+  background: rgba(46, 13, 35, 0.8) !important;
+  border-color: rgba(244, 63, 94, 0.4) !important;
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .nav-control-btn:hover {
+  background: rgba(244, 63, 94, 0.25) !important;
+  border-color: #fb7185 !important;
+  color: #fb7185 !important;
+  box-shadow: 0 4px 14px rgba(251, 113, 133, 0.4) !important;
+}
+
+html[data-theme="sunset"] .nav-theme-btn {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.3), rgba(251, 191, 36, 0.25)) !important;
+  border-color: #fb7185 !important;
+  color: #fb7185 !important;
+}
+
+html[data-theme="sunset"] .mobile-nav-dropdown {
+  background: #1f0817 !important;
+  border-top-color: #fb7185 !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7) !important;
+}
+
+html[data-theme="sunset"] .mobile-nav-link {
+  color: #ffe4e6 !important;
+  border-bottom-color: #2e0d23 !important;
+}
+
+html[data-theme="sunset"] .farm-card,
+html[data-theme="sunset"] .card,
+html[data-theme="sunset"] .feature-card,
+html[data-theme="sunset"] .review-card,
+html[data-theme="sunset"] .filter-bar,
+html[data-theme="sunset"] .modal-content,
+html[data-theme="sunset"] .admin-card {
+  background: #1f0817 !important;
+  border-color: rgba(244, 63, 94, 0.25) !important;
+  color: #fff1f2 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+html[data-theme="sunset"] .farm-card-title,
+html[data-theme="sunset"] .section-title,
+html[data-theme="sunset"] h1, 
+html[data-theme="sunset"] h2, 
+html[data-theme="sunset"] h3, 
+html[data-theme="sunset"] h4 {
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .btn-primary {
+  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 50%, #f59e0b 100%) !important;
+  background-size: 200% 200% !important;
+  color: #1a0513 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 20px rgba(251, 113, 133, 0.45) !important;
+}
+
+html[data-theme="sunset"] .hero::after {
+  background: radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.25) 0%, rgba(251, 191, 36, 0.12) 40%, transparent 70%) !important;
+}
+
 </style>
 </head>
 <body>
@@ -9062,7 +9498,12 @@ const TRANSLATIONS = {
     "modalEmailPreviewTitle": "✉️ Official ALORA Email Confirmation",
     "modalEmailTo": "To:",
     "modalEmailRef": "Ref:",
-    "modalBtnPrintEmail": "Print Email"
+    "modalBtnPrintEmail": "Print Email",
+    "themeLabel": "Theme",
+    "themeToggle": "Change Theme & Motion",
+    "themeEmerald": "Emerald Oasis & Royal Gold",
+    "themeMidnight": "Royal Midnight Sapphire & Astral Gold",
+    "themeSunset": "Sunset Rose Royale & Warm Amber"
   },
   "ar": {
     "tabOverview": "لوحة المؤشرات",
@@ -9861,7 +10302,12 @@ const TRANSLATIONS = {
     "modalEmailPreviewTitle": "✉️ إشعار وتأكيد الحجز الرسمي من أورا",
     "modalEmailTo": "إلى:",
     "modalEmailRef": "المرجع:",
-    "modalBtnPrintEmail": "طباعة الإشعار"
+    "modalBtnPrintEmail": "طباعة الإشعار",
+    "themeLabel": "المظهر",
+    "themeToggle": "تغيير المظهر والألوان الحركية",
+    "themeEmerald": "الأخضر الزمردي والذهب الملكي",
+    "themeMidnight": "الأزرق الملكي الليلي والذهب المشع",
+    "themeSunset": "الوردي المخملي وعنبر الغروب"
   }
 };
 
@@ -9876,6 +10322,7 @@ const TRANSLATIONS = {
   // GLOBAL APPLICATION STATE
   const State = {
     lang: localStorage.getItem('alora_lang') || 'en',
+    theme: localStorage.getItem('alora_theme') || 'emerald',
     currentPage: 'home',
     params: {},
     selectedFarmId: null,
@@ -10011,7 +10458,8 @@ const TRANSLATIONS = {
     activityLogs: 'alora_activity_logs',
     notifications: 'alora_notifications',
     promoCodes: 'alora_promo_codes',
-    reviews: 'alora_reviews'
+    reviews: 'alora_reviews',
+    theme: 'alora_theme'
   };
 
   function saveStorage(key) {
@@ -10344,7 +10792,8 @@ const TRANSLATIONS = {
 
   // BRAND LOGO COMPONENT
   function renderAloraLogo(theme = 'dark') {
-    const isLight = (theme === 'light');
+    const isDarkTheme = (State.theme === 'midnight' || State.theme === 'sunset');
+    const isLight = (theme === 'light') || isDarkTheme;
     const colorTitle = isLight ? '#ffffff' : '#0a1f16';
     const colorSub = '#C5A059';
 
@@ -10393,12 +10842,18 @@ const TRANSLATIONS = {
             <span>${t('topBarTagline')}</span>
           </div>
 
-          <!-- Right: Language Switcher & PROMINENT TOP ADMIN BUTTON -->
+          <!-- Right: Language Switcher, Theme Switcher & PROMINENT TOP ADMIN BUTTON -->
           <div class="top-bar-actions">
             <!-- Language Switcher -->
             <button class="top-bar-lang-btn" onclick="window.Alora.toggleLanguage()" title="Toggle Language">
               <span>🌐</span>
               <span>${State.lang === 'en' ? 'العربية' : 'English'}</span>
+            </button>
+
+            <!-- Creative Theme Switcher -->
+            <button class="top-bar-lang-btn top-bar-theme-btn" onclick="window.Alora.toggleTheme()" title="${State.lang === 'ar' ? 'تغيير المظهر والألوان الحركية' : 'Toggle Creative Theme & Motion'}">
+              <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
+              <span>${State.lang === 'ar' ? 'المظهر' : 'Theme'}</span>
             </button>
 
             <!-- PROMINENT TOP ADMIN LOGIN BUTTON ALONG THE WEBSITE -->
@@ -10414,6 +10869,16 @@ const TRANSLATIONS = {
 
   // MAIN NAVBAR
   function renderNavbar() {
+    const isAr = State.lang === 'ar';
+    const currentTheme = State.theme || 'emerald';
+    const themeIcons = {
+      emerald: '🌿',
+      midnight: '🌌',
+      sunset: '🌅'
+    };
+    const themeIcon = themeIcons[currentTheme] || '✨';
+    const themeLabel = isAr ? 'المظهر' : 'Theme';
+
     return `
       ${renderTopUtilityBar()}
       <header class="navbar">
@@ -10433,14 +10898,27 @@ const TRANSLATIONS = {
 
           <!-- Main Navbar Action -->
           <div class="nav-actions">
+            <!-- Language Switcher Button (Always accessible on Mobile & Desktop) -->
+            <button class="nav-control-btn nav-lang-btn" onclick="window.Alora.toggleLanguage()" title="${isAr ? 'Switch to English' : 'تغيير اللغة إلى العربية'}" aria-label="Change Language">
+              <span class="btn-icon">🌐</span>
+              <span class="btn-text">${isAr ? 'EN' : 'العربية'}</span>
+            </button>
+
+            <!-- Creative Theme & Movement FX Switcher Button (Right beside Language button) -->
+            <button class="nav-control-btn nav-theme-btn" onclick="window.Alora.toggleTheme()" title="${isAr ? 'تغيير المظهر والألوان الحركية' : 'Change Theme & Motion FX'}" aria-label="Toggle Theme">
+              <span class="theme-sparkle-icon">${themeIcon}</span>
+              <span class="btn-text">${themeLabel}</span>
+            </button>
+
+            <!-- Reserve Button (Desktop/Tablet) -->
             <button class="btn btn-primary btn-sm btn-nav-reserve" onclick="window.Alora.openBookingWizard()">
               <span>📅</span>
               <span>${t('bookNow')}</span>
             </button>
 
             <!-- Mobile Hamburger Toggle -->
-            <button class="mobile-menu-btn" onclick="window.Alora.toggleMobileMenu()" title="Toggle Menu">
-              ☰
+            <button class="mobile-menu-btn" onclick="window.Alora.toggleMobileMenu()" title="Toggle Menu" aria-label="Toggle Menu">
+              ${State.mobileMenuOpen ? '✕' : '☰'}
             </button>
           </div>
         </div>
@@ -10448,6 +10926,18 @@ const TRANSLATIONS = {
         <!-- Responsive Mobile Dropdown Menu -->
         ${State.mobileMenuOpen ? `
           <div class="mobile-nav-dropdown">
+            <!-- Mobile Quick Controls Strip -->
+            <div class="mobile-nav-quick-bar">
+              <button class="mobile-quick-btn mobile-quick-lang" onclick="window.Alora.toggleLanguage(); window.Alora.closeMobileMenu();">
+                <span>🌐</span>
+                <span>${isAr ? 'Switch to English' : 'تغيير اللغة إلى العربية'}</span>
+              </button>
+              <button class="mobile-quick-btn mobile-quick-theme" onclick="window.Alora.toggleTheme();">
+                <span class="theme-sparkle-icon">${themeIcon}</span>
+                <span>${isAr ? 'تغيير المظهر والألوان' : 'Switch Theme & FX'}</span>
+              </button>
+            </div>
+
             <a href="#home" onclick="window.Alora.navigate('home'); window.Alora.closeMobileMenu(); return false;" class="mobile-nav-link ${State.currentPage === 'home' ? 'active' : ''}">${t('navHome')}</a>
             <a href="#villas" onclick="window.Alora.navigate('farms'); window.Alora.closeMobileMenu(); return false;" class="mobile-nav-link ${State.currentPage === 'farms' ? 'active' : ''}">${t('navFarms')}</a>
             <a href="#gallery" onclick="window.Alora.navigate('gallery'); window.Alora.closeMobileMenu(); return false;" class="mobile-nav-link ${State.currentPage === 'gallery' ? 'active' : ''}">${t('navGallery')}</a>
@@ -14263,9 +14753,16 @@ const TRANSLATIONS = {
     const selectionStart = active && typeof active.selectionStart === 'number' ? active.selectionStart : null;
     const selectionEnd = active && typeof active.selectionEnd === 'number' ? active.selectionEnd : null;
 
-    // Document Direction & Language
+    // Document Direction, Language & Active Creative Theme
     document.documentElement.lang = State.lang;
     document.documentElement.dir = State.lang === 'ar' ? 'rtl' : 'ltr';
+    const activeTheme = State.theme || 'emerald';
+    if (document.documentElement && typeof document.documentElement.setAttribute === 'function') {
+      document.documentElement.setAttribute('data-theme', activeTheme);
+    }
+    if (document.body && typeof document.body === 'object') {
+      document.body.className = `theme-${activeTheme} movement-animated-theme`;
+    }
 
     let content = '';
 
@@ -14371,6 +14868,9 @@ const TRANSLATIONS = {
 
   // GLOBAL ALORA CONTROLLER OBJECT
   window.Alora = {
+    renderApp: function() {
+      renderApp();
+    },
     getState: function() {
       return State;
     },
@@ -14446,6 +14946,48 @@ const TRANSLATIONS = {
     toggleLanguage: function() {
       State.lang = (State.lang === 'en') ? 'ar' : 'en';
       localStorage.setItem('alora_lang', State.lang);
+      renderApp();
+    },
+
+    toggleTheme: function() {
+      const themes = ['emerald', 'midnight', 'sunset'];
+      const currentIndex = themes.indexOf(State.theme || 'emerald');
+      const nextTheme = themes[(currentIndex + 1) % themes.length];
+      State.theme = nextTheme;
+      localStorage.setItem('alora_theme', nextTheme);
+
+      if (typeof document !== 'undefined') {
+        if (document.documentElement && typeof document.documentElement.setAttribute === 'function') {
+          document.documentElement.setAttribute('data-theme', nextTheme);
+        }
+        if (document.body && typeof document.body === 'object') {
+          document.body.className = `theme-${nextTheme} movement-animated-theme theme-morphing`;
+          setTimeout(() => {
+            if (document.body && document.body.classList && typeof document.body.classList.remove === 'function') {
+              document.body.classList.remove('theme-morphing');
+            }
+          }, 650);
+        }
+      }
+
+      const isAr = State.lang === 'ar';
+      const themeDescriptions = {
+        emerald: {
+          en: 'Emerald Oasis & Warm Royal Gold 🌿',
+          ar: 'الأخضر الزمردي والذهب الملكي الدافئ 🌿'
+        },
+        midnight: {
+          en: 'Royal Midnight Sapphire & Cosmic Gold 🌌',
+          ar: 'الأزرق الملكي الليلي والذهب المشع 🌌'
+        },
+        sunset: {
+          en: 'Sunset Rose Royale & Warm Amber 🌅',
+          ar: 'الوردي المخملي وعنبر الغروب الملكي 🌅'
+        }
+      };
+
+      const desc = themeDescriptions[nextTheme] ? themeDescriptions[nextTheme][State.lang] : nextTheme;
+      showToast(isAr ? `✨ تم تفعيل مظهر: ${desc}` : `✨ Activated: ${desc}`, 'success');
       renderApp();
     },
 
