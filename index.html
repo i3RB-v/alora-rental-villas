@@ -1569,7 +1569,9 @@ html[dir="rtl"] .btn-open-all-photos {
   max-height: 90vh;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   position: relative;
   transform: scale(0.95);
   transition: transform 0.3s ease;
@@ -1586,6 +1588,9 @@ html[dir="rtl"] .btn-open-all-photos {
   align-items: center;
   justify-content: space-between;
   background: var(--earth-sand);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
 }
 
 .modal-title {
@@ -1615,6 +1620,9 @@ html[dir="rtl"] .btn-open-all-photos {
 
 .modal-body {
   padding: 2rem;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Wizard Steps Indicator */
@@ -4825,7 +4833,9 @@ body, .main-content, .page-wrapper {
   .modal-backdrop.active .modal-card {
     border-radius: 20px 20px 0 0 !important;
     max-height: 92vh !important;
-    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -4836,8 +4846,8 @@ body, .main-content, .page-wrapper {
     from { transform: translateY(40px); opacity: 0; }
     to   { transform: translateY(0);    opacity: 1; }
   }
-  .modal-header { padding: 1.1rem 1.25rem !important; }
-  .modal-body   { padding: 1rem 1.25rem !important; }
+  .modal-header { flex-shrink: 0 !important; padding: 1.1rem 1.25rem !important; }
+  .modal-body   { flex: 1 1 auto !important; overflow-y: auto !important; padding: 1rem 1.25rem !important; }
   .modal-footer { padding: 0.9rem 1.25rem !important; flex-wrap: wrap !important; }
   .modal-footer .btn { flex: 1; min-width: 120px; justify-content: center; }
   .form-group { margin-bottom: 1rem !important; }
@@ -5330,7 +5340,9 @@ body, .main-content, .page-wrapper {
   .modal-backdrop.active .modal-card {
     border-radius: 20px 20px 0 0 !important;
     max-height: 92vh !important;
-    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -5341,8 +5353,8 @@ body, .main-content, .page-wrapper {
     from { transform: translateY(40px); opacity: 0; }
     to   { transform: translateY(0);    opacity: 1; }
   }
-  .modal-header { padding: 1.1rem 1.25rem !important; }
-  .modal-body   { padding: 1rem 1.25rem !important; }
+  .modal-header { flex-shrink: 0 !important; padding: 1.1rem 1.25rem !important; }
+  .modal-body   { flex: 1 1 auto !important; overflow-y: auto !important; padding: 1rem 1.25rem !important; }
   .modal-footer { padding: 0.9rem 1.25rem !important; flex-wrap: wrap !important; }
   .modal-footer .btn { flex: 1; min-width: 120px; justify-content: center; }
   .form-group { margin-bottom: 1rem !important; }
@@ -6130,7 +6142,9 @@ body, .main-content, .page-wrapper {
   width: 100%;
   max-width: 560px;
   max-height: 90vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   box-shadow: 0 25px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(197,160,89,0.2);
   transform: translateY(20px) scale(0.97);
   transition: transform 0.28s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease;
@@ -6148,10 +6162,9 @@ body, .main-content, .page-wrapper {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  position: sticky;
-  top: 0;
-  background: #ffffff;
-  z-index: 1;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
   border-radius: 20px 20px 0 0;
 }
 
@@ -6820,18 +6833,24 @@ body, .main-content, .page-wrapper {
     max-height: 92vh !important;
     margin: 0 !important;
     box-shadow: 0 -10px 40px rgba(0,0,0,0.3) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
   }
   .modal-header {
     border-radius: 20px 20px 0 0 !important;
     padding: 1rem 1.25rem !important;
-    position: sticky !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
     top: 0 !important;
-    z-index: 10 !important;
-    background: #ffffff !important;
-    border-bottom: 1px solid #f1f5f9 !important;
+    z-index: 100 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
   }
   .modal-body {
     padding: 1rem 1.25rem 1.75rem !important;
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
   .modal-card div[style*="grid-template-columns"],
   .modal-body div[style*="grid-template-columns"] {
@@ -10908,31 +10927,68 @@ html[data-theme="sunset"] .admin-portal textarea {
   padding: 12px 16px !important;
 }
 
-/* 9. MODAL HEADER STICKY & Z-INDEX COLLISION PROTECTION */
+/* 9. MODAL HEADER & BODY INDEPENDENT VIEWPORT ARCHITECTURE
+   Prevents any scrolling content, buttons, or wizard step indicators (1 2 3 4)
+   from ever moving on top of or colliding with the modal header text. */
+.modal-card,
+.wizard-modal-card,
+.modal-backdrop.active .modal-card {
+  display: flex !important;
+  flex-direction: column !important;
+  max-height: 90vh !important;
+  overflow: hidden !important; /* Modal card container NEVER scrolls header away */
+  position: relative !important;
+}
+
 .modal-header {
-  position: sticky !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
   top: 0 !important;
   z-index: 50 !important;
+  width: 100% !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12) !important;
 }
+
+.modal-body {
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.modal-footer {
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 50 !important;
+  width: 100% !important;
+}
+
 html[data-theme="emerald"] .modal-header,
 html[data-theme="light"] .modal-header,
 html:not([data-theme]) .modal-header {
   background: #ffffff !important;
   border-bottom: 1px solid #e2e8f0 !important;
 }
+
 html[data-theme="midnight"] .modal-header {
   background: #080f24 !important;
   border-bottom: 1px solid rgba(59, 130, 246, 0.25) !important;
 }
+
 html[data-theme="sunset"] .modal-header {
   background: #1f0817 !important;
   border-bottom: 1px solid rgba(244, 63, 94, 0.25) !important;
 }
-.wizard-modal-card {
+
+.booking-wizard-steps {
   position: relative !important;
-  overflow-y: auto !important;
+  z-index: 2 !important;
 }
+
 .wizard-step-node {
+  position: relative !important;
   z-index: 2 !important;
 }
 
