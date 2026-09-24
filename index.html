@@ -10390,14 +10390,18 @@ html[data-theme="midnight"] .btn-primary *,
 html[data-theme="midnight"] .btn-xs.btn-primary,
 html[data-theme="midnight"] .btn-xs.btn-primary *,
 html[data-theme="midnight"] .btn-sm.btn-primary,
-html[data-theme="midnight"] .btn-sm.btn-primary *,
+html[data-theme="midnight"] .btn-sm.btn-primary * {
+  color: #050b17 !important;
+  font-weight: 800 !important;
+}
+
 html[data-theme="sunset"] .btn-primary,
 html[data-theme="sunset"] .btn-primary *,
 html[data-theme="sunset"] .btn-xs.btn-primary,
 html[data-theme="sunset"] .btn-xs.btn-primary *,
 html[data-theme="sunset"] .btn-sm.btn-primary,
 html[data-theme="sunset"] .btn-sm.btn-primary * {
-  color: #050b17 !important;
+  color: #ffffff !important;
   font-weight: 800 !important;
 }
 
@@ -10441,21 +10445,15 @@ html[data-theme="midnight"] li,
 html[data-theme="midnight"] dt,
 html[data-theme="midnight"] dd,
 html[data-theme="midnight"] table,
-html[data-theme="midnight"] table *,
-html[data-theme="midnight"] thead,
-html[data-theme="midnight"] thead *,
-html[data-theme="midnight"] tbody,
-html[data-theme="midnight"] tbody *,
-html[data-theme="midnight"] tr,
-html[data-theme="midnight"] tr *,
-html[data-theme="midnight"] th,
-html[data-theme="midnight"] th *,
-html[data-theme="midnight"] td,
-html[data-theme="midnight"] td *,
-html[data-theme="midnight"] .admin-table,
-html[data-theme="midnight"] .admin-table *,
-html[data-theme="midnight"] .admin-table-container,
-html[data-theme="midnight"] .admin-table-container *,
+html[data-theme="midnight"] thead th,
+html[data-theme="midnight"] tbody td,
+html[data-theme="midnight"] .admin-table th,
+html[data-theme="midnight"] .admin-table td,
+html[data-theme="midnight"] .admin-table-container th,
+html[data-theme="midnight"] .admin-table-container td,
+html[data-theme="midnight"] td strong,
+html[data-theme="midnight"] td small,
+html[data-theme="midnight"] td span:not([class*="badge"]):not([class*="btn"]):not(.btn-xs),
 html[data-theme="midnight"] .farm-title,
 html[data-theme="midnight"] .farm-card-title,
 html[data-theme="midnight"] .farm-tagline,
@@ -10520,21 +10518,15 @@ html[data-theme="sunset"] li,
 html[data-theme="sunset"] dt,
 html[data-theme="sunset"] dd,
 html[data-theme="sunset"] table,
-html[data-theme="sunset"] table *,
-html[data-theme="sunset"] thead,
-html[data-theme="sunset"] thead *,
-html[data-theme="sunset"] tbody,
-html[data-theme="sunset"] tbody *,
-html[data-theme="sunset"] tr,
-html[data-theme="sunset"] tr *,
-html[data-theme="sunset"] th,
-html[data-theme="sunset"] th *,
-html[data-theme="sunset"] td,
-html[data-theme="sunset"] td *,
-html[data-theme="sunset"] .admin-table,
-html[data-theme="sunset"] .admin-table *,
-html[data-theme="sunset"] .admin-table-container,
-html[data-theme="sunset"] .admin-table-container *,
+html[data-theme="sunset"] thead th,
+html[data-theme="sunset"] tbody td,
+html[data-theme="sunset"] .admin-table th,
+html[data-theme="sunset"] .admin-table td,
+html[data-theme="sunset"] .admin-table-container th,
+html[data-theme="sunset"] .admin-table-container td,
+html[data-theme="sunset"] td strong,
+html[data-theme="sunset"] td small,
+html[data-theme="sunset"] td span:not([class*="badge"]):not([class*="btn"]):not(.btn-xs),
 html[data-theme="sunset"] .farm-title,
 html[data-theme="sunset"] .farm-card-title,
 html[data-theme="sunset"] .farm-tagline,
@@ -10589,12 +10581,12 @@ html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme]
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h5 *,
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h6 *,
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) table,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) table *,
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) th,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) th *,
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td *,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *):not(.badge-optional):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *) {
+html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td strong,
+html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td small,
+html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td span:not([class*="badge"]):not([class*="btn"]):not(.btn-xs),
+html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) span:not([class*="badge"]):not([class*="btn"]):not(.btn-xs):not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *):not(.badge-optional):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *) {
   color: #fbbf24 !important;
 }
 
@@ -10625,14 +10617,18 @@ html[data-theme="midnight"] .btn-primary *,
 html[data-theme="midnight"] .btn-xs.btn-primary,
 html[data-theme="midnight"] .btn-xs.btn-primary *,
 html[data-theme="midnight"] .btn-sm.btn-primary,
-html[data-theme="midnight"] .btn-sm.btn-primary *,
+html[data-theme="midnight"] .btn-sm.btn-primary * {
+  color: #050b17 !important;
+  font-weight: 800 !important;
+}
+
 html[data-theme="sunset"] .btn-primary,
 html[data-theme="sunset"] .btn-primary *,
 html[data-theme="sunset"] .btn-xs.btn-primary,
 html[data-theme="sunset"] .btn-xs.btn-primary *,
 html[data-theme="sunset"] .btn-sm.btn-primary,
 html[data-theme="sunset"] .btn-sm.btn-primary * {
-  color: #050b17 !important;
+  color: #ffffff !important;
   font-weight: 800 !important;
 }
 
@@ -12032,6 +12028,388 @@ html[data-theme="light"] .admin-table-container table tbody tr:hover td,
 html:not([data-theme]) .admin-table-container table tbody tr:hover td {
   background: #f0fdf4 !important;
 }
+
+/* ==========================================================================
+   ULTRA-HIGH CONTRAST AUDIT: ADMIN ACTION BUTTONS & STATUS BADGES
+   Ensures 100% crystal-clear readability across Sunset, Midnight, Emerald
+   and Light themes. Zero washed-out text, zero blank badges.
+   ========================================================================== */
+
+/* ─── 1. STATUS BADGES CONTRAST MATRIX ─────────────────────────────────── */
+/* Yellow badges: Jet black text on warm amber/gold background */
+.badge-pending,
+.badge-submitted,
+.status-pending,
+.status-submitted,
+.admin-table-container .badge-pending,
+.admin-table-container .badge-submitted,
+.admin-table-container td .badge-pending,
+.admin-table-container td .badge-submitted,
+html[data-theme="sunset"] .badge-pending,
+html[data-theme="sunset"] .badge-submitted,
+html[data-theme="sunset"] .admin-table-container td .badge-pending,
+html[data-theme="sunset"] .admin-table-container td .badge-submitted,
+html[data-theme="midnight"] .badge-pending,
+html[data-theme="midnight"] .badge-submitted,
+html[data-theme="midnight"] .admin-table-container td .badge-pending,
+html[data-theme="midnight"] .admin-table-container td .badge-submitted,
+html[data-theme="emerald"] .badge-pending,
+html[data-theme="emerald"] .badge-submitted,
+html[data-theme="emerald"] .admin-table-container td .badge-pending,
+html[data-theme="emerald"] .admin-table-container td .badge-submitted,
+html[data-theme="light"] .badge-pending,
+html[data-theme="light"] .badge-submitted,
+html:not([data-theme]) .badge-pending,
+html:not([data-theme]) .badge-submitted {
+  background: #fbbf24 !important;
+  color: #050b17 !important;
+  font-weight: 900 !important;
+  border: 1px solid rgba(0, 0, 0, 0.25) !important;
+  padding: 4px 10px !important;
+  border-radius: 9999px !important;
+  display: inline-block !important;
+  text-shadow: none !important;
+}
+
+/* Green verified / confirmed badges: Crisp white text on deep forest green */
+.badge-verified,
+.badge-confirmed,
+.status-verified,
+.status-confirmed,
+.admin-table-container .badge-verified,
+.admin-table-container .badge-confirmed,
+.admin-table-container td .badge-verified,
+.admin-table-container td .badge-confirmed,
+html[data-theme="sunset"] .badge-verified,
+html[data-theme="sunset"] .badge-confirmed,
+html[data-theme="sunset"] .admin-table-container td .badge-verified,
+html[data-theme="sunset"] .admin-table-container td .badge-confirmed,
+html[data-theme="midnight"] .badge-verified,
+html[data-theme="midnight"] .badge-confirmed,
+html[data-theme="midnight"] .admin-table-container td .badge-verified,
+html[data-theme="midnight"] .admin-table-container td .badge-confirmed,
+html[data-theme="emerald"] .badge-verified,
+html[data-theme="emerald"] .badge-confirmed,
+html[data-theme="emerald"] .admin-table-container td .badge-verified,
+html[data-theme="emerald"] .admin-table-container td .badge-confirmed,
+html[data-theme="light"] .badge-verified,
+html[data-theme="light"] .badge-confirmed,
+html:not([data-theme]) .badge-verified,
+html:not([data-theme]) .badge-confirmed {
+  background: #166534 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 4px 10px !important;
+  border-radius: 9999px !important;
+  display: inline-block !important;
+  text-shadow: none !important;
+}
+
+/* Red rejected / cancelled badges: Crisp white text on deep crimson/ruby red */
+.badge-rejected,
+.status-rejected,
+.admin-table-container .badge-rejected,
+.admin-table-container td .badge-rejected,
+html[data-theme="sunset"] .badge-rejected,
+html[data-theme="sunset"] .admin-table-container td .badge-rejected,
+html[data-theme="midnight"] .badge-rejected,
+html[data-theme="midnight"] .admin-table-container td .badge-rejected,
+html[data-theme="emerald"] .badge-rejected,
+html[data-theme="emerald"] .admin-table-container td .badge-rejected,
+html[data-theme="light"] .badge-rejected,
+html:not([data-theme]) .badge-rejected {
+  background: #991b1b !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 4px 10px !important;
+  border-radius: 9999px !important;
+  display: inline-block !important;
+  text-shadow: none !important;
+}
+
+/* ─── 2. ADMIN ACTION BUTTONS (TABLES & ACTION BARS) ─────────────────── */
+
+/* Common base for all admin table action buttons */
+.admin-table-container .btn-xs,
+.admin-table .btn-xs,
+td .btn-xs {
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: 9999px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+/* --- THEME: SUNSET ROSE ROYALE --- */
+/* Default Outline Buttons: عرض (View), تعديل (Edit), إعادة إرسال (Resend) */
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline,
+html[data-theme="sunset"] .admin-table td .btn-xs.btn-outline,
+html[data-theme="sunset"] td .btn-xs.btn-outline,
+html[data-theme="sunset"] .btn-res-view,
+html[data-theme="sunset"] .btn-res-edit,
+html[data-theme="sunset"] .btn-res-resend {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1.5px solid rgba(251, 113, 133, 0.6) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+}
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline:hover,
+html[data-theme="sunset"] .admin-table td .btn-xs.btn-outline:hover,
+html[data-theme="sunset"] td .btn-xs.btn-outline:hover,
+html[data-theme="sunset"] .btn-res-view:hover,
+html[data-theme="sunset"] .btn-res-edit:hover,
+html[data-theme="sunset"] .btn-res-resend:hover {
+  background: #f43f5e !important;
+  border-color: #f43f5e !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.4) !important;
+}
+
+/* Confirm Button: تأكيد */
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-primary,
+html[data-theme="sunset"] .admin-table td .btn-xs.btn-primary,
+html[data-theme="sunset"] td .btn-xs.btn-primary,
+html[data-theme="sunset"] .btn-res-confirm {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 8px rgba(244, 63, 94, 0.45) !important;
+}
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-primary:hover,
+html[data-theme="sunset"] .admin-table td .btn-xs.btn-primary:hover,
+html[data-theme="sunset"] td .btn-xs.btn-primary:hover,
+html[data-theme="sunset"] .btn-res-confirm:hover {
+  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.6) !important;
+}
+
+/* Reject Button: رفض ✕ and Delete: 🗑️ */
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline[style*="color:#e53e3e"],
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline[style*="color: #e53e3e"],
+html[data-theme="sunset"] td .btn-xs.btn-outline[style*="color:#e53e3e"],
+html[data-theme="sunset"] td .btn-xs.btn-outline[style*="color: #e53e3e"],
+html[data-theme="sunset"] .btn-res-reject,
+html[data-theme="sunset"] .btn-res-delete {
+  background: rgba(225, 29, 72, 0.22) !important;
+  border: 1.5px solid #f43f5e !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 1px 4px rgba(225, 29, 72, 0.25) !important;
+}
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline[style*="color:#e53e3e"]:hover,
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline[style*="color: #e53e3e"]:hover,
+html[data-theme="sunset"] td .btn-xs.btn-outline[style*="color:#e53e3e"]:hover,
+html[data-theme="sunset"] td .btn-xs.btn-outline[style*="color: #e53e3e"]:hover,
+html[data-theme="sunset"] .btn-res-reject:hover,
+html[data-theme="sunset"] .btn-res-delete:hover {
+  background: #e11d48 !important;
+  border-color: #e11d48 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.5) !important;
+}
+
+/* Cancel Button: إلغاء */
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline[style*="color:#d69e2e"],
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline[style*="color: #d69e2e"],
+html[data-theme="sunset"] td .btn-xs.btn-outline[style*="color:#d69e2e"],
+html[data-theme="sunset"] td .btn-xs.btn-outline[style*="color: #d69e2e"],
+html[data-theme="sunset"] .btn-res-cancel {
+  background: rgba(217, 119, 6, 0.22) !important;
+  border: 1.5px solid #f59e0b !important;
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 1px 4px rgba(217, 119, 6, 0.25) !important;
+}
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline[style*="color:#d69e2e"]:hover,
+html[data-theme="sunset"] .admin-table-container .btn-xs.btn-outline[style*="color: #d69e2e"]:hover,
+html[data-theme="sunset"] td .btn-xs.btn-outline[style*="color:#d69e2e"]:hover,
+html[data-theme="sunset"] td .btn-xs.btn-outline[style*="color: #d69e2e"]:hover,
+html[data-theme="sunset"] .btn-res-cancel:hover {
+  background: #d97706 !important;
+  border-color: #d97706 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.5) !important;
+}
+
+/* --- THEME: MIDNIGHT SAPPHIRE & GOLD --- */
+/* Default Outline Buttons: عرض (View), تعديل (Edit), إعادة إرسال (Resend) */
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline,
+html[data-theme="midnight"] .admin-table td .btn-xs.btn-outline,
+html[data-theme="midnight"] td .btn-xs.btn-outline,
+html[data-theme="midnight"] .btn-res-view,
+html[data-theme="midnight"] .btn-res-edit,
+html[data-theme="midnight"] .btn-res-resend {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1.5px solid rgba(147, 197, 253, 0.6) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+}
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline:hover,
+html[data-theme="midnight"] .admin-table td .btn-xs.btn-outline:hover,
+html[data-theme="midnight"] td .btn-xs.btn-outline:hover,
+html[data-theme="midnight"] .btn-res-view:hover,
+html[data-theme="midnight"] .btn-res-edit:hover,
+html[data-theme="midnight"] .btn-res-resend:hover {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Confirm Button: تأكيد */
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-primary,
+html[data-theme="midnight"] .admin-table td .btn-xs.btn-primary,
+html[data-theme="midnight"] td .btn-xs.btn-primary,
+html[data-theme="midnight"] .btn-res-confirm {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.45) !important;
+}
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-primary:hover,
+html[data-theme="midnight"] .admin-table td .btn-xs.btn-primary:hover,
+html[data-theme="midnight"] td .btn-xs.btn-primary:hover,
+html[data-theme="midnight"] .btn-res-confirm:hover {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.6) !important;
+}
+
+/* Reject Button: رفض ✕ and Delete: 🗑️ */
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline[style*="color:#e53e3e"],
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline[style*="color: #e53e3e"],
+html[data-theme="midnight"] td .btn-xs.btn-outline[style*="color:#e53e3e"],
+html[data-theme="midnight"] td .btn-xs.btn-outline[style*="color: #e53e3e"],
+html[data-theme="midnight"] .btn-res-reject,
+html[data-theme="midnight"] .btn-res-delete {
+  background: rgba(225, 29, 72, 0.22) !important;
+  border: 1.5px solid #f87171 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 1px 4px rgba(225, 29, 72, 0.25) !important;
+}
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline[style*="color:#e53e3e"]:hover,
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline[style*="color: #e53e3e"]:hover,
+html[data-theme="midnight"] td .btn-xs.btn-outline[style*="color:#e53e3e"]:hover,
+html[data-theme="midnight"] td .btn-xs.btn-outline[style*="color: #e53e3e"]:hover,
+html[data-theme="midnight"] .btn-res-reject:hover,
+html[data-theme="midnight"] .btn-res-delete:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.5) !important;
+}
+
+/* Cancel Button: إلغاء */
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline[style*="color:#d69e2e"],
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline[style*="color: #d69e2e"],
+html[data-theme="midnight"] td .btn-xs.btn-outline[style*="color:#d69e2e"],
+html[data-theme="midnight"] td .btn-xs.btn-outline[style*="color: #d69e2e"],
+html[data-theme="midnight"] .btn-res-cancel {
+  background: rgba(217, 119, 6, 0.22) !important;
+  border: 1.5px solid #f59e0b !important;
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 1px 4px rgba(217, 119, 6, 0.25) !important;
+}
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline[style*="color:#d69e2e"]:hover,
+html[data-theme="midnight"] .admin-table-container .btn-xs.btn-outline[style*="color: #d69e2e"]:hover,
+html[data-theme="midnight"] td .btn-xs.btn-outline[style*="color:#d69e2e"]:hover,
+html[data-theme="midnight"] td .btn-xs.btn-outline[style*="color: #d69e2e"]:hover,
+html[data-theme="midnight"] .btn-res-cancel:hover {
+  background: #d97706 !important;
+  border-color: #d97706 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.5) !important;
+}
+
+/* --- THEME: EMERALD OASIS & LIGHT --- */
+html[data-theme="emerald"] .admin-table-container .btn-xs.btn-outline,
+html[data-theme="light"] .admin-table-container .btn-xs.btn-outline,
+html:not([data-theme]) .admin-table-container .btn-xs.btn-outline {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #16402e !important;
+  font-weight: 800 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+html[data-theme="emerald"] .admin-table-container .btn-xs.btn-outline:hover,
+html[data-theme="light"] .admin-table-container .btn-xs.btn-outline:hover,
+html:not([data-theme]) .admin-table-container .btn-xs.btn-outline:hover {
+  background: #16402e !important;
+  border-color: #16402e !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+html[data-theme="emerald"] .admin-table-container .btn-xs.btn-primary,
+html[data-theme="light"] .admin-table-container .btn-xs.btn-primary,
+html:not([data-theme]) .admin-table-container .btn-xs.btn-primary {
+  background: linear-gradient(135deg, #16a34a, #15803d) !important;
+  border: 1.5px solid #16a34a !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+html[data-theme="emerald"] .admin-table-container .btn-xs.btn-outline[style*="color:#e53e3e"],
+html[data-theme="light"] .admin-table-container .btn-xs.btn-outline[style*="color:#e53e3e"],
+html:not([data-theme]) .admin-table-container .btn-xs.btn-outline[style*="color:#e53e3e"] {
+  background: #fef2f2 !important;
+  border: 1.5px solid #fca5a5 !important;
+  color: #b91c1c !important;
+  font-weight: 800 !important;
+}
+html[data-theme="emerald"] .admin-table-container .btn-xs.btn-outline[style*="color:#d69e2e"],
+html[data-theme="light"] .admin-table-container .btn-xs.btn-outline[style*="color:#d69e2e"],
+html:not([data-theme]) .admin-table-container .btn-xs.btn-outline[style*="color:#d69e2e"] {
+  background: #fffbeb !important;
+  border: 1.5px solid #fcd34d !important;
+  color: #b45309 !important;
+  font-weight: 800 !important;
+}
+
+/* ─── 3. ADMIN FILTER BAR BUTTONS (ALL / PENDING / CONFIRMED / ETC) ──── */
+html[data-theme="sunset"] .admin-card .btn-xs.btn-primary {
+  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
+  border: 1.5px solid #fb7185 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+html[data-theme="sunset"] .admin-card .btn-xs.btn-outline {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid rgba(251, 113, 133, 0.5) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+html[data-theme="midnight"] .admin-card .btn-xs.btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  border: 1.5px solid #3b82f6 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+html[data-theme="midnight"] .admin-card .btn-xs.btn-outline {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid rgba(147, 197, 253, 0.5) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
 
 
 
@@ -17517,10 +17895,10 @@ const TRANSLATIONS = {
                       </td>
                       <td>
                         <div style="display:flex;gap:6px;">
-                          <button class="btn-xs btn-primary" onclick="window.Alora.verifyPaymentForBooking('${b.id}')" title="Verify Payment & Confirm Reservation">
+                          <button class="btn-xs btn-primary btn-res-confirm" onclick="window.Alora.verifyPaymentForBooking('${b.id}')" title="Verify Payment & Confirm Reservation">
                             ${t('btnVerifyPayment')}
                           </button>
-                          <button class="btn-xs btn-outline" style="color:#e53e3e;border-color:#feb2b2;" onclick="window.Alora.rejectPaymentForBooking('${b.id}')">
+                          <button class="btn-xs btn-outline btn-res-reject" style="color:#e53e3e;border-color:#feb2b2;" onclick="window.Alora.rejectPaymentForBooking('${b.id}')">
                             ${t('btnReject')}
                           </button>
                         </div>
@@ -17705,29 +18083,29 @@ const TRANSLATIONS = {
                   <td><small style="color:var(--neutral-500);">${b.createdAt ? b.createdAt.split('T')[0] : '2026-09-19'}</small></td>
                   <td>
                     <div style="display:flex;gap:4px;">
-                      <button class="btn-xs btn-outline" onclick="window.Alora.openReservationDetails('${b.id}')" title="View Full Details">
+                      <button class="btn-xs btn-outline btn-res-view" onclick="window.Alora.openReservationDetails('${b.id}')" title="View Full Details">
                         ${t('btnView')}
                       </button>
                       ${b.bookingStatus === 'Pending' ? `
-                        <button class="btn-xs btn-primary" onclick="window.Alora.verifyPaymentForBooking('${b.id}')" title="Confirm Reservation">
+                        <button class="btn-xs btn-primary btn-res-confirm" onclick="window.Alora.verifyPaymentForBooking('${b.id}')" title="Confirm Reservation">
                           ${t('btnConfirm')}
                         </button>
-                        <button class="btn-xs btn-outline" style="color:#e53e3e;" onclick="window.Alora.rejectPaymentForBooking('${b.id}')" title="Reject">
+                        <button class="btn-xs btn-outline btn-res-reject" style="color:#e53e3e;" onclick="window.Alora.rejectPaymentForBooking('${b.id}')" title="Reject">
                           ${t('btnReject')}
                         </button>
                       ` : ''}
                       ${b.bookingStatus === 'Confirmed' ? `
-                        <button class="btn-xs btn-outline" style="color:#d69e2e;" onclick="window.Alora.cancelBooking('${b.id}')" title="Cancel">
+                        <button class="btn-xs btn-outline btn-res-cancel" style="color:#d69e2e;" onclick="window.Alora.cancelBooking('${b.id}')" title="Cancel">
                           ${t('btnCancel')}
                         </button>
                       ` : ''}
-                      <button class="btn-xs btn-outline" onclick="window.Alora.openEditReservationModal('${b.id}')" title="Edit">
+                      <button class="btn-xs btn-outline btn-res-edit" onclick="window.Alora.openEditReservationModal('${b.id}')" title="Edit">
                         ${t('btnEdit')}
                       </button>
-                      <button class="btn-xs btn-outline" onclick="window.Alora.resendBookingReceipt('${b.id}')" title="Resend Receipt">
+                      <button class="btn-xs btn-outline btn-res-resend" onclick="window.Alora.resendBookingReceipt('${b.id}')" title="Resend Receipt">
                         ${t('btnResend')}
                       </button>
-                      <button class="btn-xs btn-outline" style="color:#e53e3e;" onclick="window.Alora.deleteBooking('${b.id}')" title="Delete">
+                      <button class="btn-xs btn-outline btn-res-delete" style="color:#e53e3e;" onclick="window.Alora.deleteBooking('${b.id}')" title="Delete">
                         🗑️
                       </button>
                     </div>
