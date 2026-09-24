@@ -13972,6 +13972,19 @@ const TRANSLATIONS = {
         if (!f.checkInTime) f.checkInTime = "10:00 AM";
         if (!f.checkOutTime) f.checkOutTime = "10:00 AM";
       });
+
+      // Hydrate Arabic fields on CliQ accounts if stored previously without them
+      if (Array.isArray(State.cliqMethods)) {
+        State.cliqMethods.forEach(m => {
+          const initM = INITIAL_DATA.cliqMethods.find(x => x.id === m.id);
+          if (initM) {
+            if (!m.nameAr) m.nameAr = initM.nameAr;
+            if (!m.displayNameAr) m.displayNameAr = initM.displayNameAr;
+            if (!m.bankNameAr) m.bankNameAr = initM.bankNameAr;
+            if (!m.instructionsAr) m.instructionsAr = initM.instructionsAr;
+          }
+        });
+      }
     } catch (e) {
       console.error("Storage initialization error:", e);
     }
@@ -14061,6 +14074,50 @@ const TRANSLATIONS = {
     if (!allowedRegex.test(clean)) return false;
     const digitsCount = (clean.match(/\d/g) || []).length;
     return digitsCount >= 3;
+  }
+
+  // BILINGUAL CLIQ ACCOUNT LOCALIZATION HELPER
+  function getCliqLocalized(method, isAr) {
+    if (!method) return { name: '', bankName: '', instructions: '' };
+    if (!isAr) {
+      return {
+        name: method.name || method.displayName || 'ALORA Main CliQ',
+        bankName: method.bankName || 'Jordan Bank',
+        instructions: method.instructions || 'Please transfer the 30% booking fee to this CliQ alias.'
+      };
+    }
+
+    let name = method.nameAr || method.displayNameAr;
+    if (!name) {
+      if (method.name === 'ALORA Main CliQ' || method.id === 'cliq_001') name = 'حساب كليك أورا الرئيسي';
+      else if (method.name === 'ALORA Booking CliQ' || method.id === 'cliq_002') name = 'حساب كليك حجوزات أورا';
+      else if (method.name === 'ALORA Events CliQ' || method.id === 'cliq_003') name = 'حساب كليك مناسبات أورا';
+      else name = method.name || 'حساب كليك أورا';
+    }
+
+    let bankName = method.bankNameAr;
+    if (!bankName) {
+      const b = method.bankName || '';
+      if (b.includes('Arab Bank') || b.includes('العربي')) bankName = 'البنك العربي';
+      else if (b.includes('Etihad') || b.includes('الاتحاد')) bankName = 'بنك الاتحاد';
+      else if (b.includes('Housing') || b.includes('الإسكان')) bankName = 'بنك الإسكان';
+      else bankName = method.bankName || 'البنك الأردني';
+    }
+
+    let instructions = method.instructionsAr;
+    if (!instructions) {
+      if (method.id === 'cliq_001' || (method.alias && method.alias.includes('INVEST'))) {
+        instructions = 'يرجى تحويل دفعة الحجز المطلوبة 30% إلى معرف كليك (ALORA@INVEST). يرجى تضمين رقم مرجع الحجز في وصف التحويل.';
+      } else if (method.id === 'cliq_002' || (method.alias && method.alias.includes('0791845632'))) {
+        instructions = 'يرجى تحويل عربون 30% إلى معرف كليك الخلوي البديل ALORA@0791845632 مع ذكر رمز الحجز الخاص بك.';
+      } else if (method.id === 'cliq_003' || (method.alias && method.alias.includes('EVENTS'))) {
+        instructions = 'بوابة دفع مخصصة للمناسبات الخاصة وحفلات الزفاف وحجوزات الفعاليات المؤسسية.';
+      } else {
+        instructions = method.instructions || 'يرجى تحويل العربون (30%) إلى هذا المعرف مع ذكر رمز الحجز.';
+      }
+    }
+
+    return { name, bankName, instructions };
   }
 
   // PRICING CALCULATION ENGINE
@@ -15314,7 +15371,7 @@ const TRANSLATIONS = {
                 </div>
                 <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
                   <span>${t('resVoucherCliq')}</span>
-                  <span>${res.paymentMethodName || 'ALORA Main CliQ'} (${res.cliqAlias || 'ALORA@INVEST'})</span>
+                  <span>${(State.lang === 'ar' ? (res.paymentMethodNameAr || (res.paymentMethodName === 'ALORA Booking CliQ' ? 'حساب كليك حجوزات أورا' : 'حساب كليك أورا الرئيسي')) : (res.paymentMethodName || 'ALORA Main CliQ'))} (<span dir="ltr">${res.cliqAlias || 'ALORA@INVEST'}</span>)</span>
                 </div>
                 <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
                   <span>${t('resVoucherRef')}</span>
@@ -15428,6 +15485,7 @@ const TRANSLATIONS = {
   function renderBookingModal() {
     const w = State.wizard;
     if (!w.open) return '';
+    const isAr = State.lang === 'ar';
 
     const farm = State.farms.find(f => f.id === w.farmId) || State.farms[0];
     const farmName = farm.name[State.lang] || farm.name.en;
@@ -15590,14 +15648,14 @@ const TRANSLATIONS = {
 
                 <div class="form-group" style="margin-bottom:1.25rem;">
                   <label class="form-label" style="font-weight:700;">${t('fullNameLabel')}</label>
-                  <input type="text" id="wizCustName" class="form-input" placeholder="e.g. Laith Al Nimer" value="${w.customerName}" oninput="window.Alora.updateWizardState('customerName', this.value, false)" required />
+                  <input type="text" id="wizCustName" class="form-input" placeholder="${isAr ? 'مثال: ليث النمر' : 'e.g. Laith Al Nimer'}" value="${w.customerName}" oninput="window.Alora.updateWizardState('customerName', this.value, false)" required />
                 </div>
 
                 <div class="form-group" style="margin-bottom:1.25rem;">
                   <label class="form-label" style="font-weight:700;">${t('mobilePhoneLabel')}</label>
                   <input type="tel" id="wizCustPhone" class="form-input" placeholder="e.g. 0791234567 or +962791234567" value="${w.customerPhone}" oninput="window.Alora.updateWizardState('customerPhone', this.value, false)" dir="ltr" required />
                   <small style="color:var(--neutral-500);font-size:0.8rem;display:block;margin-top:4px;">
-                    ${State.lang === 'ar' ? 'أدخل رقماً يبدأ بـ 07 أو بالصيغة الدولية (+962)' : 'Enter a number starting with 07 or international format (+962)'}
+                    ${isAr ? 'أدخل رقماً يبدأ بـ 07 أو بالصيغة الدولية (+962)' : 'Enter a number starting with 07 or international format (+962)'}
                   </small>
                 </div>
 
@@ -15606,7 +15664,7 @@ const TRANSLATIONS = {
                     <label class="form-label" style="font-weight:700;">${t('emailAddressLabel')}</label>
                     <span class="badge-optional">${t('optionalTag')}</span>
                   </div>
-                  <input type="email" id="wizCustEmail" class="form-input" placeholder="e.g. yourname@gmail.com" value="${w.customerEmail}" oninput="window.Alora.updateWizardState('customerEmail', this.value, false)" dir="ltr" />
+                  <input type="email" id="wizCustEmail" class="form-input" placeholder="${isAr ? 'name@example.com' : 'e.g. yourname@gmail.com'}" value="${w.customerEmail}" oninput="window.Alora.updateWizardState('customerEmail', this.value, false)" dir="ltr" />
                   <small style="color:var(--neutral-500);font-size:0.8rem;display:block;margin-top:4px;">
                     ${t('emailHint')}
                   </small>
@@ -15614,7 +15672,7 @@ const TRANSLATIONS = {
 
                 <div class="form-group" style="margin-bottom:1.5rem;">
                   <label class="form-label" style="font-weight:700;">${t('notesLabel')}</label>
-                  <textarea class="form-textarea" rows="2" placeholder="e.g. Special celebration, pool heating..." oninput="window.Alora.updateWizardState('notes', this.value, false)">${w.notes}</textarea>
+                  <textarea class="form-textarea" rows="2" placeholder="${isAr ? 'مثال: مناسبة خاصة، تدفئة المسبح...' : 'e.g. Special celebration, pool heating...'}" oninput="window.Alora.updateWizardState('notes', this.value, false)">${w.notes}</textarea>
                 </div>
 
                 <div class="wiz-action-footer" style="display:flex;justify-content:space-between;gap:0.75rem;">
@@ -15659,13 +15717,15 @@ const TRANSLATIONS = {
                   ${t('selectCliqAccount')}
                 </label>
                 <div class="customer-cliq-selector">
-                  ${activeCliqs.map(method => `
+                  ${activeCliqs.map(method => {
+                    const cliqLoc = getCliqLocalized(method, isAr);
+                    return `
                     <div class="customer-cliq-option ${w.selectedCliqId === method.id ? 'selected' : ''}" onclick="window.Alora.updateWizardState('selectedCliqId', '${method.id}')">
                       <input type="radio" name="wizCliqChoice" value="${method.id}" ${w.selectedCliqId === method.id ? 'checked' : ''} style="margin-top:4px;" />
                       <div style="flex:1;">
                         <div style="display:flex;justify-content:space-between;align-items:baseline;">
-                          <strong style="font-size:1rem;color:var(--primary-900);">${method.name}</strong>
-                          <span style="font-size:0.75rem;color:var(--neutral-500);">${method.bankName || 'Jordan Bank'}</span>
+                          <strong style="font-size:1rem;color:var(--primary-900);">${cliqLoc.name}</strong>
+                          <span style="font-size:0.75rem;color:var(--neutral-500);">${cliqLoc.bankName}</span>
                         </div>
                         <div style="display:flex;align-items:center;gap:8px;margin:6px 0;">
                           <span class="cliq-alias-badge" dir="ltr">${method.alias}</span>
@@ -15674,14 +15734,14 @@ const TRANSLATIONS = {
                           </button>
                         </div>
                         <p style="font-size:0.8rem;color:var(--neutral-600);margin:4px 0 0 0;line-height:1.4;" dir="auto">
-                          ${method.instructions}
+                          ${cliqLoc.instructions}
                         </p>
                       </div>
                       ${method.qrCode ? `
                         <img src="${method.qrCode}" alt="CliQ QR" style="width:75px;height:75px;border-radius:6px;border:1px solid #cbd5e0;background:#fff;padding:2px;" />
                       ` : ''}
                     </div>
-                  `).join('')}
+                  `}).join('')}
                 </div>
 
                 <!-- Payment Reference Input -->
@@ -15701,7 +15761,7 @@ const TRANSLATIONS = {
                     <label class="form-label" style="font-weight:700;">${t('paymentProofLabel')}</label>
                     <span class="badge-optional">${t('optionalTag')}</span>
                   </div>
-                  <input type="text" class="form-input" placeholder="Paste image URL (Optional)" value="${w.paymentProof}" oninput="window.Alora.updateWizardState('paymentProof', this.value, false)" dir="ltr" />
+                  <input type="text" class="form-input" placeholder="${isAr ? 'الصق رابط صورة الإيصال (اختياري)' : 'Paste image URL (Optional)'}" value="${w.paymentProof}" oninput="window.Alora.updateWizardState('paymentProof', this.value, false)" dir="ltr" />
                 </div>
 
                 <div style="background:#edf7ed;border:1px solid #c8e6c9;border-radius:10px;padding:14px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
@@ -15719,7 +15779,7 @@ const TRANSLATIONS = {
                     ${t('backToCustomer')}
                   </button>
                   <button class="btn btn-secondary btn-lg" onclick="window.Alora.validateStep3()">
-                    ${t('nextReviewConfirm')} (Manual CliQ)
+                    ${t('nextReviewConfirm')} ${isAr ? '(تحويل يدوي)' : '(Manual CliQ)'}
                   </button>
                 </div>
               </div>
@@ -15752,7 +15812,7 @@ const TRANSLATIONS = {
                   </div>
                   <div class="summary-row">
                     <span style="color:var(--neutral-500);">${t('summaryDates')}</span>
-                    <strong>${w.checkIn} ${w.stayType === 'overnight' ? 'to ' + w.checkOut : '(Day Use)'}</strong>
+                    <strong>${w.checkIn} ${w.stayType === 'overnight' ? (isAr ? 'إلى ' : 'to ') + w.checkOut : (isAr ? '(استخدام يومي)' : '(Day Use)')}</strong>
                   </div>
                   <div class="summary-row">
                     <span style="color:var(--neutral-500);">${t('summaryTimings')}</span>
@@ -15764,7 +15824,7 @@ const TRANSLATIONS = {
                   </div>
                   <div class="summary-row">
                     <span style="color:var(--neutral-500);">${t('summaryCliq')}</span>
-                    <strong>${selectedCliq.name} (<span dir="ltr">${selectedCliq.alias}</span>)</strong>
+                    <strong>${getCliqLocalized(selectedCliq, isAr).name} (<span dir="ltr">${selectedCliq.alias}</span>)</strong>
                   </div>
                   <div class="summary-row">
                     <span style="color:var(--neutral-500);">${t('summaryRef')}</span>
@@ -16485,7 +16545,7 @@ const TRANSLATIONS = {
                       <td>${villaTitle}</td>
                       <td>${b.checkIn}</td>
                       <td>
-                        <span class="badge-submitted">${b.paymentMethodName || 'ALORA Main CliQ'}</span>
+                        <span class="badge-submitted">${isAr ? (b.paymentMethodNameAr || (b.paymentMethodName === 'ALORA Booking CliQ' ? 'حساب كليك حجوزات أورا' : 'حساب كليك أورا الرئيسي')) : (b.paymentMethodName || 'ALORA Main CliQ')}</span>
                       </td>
                       <td><strong>${b.bookingFee || Math.round(b.total * 0.3)} JOD</strong></td>
                       <td><span style="font-family:monospace;font-weight:700;">${b.paymentReference || 'N/A'}</span></td>
@@ -17082,7 +17142,7 @@ const TRANSLATIONS = {
                   <td>${p.totalPrice} JOD</td>
                   <td><strong style="color:#276749;">${p.requiredAmount} JOD</strong></td>
                   <td>
-                    <div><strong>${p.paymentMethodName || 'ALORA Main CliQ'}</strong></div>
+                    <div><strong>${isAr ? (p.paymentMethodNameAr || (p.paymentMethodName === 'ALORA Booking CliQ' ? 'حساب كليك حجوزات أورا' : 'حساب كليك أورا الرئيسي')) : (p.paymentMethodName || 'ALORA Main CliQ')}</strong></div>
                     <small class="cliq-alias-badge" style="padding:2px 6px;font-size:0.75rem;">${p.cliqAlias || 'ALORA@INVEST'}</small>
                   </td>
                   <td><span style="font-family:monospace;font-weight:700;">${p.paymentReference || '—'}</span></td>
@@ -17150,7 +17210,7 @@ const TRANSLATIONS = {
           <div style="display:flex;gap:1.5rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--neutral-200);font-size:0.9rem;flex-wrap:wrap;">
             <div>${isAr ? 'إجمالي الحسابات:' : 'Total Accounts:'} <strong>${State.cliqMethods.length}</strong></div>
             <div>${isAr ? 'الحسابات المفعلة:' : 'Active Accounts:'} <strong style="color:#276749;">${activeCount} ${t('statusActive')}</strong></div>
-            <div>${isAr ? 'الحساب الافتراضي:' : 'Default Account:'} <strong style="color:#C5A059;">${defaultMethod ? defaultMethod.name : '—'}</strong></div>
+            <div>${isAr ? 'الحساب الافتراضي:' : 'Default Account:'} <strong style="color:#C5A059;">${defaultMethod ? (isAr && defaultMethod.nameAr ? defaultMethod.nameAr : defaultMethod.name) : '—'}</strong></div>
           </div>
         </div>
 
@@ -17817,7 +17877,7 @@ const TRANSLATIONS = {
               <div style="background:#f8fafc;padding:1.25rem;border-radius:var(--radius-lg);margin-bottom:1.5rem;border:1px solid #e2e8f0;">
                 <h4 style="font-size:1rem;font-weight:800;color:var(--primary-900);margin:0 0 0.75rem 0;">${t('modalCliqPayment')}</h4>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;font-size:0.9rem;">
-                  <div><span style="color:var(--neutral-500);">${t('modalCliqAccount')}</span> <strong>${b.paymentMethodName || 'ALORA Main CliQ'}</strong></div>
+                  <div><span style="color:var(--neutral-500);">${t('modalCliqAccount')}</span> <strong>${isAr ? (b.paymentMethodNameAr || (b.paymentMethodName === 'ALORA Booking CliQ' ? 'حساب كليك حجوزات أورا' : 'حساب كليك أورا الرئيسي')) : (b.paymentMethodName || 'ALORA Main CliQ')}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalCliqAlias')}</span> <strong class="cliq-alias-badge" style="padding:2px 6px;font-size:0.8rem;">${b.cliqAlias || 'ALORA@INVEST'}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalTxRef')}</span> <strong style="font-family:monospace;color:var(--primary-900);">${b.paymentReference || '—'}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalPaymentStatus')}</span> <span class="${payBadge}">${payText}</span></div>
@@ -19322,6 +19382,7 @@ const TRANSLATIONS = {
         remainingAmount: w.total,
         paymentMethodId: selectedCliq.id,
         paymentMethodName: selectedCliq.name,
+        paymentMethodNameAr: selectedCliq.nameAr || selectedCliq.displayNameAr || 'حساب كليك أورا الرئيسي',
         cliqAlias: selectedCliq.alias,
         paymentReference: w.paymentReference,
         paymentProof: w.paymentProof || '',
@@ -19352,6 +19413,7 @@ const TRANSLATIONS = {
         remainingAmount: newBooking.total,
         paymentMethodId: selectedCliq.id,
         paymentMethodName: selectedCliq.name,
+        paymentMethodNameAr: selectedCliq.nameAr || selectedCliq.displayNameAr || 'حساب كليك أورا الرئيسي',
         cliqAlias: selectedCliq.alias,
         paymentReference: newBooking.paymentReference,
         paymentProof: newBooking.paymentProof,
