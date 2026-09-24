@@ -10406,188 +10406,306 @@ html[data-theme="sunset"] .btn-sm.btn-primary * {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   C. BLACK / DARK BACKGROUND -> FONT COLOR YELLOW (#fbbf24 / #ffd700)
+   C. UNIVERSAL CHROMATIC TEXT REDESIGN SYSTEM (ACCORDING TO USER DIRECTIVE)
+   • BLACK / DARK BACKGROUND -> WHITE BODY TEXT OR RADIANT YELLOW HEADINGS
+   • BLUE BACKGROUND         -> VIBRANT YELLOW TEXT (#fbbf24 / #fef08a)
+   • PINK / ROSE BACKGROUND  -> VIBRANT YELLOW (#fbbf24) OR DEEP BLUE (#0f1d40)
+   • YELLOW BACKGROUND       -> JET BLACK TEXT (#050b17)
+   • GREEN BACKGROUND        -> PURE WHITE (#ffffff) OR GOLD (#fbbf24)
+   • WHITE / LIGHT BACKGROUND-> DEEP FOREST / BLACK TEXT (#0a1f16 / #16402e)
+   • RED / CRIMSON BACKGROUND-> PURE WHITE (#ffffff) OR WARM YELLOW (#fef08a)
    ────────────────────────────────────────────────────────────────────────── */
-html[data-theme="midnight"],
-html[data-theme="sunset"],
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])),
-body.theme-midnight,
-body.theme-sunset,
+
+/* 1. BLACK / DARK BACKGROUNDS -> WHITE TEXT OR YELLOW */
+html[data-theme="midnight"] body,
+html[data-theme="sunset"] body,
+html[data-theme="midnight"] .admin-shell,
+html[data-theme="sunset"] .admin-shell,
+html[data-theme="midnight"] .admin-main,
+html[data-theme="sunset"] .admin-main,
 .bg-black,
-.bg-dark {
-  --admin-gold: #fbbf24 !important;
-  --text-color-muted: #fef08a !important;
+.bg-dark,
+[style*="background:#050b17"],
+[style*="background: #050b17"],
+[style*="background:#080f24"],
+[style*="background: #080f24"],
+[style*="background:#12040e"],
+[style*="background: #12040e"],
+[style*="background:black"],
+[style*="background: black"] {
+  color: #ffffff !important;
 }
 
-html[data-theme="midnight"] body,
+/* Paragraphs, descriptions, small text, labels on dark backgrounds -> WHITE */
 html[data-theme="midnight"] p,
 html[data-theme="midnight"] p *,
+html[data-theme="sunset"] p,
+html[data-theme="sunset"] p *,
+html[data-theme="midnight"] label,
+html[data-theme="sunset"] label,
+html[data-theme="midnight"] li,
+html[data-theme="sunset"] li,
+html[data-theme="midnight"] small,
+html[data-theme="sunset"] small,
+html[data-theme="midnight"] em,
+html[data-theme="sunset"] em,
+html[data-theme="midnight"] td,
+html[data-theme="sunset"] td,
+.bg-black p, .bg-dark p,
+.bg-black span:not(.gold-badge):not(.stat-num):not(.numeric-val):not(.stat-value),
+.bg-dark span:not(.gold-badge):not(.stat-num):not(.numeric-val):not(.stat-value) {
+  color: #ffffff !important;
+}
+
+/* Headings, numbers, prices, key stats on dark backgrounds -> YELLOW */
 html[data-theme="midnight"] h1,
 html[data-theme="midnight"] h2,
 html[data-theme="midnight"] h3,
 html[data-theme="midnight"] h4,
 html[data-theme="midnight"] h5,
 html[data-theme="midnight"] h6,
-html[data-theme="midnight"] h1 *,
-html[data-theme="midnight"] h2 *,
-html[data-theme="midnight"] h3 *,
-html[data-theme="midnight"] h4 *,
-html[data-theme="midnight"] h5 *,
-html[data-theme="midnight"] h6 *,
-html[data-theme="midnight"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *):not(.badge-optional):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *):not([style*="background: #edf7ed"] *),
-html[data-theme="midnight"] label,
-html[data-theme="midnight"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected):not(.btn-primary):not(.btn-admin-create-res):not([style*="background:#edf7ed"]):not([style*="background: #edf7ed"]),
-html[data-theme="midnight"] strong:not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *):not([style*="background: #edf7ed"] *),
-html[data-theme="midnight"] b:not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-optional *):not([style*="background:#edf7ed"] *),
-html[data-theme="midnight"] em,
-html[data-theme="midnight"] small,
-html[data-theme="midnight"] li,
-html[data-theme="midnight"] dt,
-html[data-theme="midnight"] dd,
-html[data-theme="midnight"] table,
-html[data-theme="midnight"] thead th,
-html[data-theme="midnight"] tbody td,
-html[data-theme="midnight"] .admin-table th,
-html[data-theme="midnight"] .admin-table td,
-html[data-theme="midnight"] .admin-table-container th,
-html[data-theme="midnight"] .admin-table-container td,
-html[data-theme="midnight"] td strong,
-html[data-theme="midnight"] td small,
-html[data-theme="midnight"] td span:not([class*="badge"]):not([class*="btn"]):not(.btn-xs),
-html[data-theme="midnight"] .farm-title,
-html[data-theme="midnight"] .farm-card-title,
-html[data-theme="midnight"] .farm-tagline,
-html[data-theme="midnight"] .farm-card-location,
-html[data-theme="midnight"] .farm-location-badge,
-html[data-theme="midnight"] .farm-specs-row,
-html[data-theme="midnight"] .farm-specs-row span,
-html[data-theme="midnight"] .farm-price,
-html[data-theme="midnight"] .farm-price *,
-html[data-theme="midnight"] .price-period,
-html[data-theme="midnight"] .section-title,
-html[data-theme="midnight"] .section-subtitle,
-html[data-theme="midnight"] .hero-title,
-html[data-theme="midnight"] .hero-subtitle,
-html[data-theme="midnight"] .villa-section-title,
-html[data-theme="midnight"] .villa-overview-desc,
-html[data-theme="midnight"] .highlight-lbl,
-html[data-theme="midnight"] .highlight-val,
-html[data-theme="midnight"] .amenity-name,
-html[data-theme="midnight"] .rule-item,
-html[data-theme="midnight"] .policy-title,
-html[data-theme="midnight"] .policy-p,
-html[data-theme="midnight"] .wiz-villa-title,
-html[data-theme="midnight"] .wiz-modal-farm-name,
-html[data-theme="midnight"] .wiz-villa-location,
-html[data-theme="midnight"] .wiz-form-label,
-html[data-theme="midnight"] .admin-card-title,
-html[data-theme="midnight"] .admin-kpi-lbl,
-html[data-theme="midnight"] .admin-kpi-val,
-html[data-theme="midnight"] .stat-value,
-html[data-theme="midnight"] .stat-num,
-html[data-theme="midnight"] .numeric-val,
-html[data-theme="midnight"] .wiz-price-total,
-html[data-theme="midnight"] .wiz-price-deposit,
-html[data-theme="midnight"] .wiz-price-lbl {
-  color: #fbbf24 !important;
-}
-
-html[data-theme="sunset"] body,
-html[data-theme="sunset"] p,
-html[data-theme="sunset"] p *,
 html[data-theme="sunset"] h1,
 html[data-theme="sunset"] h2,
 html[data-theme="sunset"] h3,
 html[data-theme="sunset"] h4,
 html[data-theme="sunset"] h5,
 html[data-theme="sunset"] h6,
-html[data-theme="sunset"] h1 *,
-html[data-theme="sunset"] h2 *,
-html[data-theme="sunset"] h3 *,
-html[data-theme="sunset"] h4 *,
-html[data-theme="sunset"] h5 *,
-html[data-theme="sunset"] h6 *,
-html[data-theme="sunset"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *):not(.badge-optional):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *):not([style*="background: #edf7ed"] *),
-html[data-theme="sunset"] label,
-html[data-theme="sunset"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected):not(.btn-primary):not(.btn-admin-create-res):not([style*="background:#edf7ed"]):not([style*="background: #edf7ed"]),
-html[data-theme="sunset"] strong:not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *):not([style*="background: #edf7ed"] *),
-html[data-theme="sunset"] b:not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-optional *):not([style*="background:#edf7ed"] *),
-html[data-theme="sunset"] em,
-html[data-theme="sunset"] small,
-html[data-theme="sunset"] li,
-html[data-theme="sunset"] dt,
-html[data-theme="sunset"] dd,
-html[data-theme="sunset"] table,
-html[data-theme="sunset"] thead th,
-html[data-theme="sunset"] tbody td,
-html[data-theme="sunset"] .admin-table th,
-html[data-theme="sunset"] .admin-table td,
-html[data-theme="sunset"] .admin-table-container th,
-html[data-theme="sunset"] .admin-table-container td,
-html[data-theme="sunset"] td strong,
-html[data-theme="sunset"] td small,
-html[data-theme="sunset"] td span:not([class*="badge"]):not([class*="btn"]):not(.btn-xs),
-html[data-theme="sunset"] .farm-title,
-html[data-theme="sunset"] .farm-card-title,
-html[data-theme="sunset"] .farm-tagline,
-html[data-theme="sunset"] .farm-card-location,
-html[data-theme="sunset"] .farm-location-badge,
-html[data-theme="sunset"] .farm-specs-row,
-html[data-theme="sunset"] .farm-specs-row span,
-html[data-theme="sunset"] .farm-price,
-html[data-theme="sunset"] .farm-price *,
-html[data-theme="sunset"] .price-period,
-html[data-theme="sunset"] .section-title,
-html[data-theme="sunset"] .section-subtitle,
+html[data-theme="midnight"] .hero-title,
 html[data-theme="sunset"] .hero-title,
-html[data-theme="sunset"] .hero-subtitle,
-html[data-theme="sunset"] .villa-section-title,
-html[data-theme="sunset"] .villa-overview-desc,
-html[data-theme="sunset"] .highlight-lbl,
-html[data-theme="sunset"] .highlight-val,
-html[data-theme="sunset"] .amenity-name,
-html[data-theme="sunset"] .rule-item,
-html[data-theme="sunset"] .policy-title,
-html[data-theme="sunset"] .policy-p,
-html[data-theme="sunset"] .wiz-villa-title,
-html[data-theme="sunset"] .wiz-modal-farm-name,
-html[data-theme="sunset"] .wiz-villa-location,
-html[data-theme="sunset"] .wiz-form-label,
-html[data-theme="sunset"] .admin-card-title,
-html[data-theme="sunset"] .admin-kpi-lbl,
-html[data-theme="sunset"] .admin-kpi-val,
-html[data-theme="sunset"] .stat-value,
+html[data-theme="midnight"] .section-title,
+html[data-theme="sunset"] .section-title,
+html[data-theme="midnight"] .farm-price,
+html[data-theme="sunset"] .farm-price,
+html[data-theme="midnight"] .farm-price *,
+html[data-theme="sunset"] .farm-price *,
+html[data-theme="midnight"] .stat-num,
 html[data-theme="sunset"] .stat-num,
+html[data-theme="midnight"] .stat-value,
+html[data-theme="sunset"] .stat-value,
+html[data-theme="midnight"] .numeric-val,
 html[data-theme="sunset"] .numeric-val,
+html[data-theme="midnight"] .admin-kpi-val,
+html[data-theme="sunset"] .admin-kpi-val,
+html[data-theme="midnight"] .gold-badge,
+html[data-theme="sunset"] .gold-badge,
+html[data-theme="midnight"] .highlight-val,
+html[data-theme="sunset"] .highlight-val,
+html[data-theme="midnight"] .wiz-price-total,
 html[data-theme="sunset"] .wiz-price-total,
-html[data-theme="sunset"] .wiz-price-deposit,
-html[data-theme="sunset"] .wiz-price-lbl {
+html[data-theme="midnight"] .wiz-price-deposit,
+html[data-theme="sunset"] .wiz-price-deposit {
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+}
+
+/* 2. BLUE BACKGROUNDS -> YELLOW TEXT (#fbbf24 / #fef08a) */
+[style*="background:#0f1d40"],
+[style*="background: #0f1d40"],
+[style*="background:#13244d"],
+[style*="background: #13244d"],
+[style*="background:#172554"],
+[style*="background: #172554"],
+[style*="background:#1e3a8a"],
+[style*="background: #1e3a8a"],
+[style*="background:#1e40af"],
+[style*="background: #1e40af"],
+[style*="background:#2563eb"],
+[style*="background: #2563eb"],
+[style*="background:#3b82f6"],
+[style*="background: #3b82f6"],
+[style*="background:blue"],
+[style*="background: blue"],
+.bg-blue,
+.bg-sapphire,
+html[data-theme="midnight"] .card,
+html[data-theme="midnight"] .admin-card,
+html[data-theme="midnight"] .admin-kpi-card,
+html[data-theme="midnight"] .admin-gallery-card,
+html[data-theme="midnight"] .gallery-item-card,
+html[data-theme="midnight"] .modal-content,
+html[data-theme="midnight"] .modal-card,
+html[data-theme="midnight"] .farm-card,
+html[data-theme="midnight"] .top-utility-bar,
+html[data-theme="midnight"] .admin-sidebar,
+html[data-theme="midnight"] .admin-topbar {
   color: #fbbf24 !important;
 }
 
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) body,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) p,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) p *,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h1,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h2,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h3,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h4,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h5,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h6,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h1 *,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h2 *,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h3 *,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h4 *,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h5 *,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) h6 *,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) table,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) th,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td strong,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td small,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td span:not([class*="badge"]):not([class*="btn"]):not(.btn-xs),
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) span:not([class*="badge"]):not([class*="btn"]):not(.btn-xs):not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *):not(.badge-optional):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *) {
+/* Headings and labels on blue backgrounds -> YELLOW */
+html[data-theme="midnight"] .card h1,
+html[data-theme="midnight"] .card h2,
+html[data-theme="midnight"] .card h3,
+html[data-theme="midnight"] .card h4,
+html[data-theme="midnight"] .admin-card h2,
+html[data-theme="midnight"] .admin-card h3,
+html[data-theme="midnight"] .admin-card h4,
+html[data-theme="midnight"] .admin-card-title,
+html[data-theme="midnight"] .farm-card h3,
+html[data-theme="midnight"] .farm-card-title,
+html[data-theme="midnight"] .top-utility-bar *,
+[style*="background:#0f1d40"] h1, [style*="background:#0f1d40"] h2, [style*="background:#0f1d40"] h3,
+[style*="background:#13244d"] h1, [style*="background:#13244d"] h2, [style*="background:#13244d"] h3,
+[style*="background:#1e3a8a"] h1, [style*="background:#1e3a8a"] h2, [style*="background:#1e3a8a"] h3,
+[style*="background:#2563eb"] h1, [style*="background:#2563eb"] h2, [style*="background:#2563eb"] h3 {
   color: #fbbf24 !important;
+  font-weight: 800 !important;
+}
+
+/* Body / paragraphs on blue backgrounds -> Soft luminous yellow */
+html[data-theme="midnight"] .card p,
+html[data-theme="midnight"] .admin-card p,
+html[data-theme="midnight"] .farm-card p,
+html[data-theme="midnight"] .admin-gallery-card p,
+[style*="background:#0f1d40"] p,
+[style*="background:#13244d"] p,
+[style*="background:#1e3a8a"] p,
+[style*="background:#2563eb"] p {
+  color: #fef08a !important;
+}
+
+/* Blue Buttons -> Radiant Yellow Text */
+button[style*="background:#2563eb"],
+button[style*="background: #2563eb"],
+button[style*="background:#3b82f6"],
+button[style*="background: #3b82f6"],
+button[style*="background:#1d4ed8"],
+button[style*="background: #1d4ed8"],
+.btn-blue,
+.btn-sapphire,
+html[data-theme="midnight"] .btn-gallery-nav,
+html[data-theme="midnight"] .btn-gallery-nav * {
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 3. PINK / ROSE BACKGROUNDS -> YELLOW OR BLUE TEXT */
+[style*="background:#1f0817"],
+[style*="background: #1f0817"],
+[style*="background:#2e0d23"],
+[style*="background: #2e0d23"],
+[style*="background:#4a0d2e"],
+[style*="background: #4a0d2e"],
+[style*="background:#831843"],
+[style*="background: #831843"],
+[style*="background:#be185d"],
+[style*="background: #be185d"],
+[style*="background:#f43f5e"],
+[style*="background: #f43f5e"],
+[style*="background:#fb7185"],
+[style*="background: #fb7185"],
+[style*="background:#fda4af"],
+[style*="background: #fda4af"],
+[style*="background:pink"],
+[style*="background: pink"],
+.bg-pink,
+.bg-rose,
+html[data-theme="sunset"] .card,
+html[data-theme="sunset"] .admin-card,
+html[data-theme="sunset"] .admin-kpi-card,
+html[data-theme="sunset"] .admin-gallery-card,
+html[data-theme="sunset"] .gallery-item-card,
+html[data-theme="sunset"] .modal-content,
+html[data-theme="sunset"] .modal-card,
+html[data-theme="sunset"] .farm-card,
+html[data-theme="sunset"] .top-utility-bar,
+html[data-theme="sunset"] .admin-sidebar,
+html[data-theme="sunset"] .admin-topbar {
+  color: #fbbf24 !important;
+}
+
+/* Headings on pink/rose backgrounds -> Radiant Yellow */
+html[data-theme="sunset"] .card h1,
+html[data-theme="sunset"] .card h2,
+html[data-theme="sunset"] .card h3,
+html[data-theme="sunset"] .card h4,
+html[data-theme="sunset"] .admin-card h2,
+html[data-theme="sunset"] .admin-card h3,
+html[data-theme="sunset"] .admin-card h4,
+html[data-theme="sunset"] .admin-card-title,
+html[data-theme="sunset"] .farm-card h3,
+html[data-theme="sunset"] .farm-card-title,
+[style*="background:#1f0817"] h1, [style*="background:#1f0817"] h2, [style*="background:#1f0817"] h3,
+[style*="background:#2e0d23"] h1, [style*="background:#2e0d23"] h2, [style*="background:#2e0d23"] h3,
+[style*="background:#4a0d2e"] h1, [style*="background:#4a0d2e"] h2, [style*="background:#4a0d2e"] h3 {
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+}
+
+/* Paragraphs on pink/rose backgrounds -> Soft yellow */
+html[data-theme="sunset"] .card p,
+html[data-theme="sunset"] .admin-card p,
+html[data-theme="sunset"] .farm-card p,
+html[data-theme="sunset"] .admin-gallery-card p,
+[style*="background:#1f0817"] p,
+[style*="background:#2e0d23"] p {
+  color: #fef08a !important;
+}
+
+/* Pink / Rose Buttons -> Yellow Text */
+button[style*="background:#f43f5e"],
+button[style*="background: #f43f5e"],
+button[style*="background:#fb7185"],
+button[style*="background: #fb7185"],
+button[style*="background:#be185d"],
+button[style*="background: #be185d"],
+button[style*="background:#e11d48"],
+button[style*="background: #e11d48"],
+.btn-rose,
+.btn-pink,
+html[data-theme="sunset"] .btn-primary,
+html[data-theme="sunset"] .btn-primary *,
+html[data-theme="sunset"] .btn-gallery-nav,
+html[data-theme="sunset"] .btn-gallery-nav * {
+  color: #fbbf24 !important;
+  font-weight: 900 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Light Pink Badges / Tags -> Deep Navy Blue Text for High Contrast */
+.badge-pink,
+.tag-pink,
+[style*="background:#fce7f3"],
+[style*="background: #fce7f3"],
+[style*="background:#ffe4e6"],
+[style*="background: #ffe4e6"],
+[style*="background:#fda4af"],
+[style*="background: #fda4af"] {
+  color: #0f1d40 !important;
+  font-weight: 800 !important;
+}
+[style*="background:#fce7f3"] *,
+[style*="background: #fce7f3"] *,
+[style*="background:#ffe4e6"] *,
+[style*="background: #ffe4e6"] *,
+[style*="background:#fda4af"] * {
+  color: #0f1d40 !important;
+}
+
+/* 4. RED / CRIMSON BACKGROUNDS -> WHITE OR WARM YELLOW TEXT */
+[style*="background:#991b1b"],
+[style*="background: #991b1b"],
+[style*="background:#dc2626"],
+[style*="background: #dc2626"],
+[style*="background:#e11d48"],
+[style*="background: #e11d48"],
+[style*="background:#b91c1c"],
+[style*="background: #b91c1c"],
+[style*="background:red"],
+[style*="background: red"],
+.badge-rejected,
+.badge-danger,
+.status-rejected,
+.alert-danger {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+[style*="background:#991b1b"] *,
+[style*="background: #991b1b"] *,
+[style*="background:#dc2626"] *,
+[style*="background: #dc2626"] *,
+.badge-rejected * {
+  color: #ffffff !important;
 }
 
 /* 4. SEVERE CONTRAST PROTECTION FOR YELLOW ACTION BUTTONS
