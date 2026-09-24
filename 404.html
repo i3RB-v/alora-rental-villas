@@ -12410,6 +12410,223 @@ html[data-theme="midnight"] .admin-card .btn-xs.btn-outline {
   font-weight: 800 !important;
 }
 
+/* ─── 4. ADMIN & PUBLIC GALLERY CARDS THEME HARMONY ─────────────────── */
+.admin-gallery-card,
+.gallery-item-card {
+  background: var(--card-bg, #ffffff) !important;
+  border: 1px solid var(--card-border, #e2e8f0) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Midnight Sapphire Gallery Cards */
+html[data-theme="midnight"] .admin-gallery-card,
+html[data-theme="midnight"] .gallery-item-card {
+  background: #0f1d40 !important;
+  border: 1px solid rgba(59, 130, 246, 0.35) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+html[data-theme="midnight"] .admin-gallery-card .gallery-card-cat,
+html[data-theme="midnight"] .gallery-item-card .gallery-card-cat {
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+}
+html[data-theme="midnight"] .admin-gallery-card .gallery-card-title,
+html[data-theme="midnight"] .gallery-item-card h3 {
+  color: #f8fafc !important;
+  font-weight: 800 !important;
+}
+html[data-theme="midnight"] .admin-gallery-card .gallery-card-caption,
+html[data-theme="midnight"] .gallery-item-card p {
+  color: #93c5fd !important;
+}
+html[data-theme="midnight"] .admin-gallery-card .gallery-card-footer {
+  border-top: 1px solid rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Sunset Rose Royale Gallery Cards */
+html[data-theme="sunset"] .admin-gallery-card,
+html[data-theme="sunset"] .gallery-item-card {
+  background: #1f0817 !important;
+  border: 1px solid rgba(244, 63, 94, 0.35) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+html[data-theme="sunset"] .admin-gallery-card .gallery-card-cat,
+html[data-theme="sunset"] .gallery-item-card .gallery-card-cat {
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+}
+html[data-theme="sunset"] .admin-gallery-card .gallery-card-title,
+html[data-theme="sunset"] .gallery-item-card h3 {
+  color: #fff1f2 !important;
+  font-weight: 800 !important;
+}
+html[data-theme="sunset"] .admin-gallery-card .gallery-card-caption,
+html[data-theme="sunset"] .gallery-item-card p {
+  color: #fda4af !important;
+}
+html[data-theme="sunset"] .admin-gallery-card .gallery-card-footer {
+  border-top: 1px solid rgba(244, 63, 94, 0.25) !important;
+}
+
+/* Emerald Oasis & Light Gallery Cards */
+html[data-theme="emerald"] .admin-gallery-card,
+html[data-theme="light"] .admin-gallery-card,
+html:not([data-theme]) .admin-gallery-card,
+html[data-theme="emerald"] .gallery-item-card,
+html[data-theme="light"] .gallery-item-card,
+html:not([data-theme]) .gallery-item-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+}
+html[data-theme="emerald"] .admin-gallery-card .gallery-card-cat {
+  color: #C5A059 !important;
+}
+html[data-theme="emerald"] .admin-gallery-card .gallery-card-title {
+  color: #16402e !important;
+}
+html[data-theme="emerald"] .admin-gallery-card .gallery-card-caption {
+  color: #4b5563 !important;
+}
+
+/* ─── 5. GALLERY ACTION BUTTONS ULTRA-CONTRAST (UP / DOWN / DELETE) ─── */
+
+/* --- Midnight Theme Gallery Buttons --- */
+html[data-theme="midnight"] .btn-gallery-nav,
+html[data-theme="midnight"] .admin-gallery-card .btn-xs.btn-outline:not([style*="color:"]):not(.btn-gallery-delete) {
+  background: rgba(37, 99, 235, 0.25) !important;
+  border: 1.5px solid #60a5fa !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+html[data-theme="midnight"] .btn-gallery-nav:hover,
+html[data-theme="midnight"] .admin-gallery-card .btn-xs.btn-outline:not([style*="color:"]):not(.btn-gallery-delete):hover {
+  background: #2563eb !important;
+  border-color: #3b82f6 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.5) !important;
+}
+
+html[data-theme="midnight"] .btn-gallery-delete,
+html[data-theme="midnight"] .admin-gallery-card .btn-xs.btn-outline[style*="color:#e53e3e"],
+html[data-theme="midnight"] .admin-gallery-card .btn-xs.btn-outline[style*="color: #e53e3e"] {
+  background: rgba(225, 29, 72, 0.25) !important;
+  border: 1.5px solid #f87171 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 6px rgba(225, 29, 72, 0.35) !important;
+}
+html[data-theme="midnight"] .btn-gallery-delete:hover,
+html[data-theme="midnight"] .admin-gallery-card .btn-xs.btn-outline[style*="color:#e53e3e"]:hover,
+html[data-theme="midnight"] .admin-gallery-card .btn-xs.btn-outline[style*="color: #e53e3e"]:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.6) !important;
+}
+
+/* --- Sunset Theme Gallery Buttons --- */
+html[data-theme="sunset"] .btn-gallery-nav,
+html[data-theme="sunset"] .admin-gallery-card .btn-xs.btn-outline:not([style*="color:"]):not(.btn-gallery-delete) {
+  background: rgba(244, 63, 94, 0.2) !important;
+  border: 1.5px solid #fb7185 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+html[data-theme="sunset"] .btn-gallery-nav:hover,
+html[data-theme="sunset"] .admin-gallery-card .btn-xs.btn-outline:not([style*="color:"]):not(.btn-gallery-delete):hover {
+  background: #f43f5e !important;
+  border-color: #f43f5e !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.5) !important;
+}
+
+html[data-theme="sunset"] .btn-gallery-delete,
+html[data-theme="sunset"] .admin-gallery-card .btn-xs.btn-outline[style*="color:#e53e3e"],
+html[data-theme="sunset"] .admin-gallery-card .btn-xs.btn-outline[style*="color: #e53e3e"] {
+  background: rgba(225, 29, 72, 0.25) !important;
+  border: 1.5px solid #f43f5e !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 6px rgba(225, 29, 72, 0.35) !important;
+}
+html[data-theme="sunset"] .btn-gallery-delete:hover,
+html[data-theme="sunset"] .admin-gallery-card .btn-xs.btn-outline[style*="color:#e53e3e"]:hover,
+html[data-theme="sunset"] .admin-gallery-card .btn-xs.btn-outline[style*="color: #e53e3e"]:hover {
+  background: #e11d48 !important;
+  border-color: #e11d48 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.6) !important;
+}
+
+/* --- Emerald & Light Theme Gallery Buttons --- */
+html[data-theme="emerald"] .btn-gallery-nav,
+html[data-theme="light"] .btn-gallery-nav,
+html:not([data-theme]) .btn-gallery-nav {
+  background: #f8fafc !important;
+  border: 1.5px solid #94a3b8 !important;
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+}
+html[data-theme="emerald"] .btn-gallery-nav:hover,
+html[data-theme="light"] .btn-gallery-nav:hover,
+html:not([data-theme]) .btn-gallery-nav:hover {
+  background: #16402e !important;
+  border-color: #16402e !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="emerald"] .btn-gallery-delete,
+html[data-theme="light"] .btn-gallery-delete,
+html:not([data-theme]) .btn-gallery-delete {
+  background: #fef2f2 !important;
+  border: 1.5px solid #fca5a5 !important;
+  color: #b91c1c !important;
+  font-weight: 800 !important;
+}
+html[data-theme="emerald"] .btn-gallery-delete:hover,
+html[data-theme="light"] .btn-gallery-delete:hover,
+html:not([data-theme]) .btn-gallery-delete:hover {
+  background: #b91c1c !important;
+  border-color: #b91c1c !important;
+  color: #ffffff !important;
+}
+
+/* ─── 6. UNIVERSAL DARK THEME WHITE CONTAINER IMMUNIZATION ──────────── */
+/* Automatically neutralize any accidental hardcoded white background in dark themes */
+html[data-theme="midnight"] div[style*="background:#fff"],
+html[data-theme="midnight"] div[style*="background: #fff"],
+html[data-theme="midnight"] div[style*="background:#ffffff"],
+html[data-theme="midnight"] div[style*="background: #ffffff"],
+html[data-theme="midnight"] div[style*="background:white"],
+html[data-theme="midnight"] div[style*="background: white"],
+html[data-theme="midnight"] .contact-direct-card,
+html[data-theme="midnight"] .empty-state-card {
+  background: #0f1d40 !important;
+  border-color: rgba(59, 130, 246, 0.35) !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="sunset"] div[style*="background:#fff"],
+html[data-theme="sunset"] div[style*="background: #fff"],
+html[data-theme="sunset"] div[style*="background:#ffffff"],
+html[data-theme="sunset"] div[style*="background: #ffffff"],
+html[data-theme="sunset"] div[style*="background:white"],
+html[data-theme="sunset"] div[style*="background: white"],
+html[data-theme="sunset"] .contact-direct-card,
+html[data-theme="sunset"] .empty-state-card {
+  background: #1f0817 !important;
+  border-color: rgba(244, 63, 94, 0.35) !important;
+  color: #fff1f2 !important;
+}
+
+
 
 
 
@@ -16175,7 +16392,7 @@ const TRANSLATIONS = {
                 <div>📍 <strong>${isAr ? 'المواقع:' : 'Locations:'}</strong> ${isAr ? 'البحر الميت، عمّان، جرش، السلط (الأردن)' : 'Dead Sea, Amman, Jerash, Al-Salt (Jordan)'}</div>
               </div>
             </div>
-            <div style="text-align:center;background:#fff;padding:2rem;border-radius:var(--radius-lg);box-shadow:0 6px 20px rgba(0,0,0,0.04);">
+            <div class="card contact-direct-card" style="text-align:center;padding:2rem;border-radius:var(--radius-lg);box-shadow:0 6px 20px rgba(0,0,0,0.04);">
               <div style="font-size:3rem;margin-bottom:1rem;">🏡</div>
               <h3 style="font-size:1.25rem;font-weight:800;color:var(--primary-900);margin-bottom:0.5rem;">${t('directResTitle')}</h3>
               <p style="font-size:0.85rem;color:var(--neutral-500);margin-bottom:1.5rem;">
@@ -16282,7 +16499,7 @@ const TRANSLATIONS = {
               ${filtered.map(f => renderFarmCard(f)).join('')}
             </div>
           ` : `
-            <div style="text-align:center;padding:4rem 1rem;background:#fff;border-radius:var(--radius-lg);">
+            <div class="card empty-state-card" style="text-align:center;padding:4rem 1rem;border-radius:var(--radius-lg);">
               <div style="font-size:3rem;margin-bottom:1rem;">🔍</div>
               <h3 style="font-size:1.3rem;font-weight:800;color:var(--primary-900);">${t('noVillasTitle')}</h3>
               <p style="color:var(--neutral-500);margin-bottom:1.5rem;">${t('noVillasDesc')}</p>
@@ -16491,7 +16708,7 @@ const TRANSLATIONS = {
               const gCaption = isAr ? (item.captionAr || item.caption) : item.caption;
               const catLabel = catMap[item.category] || (isAr ? 'فيلا فاخرة' : 'Luxury Villa');
               return `
-              <div style="background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.04);transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+              <div class="gallery-item-card card farm-card" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.04);transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
                 <img src="${item.url}" alt="${gTitle}" style="width:100%;height:240px;object-fit:cover;" />
                 <div style="padding:1.25rem;">
                   <div style="font-size:0.75rem;font-weight:700;color:#C5A059;text-transform:uppercase;margin-bottom:4px;">${catLabel}</div>
@@ -18839,20 +19056,20 @@ const TRANSLATIONS = {
             const gCaption = isAr ? (item.captionAr || item.caption) : item.caption;
             const catLabel = item.category === 'pool' ? (isAr ? 'مسبح' : 'Pool') : (item.category === 'exterior' ? (isAr ? 'خارجي' : 'Exterior') : (isAr ? 'داخلي' : 'Interior'));
             return `
-            <div style="background:#fff;border:1px solid var(--neutral-200);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+            <div class="admin-gallery-card admin-card" style="border-radius:var(--radius-lg);overflow:hidden;">
               <img src="${item.url}" alt="${gTitle}" style="width:100%;height:180px;object-fit:cover;" />
               <div style="padding:1rem;">
-                <div style="font-size:0.75rem;font-weight:700;color:#C5A059;text-transform:uppercase;">${catLabel}</div>
-                <h4 style="font-size:1rem;font-weight:800;color:var(--primary-900);margin:4px 0;">${gTitle}</h4>
-                <p style="font-size:0.8rem;color:var(--neutral-600);margin:0 0 1rem 0;">${gCaption}</p>
+                <div class="gallery-card-cat" style="font-size:0.75rem;font-weight:700;text-transform:uppercase;">${catLabel}</div>
+                <h4 class="gallery-card-title" style="font-size:1rem;font-weight:800;margin:4px 0;">${gTitle}</h4>
+                <p class="gallery-card-caption" style="font-size:0.8rem;margin:0 0 1rem 0;">${gCaption}</p>
                 
-                <div style="display:flex;justify-content:space-between;border-top:1px solid var(--neutral-100);padding-top:0.75rem;">
-                  <div style="display:flex;gap:4px;">
-                    ${idx > 0 ? `<button class="btn-xs btn-outline" onclick="window.Alora.reorderGallery(${idx}, -1)">${t('btnUp')}</button>` : ''}
-                    ${idx < State.gallery.length - 1 ? `<button class="btn-xs btn-outline" onclick="window.Alora.reorderGallery(${idx}, 1)">${t('btnDown')}</button>` : ''}
+                <div class="gallery-card-footer" style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.1);padding-top:0.75rem;">
+                  <div style="display:flex;gap:6px;">
+                    ${idx > 0 ? `<button class="btn-xs btn-outline btn-gallery-nav" onclick="window.Alora.reorderGallery(${idx}, -1)">${t('btnUp')}</button>` : ''}
+                    ${idx < State.gallery.length - 1 ? `<button class="btn-xs btn-outline btn-gallery-nav" onclick="window.Alora.reorderGallery(${idx}, 1)">${t('btnDown')}</button>` : ''}
                   </div>
-                  <button class="btn-xs btn-outline" style="color:#e53e3e;" onclick="window.Alora.deleteGalleryImage('${item.id}')">
-                    ${t('btnDelete')}
+                  <button class="btn-xs btn-outline btn-gallery-delete" style="color:#e53e3e;" onclick="window.Alora.deleteGalleryImage('${item.id}')">
+                    🗑️ ${t('btnDelete')}
                   </button>
                 </div>
               </div>
@@ -19883,7 +20100,7 @@ const TRANSLATIONS = {
           </div>
 
           <!-- Lookup Form Card -->
-          <div style="background:#ffffff;border-radius:var(--radius-xl);padding:2rem;box-shadow:0 10px 35px rgba(0,0,0,0.06);border:1px solid #eae5dc;margin-bottom:2rem;">
+          <div class="card booking-lookup-card" style="border-radius:var(--radius-xl);padding:2rem;box-shadow:0 10px 35px rgba(0,0,0,0.06);margin-bottom:2rem;">
             <form onsubmit="event.preventDefault(); window.Alora.searchFindBooking();" style="display:grid;grid-template-columns:1fr 1fr auto;gap:1rem;align-items:end;">
               <div class="form-group" style="margin-bottom:0;">
                 <label class="form-label" style="font-weight:700;">${t('tableRef') || 'Booking Reference #'}</label>
@@ -19901,7 +20118,7 @@ const TRANSLATIONS = {
 
           <!-- Lookup Result Display -->
           ${lookup ? `
-            <div style="background:#ffffff;border-radius:var(--radius-xl);padding:2.5rem;box-shadow:0 12px 40px rgba(0,0,0,0.08);border:2px solid #c5a059;">
+            <div class="card booking-result-card" style="border-radius:var(--radius-xl);padding:2.5rem;box-shadow:0 12px 40px rgba(0,0,0,0.08);">
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;border-bottom:1px solid #f0eae1;padding-bottom:1rem;flex-wrap:wrap;gap:10px;">
                 <div>
                   <span class="gold-badge">${lookup.booking_number || lookup.bookingNumber}</span>
@@ -19995,7 +20212,7 @@ const TRANSLATIONS = {
             </h1>
           </div>
 
-          <div style="background:#ffffff;border-radius:var(--radius-xl);padding:2.5rem;box-shadow:0 10px 35px rgba(0,0,0,0.06);border:1px solid #eae5dc;display:flex;flex-direction:column;gap:2rem;">
+          <div class="card policy-card" style="border-radius:var(--radius-xl);padding:2.5rem;box-shadow:0 10px 35px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:2rem;">
             <div>
               <h3 style="color:#16402e;font-size:1.3rem;font-weight:800;margin-bottom:0.75rem;">🛡️ ${t('policyTerms')}</h3>
               <p style="color:var(--neutral-700);line-height:1.8;margin:0;font-size:0.95rem;">${terms}</p>
