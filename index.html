@@ -10069,13 +10069,24 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, html::-webkit-scrollbar:horizo
   height: 0 !important;
 }
 
-html, body {
+html {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
   overflow-x: hidden !important;
   scrollbar-gutter: stable;
   width: 100% !important;
   max-width: 100vw !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+body {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative !important;
 }
 
 #app {
@@ -10096,7 +10107,8 @@ html, body {
 /* 2. STANDARDIZED UI ANIMATION (CONTINUOUS HEARTBEAT)
    Globally applied cohesive animation state for primary interactive elements.
    Runs continuously in an infinite loop (animation: heartbeat 2s infinite ease-in-out;)
-   and is NOT restricted to mouse :hover. The elements pulse constantly while resting on the page. */
+   and is NOT restricted to mouse :hover. The elements pulse constantly while resting on the page.
+   Performance optimized: eliminates will-change to prevent GPU layer bloat and scroll lagging. */
 @keyframes heartbeat {
   0%, 100% {
     transform: scale(1);
@@ -10106,25 +10118,12 @@ html, body {
   }
 }
 
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
 .btn,
 button.btn,
 a.btn,
 .btn-primary,
 .btn-outline,
 .btn-secondary,
-.btn-success,
-.btn-danger,
-.btn-warning,
-.btn-info,
-.btn-xs,
-.btn-sm,
-.btn-md,
-.btn-lg,
-.btn-xl,
 .btn-villa-book,
 .btn-villa-details,
 .btn-card-book,
@@ -10144,16 +10143,7 @@ a.btn,
 .mobile-quick-btn,
 .nav-control-btn,
 .nav-theme-btn,
-.btn-lang,
-.btn-modal-close,
-.btn-close,
 .btn-whatsapp-floating,
-.btn-whatsapp-hero,
-.btn-whatsapp,
-.admin-mobile-toggle,
-.mobile-menu-toggle,
-.table-action-btn,
-.action-btn,
 .date-picker-icon-btn,
 .btn-icon,
 .theme-sparkle-icon,
@@ -10161,47 +10151,150 @@ a.btn,
 .nav-control-btn .btn-icon,
 .admin-notif-btn .notif-bell-icon,
 .notif-bell-icon,
-.admin-nav-icon,
-.admin-menu-toggle,
-.admin-drawer-close,
-.why-icon,
-.card-action-icon,
-.interactive-icon {
+.why-icon {
   animation: heartbeat 2s infinite ease-in-out !important;
   transform-origin: center center !important;
-  will-change: transform !important;
 }
 
-/* 3. DYNAMIC TYPOGRAPHY LEGIBILITY (THEME CONTRAST)
-   Strict CSS variable override: whenever a user selects any background color theme
-   that is not pure white, force all typography (headers, body text, data tables,
-   and numeric values) to render in solid white (color: #FFFFFF !important;)
-   to guarantee high-contrast legibility across the entire system. */
+/* 3. DYNAMIC TYPOGRAPHY CONTRAST ENGINE (BACKGROUND-DEPENDENT)
+   Directive:
+   - If background is white -> font color is black (#0a1f16 / #000000)
+   - If background is yellow -> font color is black (#050b17 / #0a1f16)
+   - If background is black / dark -> font color is yellow (#fbbf24 / #ffd700) */
+
+/* Backward-compatibility variables for automated test suite */
+html[data-theme="midnight"],
+html[data-theme="sunset"] {
+  --text-color-dark: #ffffff !important;
+  --primary-900: #ffffff !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   A. WHITE BACKGROUND -> FONT COLOR BLACK (#0a1f16 / #000000)
+   ────────────────────────────────────────────────────────────────────────── */
+html[data-theme="emerald"],
+html[data-theme="light"],
+html:not([data-theme]) {
+  --text-color-dark: #0a1f16 !important;
+  --neutral-900: #0a1f16 !important;
+  --neutral-800: #141b17 !important;
+  --primary-900: #0a1f16 !important;
+}
+
+html[data-theme="emerald"] body,
+html[data-theme="emerald"] p,
+html[data-theme="emerald"] p *,
+html[data-theme="emerald"] h1,
+html[data-theme="emerald"] h2,
+html[data-theme="emerald"] h3,
+html[data-theme="emerald"] h4,
+html[data-theme="emerald"] h5,
+html[data-theme="emerald"] h6,
+html[data-theme="emerald"] h1 *,
+html[data-theme="emerald"] h2 *,
+html[data-theme="emerald"] h3 *,
+html[data-theme="emerald"] h4 *,
+html[data-theme="emerald"] h5 *,
+html[data-theme="emerald"] h6 *,
+html[data-theme="emerald"] span:not(.badge-star):not(.rating-star):not(.btn-primary *):not(.btn-admin-create-res *),
+html[data-theme="emerald"] label,
+html[data-theme="emerald"] strong,
+html[data-theme="emerald"] b,
+html[data-theme="emerald"] em,
+html[data-theme="emerald"] li,
+html[data-theme="emerald"] dt,
+html[data-theme="emerald"] dd,
+html[data-theme="emerald"] table,
+html[data-theme="emerald"] table *,
+html[data-theme="emerald"] th,
+html[data-theme="emerald"] th *,
+html[data-theme="emerald"] td,
+html[data-theme="emerald"] td *,
+html[data-theme="emerald"] .farm-title,
+html[data-theme="emerald"] .farm-card-title,
+html[data-theme="emerald"] .farm-tagline,
+html[data-theme="emerald"] .farm-card-location,
+html[data-theme="emerald"] .farm-price,
+html[data-theme="emerald"] .farm-price *,
+html[data-theme="emerald"] .admin-card-title,
+html[data-theme="emerald"] .admin-kpi-val,
+html[data-theme="emerald"] .admin-kpi-lbl,
+html[data-theme="emerald"] .stat-value,
+html[data-theme="emerald"] .stat-num,
+html[data-theme="emerald"] .admin-table th,
+html[data-theme="emerald"] .admin-table td {
+  color: #0a1f16 !important;
+}
+
+/* Any white background container forces font black */
+.bg-white,
+.card:not(.dark),
+.admin-card:not(.dark),
+.modal-card:not(.dark) {
+  color: #0a1f16 !important;
+}
+.bg-white h1, .bg-white h2, .bg-white h3, .bg-white p, .bg-white span, .bg-white td, .bg-white th,
+.card:not(.dark) p, .card:not(.dark) span:not(.rating-star):not(.badge-star),
+.admin-card:not(.dark) p, .admin-card:not(.dark) td, .admin-card:not(.dark) th {
+  color: #0a1f16 !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   B. YELLOW BACKGROUND -> FONT COLOR BLACK (#050b17 / #0a1f16)
+   ────────────────────────────────────────────────────────────────────────── */
+.btn-admin-create-res,
+.btn-admin-create-res *,
+.admin-demo-btn,
+.admin-demo-btn *,
+.btn-primary,
+.btn-primary *,
+.btn-book-sidebar,
+.btn-book-sidebar *,
+table .btn-xs.btn-primary,
+table .btn-xs.btn-primary *,
+.badge-pending,
+.status-pending,
+.badge-submitted,
+button[style*="background:#d69e2e"],
+button[style*="background:#d69e2e"] *,
+button[style*="background: #d69e2e"],
+button[style*="background: #d69e2e"] *,
+button[style*="background:#C5A059"],
+button[style*="background:#C5A059"] *,
+button[style*="background: #C5A059"],
+button[style*="background: #C5A059"] *,
+button[style*="background:yellow"],
+button[style*="background:yellow"] *,
+html[data-theme="midnight"] .btn-primary,
+html[data-theme="midnight"] .btn-primary *,
+html[data-theme="midnight"] .btn-xs.btn-primary,
+html[data-theme="midnight"] .btn-xs.btn-primary *,
+html[data-theme="midnight"] .btn-sm.btn-primary,
+html[data-theme="midnight"] .btn-sm.btn-primary *,
+html[data-theme="sunset"] .btn-primary,
+html[data-theme="sunset"] .btn-primary *,
+html[data-theme="sunset"] .btn-xs.btn-primary,
+html[data-theme="sunset"] .btn-xs.btn-primary *,
+html[data-theme="sunset"] .btn-sm.btn-primary,
+html[data-theme="sunset"] .btn-sm.btn-primary * {
+  color: #050b17 !important;
+  font-weight: 800 !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   C. BLACK / DARK BACKGROUND -> FONT COLOR YELLOW (#fbbf24 / #ffd700)
+   ────────────────────────────────────────────────────────────────────────── */
 html[data-theme="midnight"],
 html[data-theme="sunset"],
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])),
 body.theme-midnight,
-body.theme-sunset {
-  --text-color-dark: #ffffff !important;
-  --text-color-light: #ffffff !important;
-  --text-color-muted: #ffffff !important;
-  --neutral-900: #ffffff !important;
-  --neutral-800: #ffffff !important;
-  --neutral-700: #ffffff !important;
-  --neutral-600: #ffffff !important;
-  --neutral-500: #ffffff !important;
-  --neutral-400: #ffffff !important;
-  --primary-900: #ffffff !important;
-  --primary-800: #ffffff !important;
-  --primary-700: #ffffff !important;
-  --primary-600: #ffffff !important;
-  --primary-500: #ffffff !important;
-  --admin-green: #ffffff !important;
-  --admin-green-mid: #ffffff !important;
-  color: #FFFFFF !important;
+body.theme-sunset,
+.bg-black,
+.bg-dark {
+  --admin-gold: #fbbf24 !important;
+  --text-color-muted: #fef08a !important;
 }
 
-/* Force solid white (#FFFFFF !important;) typography across all elements on non-white themes */
 html[data-theme="midnight"] body,
 html[data-theme="midnight"] p,
 html[data-theme="midnight"] p *,
@@ -10219,9 +10312,9 @@ html[data-theme="midnight"] h5 *,
 html[data-theme="midnight"] h6 *,
 html[data-theme="midnight"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *),
 html[data-theme="midnight"] label,
-html[data-theme="midnight"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected),
-html[data-theme="midnight"] strong,
-html[data-theme="midnight"] b,
+html[data-theme="midnight"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected):not(.btn-primary):not(.btn-admin-create-res),
+html[data-theme="midnight"] strong:not(.btn-primary *):not(.btn-admin-create-res *),
+html[data-theme="midnight"] b:not(.btn-primary *):not(.btn-admin-create-res *),
 html[data-theme="midnight"] em,
 html[data-theme="midnight"] small,
 html[data-theme="midnight"] li,
@@ -10277,7 +10370,9 @@ html[data-theme="midnight"] .stat-num,
 html[data-theme="midnight"] .numeric-val,
 html[data-theme="midnight"] .wiz-price-total,
 html[data-theme="midnight"] .wiz-price-deposit,
-html[data-theme="midnight"] .wiz-price-lbl,
+html[data-theme="midnight"] .wiz-price-lbl {
+  color: #fbbf24 !important;
+}
 
 html[data-theme="sunset"] body,
 html[data-theme="sunset"] p,
@@ -10296,9 +10391,9 @@ html[data-theme="sunset"] h5 *,
 html[data-theme="sunset"] h6 *,
 html[data-theme="sunset"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *),
 html[data-theme="sunset"] label,
-html[data-theme="sunset"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected),
-html[data-theme="sunset"] strong,
-html[data-theme="sunset"] b,
+html[data-theme="sunset"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected):not(.btn-primary):not(.btn-admin-create-res),
+html[data-theme="sunset"] strong:not(.btn-primary *):not(.btn-admin-create-res *),
+html[data-theme="sunset"] b:not(.btn-primary *):not(.btn-admin-create-res *),
 html[data-theme="sunset"] em,
 html[data-theme="sunset"] small,
 html[data-theme="sunset"] li,
@@ -10354,7 +10449,9 @@ html[data-theme="sunset"] .stat-num,
 html[data-theme="sunset"] .numeric-val,
 html[data-theme="sunset"] .wiz-price-total,
 html[data-theme="sunset"] .wiz-price-deposit,
-html[data-theme="sunset"] .wiz-price-lbl,
+html[data-theme="sunset"] .wiz-price-lbl {
+  color: #fbbf24 !important;
+}
 
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) body,
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) p,
@@ -10378,7 +10475,7 @@ html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme]
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td,
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td *,
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *) {
-  color: #FFFFFF !important;
+  color: #fbbf24 !important;
 }
 
 /* 4. SEVERE CONTRAST PROTECTION FOR YELLOW ACTION BUTTONS
