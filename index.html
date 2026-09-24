@@ -10262,21 +10262,70 @@ html[data-theme="emerald"] .admin-table td {
   color: #0a1f16 !important;
 }
 
-/* White / Light Gray Badges & Tags (e.g. 'اختياري' / Optional Tag in Screenshot 3 & 5) -> Black Text */
+/* ─── DYNAMIC THEME COLORING FOR OPTIONAL BADGES (.badge-optional) ─── */
 .badge-optional,
-span.badge-optional,
-span[style*="background:#e2e8f0"],
-span[style*="background: #e2e8f0"],
-span[style*="background:#edf2f7"],
-span[style*="background: #edf2f7"],
-span[style*="background:#f1f5f9"],
-span[style*="background: #f1f5f9"],
-span[style*="background:#e5e7eb"],
-span[style*="background: #e5e7eb"],
-span[style*="background:#ffffff"],
-span[style*="background: #ffffff"],
-span[style*="background:white"],
-span[style*="background: white"] {
+span.badge-optional {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.02em !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Emerald Oasis / Light Theme (Default) */
+html[data-theme="emerald"] .badge-optional,
+html[data-theme="emerald"] span.badge-optional,
+html[data-theme="light"] .badge-optional,
+html[data-theme="light"] span.badge-optional,
+html:not([data-theme]) .badge-optional,
+html:not([data-theme]) span.badge-optional,
+body:not([data-theme]) .badge-optional,
+.badge-optional {
+  background: rgba(4, 120, 87, 0.1) !important;
+  color: #065f46 !important;
+  border: 1px solid rgba(4, 120, 87, 0.3) !important;
+}
+
+/* Royal Midnight Sapphire Theme */
+html[data-theme="midnight"] .badge-optional,
+html[data-theme="midnight"] span.badge-optional,
+html[data-theme="midnight"] .modal-card .badge-optional,
+html[data-theme="midnight"] .modal-card span.badge-optional {
+  background: rgba(37, 99, 235, 0.22) !important;
+  color: #93c5fd !important;
+  border: 1px solid rgba(147, 197, 253, 0.45) !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* Sunset Rose Royale Theme (Addresses user screenshot directly) */
+html[data-theme="sunset"] .badge-optional,
+html[data-theme="sunset"] span.badge-optional,
+html[data-theme="sunset"] .modal-card .badge-optional,
+html[data-theme="sunset"] .modal-card span.badge-optional {
+  background: rgba(244, 63, 94, 0.22) !important;
+  color: #fecdd3 !important;
+  border: 1px solid rgba(251, 113, 133, 0.5) !important;
+  box-shadow: 0 2px 8px rgba(244, 63, 94, 0.25) !important;
+}
+
+/* Generic White / Light Gray Tags -> Black Text */
+span[style*="background:#e2e8f0"]:not(.badge-optional),
+span[style*="background: #e2e8f0"]:not(.badge-optional),
+span[style*="background:#edf2f7"]:not(.badge-optional),
+span[style*="background: #edf2f7"]:not(.badge-optional),
+span[style*="background:#f1f5f9"]:not(.badge-optional),
+span[style*="background: #f1f5f9"]:not(.badge-optional),
+span[style*="background:#e5e7eb"]:not(.badge-optional),
+span[style*="background: #e5e7eb"]:not(.badge-optional),
+span[style*="background:#ffffff"]:not(.badge-optional),
+span[style*="background: #ffffff"]:not(.badge-optional),
+span[style*="background:white"]:not(.badge-optional),
+span[style*="background: white"]:not(.badge-optional) {
   color: #0a1f16 !important;
   font-weight: 800 !important;
 }
@@ -10886,10 +10935,10 @@ html[data-theme="midnight"] .admin-sidebar .admin-nav-item:not(.active) *,
 html[data-theme="sunset"] .admin-sidebar .admin-nav-item:not(.active),
 html[data-theme="sunset"] .admin-sidebar .admin-nav-item:not(.active) *,
 html[data-theme="midnight"] .modal-card p,
-html[data-theme="midnight"] .modal-card span:not(.badge-star):not(.rating-star),
+html[data-theme="midnight"] .modal-card span:not(.badge-star):not(.rating-star):not(.badge-optional):not(.badge-optional *),
 html[data-theme="midnight"] .modal-card label,
 html[data-theme="sunset"] .modal-card p,
-html[data-theme="sunset"] .modal-card span:not(.badge-star):not(.rating-star),
+html[data-theme="sunset"] .modal-card span:not(.badge-star):not(.rating-star):not(.badge-optional):not(.badge-optional *),
 html[data-theme="sunset"] .modal-card label {
   color: #fbbf24 !important;
   font-weight: 700 !important;
@@ -10991,6 +11040,43 @@ html[data-theme="sunset"] .modal-header {
   position: relative !important;
   z-index: 2 !important;
 }
+
+/* ─── GUARANTEED THEME COLORING FOR OPTIONAL BADGES ─── */
+html[data-theme="emerald"] .badge-optional,
+html[data-theme="light"] .badge-optional,
+html:not([data-theme]) .badge-optional,
+body:not([data-theme]) .badge-optional,
+.badge-optional {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  background: rgba(4, 120, 87, 0.1) !important;
+  color: #065f46 !important;
+  border: 1px solid rgba(4, 120, 87, 0.3) !important;
+}
+
+html[data-theme="midnight"] .badge-optional,
+html[data-theme="midnight"] .modal-card .badge-optional,
+html[data-theme="midnight"] .modal-card span.badge-optional {
+  background: rgba(37, 99, 235, 0.22) !important;
+  color: #93c5fd !important;
+  border: 1px solid rgba(147, 197, 253, 0.45) !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25) !important;
+}
+
+html[data-theme="sunset"] .badge-optional,
+html[data-theme="sunset"] .modal-card .badge-optional,
+html[data-theme="sunset"] .modal-card span.badge-optional {
+  background: rgba(244, 63, 94, 0.22) !important;
+  color: #fecdd3 !important;
+  border: 1px solid rgba(251, 113, 133, 0.5) !important;
+  box-shadow: 0 2px 8px rgba(244, 63, 94, 0.25) !important;
+}
+
 
 
 
@@ -15518,7 +15604,7 @@ const TRANSLATIONS = {
                 <div class="form-group" style="margin-bottom:1.25rem;">
                   <div style="display:flex;justify-content:space-between;align-items:center;">
                     <label class="form-label" style="font-weight:700;">${t('emailAddressLabel')}</label>
-                    <span class="badge-optional" style="font-size:0.75rem;background:#e2e8f0;padding:2px 6px;border-radius:4px;color:#0a1f16;font-weight:800;">${t('optionalTag')}</span>
+                    <span class="badge-optional">${t('optionalTag')}</span>
                   </div>
                   <input type="email" id="wizCustEmail" class="form-input" placeholder="e.g. yourname@gmail.com" value="${w.customerEmail}" oninput="window.Alora.updateWizardState('customerEmail', this.value, false)" dir="ltr" />
                   <small style="color:var(--neutral-500);font-size:0.8rem;display:block;margin-top:4px;">
@@ -15613,7 +15699,7 @@ const TRANSLATIONS = {
                 <div class="form-group" style="margin-bottom:1.5rem;">
                   <div style="display:flex;justify-content:space-between;align-items:center;">
                     <label class="form-label" style="font-weight:700;">${t('paymentProofLabel')}</label>
-                    <span class="badge-optional" style="font-size:0.75rem;background:#e2e8f0;padding:2px 6px;border-radius:4px;color:#0a1f16;font-weight:800;">${t('optionalTag')}</span>
+                    <span class="badge-optional">${t('optionalTag')}</span>
                   </div>
                   <input type="text" class="form-input" placeholder="Paste image URL (Optional)" value="${w.paymentProof}" oninput="window.Alora.updateWizardState('paymentProof', this.value, false)" dir="ltr" />
                 </div>
