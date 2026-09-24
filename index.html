@@ -9360,6 +9360,675 @@ html[data-theme="sunset"] .wiz-form-label {
   color: #fff1f2 !important;
 }
 
+/* ==========================================================================
+   MOBILE & PHONE VIEWPORT BUTTON STANDARDIZATION & CONTRAST AUDIT
+   Covers phones & tablets (max-width: 768px and max-width: 480px).
+   Enforces:
+   1. Unhovered default resting state >= 4.5:1 contrast across all themes
+      (Emerald, Midnight, Sunset) since mobile touch screens lack mouse hover.
+   2. Touch targets >= 44px min-height/width for all primary & secondary buttons.
+   3. Yellow/amber buttons strictly enforce dark text (#0a1f16 / #050b17) in all themes.
+   4. Tactile active feedback (:active) for responsive touch interaction.
+   5. Standardized heartbeat pulse on actionable icons (no spinning/flipping).
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* 1. Global Touch Target & Layout Standardization for ALL Interactive Buttons */
+  .btn,
+  button.btn,
+  a.btn,
+  .btn-primary,
+  .btn-outline,
+  .btn-secondary,
+  .btn-villa-details,
+  .btn-villa-book,
+  .btn-card-book,
+  .btn-card-view,
+  .btn-back-to-villas,
+  .btn-book-sidebar,
+  .btn-whatsapp-sidebar,
+  .nav-reserve-btn,
+  .btn-nav-reserve,
+  .top-bar-admin-btn,
+  .mobile-quick-btn,
+  .admin-btn-primary,
+  .admin-btn-outline,
+  .admin-demo-btn,
+  .admin-login-return-btn,
+  .btn-admin-create-res,
+  .modal-footer .btn,
+  .wiz-action-footer .btn,
+  .btn-search-submit {
+    min-height: 44px !important;
+    padding: 0.65rem 1.25rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Tactile active feedback for touch devices */
+  .btn:active,
+  button.btn:active,
+  a.btn:active,
+  .btn-primary:active,
+  .btn-outline:active,
+  .btn-secondary:active,
+  .btn-villa-details:active,
+  .btn-villa-book:active,
+  .btn-card-book:active,
+  .btn-card-view:active,
+  .btn-back-to-villas:active,
+  .btn-book-sidebar:active,
+  .nav-reserve-btn:active,
+  .top-bar-admin-btn:active,
+  .mobile-quick-btn:active,
+  .admin-btn-primary:active,
+  .admin-btn-outline:active,
+  .admin-demo-btn:active,
+  .admin-login-return-btn:active,
+  .btn-admin-create-res:active,
+  .modal-footer .btn:active,
+  .wiz-action-footer .btn:active,
+  .btn-xs:active,
+  .btn-sm:active,
+  .cliq-copy-btn:active,
+  .date-picker-icon-btn:active {
+    transform: scale(0.97) !important;
+    transition: transform 0.08s ease !important;
+  }
+
+  /* Accessible focus indicators */
+  .btn:focus-visible,
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid currentColor !important;
+    outline-offset: 2px !important;
+  }
+
+  /* 2. Compact & Table Action Buttons on Mobile Viewports */
+  .btn-xs,
+  .btn-sm,
+  .btn-sm-action,
+  .cliq-copy-btn,
+  .cal-nav-btn {
+    min-height: 38px !important;
+    min-width: 38px !important;
+    padding: 0.45rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. Navigation Controls & Mobile Triggers */
+  .mobile-menu-btn,
+  .admin-menu-toggle-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    font-size: 1.35rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .nav-control-btn,
+  .nav-lang-btn,
+  .nav-theme-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    font-size: 1rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .admin-notif-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    font-size: 1.25rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* 4. Modal Close & Datepicker Buttons */
+  .modal-close-btn,
+  .btn-modal-close,
+  .admin-drawer-close-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    font-size: 1.4rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .date-picker-icon-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    font-size: 1.25rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* 5. Return To Villas Button Unhovered Visibility */
+  .btn-back-to-villas {
+    min-height: 44px !important;
+    padding: 0.6rem 1.25rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* 6. Mobile Dropdown Quick Action Buttons */
+  .mobile-nav-quick-bar {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .mobile-quick-btn {
+    width: 100% !important;
+    min-height: 46px !important;
+    border-radius: 12px !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+  }
+  .mobile-nav-link {
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+  }
+
+  /* 7. Modal Footers Full-Width Layout */
+  .modal-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+  }
+  .modal-footer .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+  }
+
+  /* 8. Admin Mobile Drawer Navigation Items */
+  .admin-drawer-nav-item {
+    min-height: 46px !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 10px !important;
+    margin-bottom: 0.35rem !important;
+    width: 100% !important;
+  }
+}
+
+/* ==========================================================================
+   PHONE-SPECIFIC ADAPTATIONS (max-width: 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* Villa Card Action Buttons Grid / Flex Stack on Phones */
+  .farm-card-actions,
+  .farm-card div[style*="display:flex;gap:6px;"],
+  .farm-card div[style*="display: flex; gap: 6px;"] {
+    display: flex !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+  .farm-card .btn-villa-details,
+  .farm-card .btn-villa-book {
+    flex: 1 1 0 !important;
+    min-height: 44px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    padding: 0.6rem 0.5rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* Booking Wizard Modal Action Buttons on Compact Phones */
+  .wiz-action-footer {
+    flex-direction: column-reverse !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+  }
+  .wiz-action-footer .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    justify-content: center !important;
+  }
+
+  /* Hero Section Buttons Stack */
+  .hero-actions,
+  div[style*="display: flex; gap: 1rem;"] {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+  .hero-actions .btn {
+    width: 100% !important;
+  }
+
+  /* Filter Controls & Search Form */
+  .search-form-row {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  .btn-search-submit {
+    width: 100% !important;
+    min-height: 46px !important;
+  }
+}
+
+/* ==========================================================================
+   UNHOVERED HIGH-CONTRAST THEME SYSTEM FOR ALL BUTTONS ON MOBILE VIEWPORTS
+   Guarantees >= 4.5:1 text contrast and clearly visible interactive borders
+   in the default resting state on touch screens (no hover required).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   THEME 1: EMERALD (Light / Daytime Sand Background)
+   -------------------------------------------------------------------------- */
+html[data-theme="emerald"],
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) {
+  /* Outline & Secondary Buttons - Crisp Dark Text & Visible Border in resting state */
+  .btn-outline,
+  button.btn-outline,
+  a.btn-outline,
+  .btn-secondary,
+  .btn-villa-details,
+  .btn-back-to-villas,
+  .btn-card-view,
+  .admin-btn-outline,
+  .admin-login-return-btn,
+  .modal-footer .btn-outline,
+  .wiz-action-footer .btn-outline {
+    background: #ffffff !important;
+    border: 1.5px solid #0a1f16 !important;
+    color: #0a1f16 !important;
+    font-weight: 700 !important;
+    box-shadow: 0 1px 4px rgba(10, 31, 22, 0.08) !important;
+  }
+
+  .btn-outline:active,
+  button.btn-outline:active,
+  a.btn-outline:active,
+  .btn-secondary:active,
+  .btn-villa-details:active,
+  .btn-back-to-villas:active,
+  .admin-btn-outline:active {
+    background: #0a1f16 !important;
+    color: #ffffff !important;
+  }
+
+  /* Primary Action Buttons */
+  .btn-primary,
+  button.btn-primary,
+  a.btn-primary,
+  .btn-villa-book,
+  .btn-card-book,
+  .btn-book-sidebar,
+  .nav-reserve-btn,
+  .btn-search-submit,
+  .modal-footer .btn-primary,
+  .wiz-action-footer .btn-primary,
+  .admin-btn-primary {
+    background: #16402e !important;
+    color: #ffffff !important;
+    border: 1.5px solid #16402e !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 14px rgba(22, 64, 46, 0.25) !important;
+  }
+
+  /* Yellow / Amber Action Buttons in Emerald Theme (Strictly DARK text) */
+  .btn-admin-create-res,
+  .btn-apply-promo,
+  .admin-demo-btn,
+  button[style*="background:#d69e2e"],
+  button[style*="background: #d69e2e"],
+  button[style*="background:#C5A059"],
+  button[style*="background: #C5A059"],
+  .btn-xs[style*="background:#d69e2e"],
+  .btn-sm[style*="background:#d69e2e"] {
+    background: #d69e2e !important;
+    color: #0a1f16 !important;
+    border: 1.5px solid #b7791f !important;
+    font-weight: 800 !important;
+  }
+  .btn-admin-create-res *,
+  .btn-apply-promo *,
+  .admin-demo-btn * {
+    color: #0a1f16 !important;
+  }
+
+  /* Mobile Quick Buttons in Dropdown */
+  .mobile-quick-btn {
+    background: #ffffff !important;
+    border: 1.5px solid #16402e !important;
+    color: #0a1f16 !important;
+    font-weight: 700 !important;
+  }
+  .mobile-quick-btn * {
+    color: #0a1f16 !important;
+  }
+  .mobile-nav-link {
+    color: #0a1f16 !important;
+  }
+  .mobile-nav-link.active {
+    background: rgba(22, 64, 46, 0.1) !important;
+    color: #16402e !important;
+    font-weight: 800 !important;
+  }
+
+  /* Table Small Buttons */
+  .btn-xs.btn-outline,
+  .btn-sm.btn-outline {
+    background: #ffffff !important;
+    border: 1.5px solid #0a1f16 !important;
+    color: #0a1f16 !important;
+    font-weight: 700 !important;
+  }
+  .btn-xs.btn-primary,
+  .btn-sm.btn-primary {
+    background: #16402e !important;
+    border: 1.5px solid #16402e !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   THEME 2: MIDNIGHT (Royal Sapphire / Dark Navy Background)
+   -------------------------------------------------------------------------- */
+html[data-theme="midnight"] {
+  /* Outline & Secondary Buttons - Distinct Tinted Surface + Sky Blue Border + White Text */
+  .btn-outline,
+  button.btn-outline,
+  a.btn-outline,
+  .btn-secondary,
+  .btn-villa-details,
+  .btn-back-to-villas,
+  .btn-card-view,
+  .admin-btn-outline,
+  .admin-login-return-btn,
+  .modal-footer .btn-outline,
+  .wiz-action-footer .btn-outline {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1.5px solid #93c5fd !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .btn-outline:active,
+  button.btn-outline:active,
+  a.btn-outline:active,
+  .btn-secondary:active,
+  .btn-villa-details:active,
+  .btn-back-to-villas:active,
+  .admin-btn-outline:active {
+    background: #fbbf24 !important;
+    border-color: #fbbf24 !important;
+    color: #050b17 !important;
+  }
+
+  /* Primary Action Buttons - Glowing Gold with High Contrast Dark Navy Text */
+  .btn-primary,
+  button.btn-primary,
+  a.btn-primary,
+  .btn-villa-book,
+  .btn-card-book,
+  .btn-book-sidebar,
+  .nav-reserve-btn,
+  .btn-search-submit,
+  .modal-footer .btn-primary,
+  .wiz-action-footer .btn-primary,
+  .admin-btn-primary,
+  .btn-admin-create-res,
+  .btn-apply-promo,
+  .admin-demo-btn {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+    color: #050b17 !important;
+    border: 1.5px solid #fbbf24 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35) !important;
+  }
+
+  .btn-primary *,
+  button.btn-primary *,
+  .btn-villa-book *,
+  .btn-card-book *,
+  .btn-book-sidebar *,
+  .nav-reserve-btn *,
+  .admin-btn-primary *,
+  .btn-admin-create-res *,
+  .admin-demo-btn * {
+    color: #050b17 !important;
+    font-weight: 800 !important;
+  }
+
+  /* Mobile Dropdown & Nav Buttons */
+  .mobile-menu-btn,
+  .admin-menu-toggle-btn,
+  .nav-control-btn {
+    background: rgba(30, 58, 138, 0.35) !important;
+    border: 1.5px solid #93c5fd !important;
+    color: #ffffff !important;
+  }
+
+  .mobile-quick-btn {
+    background: rgba(30, 58, 138, 0.4) !important;
+    border: 1.5px solid #93c5fd !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+  .mobile-quick-btn * {
+    color: #ffffff !important;
+  }
+  .mobile-nav-link {
+    color: #f1f5f9 !important;
+    border-bottom: 1px solid rgba(147, 197, 253, 0.15) !important;
+  }
+  .mobile-nav-link.active {
+    background: rgba(251, 191, 36, 0.15) !important;
+    color: #fbbf24 !important;
+    font-weight: 800 !important;
+  }
+
+  /* Table Small Buttons */
+  .btn-xs.btn-outline,
+  .btn-sm.btn-outline {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1.5px solid #93c5fd !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+  .btn-xs.btn-primary,
+  .btn-sm.btn-primary {
+    background: #fbbf24 !important;
+    border: 1.5px solid #fbbf24 !important;
+    color: #050b17 !important;
+    font-weight: 800 !important;
+  }
+  .btn-xs.btn-primary *,
+  .btn-sm.btn-primary * {
+    color: #050b17 !important;
+  }
+
+  /* Admin Drawer Nav Items */
+  .admin-drawer-nav-item {
+    color: #cbd5e1 !important;
+    background: rgba(30, 58, 138, 0.2) !important;
+    border: 1px solid rgba(147, 197, 253, 0.2) !important;
+  }
+  .admin-drawer-nav-item.active {
+    background: #fbbf24 !important;
+    color: #050b17 !important;
+    border-color: #fbbf24 !important;
+    font-weight: 800 !important;
+  }
+  .admin-drawer-nav-item.active * {
+    color: #050b17 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   THEME 3: SUNSET (Evening Rose / Crimson Velvet Dark Background)
+   -------------------------------------------------------------------------- */
+html[data-theme="sunset"] {
+  /* Outline & Secondary Buttons - Distinct Tinted Surface + Rose Border + White Text */
+  .btn-outline,
+  button.btn-outline,
+  a.btn-outline,
+  .btn-secondary,
+  .btn-villa-details,
+  .btn-back-to-villas,
+  .btn-card-view,
+  .admin-btn-outline,
+  .admin-login-return-btn,
+  .modal-footer .btn-outline,
+  .wiz-action-footer .btn-outline {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1.5px solid #fda4af !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .btn-outline:active,
+  button.btn-outline:active,
+  a.btn-outline:active,
+  .btn-secondary:active,
+  .btn-villa-details:active,
+  .btn-back-to-villas:active,
+  .admin-btn-outline:active {
+    background: #fb7185 !important;
+    border-color: #fb7185 !important;
+    color: #1a0513 !important;
+  }
+
+  /* Primary Action Buttons - Radiant Rose */
+  .btn-primary,
+  button.btn-primary,
+  a.btn-primary,
+  .btn-villa-book,
+  .btn-card-book,
+  .btn-book-sidebar,
+  .nav-reserve-btn,
+  .btn-search-submit,
+  .modal-footer .btn-primary,
+  .wiz-action-footer .btn-primary,
+  .admin-btn-primary,
+  .btn-admin-create-res,
+  .btn-apply-promo,
+  .admin-demo-btn {
+    background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #fb7185 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 14px rgba(251, 113, 133, 0.35) !important;
+  }
+
+  .btn-primary *,
+  button.btn-primary *,
+  .btn-villa-book *,
+  .btn-card-book *,
+  .btn-book-sidebar *,
+  .nav-reserve-btn *,
+  .admin-btn-primary *,
+  .btn-admin-create-res *,
+  .admin-demo-btn * {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+  }
+
+  /* Mobile Dropdown & Nav Buttons */
+  .mobile-menu-btn,
+  .admin-menu-toggle-btn,
+  .nav-control-btn {
+    background: rgba(136, 19, 55, 0.35) !important;
+    border: 1.5px solid #fda4af !important;
+    color: #ffffff !important;
+  }
+
+  .mobile-quick-btn {
+    background: rgba(136, 19, 55, 0.4) !important;
+    border: 1.5px solid #fda4af !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+  .mobile-quick-btn * {
+    color: #ffffff !important;
+  }
+  .mobile-nav-link {
+    color: #fff1f2 !important;
+    border-bottom: 1px solid rgba(253, 164, 175, 0.15) !important;
+  }
+  .mobile-nav-link.active {
+    background: rgba(251, 113, 133, 0.15) !important;
+    color: #fb7185 !important;
+    font-weight: 800 !important;
+  }
+
+  /* Table Small Buttons */
+  .btn-xs.btn-outline,
+  .btn-sm.btn-outline {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1.5px solid #fda4af !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+  .btn-xs.btn-primary,
+  .btn-sm.btn-primary {
+    background: #fb7185 !important;
+    border: 1.5px solid #fb7185 !important;
+    color: #1a0513 !important;
+    font-weight: 800 !important;
+  }
+  .btn-xs.btn-primary *,
+  .btn-sm.btn-primary * {
+    color: #1a0513 !important;
+  }
+
+  /* Admin Drawer Nav Items */
+  .admin-drawer-nav-item {
+    color: #fecdd3 !important;
+    background: rgba(136, 19, 55, 0.2) !important;
+    border: 1px solid rgba(253, 164, 175, 0.2) !important;
+  }
+  .admin-drawer-nav-item.active {
+    background: #fb7185 !important;
+    color: #1a0513 !important;
+    border-color: #fb7185 !important;
+    font-weight: 800 !important;
+  }
+  .admin-drawer-nav-item.active * {
+    color: #1a0513 !important;
+  }
+}
+
+
 
 
 
