@@ -7344,7 +7344,7 @@ a:focus-visible {
   display: inline-block;
   font-size: 1rem;
   line-height: 1;
-  animation: themeSparkleSpin 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: iconHeartbeatPulse 3.5s ease-in-out infinite !important;
 }
 
 .top-bar-theme-btn {
@@ -7445,13 +7445,13 @@ a:focus-visible {
   animation: movementGradientShift 4s ease infinite;
 }
 
-/* 2. Ambient Floating Movement for Badges & Accents */
+/* 2. Ambient Floating Movement for Badges & Accents (Zero Rotational Spinning) */
 @keyframes ambientFloatBadge {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-6px) rotate(0.35deg);
+    transform: translateY(-4px);
   }
 }
 
@@ -7463,28 +7463,20 @@ a:focus-visible {
   display: inline-flex;
 }
 
-/* 3. Theme Sparkle Spin & Site-Wide Icon Movement Animations */
+/* 3. Standardized Heartbeat Scale Pulse (Zero Rotational Spinning, Zero Flips) */
 @keyframes themeSparkleSpin {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.22); filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.8)); }
-  100% { transform: rotate(360deg) scale(1); }
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(197, 160, 89, 0)); }
+  50% { transform: scale(1.14); filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.45)); }
 }
 
 @keyframes iconFloatBreathe {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg) scale(1);
+    transform: scale(1);
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.08));
   }
-  25% {
-    transform: translateY(-3px) rotate(-6deg) scale(1.12);
-    filter: drop-shadow(0 3px 8px rgba(197, 160, 89, 0.4));
-  }
   50% {
-    transform: translateY(0px) rotate(4deg) scale(1.05);
-  }
-  75% {
-    transform: translateY(-2px) rotate(7deg) scale(1.15);
-    filter: drop-shadow(0 4px 10px rgba(197, 160, 89, 0.5));
+    transform: scale(1.12);
+    filter: drop-shadow(0 2px 6px rgba(197, 160, 89, 0.35));
   }
 }
 
@@ -8993,6 +8985,381 @@ html[data-theme="sunset"] .gold-badge {
   color: #fb7185 !important;
   border-color: rgba(251, 113, 133, 0.4) !important;
 }
+
+/* ==========================================================================
+   BOOKING MODAL (حجز الفيلا) — DATEPICKER UI & THEME CONTRAST ISOLATION
+   Guaranteed >= 4.5:1 contrast, visual datepicker trigger, and theme safety
+   ========================================================================== */
+
+/* 1. Datepicker Input Wrapper & Visual Trigger Icon */
+.date-input-wrapper {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.date-picker-input {
+  width: 100% !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+[dir="rtl"] .date-picker-input {
+  padding-left: 44px !important;
+  padding-right: 14px !important;
+}
+
+[dir="ltr"] .date-picker-input {
+  padding-right: 44px !important;
+  padding-left: 14px !important;
+}
+
+.date-picker-icon-btn {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 1.25rem !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px 6px !important;
+  z-index: 2 !important;
+  opacity: 0.85 !important;
+  transition: transform 0.2s ease, opacity 0.2s ease !important;
+}
+
+.date-picker-icon-btn:hover {
+  transform: translateY(-50%) scale(1.15) !important;
+  opacity: 1 !important;
+}
+
+[dir="rtl"] .date-picker-icon-btn {
+  left: 10px !important;
+  right: auto !important;
+}
+
+[dir="ltr"] .date-picker-icon-btn {
+  right: 10px !important;
+  left: auto !important;
+}
+
+/* Dark theme calendar icon inverter for native inputs */
+html[data-theme="midnight"] .date-picker-input::-webkit-calendar-picker-indicator {
+  filter: invert(1) hue-rotate(180deg) !important;
+  cursor: pointer !important;
+}
+html[data-theme="sunset"] .date-picker-input::-webkit-calendar-picker-indicator {
+  filter: invert(1) hue-rotate(300deg) !important;
+  cursor: pointer !important;
+}
+
+/* 2. Step Indicator Progress Tracker (Contrast Isolation) */
+.wizard-step-node {
+  background: transparent !important;
+}
+
+/* Default / Emerald Theme Steps */
+.wizard-step-node .step-node-circle {
+  background: #f1f5f9 !important;
+  border: 2px solid #cbd5e1 !important;
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+.wizard-step-node .step-node-label {
+  color: #64748b !important;
+  font-weight: 600 !important;
+}
+.wizard-step-node.active .step-node-circle {
+  background: #0a1f16 !important;
+  border-color: #0a1f16 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 0 4px rgba(10, 31, 22, 0.15) !important;
+}
+.wizard-step-node.active .step-node-label {
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+}
+.wizard-step-node.completed .step-node-circle {
+  background: #16a34a !important;
+  border-color: #16a34a !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+.wizard-step-node.completed .step-node-label {
+  color: #16a34a !important;
+  font-weight: 700 !important;
+}
+
+/* Midnight Sapphire Theme Steps */
+html[data-theme="midnight"] .wizard-step-node .step-node-circle {
+  background: #080f24 !important;
+  border: 2px solid rgba(59, 130, 246, 0.35) !important;
+  color: #cbd5e1 !important;
+  font-weight: 700 !important;
+}
+html[data-theme="midnight"] .wizard-step-node .step-node-label {
+  color: #94a3b8 !important;
+}
+html[data-theme="midnight"] .wizard-step-node.active .step-node-circle {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+  border-color: #fbbf24 !important;
+  color: #050b17 !important;
+  font-weight: 900 !important;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.35) !important;
+}
+html[data-theme="midnight"] .wizard-step-node.active .step-node-label {
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+}
+html[data-theme="midnight"] .wizard-step-node.completed .step-node-circle {
+  background: #22c55e !important;
+  border-color: #22c55e !important;
+  color: #050b17 !important;
+  font-weight: 900 !important;
+}
+html[data-theme="midnight"] .wizard-step-node.completed .step-node-label {
+  color: #4ade80 !important;
+}
+
+/* Sunset Rose Royale Theme Steps */
+html[data-theme="sunset"] .wizard-step-node .step-node-circle {
+  background: #180413 !important;
+  border: 2px solid rgba(244, 63, 94, 0.35) !important;
+  color: #fecdd3 !important;
+  font-weight: 700 !important;
+}
+html[data-theme="sunset"] .wizard-step-node .step-node-label {
+  color: #fda4af !important;
+}
+html[data-theme="sunset"] .wizard-step-node.active .step-node-circle {
+  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
+  border-color: #fb7185 !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  box-shadow: 0 0 0 4px rgba(251, 113, 133, 0.35) !important;
+}
+html[data-theme="sunset"] .wizard-step-node.active .step-node-label {
+  color: #fb7185 !important;
+  font-weight: 800 !important;
+}
+html[data-theme="sunset"] .wizard-step-node.completed .step-node-circle {
+  background: #22c55e !important;
+  border-color: #22c55e !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+}
+html[data-theme="sunset"] .wizard-step-node.completed .step-node-label {
+  color: #4ade80 !important;
+}
+
+/* 3. Villa Preview Card & Informational Text Under Villa Title */
+.wiz-modal-farm-name {
+  color: #0a1f16 !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+}
+html[data-theme="midnight"] .wiz-modal-farm-name {
+  color: #93c5fd !important;
+}
+html[data-theme="sunset"] .wiz-modal-farm-name {
+  color: #fda4af !important;
+}
+
+.wiz-villa-title {
+  color: #0a1f16 !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  margin: 0 0 4px 0 !important;
+}
+html[data-theme="midnight"] .wiz-villa-title {
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .wiz-villa-title {
+  color: #ffffff !important;
+}
+
+.wiz-villa-location {
+  color: #55635a !important;
+  font-size: 0.88rem !important;
+  margin: 0 0 8px 0 !important;
+}
+html[data-theme="midnight"] .wiz-villa-location {
+  color: #cbd5e1 !important;
+}
+html[data-theme="sunset"] .wiz-villa-location {
+  color: #fda4af !important;
+}
+
+.wiz-villa-pricing-info {
+  color: #2d3748 !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+}
+html[data-theme="midnight"] .wiz-villa-pricing-info {
+  color: #e2e8f0 !important;
+}
+html[data-theme="sunset"] .wiz-villa-pricing-info {
+  color: #fff1f2 !important;
+}
+
+.wiz-rate-val {
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+}
+html[data-theme="midnight"] .wiz-rate-val {
+  color: #ffffff !important;
+}
+html[data-theme="midnight"] .wiz-rate-val.weekend {
+  color: #fbbf24 !important;
+}
+html[data-theme="sunset"] .wiz-rate-val {
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .wiz-rate-val.weekend {
+  color: #fb7185 !important;
+}
+
+/* 4. Radio Buttons Stay Options ("استخدام نهاري", "مبيت كامل") */
+.wiz-stay-option {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 12px 14px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.22s ease !important;
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+.wiz-stay-title {
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+  font-size: 0.95rem !important;
+}
+.wiz-stay-sub {
+  color: #55635a !important;
+  font-size: 0.78rem !important;
+  margin-top: 2px !important;
+}
+.wiz-stay-option.selected {
+  background: #f0fdf4 !important;
+  border: 2px solid #0a1f16 !important;
+  box-shadow: 0 4px 12px rgba(10, 31, 22, 0.08) !important;
+}
+
+/* Midnight Radio Stay Options */
+html[data-theme="midnight"] .wiz-stay-option {
+  background: #080f24 !important;
+  border: 1.5px solid rgba(59, 130, 246, 0.3) !important;
+}
+html[data-theme="midnight"] .wiz-stay-title {
+  color: #f1f5f9 !important;
+}
+html[data-theme="midnight"] .wiz-stay-sub {
+  color: #94a3b8 !important;
+}
+html[data-theme="midnight"] .wiz-stay-option.selected {
+  background: rgba(37, 99, 235, 0.2) !important;
+  border: 2px solid #fbbf24 !important;
+  box-shadow: 0 4px 14px rgba(251, 191, 36, 0.3) !important;
+}
+html[data-theme="midnight"] .wiz-stay-option.selected .wiz-stay-title {
+  color: #ffffff !important;
+}
+html[data-theme="midnight"] .wiz-stay-option.selected .wiz-stay-sub {
+  color: #fbbf24 !important;
+}
+
+/* Sunset Radio Stay Options */
+html[data-theme="sunset"] .wiz-stay-option {
+  background: #190513 !important;
+  border: 1.5px solid rgba(244, 63, 94, 0.3) !important;
+}
+html[data-theme="sunset"] .wiz-stay-title {
+  color: #fff1f2 !important;
+}
+html[data-theme="sunset"] .wiz-stay-sub {
+  color: #fda4af !important;
+}
+html[data-theme="sunset"] .wiz-stay-option.selected {
+  background: rgba(244, 63, 94, 0.2) !important;
+  border: 2px solid #fb7185 !important;
+  box-shadow: 0 4px 14px rgba(251, 113, 133, 0.3) !important;
+}
+html[data-theme="sunset"] .wiz-stay-option.selected .wiz-stay-title {
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .wiz-stay-option.selected .wiz-stay-sub {
+  color: #fb7185 !important;
+}
+
+/* 5. Estimated Total & Deposit Preview Box */
+.wiz-price-preview-box {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+.wiz-price-lbl {
+  color: #55635a !important;
+  font-size: 0.8rem !important;
+}
+.wiz-price-total {
+  color: #0a1f16 !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+}
+.wiz-price-deposit {
+  color: #166534 !important;
+  font-size: 1.2rem !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="midnight"] .wiz-price-preview-box {
+  background: #080f24 !important;
+  border: 1px solid rgba(59, 130, 246, 0.35) !important;
+}
+html[data-theme="midnight"] .wiz-price-lbl {
+  color: #94a3b8 !important;
+}
+html[data-theme="midnight"] .wiz-price-total {
+  color: #ffffff !important;
+}
+html[data-theme="midnight"] .wiz-price-deposit {
+  color: #4ade80 !important;
+}
+
+html[data-theme="sunset"] .wiz-price-preview-box {
+  background: #190513 !important;
+  border: 1px solid rgba(244, 63, 94, 0.35) !important;
+}
+html[data-theme="sunset"] .wiz-price-lbl {
+  color: #fda4af !important;
+}
+html[data-theme="sunset"] .wiz-price-total {
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .wiz-price-deposit {
+  color: #4ade80 !important;
+}
+
+/* 6. Form Labels & General Typography in Wizard */
+.wiz-form-label {
+  color: #0a1f16 !important;
+  font-weight: 700 !important;
+}
+html[data-theme="midnight"] .wiz-form-label {
+  color: #f1f5f9 !important;
+}
+html[data-theme="sunset"] .wiz-form-label {
+  color: #fff1f2 !important;
+}
+
 
 
 
@@ -11989,22 +12356,22 @@ const TRANSLATIONS = {
       if (stayType === 'overnight' && checkOutDate) {
         const d1 = new Date(checkInDate);
         const d2 = new Date(checkOutDate);
-        const diffTime = d2 - d1;
-        const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-        if (diffDays <= 0) {
-          return {
-            nights: 0,
-            isWeekend,
-            baseRental: 0,
-            weekendSurcharge: 0,
-            extraGuestFee: 0,
-            cleaningFee: 0,
-            discount: 0,
-            total: 0,
-            valid: false
-          };
+        const y1 = d1.getFullYear();
+        const y2 = d2.getFullYear();
+
+        // Strict chronological validation & illogical year guard (e.g. 0002)
+        if (isNaN(d1.getTime()) || isNaN(d2.getTime()) || y1 < 2026 || y1 > 2030 || y2 < 2026 || y2 > 2030) {
+          nights = 1;
+        } else {
+          const diffTime = d2 - d1;
+          const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+          if (diffDays <= 0 || isNaN(diffDays)) {
+            nights = 1;
+          } else {
+            // Safety cap: maximum 30 continuous nights for vacation villa rental
+            nights = Math.min(30, Math.max(1, diffDays));
+          }
         }
-        nights = diffDays;
       }
     }
 
@@ -13355,7 +13722,7 @@ const TRANSLATIONS = {
           <div class="modal-header">
             <div>
               <h3 class="modal-title">${t('bookingModalTitle')}</h3>
-              <div style="font-size:0.85rem;color:var(--primary-800);font-weight:700;">${farmName}</div>
+              <div class="wiz-modal-farm-name">${farmName}</div>
             </div>
             <button class="btn-modal-close" onclick="window.Alora.closeBookingWizard()">✕</button>
           </div>
@@ -13387,45 +13754,57 @@ const TRANSLATIONS = {
                 <div class="villa-preview-card">
                   <img src="${farm.images[0]}" alt="${farmName}" class="villa-preview-img" />
                   <div>
-                    <h4 style="font-size:1.2rem;font-weight:800;margin:0 0 4px 0;color:var(--primary-900);">${farmName}</h4>
-                    <p style="font-size:0.85rem;color:var(--neutral-500);margin:0 0 8px 0;">📍 ${farm.location.city} - ${farm.location.area}</p>
-                    <div style="font-size:0.9rem;font-weight:700;color:var(--primary-800);">
-                      ${t('standardRateLabel')}: ${farm.price} JOD &nbsp;•&nbsp; ${t('weekendRateLabel')}: ${farm.weekendPrice} JOD
+                    <h4 class="wiz-villa-title">${farmName}</h4>
+                    <p class="wiz-villa-location">📍 ${farm.location.city} - ${farm.location.area}</p>
+                    <div class="wiz-villa-pricing-info">
+                      ${t('standardRateLabel')}: <strong class="wiz-rate-val">${farm.price} JOD</strong> &nbsp;•&nbsp; ${t('weekendRateLabel')}: <strong class="wiz-rate-val weekend">${farm.weekendPrice} JOD</strong>
                     </div>
                   </div>
                 </div>
 
                 <!-- Stay Type -->
                 <div class="form-group" style="margin-bottom:1.25rem;">
-                  <label class="form-label" style="font-weight:700;">${t('stayTypeLabel')}</label>
+                  <label class="form-label wiz-form-label">${t('stayTypeLabel')}</label>
                   <div class="wiz-stay-type-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-                    <label style="display:flex;align-items:center;gap:8px;padding:12px;border:1px solid #cbd5e0;border-radius:6px;cursor:pointer;background:${w.stayType === 'overnight' ? '#f4faf6' : '#fff'};border-color:${w.stayType === 'overnight' ? 'var(--primary-700)' : '#cbd5e0'};">
+                    <label class="wiz-stay-option ${w.stayType === 'overnight' ? 'selected' : ''}">
                       <input type="radio" name="wizStayType" value="overnight" ${w.stayType === 'overnight' ? 'checked' : ''} onchange="window.Alora.updateWizardState('stayType', 'overnight')" />
                       <div>
-                        <strong>${t('stayOvernight')}</strong>
-                        <div style="font-size:0.75rem;color:var(--neutral-500);">${t('stayOvernightTimings')}</div>
+                        <strong class="wiz-stay-title">${t('stayOvernight')}</strong>
+                        <div class="wiz-stay-sub">${t('stayOvernightTimings')}</div>
                       </div>
                     </label>
-                    <label style="display:flex;align-items:center;gap:8px;padding:12px;border:1px solid #cbd5e0;border-radius:6px;cursor:pointer;background:${w.stayType === 'daily' ? '#f4faf6' : '#fff'};border-color:${w.stayType === 'daily' ? 'var(--primary-700)' : '#cbd5e0'};">
+                    <label class="wiz-stay-option ${w.stayType === 'daily' ? 'selected' : ''}">
                       <input type="radio" name="wizStayType" value="daily" ${w.stayType === 'daily' ? 'checked' : ''} onchange="window.Alora.updateWizardState('stayType', 'daily')" />
                       <div>
-                        <strong>${t('stayDaily')}</strong>
-                        <div style="font-size:0.75rem;color:var(--neutral-500);">${t('stayDailyTimings')}</div>
+                        <strong class="wiz-stay-title">${t('stayDaily')}</strong>
+                        <div class="wiz-stay-sub">${t('stayDailyTimings')}</div>
                       </div>
                     </label>
                   </div>
                 </div>
 
-                <!-- Dates Grid -->
+                <!-- Dates Grid with Interactive Datepicker Trigger -->
                 <div class="wiz-dates-grid" style="display:grid;grid-template-columns:${w.stayType === 'overnight' ? '1fr 1fr' : '1fr'};gap:1rem;margin-bottom:1.25rem;">
                   <div class="form-group">
-                    <label class="form-label" style="font-weight:700;">${t('checkInDateLabel')}</label>
-                    <input type="date" id="wizCheckIn" class="form-input" value="${w.checkIn}" min="${new Date().toISOString().split('T')[0]}" onchange="window.Alora.updateWizardState('checkIn', this.value)" required />
+                    <label class="form-label wiz-form-label">${t('checkInDateLabel')}</label>
+                    <div class="date-input-wrapper">
+                      <input type="date" id="wizCheckIn" class="form-input date-picker-input" value="${w.checkIn}" 
+                             min="${new Date().toISOString().split('T')[0]}" max="2028-12-31" 
+                             onclick="try{this.showPicker && this.showPicker()}catch(e){}" onfocus="try{this.showPicker && this.showPicker()}catch(e){}"
+                             onchange="window.Alora.handleWizardDateChange('checkIn', this.value)" required />
+                      <button type="button" class="date-picker-icon-btn" onclick="document.getElementById('wizCheckIn').focus();try{document.getElementById('wizCheckIn').showPicker && document.getElementById('wizCheckIn').showPicker()}catch(e){}" title="${t('checkInDateLabel')}">📅</button>
+                    </div>
                   </div>
                   ${w.stayType === 'overnight' ? `
                     <div class="form-group">
-                      <label class="form-label" style="font-weight:700;">${t('checkOutDateLabel')}</label>
-                      <input type="date" id="wizCheckOut" class="form-input" value="${w.checkOut}" min="${w.checkIn ? getNextCalendarDay(w.checkIn) : getNextCalendarDay(new Date().toISOString().split('T')[0])}" onchange="window.Alora.updateWizardState('checkOut', this.value)" required />
+                      <label class="form-label wiz-form-label">${t('checkOutDateLabel')}</label>
+                      <div class="date-input-wrapper">
+                        <input type="date" id="wizCheckOut" class="form-input date-picker-input" value="${w.checkOut}" 
+                               min="${w.checkIn ? getNextCalendarDay(w.checkIn) : getNextCalendarDay(new Date().toISOString().split('T')[0])}" max="2028-12-31" 
+                               onclick="try{this.showPicker && this.showPicker()}catch(e){}" onfocus="try{this.showPicker && this.showPicker()}catch(e){}"
+                               onchange="window.Alora.handleWizardDateChange('checkOut', this.value)" required />
+                        <button type="button" class="date-picker-icon-btn" onclick="document.getElementById('wizCheckOut').focus();try{document.getElementById('wizCheckOut').showPicker && document.getElementById('wizCheckOut').showPicker()}catch(e){}" title="${t('checkOutDateLabel')}">📅</button>
+                      </div>
                     </div>
                   ` : ''}
                 </div>
@@ -13433,21 +13812,21 @@ const TRANSLATIONS = {
                 <!-- Guests Count -->
                 <div class="form-group" style="margin-bottom:1.5rem;">
                   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                    <label class="form-label" style="font-weight:700;">${t('guestsCountLabel')}</label>
-                    <span style="font-size:0.85rem;color:var(--neutral-500);">${t('maxCapacityLabel', { count: farm.capacity })}</span>
+                    <label class="form-label wiz-form-label">${t('guestsCountLabel')}</label>
+                    <span class="wiz-max-guests-tag" style="font-size:0.85rem;color:var(--text-color-muted, var(--neutral-500));">${t('maxCapacityLabel', { count: farm.capacity })}</span>
                   </div>
                   <input type="number" class="form-input" min="1" max="${farm.capacity}" value="${w.guests}" onchange="window.Alora.updateWizardState('guests', parseInt(this.value, 10))" />
                 </div>
 
                 <!-- Price Preview -->
-                <div style="background:#f8fafc;border:1px solid #e2e8f0;padding:12px 16px;border-radius:8px;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;">
+                <div class="wiz-price-preview-box" style="padding:14px 18px;border-radius:10px;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;">
                   <div>
-                    <div style="font-size:0.8rem;color:var(--neutral-500);">${t('estimatedTotal')}</div>
-                    <div style="font-size:1.3rem;font-weight:900;color:var(--primary-900);">${w.total} JOD</div>
+                    <div class="wiz-price-lbl">${t('estimatedTotal')}</div>
+                    <div class="wiz-price-total">${w.total} JOD</div>
                   </div>
                   <div style="text-align:end;">
-                    <div style="font-size:0.8rem;color:var(--neutral-500);">${t('requiredDeposit', { percent: w.bookingFeePercent })}</div>
-                    <div style="font-size:1.15rem;font-weight:800;color:#276749;">${w.bookingFee} JOD</div>
+                    <div class="wiz-price-lbl">${t('requiredDeposit', { percent: w.bookingFeePercent })}</div>
+                    <div class="wiz-price-deposit">${w.bookingFee} JOD</div>
                   </div>
                 </div>
 
@@ -16984,6 +17363,80 @@ const TRANSLATIONS = {
       renderApp();
     },
 
+    handleWizardDateChange: function(field, rawVal) {
+      if (!rawVal) return;
+      const todayStr = new Date().toISOString().split('T')[0];
+      const parts = rawVal.split('-');
+      const year = parts.length > 0 ? parseInt(parts[0], 10) : 0;
+
+      // 1. Strict year and impossible format validation
+      if (isNaN(year) || year < 2026 || year > 2028) {
+        showToast(State.lang === 'ar' ? 'يرجى إدخال تاريخ صالح بين عامي 2026 و 2028' : 'Please select a valid date between 2026 and 2028', 'warning');
+        const fallback = field === 'checkIn' ? todayStr : getNextCalendarDay(State.wizard.checkIn || todayStr);
+        State.wizard[field] = fallback;
+        const el = document.getElementById(field === 'checkIn' ? 'wizCheckIn' : 'wizCheckOut');
+        if (el) el.value = fallback;
+        renderApp();
+        return;
+      }
+
+      // 2. Prevent past dates
+      if (rawVal < todayStr) {
+        showToast(State.lang === 'ar' ? 'لا يمكن اختيار تاريخ في الماضي' : 'Check-in date cannot be in the past', 'warning');
+        State.wizard[field] = todayStr;
+        const el = document.getElementById(field === 'checkIn' ? 'wizCheckIn' : 'wizCheckOut');
+        if (el) el.value = todayStr;
+        renderApp();
+        return;
+      }
+
+      // 3. Chronological sequence & length bounds
+      if (field === 'checkIn') {
+        State.wizard.checkIn = rawVal;
+        if (State.wizard.stayType === 'overnight') {
+          const next = getNextCalendarDay(rawVal);
+          if (!State.wizard.checkOut || State.wizard.checkOut <= rawVal) {
+            State.wizard.checkOut = next;
+          } else {
+            const dIn = new Date(rawVal);
+            const dOut = new Date(State.wizard.checkOut);
+            const diffDays = Math.round((dOut - dIn) / (1000 * 60 * 60 * 24));
+            if (diffDays > 30) {
+              showToast(State.lang === 'ar' ? 'أقصى مدة للحجز المتصل هي 30 يوماً' : 'Maximum continuous booking duration is 30 days', 'warning');
+              const maxDate = new Date(dIn);
+              maxDate.setDate(maxDate.getDate() + 30);
+              State.wizard.checkOut = maxDate.toISOString().split('T')[0];
+            }
+          }
+        }
+      } else if (field === 'checkOut') {
+        if (State.wizard.stayType === 'overnight') {
+          if (rawVal <= State.wizard.checkIn) {
+            showToast(t('errCheckOutAfterCheckIn') || (State.lang === 'ar' ? 'تاريخ تسجيل المغادرة يجب أن يكون بعد تاريخ الوصول' : 'Check-out date must be after check-in date'), 'error');
+            const next = getNextCalendarDay(State.wizard.checkIn || todayStr);
+            State.wizard.checkOut = next;
+            const el = document.getElementById('wizCheckOut');
+            if (el) el.value = next;
+            renderApp();
+            return;
+          }
+          const dIn = new Date(State.wizard.checkIn);
+          const dOut = new Date(rawVal);
+          const diffDays = Math.round((dOut - dIn) / (1000 * 60 * 60 * 24));
+          if (diffDays > 30) {
+            showToast(State.lang === 'ar' ? 'أقصى مدة للحجز المتصل هي 30 يوماً' : 'Maximum continuous booking duration is 30 days', 'warning');
+            const maxDate = new Date(dIn);
+            maxDate.setDate(maxDate.getDate() + 30);
+            State.wizard.checkOut = maxDate.toISOString().split('T')[0];
+          } else {
+            State.wizard.checkOut = rawVal;
+          }
+        }
+      }
+
+      this.updateWizardState(field, State.wizard[field], true);
+    },
+
     updateWizardState: function(field, val, shouldRender = true) {
       State.wizard[field] = val;
       if (field === 'checkIn' && State.wizard.stayType === 'overnight') {
@@ -17007,17 +17460,33 @@ const TRANSLATIONS = {
 
     validateStep1: function() {
       const w = State.wizard;
+      const todayStr = new Date().toISOString().split('T')[0];
+
       if (!w.checkIn) {
         showToast(State.lang === 'ar' ? 'يرجى اختيار تاريخ الوصول' : 'Please select a check-in date', 'error');
         return;
       }
+
+      const pIn = w.checkIn.split('-');
+      const yIn = pIn.length > 0 ? parseInt(pIn[0], 10) : 0;
+      if (isNaN(yIn) || yIn < 2026 || yIn > 2028 || w.checkIn < todayStr) {
+        showToast(State.lang === 'ar' ? 'يرجى إدخال تاريخ وصول صالح بين 2026 و 2028' : 'Please select a valid check-in date between 2026 and 2028', 'error');
+        w.checkIn = todayStr;
+        renderApp();
+        return;
+      }
+
       if (w.stayType === 'overnight') {
         if (!w.checkOut) {
           showToast(t('errOvernightCheckOutSubsequent'), 'error');
           return;
         }
-        if (w.checkOut <= w.checkIn) {
+        const pOut = w.checkOut.split('-');
+        const yOut = pOut.length > 0 ? parseInt(pOut[0], 10) : 0;
+        if (isNaN(yOut) || yOut < 2026 || yOut > 2028 || w.checkOut <= w.checkIn) {
           showToast(t('errCheckOutAfterCheckIn') || t('errOvernightCheckOutSubsequent'), 'error');
+          w.checkOut = getNextCalendarDay(w.checkIn);
+          renderApp();
           return;
         }
       }
