@@ -11253,6 +11253,599 @@ html[data-theme="midnight"] div[style*="background: #edf7ed"] button {
   }
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   RESERVATION CONFIRMATION & VOUCHER CARD THEME HARMONY
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Base & Emerald Oasis Theme */
+.receipt-card.receipt-voucher-card,
+.receipt-card.receipt-state-card {
+  background: #ffffff !important;
+  border-radius: var(--radius-xl) !important;
+  overflow: hidden !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid var(--neutral-200, #e2e8f0) !important;
+  padding: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+.receipt-voucher-header {
+  background: #0a1f16 !important;
+  color: #ffffff !important;
+  padding: 2.5rem 2rem !important;
+  text-align: center !important;
+}
+
+.receipt-icon-badge {
+  width: 54px !important;
+  height: 54px !important;
+  border-radius: 50% !important;
+  background: rgba(197, 160, 89, 0.2) !important;
+  border: 2px solid #C5A059 !important;
+  color: #C5A059 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 26px !important;
+  margin: 0 auto 1rem auto !important;
+}
+
+.receipt-voucher-title {
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  margin: 0 0 0.5rem 0 !important;
+  color: #ffffff !important;
+}
+
+.receipt-voucher-subtitle {
+  font-size: 0.95rem !important;
+  color: #cbd5e0 !important;
+  margin: 0 !important;
+  font-weight: 700 !important;
+}
+
+.receipt-voucher-body {
+  padding: 2rem !important;
+}
+
+.receipt-ref-banner {
+  background: #f8fafc !important;
+  border: 2px dashed #cbd5e0 !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 1.25rem !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+.receipt-ref-label {
+  font-size: 0.8rem !important;
+  color: var(--neutral-500, #64748b) !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+}
+
+.receipt-ref-number {
+  font-family: monospace !important;
+  font-size: 1.75rem !important;
+  font-weight: 900 !important;
+  color: var(--primary-900, #0a1f16) !important;
+  letter-spacing: 0.05em !important;
+  margin: 4px 0 !important;
+}
+
+.receipt-status-text {
+  font-size: 0.85rem !important;
+  color: var(--neutral-600, #475569) !important;
+  font-weight: 700 !important;
+}
+
+.receipt-status-val.verified {
+  color: #276749 !important;
+  font-weight: 800 !important;
+}
+
+.receipt-status-val.pending {
+  color: #c05621 !important;
+  font-weight: 800 !important;
+}
+
+.receipt-notice-callout {
+  background: #fffaf0 !important;
+  border-inline-start: 4px solid #dd6b20 !important;
+  padding: 10px 14px !important;
+  border-radius: 4px !important;
+  font-size: 0.85rem !important;
+  color: #7b341e !important;
+  margin-top: 0.75rem !important;
+  text-align: start !important;
+  font-weight: 700 !important;
+}
+
+.receipt-itinerary-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 1.25rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.receipt-sub-label {
+  color: var(--neutral-500, #64748b) !important;
+  font-size: 0.8rem !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  margin-bottom: 4px !important;
+}
+
+.receipt-sub-val {
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  color: var(--primary-900, #0a1f16) !important;
+}
+
+.receipt-sub-time {
+  font-size: 0.8rem !important;
+  color: var(--neutral-600, #475569) !important;
+  font-weight: 700 !important;
+}
+
+.receipt-itinerary-arrow {
+  font-size: 1.4rem !important;
+  color: #C5A059 !important;
+  line-height: 1 !important;
+}
+
+.receipt-duration-pill {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  background: #e2f2e9 !important;
+  color: #16402e !important;
+  padding: 2px 8px !important;
+  border-radius: 12px !important;
+  margin-top: 4px !important;
+}
+
+.receipt-details-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.25rem !important;
+  margin-bottom: 2rem !important;
+  font-size: 0.92rem !important;
+}
+
+.receipt-detail-val {
+  color: var(--primary-900, #0a1f16) !important;
+  font-size: 1.1rem !important;
+  font-weight: 800 !important;
+}
+
+.receipt-financial-card {
+  background: var(--neutral-50, #f8fafc) !important;
+  padding: 1.25rem !important;
+  border-radius: var(--radius-lg) !important;
+  margin-bottom: 2rem !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.receipt-financial-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-bottom: 6px !important;
+  font-weight: 700 !important;
+}
+
+.receipt-fee-row {
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+}
+
+.receipt-financial-total {
+  border-top: 1px solid #cbd5e0 !important;
+  margin-top: 8px !important;
+  padding-top: 8px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  font-size: 1.1rem !important;
+  font-weight: 900 !important;
+  color: var(--primary-900, #0a1f16) !important;
+}
+
+.receipt-email-notice.success {
+  background: #166534 !important;
+  border-inline-start: 4px solid #10b981 !important;
+  padding: 12px 16px !important;
+  border-radius: 4px !important;
+  font-size: 0.88rem !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  margin-bottom: 2rem !important;
+}
+
+.receipt-email-notice.info {
+  background: #edf2f7 !important;
+  border-inline-start: 4px solid #718096 !important;
+  padding: 12px 16px !important;
+  border-radius: 4px !important;
+  font-size: 0.88rem !important;
+  color: #4a5568 !important;
+  margin-bottom: 2rem !important;
+  font-weight: 700 !important;
+}
+
+.receipt-actions-toolbar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+  justify-content: center !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Sunset Rose Royale Theme (User Focus Theme)
+   ────────────────────────────────────────────────────────────────────────── */
+html[data-theme="sunset"] .receipt-card.receipt-voucher-card,
+html[data-theme="sunset"] .receipt-card.receipt-state-card {
+  background: #1f0817 !important;
+  border: 1.5px solid rgba(251, 113, 133, 0.4) !important;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(244, 63, 94, 0.15) !important;
+  color: #fff1f2 !important;
+}
+
+html[data-theme="sunset"] .receipt-voucher-header {
+  background: linear-gradient(135deg, #2d0b22 0%, #4a0d2e 100%) !important;
+  border-bottom: 1.5px solid rgba(251, 113, 133, 0.35) !important;
+}
+
+html[data-theme="sunset"] .receipt-icon-badge {
+  background: rgba(244, 63, 94, 0.25) !important;
+  border: 2px solid #fb7185 !important;
+  color: #fbbf24 !important;
+}
+
+html[data-theme="sunset"] .receipt-voucher-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="sunset"] .receipt-voucher-subtitle {
+  color: #fecdd3 !important;
+}
+
+html[data-theme="sunset"] .receipt-ref-banner {
+  background: rgba(74, 13, 46, 0.35) !important;
+  border: 2px dashed rgba(251, 113, 133, 0.5) !important;
+}
+
+html[data-theme="sunset"] .receipt-ref-label {
+  color: #fda4af !important;
+}
+
+html[data-theme="sunset"] .receipt-ref-number {
+  color: #fbbf24 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+html[data-theme="sunset"] .receipt-status-text {
+  color: #fecdd3 !important;
+}
+
+html[data-theme="sunset"] .receipt-status-val.verified {
+  color: #34d399 !important;
+}
+
+html[data-theme="sunset"] .receipt-status-val.pending {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="sunset"] .receipt-notice-callout {
+  background: rgba(190, 24, 93, 0.25) !important;
+  border-inline-start: 4px solid #f43f5e !important;
+  color: #fecdd3 !important;
+}
+
+html[data-theme="sunset"] .receipt-itinerary-card {
+  background: rgba(45, 11, 34, 0.8) !important;
+  border: 1.5px solid rgba(251, 113, 133, 0.35) !important;
+}
+
+html[data-theme="sunset"] .receipt-sub-label {
+  color: #fda4af !important;
+}
+
+html[data-theme="sunset"] .receipt-sub-val {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="sunset"] .receipt-sub-time {
+  color: #fecdd3 !important;
+}
+
+html[data-theme="sunset"] .receipt-itinerary-arrow {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="sunset"] .receipt-duration-pill {
+  background: rgba(244, 63, 94, 0.3) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(251, 113, 133, 0.5) !important;
+}
+
+html[data-theme="sunset"] .receipt-detail-val {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="sunset"] .receipt-financial-card {
+  background: rgba(74, 13, 46, 0.4) !important;
+  border: 1.5px solid rgba(251, 113, 133, 0.35) !important;
+  color: #fecdd3 !important;
+}
+
+html[data-theme="sunset"] .receipt-financial-row span,
+html[data-theme="sunset"] .receipt-financial-row strong {
+  color: #fecdd3 !important;
+}
+
+html[data-theme="sunset"] .receipt-fee-row span,
+html[data-theme="sunset"] .receipt-fee-row strong {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="sunset"] .receipt-financial-total {
+  border-top: 1.5px solid rgba(251, 113, 133, 0.35) !important;
+  color: #fbbf24 !important;
+}
+
+html[data-theme="sunset"] .receipt-financial-total span {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="sunset"] .receipt-email-notice.success {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-inline-start: 4px solid #10b981 !important;
+  color: #a7f3d0 !important;
+}
+
+html[data-theme="sunset"] .receipt-email-notice.info {
+  background: rgba(244, 63, 94, 0.2) !important;
+  border-inline-start: 4px solid #fb7185 !important;
+  color: #fecdd3 !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Royal Midnight Sapphire Theme
+   ────────────────────────────────────────────────────────────────────────── */
+html[data-theme="midnight"] .receipt-card.receipt-voucher-card,
+html[data-theme="midnight"] .receipt-card.receipt-state-card {
+  background: #080f24 !important;
+  border: 1.5px solid rgba(59, 130, 246, 0.4) !important;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(59, 130, 246, 0.15) !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="midnight"] .receipt-voucher-header {
+  background: linear-gradient(135deg, #09122a 0%, #172554 100%) !important;
+  border-bottom: 1.5px solid rgba(59, 130, 246, 0.35) !important;
+}
+
+html[data-theme="midnight"] .receipt-icon-badge {
+  background: rgba(37, 99, 235, 0.25) !important;
+  border: 2px solid #60a5fa !important;
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .receipt-voucher-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="midnight"] .receipt-voucher-subtitle {
+  color: #93c5fd !important;
+}
+
+html[data-theme="midnight"] .receipt-ref-banner {
+  background: rgba(19, 36, 77, 0.45) !important;
+  border: 2px dashed rgba(59, 130, 246, 0.5) !important;
+}
+
+html[data-theme="midnight"] .receipt-ref-label {
+  color: #93c5fd !important;
+}
+
+html[data-theme="midnight"] .receipt-ref-number {
+  color: #fbbf24 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+html[data-theme="midnight"] .receipt-status-text {
+  color: #bfdbfe !important;
+}
+
+html[data-theme="midnight"] .receipt-status-val.verified {
+  color: #34d399 !important;
+}
+
+html[data-theme="midnight"] .receipt-status-val.pending {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .receipt-notice-callout {
+  background: rgba(30, 58, 138, 0.35) !important;
+  border-inline-start: 4px solid #3b82f6 !important;
+  color: #93c5fd !important;
+}
+
+html[data-theme="midnight"] .receipt-itinerary-card {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1.5px solid rgba(59, 130, 246, 0.35) !important;
+}
+
+html[data-theme="midnight"] .receipt-sub-label {
+  color: #93c5fd !important;
+}
+
+html[data-theme="midnight"] .receipt-sub-val {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .receipt-sub-time {
+  color: #bfdbfe !important;
+}
+
+html[data-theme="midnight"] .receipt-itinerary-arrow {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .receipt-duration-pill {
+  background: rgba(37, 99, 235, 0.3) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(59, 130, 246, 0.5) !important;
+}
+
+html[data-theme="midnight"] .receipt-detail-val {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .receipt-financial-card {
+  background: rgba(19, 36, 77, 0.45) !important;
+  border: 1.5px solid rgba(59, 130, 246, 0.35) !important;
+  color: #bfdbfe !important;
+}
+
+html[data-theme="midnight"] .receipt-financial-row span,
+html[data-theme="midnight"] .receipt-financial-row strong {
+  color: #bfdbfe !important;
+}
+
+html[data-theme="midnight"] .receipt-fee-row span,
+html[data-theme="midnight"] .receipt-fee-row strong {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .receipt-financial-total {
+  border-top: 1.5px solid rgba(59, 130, 246, 0.35) !important;
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .receipt-financial-total span {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .receipt-email-notice.success {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-inline-start: 4px solid #10b981 !important;
+  color: #a7f3d0 !important;
+}
+
+html[data-theme="midnight"] .receipt-email-notice.info {
+  background: rgba(37, 99, 235, 0.2) !important;
+  border-inline-start: 4px solid #60a5fa !important;
+  color: #93c5fd !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Fallback Overrides for any lingering inline elements on Receipt / Voucher
+   ────────────────────────────────────────────────────────────────────────── */
+html[data-theme="sunset"] .receipt-section [style*="background:#fff"],
+html[data-theme="sunset"] .receipt-section [style*="background: #fff"],
+html[data-theme="sunset"] .receipt-section [style*="background:white"],
+html[data-theme="sunset"] .receipt-section [style*="background:#f8fafc"],
+html[data-theme="sunset"] .receipt-section [style*="background: #f8fafc"],
+html[data-theme="sunset"] .receipt-section [style*="background:var(--neutral-50)"] {
+  background: #1f0817 !important;
+  border-color: rgba(251, 113, 133, 0.35) !important;
+  color: #fff1f2 !important;
+}
+html[data-theme="sunset"] .receipt-section [style*="background:#0a1f16"] {
+  background: linear-gradient(135deg, #2d0b22 0%, #4a0d2e 100%) !important;
+  border-bottom: 1.5px solid rgba(251, 113, 133, 0.35) !important;
+}
+
+html[data-theme="midnight"] .receipt-section [style*="background:#fff"],
+html[data-theme="midnight"] .receipt-section [style*="background: #fff"],
+html[data-theme="midnight"] .receipt-section [style*="background:white"],
+html[data-theme="midnight"] .receipt-section [style*="background:#f8fafc"],
+html[data-theme="midnight"] .receipt-section [style*="background: #f8fafc"],
+html[data-theme="midnight"] .receipt-section [style*="background:var(--neutral-50)"] {
+  background: #080f24 !important;
+  border-color: rgba(59, 130, 246, 0.35) !important;
+  color: #f8fafc !important;
+}
+html[data-theme="midnight"] .receipt-section [style*="background:#0a1f16"] {
+  background: linear-gradient(135deg, #09122a 0%, #172554 100%) !important;
+  border-bottom: 1.5px solid rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Dark Theme Harmony for Modal Subcards */
+html[data-theme="sunset"] .modal-card [style*="background:#f8fafc"],
+html[data-theme="sunset"] .modal-card [style*="background: #f8fafc"],
+html[data-theme="sunset"] .modal-body [style*="background:#f8fafc"],
+html[data-theme="sunset"] .modal-body [style*="background: #f8fafc"] {
+  background: rgba(74, 13, 46, 0.4) !important;
+  border-color: rgba(251, 113, 133, 0.3) !important;
+  color: #fff1f2 !important;
+}
+
+html[data-theme="midnight"] .modal-card [style*="background:#f8fafc"],
+html[data-theme="midnight"] .modal-card [style*="background: #f8fafc"],
+html[data-theme="midnight"] .modal-body [style*="background:#f8fafc"],
+html[data-theme="midnight"] .modal-body [style*="background: #f8fafc"] {
+  background: rgba(19, 36, 77, 0.45) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  color: #f8fafc !important;
+}
+
+@media print {
+  .receipt-card,
+  html[data-theme="sunset"] .receipt-card,
+  html[data-theme="midnight"] .receipt-card {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+  }
+  .receipt-voucher-header,
+  html[data-theme="sunset"] .receipt-voucher-header,
+  html[data-theme="midnight"] .receipt-voucher-header {
+    background: #f8fafc !important;
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+  }
+  .receipt-voucher-title,
+  html[data-theme="sunset"] .receipt-voucher-title,
+  html[data-theme="midnight"] .receipt-voucher-title {
+    color: #000000 !important;
+  }
+  .receipt-voucher-subtitle,
+  html[data-theme="sunset"] .receipt-voucher-subtitle,
+  html[data-theme="midnight"] .receipt-voucher-subtitle {
+    color: #333333 !important;
+  }
+  .receipt-ref-banner,
+  .receipt-itinerary-card,
+  .receipt-financial-card,
+  html[data-theme="sunset"] .receipt-ref-banner,
+  html[data-theme="sunset"] .receipt-itinerary-card,
+  html[data-theme="sunset"] .receipt-financial-card,
+  html[data-theme="midnight"] .receipt-ref-banner,
+  html[data-theme="midnight"] .receipt-itinerary-card,
+  html[data-theme="midnight"] .receipt-financial-card {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    color: #000000 !important;
+  }
+  .receipt-ref-number,
+  .receipt-sub-val,
+  .receipt-detail-val,
+  html[data-theme="sunset"] .receipt-ref-number,
+  html[data-theme="sunset"] .receipt-sub-val,
+  html[data-theme="sunset"] .receipt-detail-val,
+  html[data-theme="midnight"] .receipt-ref-number,
+  html[data-theme="midnight"] .receipt-sub-val,
+  html[data-theme="midnight"] .receipt-detail-val {
+    color: #000000 !important;
+  }
+}
+
+
 
 
 
@@ -15396,12 +15989,12 @@ const TRANSLATIONS = {
       }
 
       return `
-        <div class="section bg-sand" style="padding-top:5rem;min-height:75vh;text-align:center;">
+        <div class="section bg-sand receipt-section" style="padding-top:5rem;min-height:75vh;text-align:center;">
           <div class="container" style="max-width:540px;">
-            <div style="background:#fff;border-radius:var(--radius-xl);padding:3rem 2rem;box-shadow:0 12px 35px rgba(0,0,0,0.06);">
+            <div class="receipt-card receipt-state-card" style="padding:3rem 2rem;border-radius:var(--radius-xl);">
               <div style="width:48px;height:48px;border:4px solid #e2f2e9;border-top-color:#16402e;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 1.5rem auto;"></div>
-              <h2 style="font-size:1.4rem;font-weight:800;color:var(--primary-900);margin-bottom:0.5rem;">${t('clickProcessing') || 'Loading reservation voucher...'}</h2>
-              <p style="font-size:0.9rem;color:var(--neutral-500);margin:0;">Ref: ${resId}</p>
+              <h2 class="receipt-voucher-title" style="font-size:1.4rem;font-weight:800;margin-bottom:0.5rem;">${t('clickProcessing') || 'Loading reservation voucher...'}</h2>
+              <p class="receipt-voucher-subtitle" style="font-size:0.9rem;margin:0;">Ref: ${resId}</p>
             </div>
           </div>
         </div>
@@ -15410,12 +16003,12 @@ const TRANSLATIONS = {
 
     if (!res) {
       return `
-        <div class="section bg-sand" style="padding-top:5rem;min-height:75vh;text-align:center;">
+        <div class="section bg-sand receipt-section" style="padding-top:5rem;min-height:75vh;text-align:center;">
           <div class="container" style="max-width:560px;">
-            <div style="background:#fff;border-radius:var(--radius-xl);padding:3rem 2rem;box-shadow:0 12px 35px rgba(0,0,0,0.06);border:1px solid var(--neutral-200);">
+            <div class="receipt-card receipt-state-card" style="padding:3rem 2rem;border-radius:var(--radius-xl);">
               <div style="font-size:3rem;margin-bottom:1rem;">🔍</div>
-              <h2 style="font-size:1.4rem;font-weight:800;color:var(--primary-900);margin-bottom:0.5rem;">${t('resNotFound')}</h2>
-              <p style="font-size:0.9rem;color:var(--neutral-500);margin-bottom:2rem;">${t('bookingNotFound')}</p>
+              <h2 class="receipt-voucher-title" style="font-size:1.4rem;font-weight:800;margin-bottom:0.5rem;">${t('resNotFound')}</h2>
+              <p class="receipt-voucher-subtitle" style="font-size:0.9rem;margin-bottom:2rem;">${t('bookingNotFound')}</p>
               <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
                 <button class="btn btn-primary" onclick="window.Alora.navigate('find-booking')">${t('navFindBooking')}</button>
                 <button class="btn btn-outline" onclick="window.Alora.navigate('home')">${t('btnBackHome')}</button>
@@ -15455,123 +16048,123 @@ const TRANSLATIONS = {
     const arrowSymbol = State.lang === 'ar' ? '⟵' : '⟶';
 
     return `
-      <div class="section bg-sand" style="padding-top:3rem;min-height:85vh;">
+      <div class="section bg-sand receipt-section" style="padding-top:3rem;min-height:85vh;">
         <div class="container" style="max-width:740px;">
           <!-- Success Card -->
-          <div style="background:#fff;border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,0.06);border:1px solid var(--neutral-200);">
+          <div class="receipt-card receipt-voucher-card">
             <!-- Top Accent Header -->
-            <div style="background:#0a1f16;color:#fff;padding:2.5rem 2rem;text-align:center;">
-              <div style="width:54px;height:54px;border-radius:50%;background:rgba(197, 160, 89, 0.2);border:2px solid #C5A059;color:#C5A059;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 1rem auto;">
+            <div class="receipt-voucher-header">
+              <div class="receipt-icon-badge">
                 ${isVerified ? '✓' : '⏳'}
               </div>
-              <h1 style="font-size:1.8rem;font-weight:800;margin:0 0 0.5rem 0;">${t('resReceivedTitle')}</h1>
-              <p style="font-size:0.95rem;color:#cbd5e0;margin:0;">${t('resReceivedSubtitle', { name: res.customerName || res.customer_name })}</p>
+              <h1 class="receipt-voucher-title">${t('resReceivedTitle')}</h1>
+              <p class="receipt-voucher-subtitle">${t('resReceivedSubtitle', { name: res.customerName || res.customer_name })}</p>
             </div>
 
             <!-- Body Details -->
-            <div style="padding:2rem;">
+            <div class="receipt-voucher-body">
               <!-- Reference Code Banner -->
-              <div style="background:#f8fafc;border:2px dashed #cbd5e0;border-radius:var(--radius-lg);padding:1.25rem;text-align:center;margin-bottom:2rem;">
-                <div style="font-size:0.8rem;color:var(--neutral-500);text-transform:uppercase;font-weight:700;">${t('resNumber')}</div>
-                <div style="font-family:monospace;font-size:1.75rem;font-weight:900;color:var(--primary-900);letter-spacing:0.05em;margin:4px 0;">
+              <div class="receipt-ref-banner">
+                <div class="receipt-ref-label">${t('resNumber')}</div>
+                <div class="receipt-ref-number">
                   ${res.bookingNumber || res.booking_number}
                 </div>
-                <div style="font-size:0.85rem;color:var(--neutral-600);">
-                  ${t('status')}: <strong style="color:${isVerified ? '#276749' : '#c05621'};">${isVerified ? t('resStatusConfirmedVerified') : t('resStatusPendingVerification')}</strong>
+                <div class="receipt-status-text">
+                  ${t('status')}: <strong class="receipt-status-val ${isVerified ? 'verified' : 'pending'}">${isVerified ? t('resStatusConfirmedVerified') : t('resStatusPendingVerification')}</strong>
                 </div>
                 ${!isVerified ? `
-                  <div style="background:#fffaf0;border-left:4px solid #dd6b20;padding:10px 14px;border-radius:4px;font-size:0.85rem;color:#7b341e;margin-top:0.75rem;text-align:start;">
+                  <div class="receipt-notice-callout">
                     ℹ️ ${t('resCliqPendingNotice')}
                   </div>
                 ` : ''}
               </div>
 
               <!-- Unambiguous Date & Time Itinerary Card -->
-              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:2rem;">
+              <div class="receipt-itinerary-card">
                 <div style="display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:1.25rem;text-align:center;">
                   <div style="flex:1;min-width:140px;">
-                    <div style="color:var(--neutral-500);font-size:0.8rem;text-transform:uppercase;font-weight:700;margin-bottom:4px;">
+                    <div class="receipt-sub-label">
                       📥 ${t('resVoucherCheckIn')}
                     </div>
-                    <div style="font-size:1.15rem;font-weight:800;color:var(--primary-900);">${checkInDate}</div>
-                    <div style="font-size:0.8rem;color:var(--neutral-600);">${checkInTime}</div>
+                    <div class="receipt-sub-val">${checkInDate}</div>
+                    <div class="receipt-sub-time">${checkInTime}</div>
                   </div>
 
                   <div style="display:flex;flex-direction:column;align-items:center;padding:0 0.5rem;">
-                    <div style="font-size:1.4rem;color:#C5A059;line-height:1;">
+                    <div class="receipt-itinerary-arrow">
                       ${arrowSymbol}
                     </div>
-                    <span style="font-size:0.75rem;font-weight:700;background:#e2f2e9;color:#16402e;padding:2px 8px;border-radius:12px;margin-top:4px;">
+                    <span class="receipt-duration-pill">
                       ${durationText}
                     </span>
                   </div>
 
                   <div style="flex:1;min-width:140px;">
-                    <div style="color:var(--neutral-500);font-size:0.8rem;text-transform:uppercase;font-weight:700;margin-bottom:4px;">
+                    <div class="receipt-sub-label">
                       📤 ${t('resVoucherCheckOut')}
                     </div>
-                    <div style="font-size:1.15rem;font-weight:800;color:var(--primary-900);">${checkOutDate}</div>
-                    <div style="font-size:0.8rem;color:var(--neutral-600);">${checkOutTime}</div>
+                    <div class="receipt-sub-val">${checkOutDate}</div>
+                    <div class="receipt-sub-time">${checkOutTime}</div>
                   </div>
                 </div>
               </div>
 
               <!-- Details Grid -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem;font-size:0.92rem;">
+              <div class="receipt-details-grid">
                 <div>
-                  <div style="color:var(--neutral-500);font-size:0.8rem;">${t('resVoucherVilla')}</div>
-                  <strong style="color:var(--primary-900);font-size:1.1rem;">${farmName}</strong>
+                  <div class="receipt-sub-label">${t('resVoucherVilla')}</div>
+                  <strong class="receipt-detail-val">${farmName}</strong>
                 </div>
                 <div>
-                  <div style="color:var(--neutral-500);font-size:0.8rem;">${t('resVoucherCustomer')}</div>
-                  <strong style="color:var(--primary-900);font-size:1.1rem;">${res.customerName || res.customer_name}</strong>
+                  <div class="receipt-sub-label">${t('resVoucherCustomer')}</div>
+                  <strong class="receipt-detail-val">${res.customerName || res.customer_name}</strong>
                 </div>
                 <div>
-                  <div style="color:var(--neutral-500);font-size:0.8rem;">${t('resVoucherGuests')}</div>
-                  <strong>${t('upToGuests', { count: res.guests })}</strong>
+                  <div class="receipt-sub-label">${t('resVoucherGuests')}</div>
+                  <strong class="receipt-detail-val">${t('upToGuests', { count: res.guests })}</strong>
                 </div>
                 <div>
-                  <div style="color:var(--neutral-500);font-size:0.8rem;">${t('resVoucherPhone')}</div>
-                  <strong dir="ltr">${res.customerPhone || res.customer_phone}</strong>
+                  <div class="receipt-sub-label">${t('resVoucherPhone')}</div>
+                  <strong class="receipt-detail-val" dir="ltr">${res.customerPhone || res.customer_phone}</strong>
                 </div>
               </div>
 
               <!-- Financial Receipt -->
-              <div style="background:var(--neutral-50);padding:1.25rem;border-radius:var(--radius-lg);margin-bottom:2rem;">
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <div class="receipt-financial-card">
+                <div class="receipt-financial-row">
                   <span>${t('resVoucherTotal')}</span>
                   <strong>${res.total || res.total_amount} JOD</strong>
                 </div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px;color:#0a1f16;font-weight:700;">
+                <div class="receipt-financial-row receipt-fee-row">
                   <span>${t('resVoucherFee')}</span>
                   <span>${res.bookingFee || res.deposit_amount || Math.round((res.total || res.total_amount) * 0.3)} JOD</span>
                 </div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                <div class="receipt-financial-row">
                   <span>${t('resVoucherCliq')}</span>
                   <span>${(State.lang === 'ar' ? (res.paymentMethodNameAr || (res.paymentMethodName === 'ALORA Booking CliQ' ? 'حساب كليك حجوزات أورا' : 'حساب كليك أورا الرئيسي')) : (res.paymentMethodName || 'ALORA Main CliQ'))} (<span dir="ltr">${res.cliqAlias || 'ALORA@INVEST'}</span>)</span>
                 </div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                <div class="receipt-financial-row">
                   <span>${t('resVoucherRef')}</span>
                   <span style="font-family:monospace;font-weight:700;">${res.paymentReference || 'Pending verification'}</span>
                 </div>
-                <div style="border-top:1px solid #cbd5e0;margin-top:8px;padding-top:8px;display:flex;justify-content:space-between;font-size:1.1rem;font-weight:900;color:var(--primary-900);">
+                <div class="receipt-financial-total">
                   <span>${t('resVoucherRemaining')}</span>
                   <span>${(res.remainingAmount !== undefined ? res.remainingAmount : res.remaining_amount !== undefined ? res.remaining_amount : (res.total || res.total_amount) - (res.paidAmount || res.deposit_amount || 0))} JOD</span>
                 </div>
               </div>
 
               ${(res.customerEmail || res.customer_email) ? `
-                <div style="background:#166534;border-left:4px solid #10b981;padding:12px 16px;border-radius:4px;font-size:0.88rem;color:#ffffff;font-weight:700;margin-bottom:2rem;">
+                <div class="receipt-email-notice success">
                   ✉️ ${t('resEmailSentNotice', { email: res.customerEmail || res.customer_email })}
                 </div>
               ` : `
-                <div style="background:#edf2f7;border-left:4px solid #718096;padding:12px 16px;border-radius:4px;font-size:0.88rem;color:#4a5568;margin-bottom:2rem;">
+                <div class="receipt-email-notice info">
                   ℹ️ ${t('resNoEmailNotice')}
                 </div>
               `}
 
               <!-- Actions Toolbar -->
-              <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+              <div class="receipt-actions-toolbar">
                 <button class="btn btn-primary" onclick="window.print()">
                   🖨️ ${t('btnPrintReceipt')}
                 </button>
