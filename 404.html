@@ -99,6 +99,13 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden !important;
+  scrollbar-gutter: stable;
+  width: 100%;
+  max-width: 100vw;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--earth-sand);
@@ -108,6 +115,16 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+#app {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
 }
 
 html[dir="rtl"] body {
@@ -10027,6 +10044,243 @@ html[data-theme="sunset"] {
     color: #1a0513 !important;
   }
 }
+
+/* ==========================================================================
+   GLOBAL SYSTEM DIRECTIVES (CRITICAL FIXES & QA STANDARDIZATION)
+   ========================================================================== */
+
+/* 1. VIEWPORT EDGE STABILIZATION & ROGUE SCROLLBAR ELIMINATION */
+html {
+  overflow-x: hidden !important;
+  scrollbar-gutter: stable;
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative !important;
+}
+
+#app {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Delete rogue scrollbars / left edge floating tabs from the DOM */
+.admin-sidebar-glitch,
+.floating-admin-tab,
+.left-edge-tab,
+.admin-left-tab,
+.rogue-scrollbar {
+  display: none !important;
+}
+
+html::-webkit-scrollbar:horizontal,
+body::-webkit-scrollbar:horizontal {
+  display: none !important;
+  height: 0 !important;
+}
+
+/* 2. CONTINUOUS UI ANIMATION (HEARTBEAT PULSE)
+   Standardize animation library globally: remove all rotational loops.
+   Apply uniform heartbeat pulse (transform: scale(1.05)) in an infinite loop
+   running continuously while resting on the page, regardless of hover state. */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.btn,
+button.btn,
+a.btn,
+.btn-primary,
+.btn-outline,
+.btn-secondary,
+.btn-villa-book,
+.btn-villa-details,
+.btn-card-book,
+.btn-card-view,
+.btn-book-sidebar,
+.btn-back-to-villas,
+.btn-search-submit,
+.nav-reserve-btn,
+.top-bar-admin-btn,
+.admin-btn-primary,
+.admin-btn-outline,
+.admin-demo-btn,
+.admin-login-return-btn,
+.btn-admin-create-res,
+.modal-footer .btn,
+.wiz-action-footer .btn,
+.mobile-quick-btn,
+.btn-icon,
+.theme-sparkle-icon,
+.btn-icon-animated,
+.nav-control-btn .btn-icon,
+.admin-notif-btn .notif-bell-icon,
+.date-picker-icon-btn,
+.why-icon {
+  animation: heartbeat 2s infinite ease-in-out !important;
+  transform-origin: center center !important;
+  will-change: transform !important;
+}
+
+/* 3. DYNAMIC TYPOGRAPHY LEGIBILITY (THEME CONTRAST FAILURE)
+   Strict CSS variable override: whenever a non-white background theme is active
+   (Midnight, Sunset, etc.), force all primary and secondary typography fonts to white. */
+html[data-theme="midnight"],
+html[data-theme="sunset"] {
+  --text-color-dark: #ffffff !important;
+  --text-color-light: #ffffff !important;
+  --text-color-muted: #e2e8f0 !important;
+  --neutral-900: #ffffff !important;
+  --neutral-800: #ffffff !important;
+  --neutral-700: #f8fafc !important;
+  --neutral-600: #f1f5f9 !important;
+  --neutral-500: #e2e8f0 !important;
+  --neutral-400: #cbd5e1 !important;
+  --primary-900: #ffffff !important;
+  --primary-800: #f8fafc !important;
+  --primary-700: #f1f5f9 !important;
+}
+
+html[data-theme="midnight"] body,
+html[data-theme="midnight"] p,
+html[data-theme="midnight"] h1,
+html[data-theme="midnight"] h2,
+html[data-theme="midnight"] h3,
+html[data-theme="midnight"] h4,
+html[data-theme="midnight"] h5,
+html[data-theme="midnight"] h6,
+html[data-theme="midnight"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *),
+html[data-theme="midnight"] label,
+html[data-theme="midnight"] div:not(.status-badge):not(.badge-submitted),
+html[data-theme="midnight"] strong,
+html[data-theme="midnight"] li,
+html[data-theme="midnight"] td,
+html[data-theme="midnight"] th,
+html[data-theme="midnight"] .farm-title,
+html[data-theme="midnight"] .farm-card-title,
+html[data-theme="midnight"] .farm-tagline,
+html[data-theme="midnight"] .farm-card-location,
+html[data-theme="midnight"] .farm-location-badge,
+html[data-theme="midnight"] .farm-specs-row,
+html[data-theme="midnight"] .farm-specs-row span,
+html[data-theme="midnight"] .farm-price,
+html[data-theme="midnight"] .price-period,
+html[data-theme="midnight"] .section-title,
+html[data-theme="midnight"] .section-subtitle,
+html[data-theme="midnight"] .hero-title,
+html[data-theme="midnight"] .hero-subtitle,
+html[data-theme="midnight"] .villa-section-title,
+html[data-theme="midnight"] .villa-overview-desc,
+html[data-theme="midnight"] .highlight-lbl,
+html[data-theme="midnight"] .highlight-val,
+html[data-theme="midnight"] .amenity-name,
+html[data-theme="midnight"] .rule-item,
+html[data-theme="midnight"] .policy-title,
+html[data-theme="midnight"] .policy-p,
+html[data-theme="midnight"] .wiz-villa-title,
+html[data-theme="midnight"] .wiz-modal-farm-name,
+html[data-theme="midnight"] .wiz-villa-location,
+html[data-theme="midnight"] .wiz-form-label,
+html[data-theme="midnight"] .admin-card-title,
+html[data-theme="midnight"] .admin-kpi-lbl,
+html[data-theme="midnight"] .admin-kpi-val,
+html[data-theme="midnight"] .admin-table th,
+html[data-theme="midnight"] .admin-table td,
+
+html[data-theme="sunset"] body,
+html[data-theme="sunset"] p,
+html[data-theme="sunset"] h1,
+html[data-theme="sunset"] h2,
+html[data-theme="sunset"] h3,
+html[data-theme="sunset"] h4,
+html[data-theme="sunset"] h5,
+html[data-theme="sunset"] h6,
+html[data-theme="sunset"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *),
+html[data-theme="sunset"] label,
+html[data-theme="sunset"] div:not(.status-badge):not(.badge-submitted),
+html[data-theme="sunset"] strong,
+html[data-theme="sunset"] li,
+html[data-theme="sunset"] td,
+html[data-theme="sunset"] th,
+html[data-theme="sunset"] .farm-title,
+html[data-theme="sunset"] .farm-card-title,
+html[data-theme="sunset"] .farm-tagline,
+html[data-theme="sunset"] .farm-card-location,
+html[data-theme="sunset"] .farm-location-badge,
+html[data-theme="sunset"] .farm-specs-row,
+html[data-theme="sunset"] .farm-specs-row span,
+html[data-theme="sunset"] .farm-price,
+html[data-theme="sunset"] .price-period,
+html[data-theme="sunset"] .section-title,
+html[data-theme="sunset"] .section-subtitle,
+html[data-theme="sunset"] .hero-title,
+html[data-theme="sunset"] .hero-subtitle,
+html[data-theme="sunset"] .villa-section-title,
+html[data-theme="sunset"] .villa-overview-desc,
+html[data-theme="sunset"] .highlight-lbl,
+html[data-theme="sunset"] .highlight-val,
+html[data-theme="sunset"] .amenity-name,
+html[data-theme="sunset"] .rule-item,
+html[data-theme="sunset"] .policy-title,
+html[data-theme="sunset"] .policy-p,
+html[data-theme="sunset"] .wiz-villa-title,
+html[data-theme="sunset"] .wiz-modal-farm-name,
+html[data-theme="sunset"] .wiz-villa-location,
+html[data-theme="sunset"] .wiz-form-label,
+html[data-theme="sunset"] .admin-card-title,
+html[data-theme="sunset"] .admin-kpi-lbl,
+html[data-theme="sunset"] .admin-kpi-val,
+html[data-theme="sunset"] .admin-table th,
+html[data-theme="sunset"] .admin-table td {
+  color: #ffffff !important;
+}
+
+/* 4. SEVERE CONTRAST PROTECTION FOR YELLOW ACTION BUTTONS
+   Update CSS styling for all yellow buttons across admin panel to use dark text
+   (#0a1f16 / #1a1a1a) to ensure accessibility in all themes. */
+.btn-admin-create-res,
+.btn-admin-create-res *,
+.admin-demo-btn,
+.admin-demo-btn *,
+button[style*="background:#d69e2e"],
+button[style*="background:#d69e2e"] *,
+button[style*="background: #d69e2e"],
+button[style*="background: #d69e2e"] *,
+button[style*="background:#C5A059"],
+button[style*="background:#C5A059"] *,
+button[style*="background: #C5A059"],
+button[style*="background: #C5A059"] *,
+button[style*="background:yellow"],
+button[style*="background:yellow"] *,
+html[data-theme="midnight"] .btn-primary,
+html[data-theme="midnight"] .btn-primary *,
+html[data-theme="midnight"] .btn-xs.btn-primary,
+html[data-theme="midnight"] .btn-xs.btn-primary *,
+html[data-theme="midnight"] .btn-sm.btn-primary,
+html[data-theme="midnight"] .btn-sm.btn-primary * {
+  color: #050b17 !important;
+  font-weight: 800 !important;
+}
+
+/* 5. MODAL UI PADDING / STRUCTURAL BREATHING ROOM */
+.customer-history-modal table th,
+.customer-history-modal table td,
+.customer-history-modal .admin-table-container th,
+.customer-history-modal .admin-table-container td {
+  padding: 12px 16px !important;
+}
+
 
 
 
