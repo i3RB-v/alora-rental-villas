@@ -1852,23 +1852,29 @@ html[dir="rtl"] .btn-open-all-photos {
 }
 
 .badge-paid {
-  background: var(--status-success-bg);
-  color: var(--status-success);
+  background: #166534 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
 }
 
 .badge-pending {
-  background: var(--status-pending-bg);
-  color: var(--status-pending);
+  background: #fbbf24 !important;
+  color: #050b17 !important;
+  font-weight: 800 !important;
 }
 
 .badge-confirmed {
-  background: var(--primary-100);
-  color: var(--primary-800);
+  background: #166534 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
 }
 
 .badge-cancelled {
-  background: var(--status-danger-bg);
-  color: var(--status-danger);
+  background: #991b1b !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
 }
 
 .receipt-grid {
@@ -3796,37 +3802,38 @@ html[dir="rtl"] .user-menu-dropdown {
 
 /* Badge Enhancements */
 .badge-verified {
-  background: #c6f6d5;
-  color: #22543d;
-  font-weight: 700;
-  padding: 3px 8px;
+  background: #166534 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  padding: 4px 10px;
   border-radius: 4px;
   font-size: 0.78rem;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
 }
 
 .badge-submitted {
-  background: #feebc8;
-  color: #744210;
-  font-weight: 700;
-  padding: 3px 8px;
+  background: #fbbf24 !important;
+  color: #050b17 !important;
+  font-weight: 800 !important;
+  padding: 4px 10px;
   border-radius: 4px;
   font-size: 0.78rem;
 }
 
 .badge-rejected {
-  background: #fed7d7;
-  color: #742a2a;
-  font-weight: 700;
-  padding: 3px 8px;
+  background: #991b1b !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  padding: 4px 10px;
   border-radius: 4px;
   font-size: 0.78rem;
 }
 
 .badge-pending {
-  background: #edf2f7;
-  color: #4a5568;
-  font-weight: 700;
-  padding: 3px 8px;
+  background: #fbbf24 !important;
+  color: #050b17 !important;
+  font-weight: 800 !important;
+  padding: 4px 10px;
   border-radius: 4px;
   font-size: 0.78rem;
 }
@@ -10482,6 +10489,11 @@ html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme]
    Update CSS styling for all yellow buttons across admin panel to use dark text
    (#0a1f16 / #050b17) to ensure accessibility in all themes. */
 .btn-admin-create-res,
+.admin-demo-btn {
+  color: #0a1f16 !important;
+}
+
+.btn-admin-create-res,
 .btn-admin-create-res *,
 .admin-demo-btn,
 .admin-demo-btn *,
@@ -10511,7 +10523,266 @@ html[data-theme="sunset"] .btn-sm.btn-primary * {
   font-weight: 800 !important;
 }
 
-/* 5. MODAL UI PADDING / STRUCTURAL BREATHING ROOM */
+/* 5. UNIVERSAL TYPOGRAPHY BOLDNESS DIRECTIVE (ALL SYSTEM & ADMIN PAGES)
+   Make all text bold across the entire platform without exception. */
+*,
+*::before,
+*::after,
+html, body, #app,
+p, span, a, h1, h2, h3, h4, h5, h6,
+label, input, textarea, select, button,
+table, thead, tbody, tfoot, tr, th, td,
+li, ul, ol, dt, dd, div, small, strong, b, em,
+.btn, .badge, .status-badge, .card, .admin-card, .modal-card,
+.admin-portal, .admin-view, .admin-page, .admin-content, .admin-wrapper,
+.admin-table, .farm-card, .nav-item, .admin-nav-item,
+.modal, .dialog, .toast, .alert, .dropdown, .tooltip {
+  font-weight: 700 !important;
+}
+
+/* Extra bold for prominent elements */
+h1, h2, h3, h4, h5, h6,
+.btn-primary, .btn-admin-create-res, .admin-demo-btn, .btn-book-sidebar,
+.admin-kpi-val, .farm-price, .stat-value, .stat-num,
+.badge, .status-badge, strong, b {
+  font-weight: 800 !important;
+}
+
+/* 6. GREEN BACKGROUND -> FONT COLOR WHITE (#ffffff) & BOLD
+   Directive: If background is green, make the text white for all system also for admin pages. */
+.badge-confirmed,
+.badge-confirmed *,
+.badge-verified,
+.badge-verified *,
+.badge-paid,
+.badge-paid *,
+.badge-success,
+.badge-success *,
+.badge-active,
+.badge-active *,
+.status-confirmed,
+.status-confirmed *,
+.status-verified,
+.status-verified *,
+.status-paid,
+.status-paid *,
+.status-active,
+.status-active *,
+.tag-confirmed,
+.tag-confirmed *,
+.badge-approved,
+.badge-approved *,
+.badge-completed,
+.badge-completed *,
+.pill-success,
+.pill-success *,
+.admin-badge-success,
+.admin-badge-success *,
+.btn-success,
+.btn-success *,
+.btn-forest,
+.btn-forest *,
+.btn-emerald,
+.btn-emerald *,
+.admin-btn-success,
+.admin-btn-success *,
+.btn-whatsapp-floating,
+.btn-whatsapp-floating *,
+.btn-whatsapp,
+.btn-whatsapp *,
+.bg-emerald,
+.bg-emerald *,
+.bg-forest,
+.bg-forest *,
+.bg-green,
+.bg-green *,
+.bg-success,
+.bg-success *,
+.toast-success,
+.toast-success *,
+.alert-success,
+.alert-success *,
+.admin-kpi-icon[style*="background:#c6f6d5"],
+.admin-kpi-icon[style*="background:#c6f6d5"] *,
+.admin-kpi-icon[style*="background:#d1fae5"],
+.admin-kpi-icon[style*="background:#d1fae5"] *,
+.admin-kpi-icon[style*="background:#e2f2e9"],
+.admin-kpi-icon[style*="background:#e2f2e9"] *,
+.admin-kpi-icon[style*="background: #c6f6d5"],
+.admin-kpi-icon[style*="background: #c6f6d5"] *,
+.admin-kpi-icon[style*="background: #d1fae5"],
+.admin-kpi-icon[style*="background: #d1fae5"] *,
+.admin-kpi-icon[style*="background: #e2f2e9"],
+.admin-kpi-icon[style*="background: #e2f2e9"] *,
+.admin-kpi-icon[style*="background:#166534"],
+.admin-kpi-icon[style*="background:#166534"] *,
+.admin-kpi-icon[style*="background: #166534"],
+.admin-kpi-icon[style*="background: #166534"] *,
+[style*="background: green"],
+[style*="background: green"] *,
+[style*="background:green"],
+[style*="background:green"] *,
+[style*="background-color: green"],
+[style*="background-color: green"] *,
+[style*="background-color:green"],
+[style*="background-color:green"] *,
+[style*="background:#15803d"],
+[style*="background:#15803d"] *,
+[style*="background: #15803d"],
+[style*="background: #15803d"] *,
+[style*="background:#166534"],
+[style*="background:#166534"] *,
+[style*="background: #166534"],
+[style*="background: #166534"] *,
+[style*="background:#16a34a"],
+[style*="background:#16a34a"] *,
+[style*="background: #16a34a"],
+[style*="background: #16a34a"] *,
+[style*="background:#0a1f16"],
+[style*="background:#0a1f16"] *,
+[style*="background: #0a1f16"],
+[style*="background: #0a1f16"] *,
+[style*="background:#1b4332"],
+[style*="background:#1b4332"] *,
+[style*="background: #1b4332"],
+[style*="background: #1b4332"] *,
+[style*="background:#22543d"],
+[style*="background:#22543d"] *,
+[style*="background: #22543d"],
+[style*="background: #22543d"] *,
+[style*="background:#2e7d32"],
+[style*="background:#2e7d32"] *,
+[style*="background: #2e7d32"],
+[style*="background: #2e7d32"] *,
+[style*="background:#10b981"],
+[style*="background:#10b981"] *,
+[style*="background: #10b981"],
+[style*="background: #10b981"] *,
+[style*="background:#059669"],
+[style*="background:#059669"] *,
+[style*="background: #059669"],
+[style*="background: #059669"] * {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* 7. COMPREHENSIVE ADMIN PORTAL SYSTEM CONTRAST RULES */
+.admin-portal,
+.admin-view,
+.admin-page,
+.admin-content,
+.admin-wrapper {
+  font-weight: 700 !important;
+}
+
+/* Admin Light Mode (White / Sand Backgrounds) -> Font Black (#0a1f16) */
+html[data-theme="emerald"] .admin-portal,
+html[data-theme="light"] .admin-portal,
+html:not([data-theme]) .admin-portal,
+html[data-theme="emerald"] .admin-card,
+html[data-theme="light"] .admin-card,
+html:not([data-theme]) .admin-card,
+html[data-theme="emerald"] .admin-table,
+html[data-theme="light"] .admin-table,
+html:not([data-theme]) .admin-table,
+html[data-theme="emerald"] .admin-sidebar,
+html[data-theme="light"] .admin-sidebar,
+html:not([data-theme]) .admin-sidebar,
+html[data-theme="emerald"] .admin-header,
+html[data-theme="light"] .admin-header,
+html:not([data-theme]) .admin-header,
+html[data-theme="emerald"] .modal-card,
+html[data-theme="light"] .modal-card,
+html:not([data-theme]) .modal-card {
+  color: #0a1f16 !important;
+}
+
+html[data-theme="emerald"] .admin-card *,
+html[data-theme="light"] .admin-card *,
+html:not([data-theme]) .admin-card *,
+html[data-theme="emerald"] .admin-table th,
+html[data-theme="emerald"] .admin-table td,
+html[data-theme="light"] .admin-table th,
+html[data-theme="light"] .admin-table td,
+html:not([data-theme]) .admin-table th,
+html:not([data-theme]) .admin-table td,
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active),
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active) *,
+html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active),
+html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active) *,
+html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active),
+html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active) *,
+html[data-theme="emerald"] .modal-card p,
+html[data-theme="emerald"] .modal-card span:not(.badge-star):not(.rating-star),
+html[data-theme="emerald"] .modal-card label,
+html[data-theme="light"] .modal-card p,
+html[data-theme="light"] .modal-card span:not(.badge-star):not(.rating-star),
+html[data-theme="light"] .modal-card label {
+  color: #0a1f16 !important;
+  font-weight: 700 !important;
+}
+
+/* Admin Dark Mode (Midnight Sapphire & Sunset Rose) -> Font Yellow (#fbbf24) */
+html[data-theme="midnight"] .admin-portal,
+html[data-theme="sunset"] .admin-portal,
+html[data-theme="midnight"] .admin-card,
+html[data-theme="sunset"] .admin-card,
+html[data-theme="midnight"] .admin-table,
+html[data-theme="sunset"] .admin-table,
+html[data-theme="midnight"] .admin-sidebar,
+html[data-theme="sunset"] .admin-sidebar,
+html[data-theme="midnight"] .admin-header,
+html[data-theme="sunset"] .admin-header,
+html[data-theme="midnight"] .modal-card,
+html[data-theme="sunset"] .modal-card {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="midnight"] .admin-card *,
+html[data-theme="sunset"] .admin-card *,
+html[data-theme="midnight"] .admin-table th,
+html[data-theme="midnight"] .admin-table td,
+html[data-theme="sunset"] .admin-table th,
+html[data-theme="sunset"] .admin-table td,
+html[data-theme="midnight"] .admin-sidebar .admin-nav-item:not(.active),
+html[data-theme="midnight"] .admin-sidebar .admin-nav-item:not(.active) *,
+html[data-theme="sunset"] .admin-sidebar .admin-nav-item:not(.active),
+html[data-theme="sunset"] .admin-sidebar .admin-nav-item:not(.active) *,
+html[data-theme="midnight"] .modal-card p,
+html[data-theme="midnight"] .modal-card span:not(.badge-star):not(.rating-star),
+html[data-theme="midnight"] .modal-card label,
+html[data-theme="sunset"] .modal-card p,
+html[data-theme="sunset"] .modal-card span:not(.badge-star):not(.rating-star),
+html[data-theme="sunset"] .modal-card label {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+}
+
+/* Admin Form Controls (Inputs, Selects, Textareas) */
+html[data-theme="emerald"] .admin-portal input,
+html[data-theme="emerald"] .admin-portal select,
+html[data-theme="emerald"] .admin-portal textarea,
+html[data-theme="light"] .admin-portal input,
+html[data-theme="light"] .admin-portal select,
+html[data-theme="light"] .admin-portal textarea,
+html:not([data-theme]) .admin-portal input,
+html:not([data-theme]) .admin-portal select,
+html:not([data-theme]) .admin-portal textarea {
+  color: #0a1f16 !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="midnight"] .admin-portal input,
+html[data-theme="midnight"] .admin-portal select,
+html[data-theme="midnight"] .admin-portal textarea,
+html[data-theme="sunset"] .admin-portal input,
+html[data-theme="sunset"] .admin-portal select,
+html[data-theme="sunset"] .admin-portal textarea {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+}
+
+/* 8. MODAL UI PADDING / STRUCTURAL BREATHING ROOM */
 .customer-history-modal table th,
 .customer-history-modal table td,
 .customer-history-modal .admin-table-container th,
@@ -13684,8 +13955,8 @@ const TRANSLATIONS = {
         ? `أورا — تم تأكيد الحجز رسمياً #${booking.bookingNumber} ✓`
         : `ALORA — Reservation Confirmed #${booking.bookingNumber}`;
       statusBadge = isAr
-        ? `<span style="background:#d1fae5;color:#065f46;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;">✓ مؤكد وتم التحقق من الدفعة</span>`
-        : `<span style="background:#d1fae5;color:#065f46;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;">✓ Confirmed & Deposit Verified</span>`;
+        ? `<span style="background:#166534;color:#ffffff;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:800;border:1px solid rgba(255,255,255,0.25);">✓ مؤكد وتم التحقق من الدفعة</span>`
+        : `<span style="background:#166534;color:#ffffff;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:800;border:1px solid rgba(255,255,255,0.25);">✓ Confirmed & Deposit Verified</span>`;
       headline = isAr ? `حجزك الفاخر مؤكد ومضمون رسمياً` : `Your Luxury Stay is Officially Confirmed`;
       bodyText = isAr
         ? `تهانينا، ${booking.customerName}! تم التحقق من دفعة تأكيد الحجز وإقفال موعد إقامتك الخاصة في ${farmName} بنجاح. نتطلع للترحيب بك قريباً.`
@@ -13759,14 +14030,14 @@ const TRANSLATIONS = {
                   </td>
                   <td style="padding:14px 20px;text-align:${isAr ? 'left' : 'right'};">
                     <span style="color:#718096;font-size:12px;">${isAr ? 'السعر الإجمالي:' : 'Total Price:'}</span><br>
-                    <strong style="color:#0a1f16;font-size:18px;">${booking.total} ${isAr ? 'د.أ' : 'JOD'}</strong><br>
-                    <small style="color:#065f46;font-weight:700;">${isAr ? `الدفعة (${booking.bookingFeePercent || 30}%): ${booking.bookingFee || Math.round(booking.total * 0.3)} د.أ` : `Deposit (${booking.bookingFeePercent || 30}%): ${booking.bookingFee || Math.round(booking.total * 0.3)} JOD`}</small>
+                    <strong style="color:#0a1f16;font-size:18px;font-weight:800;">${booking.total} ${isAr ? 'د.أ' : 'JOD'}</strong><br>
+                    <small style="color:#0a1f16;font-weight:700;">${isAr ? `الدفعة (${booking.bookingFeePercent || 30}%): ${booking.bookingFee || Math.round(booking.total * 0.3)} د.أ` : `Deposit (${booking.bookingFeePercent || 30}%): ${booking.bookingFee || Math.round(booking.total * 0.3)} JOD`}</small>
                   </td>
                 </tr>
               </table>
 
-              <div style="background:#f0fdf4;border-${isAr ? 'right' : 'left'}:4px solid #16402e;padding:14px 18px;border-radius:4px;font-size:13px;color:#16402e;margin-bottom:24px;text-align:${isAr ? 'right' : 'left'};">
-                <strong>${isAr ? '📍 تعليمات وإرشادات أورا للضيوف:' : '📍 ALORA Guest Guidelines:'}</strong><br>
+              <div style="background:#166534;border-${isAr ? 'right' : 'left'}:4px solid #10b981;padding:14px 18px;border-radius:4px;font-size:13px;color:#ffffff;font-weight:700;margin-bottom:24px;text-align:${isAr ? 'right' : 'left'};">
+                <strong style="color:#ffffff;font-weight:800;">${isAr ? '📍 تعليمات وإرشادات أورا للضيوف:' : '📍 ALORA Guest Guidelines:'}</strong><br>
                 ${isAr ? '• خصوصية تامة مكفولة 100% داخل العقار.' : '• 100% total private property access.'}<br>
                 ${isAr ? `• يرجى إبراز الرمز المرجعي للحجز (${booking.bookingNumber}) عند تسجيل الدخول.` : `• Please present your reservation reference code (${booking.bookingNumber}) upon arrival.`}<br>
                 ${isAr ? `• المبلغ المتبقي (${(booking.total - (booking.paidAmount || booking.bookingFee || 0))} دينار أردني) مستحق الدفع عند الدخول.` : `• Remaining balance (${(booking.total - (booking.paidAmount || booking.bookingFee || 0))} JOD) is payable at check-in.`}<br>
@@ -14748,7 +15019,7 @@ const TRANSLATIONS = {
                   <span>${t('resVoucherTotal')}</span>
                   <strong>${res.total || res.total_amount} JOD</strong>
                 </div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px;color:#22543d;font-weight:700;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:6px;color:#0a1f16;font-weight:700;">
                   <span>${t('resVoucherFee')}</span>
                   <span>${res.bookingFee || res.deposit_amount || Math.round((res.total || res.total_amount) * 0.3)} JOD</span>
                 </div>
@@ -14767,7 +15038,7 @@ const TRANSLATIONS = {
               </div>
 
               ${(res.customerEmail || res.customer_email) ? `
-                <div style="background:#f0fff4;border-left:4px solid #38a169;padding:12px 16px;border-radius:4px;font-size:0.88rem;color:#22543d;margin-bottom:2rem;">
+                <div style="background:#166534;border-left:4px solid #10b981;padding:12px 16px;border-radius:4px;font-size:0.88rem;color:#ffffff;font-weight:700;margin-bottom:2rem;">
                   ✉️ ${t('resEmailSentNotice', { email: res.customerEmail || res.customer_email })}
                 </div>
               ` : `
@@ -15214,7 +15485,7 @@ const TRANSLATIONS = {
                   <!-- Financial Summary -->
                   <div style="margin-top:1rem;padding-top:0.75rem;border-top:1px dashed var(--neutral-300);">
                     <div class="summary-row"><span>${t('summaryTotal')}</span> <strong>${w.total} JOD</strong></div>
-                    <div class="summary-row" style="color:#22543d;font-weight:700;">
+                    <div class="summary-row" style="color:#0a1f16;font-weight:700;">
                       <span>${t('summaryDeposit', { percent: w.bookingFeePercent })}</span>
                       <span>${w.bookingFee} JOD</span>
                     </div>
@@ -15231,7 +15502,7 @@ const TRANSLATIONS = {
                   <span style="font-family:monospace;font-size:1.1rem;font-weight:800;color:#ffffff;">${w.bookingNumber}</span>
                 </div>
 
-                <div style="background:#f0fff4;border-left:4px solid #38a169;padding:10px 14px;border-radius:4px;font-size:0.85rem;color:#22543d;margin-bottom:1.5rem;">
+                <div style="background:#166534;border-left:4px solid #10b981;padding:10px 14px;border-radius:4px;font-size:0.85rem;color:#ffffff;font-weight:700;margin-bottom:1.5rem;">
                   ${t('adminVerifyNotice')}
                 </div>
 
@@ -15764,7 +16035,7 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiActiveVillas')}</span>
-              <div class="admin-kpi-icon" style="background:#c6f6d5;color:#22543d;">✓</div>
+              <div class="admin-kpi-icon" style="background:#166534;color:#ffffff;font-weight:800;">✓</div>
             </div>
             <div class="admin-kpi-val">${activeVillas}</div>
             <div class="admin-kpi-sub">${t('kpiSubAvailableBooking')}</div>
@@ -15774,7 +16045,7 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiFeaturedVillas')}</span>
-              <div class="admin-kpi-icon" style="background:#fefcbf;color:#b7791f;">★</div>
+              <div class="admin-kpi-icon" style="background:#fbbf24;color:#050b17;font-weight:800;">★</div>
             </div>
             <div class="admin-kpi-val">${featuredVillas}</div>
             <div class="admin-kpi-sub">${t('kpiSubHomepageShowcase')}</div>
@@ -15784,7 +16055,7 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiTodayReservations')}</span>
-              <div class="admin-kpi-icon" style="background:#bee3f8;color:#2b6cb0;">📅</div>
+              <div class="admin-kpi-icon" style="background:#bee3f8;color:#2b6cb0;font-weight:800;">📅</div>
             </div>
             <div class="admin-kpi-val">${todayReservations}</div>
             <div class="admin-kpi-sub">${t('kpiSubInHouseStays')}</div>
@@ -15794,7 +16065,7 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiUpcomingReservations')}</span>
-              <div class="admin-kpi-icon" style="background:#e9d8fd;color:#6b46c1;">🛫</div>
+              <div class="admin-kpi-icon" style="background:#e9d8fd;color:#6b46c1;font-weight:800;">🛫</div>
             </div>
             <div class="admin-kpi-val">${upcomingReservations}</div>
             <div class="admin-kpi-sub">${t('kpiSubFutureBookings')}</div>
@@ -15804,9 +16075,9 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiPendingReservations')}</span>
-              <div class="admin-kpi-icon" style="background:#feebc8;color:#c05621;">⏳</div>
+              <div class="admin-kpi-icon" style="background:#fbbf24;color:#050b17;font-weight:800;">⏳</div>
             </div>
-            <div class="admin-kpi-val" style="color:#c05621;">${pendingReservations}</div>
+            <div class="admin-kpi-val">${pendingReservations}</div>
             <div class="admin-kpi-sub">${t('kpiSubRequiresApproval')}</div>
           </div>
 
@@ -15814,9 +16085,9 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiConfirmedReservations')}</span>
-              <div class="admin-kpi-icon" style="background:#c6f6d5;color:#22543d;">✅</div>
+              <div class="admin-kpi-icon" style="background:#166534;color:#ffffff;font-weight:800;">✅</div>
             </div>
-            <div class="admin-kpi-val" style="color:#22543d;">${confirmedReservations}</div>
+            <div class="admin-kpi-val">${confirmedReservations}</div>
             <div class="admin-kpi-sub">${t('kpiSubActiveConfirmed')}</div>
           </div>
 
@@ -15824,7 +16095,7 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiCancelledReservations')}</span>
-              <div class="admin-kpi-icon" style="background:#fed7d7;color:#9b2c2c;">✕</div>
+              <div class="admin-kpi-icon" style="background:#fed7d7;color:#9b2c2c;font-weight:800;">✕</div>
             </div>
             <div class="admin-kpi-val" style="color:#9b2c2c;">${cancelledReservations}</div>
             <div class="admin-kpi-sub">${t('kpiSubCancelledRefunded')}</div>
@@ -15834,9 +16105,9 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiPendingPayments')}</span>
-              <div class="admin-kpi-icon" style="background:#fef3c7;color:#d97706;">💳</div>
+              <div class="admin-kpi-icon" style="background:#fbbf24;color:#050b17;font-weight:800;">💳</div>
             </div>
-            <div class="admin-kpi-val" style="color:#d97706;">${pendingPayments}</div>
+            <div class="admin-kpi-val">${pendingPayments}</div>
             <div class="admin-kpi-sub">${t('kpiSubAwaitingCliq')}</div>
           </div>
 
@@ -15844,9 +16115,9 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiVerifiedPayments')}</span>
-              <div class="admin-kpi-icon" style="background:#d1fae5;color:#059669;">🛡️</div>
+              <div class="admin-kpi-icon" style="background:#166534;color:#ffffff;font-weight:800;">🛡️</div>
             </div>
-            <div class="admin-kpi-val" style="color:#059669;">${verifiedPayments}</div>
+            <div class="admin-kpi-val">${verifiedPayments}</div>
             <div class="admin-kpi-sub">${t('kpiSubAuditedTx')}</div>
           </div>
 
@@ -15854,19 +16125,19 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card" style="border-left:4px solid var(--primary-700);">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiTotalRevenue')}</span>
-              <div class="admin-kpi-icon" style="background:#0a1f16;color:#C5A059;">💰</div>
+              <div class="admin-kpi-icon" style="background:#0a1f16;color:#fbbf24;font-weight:800;">💰</div>
             </div>
             <div class="admin-kpi-val">${totalRevenue} JOD</div>
             <div class="admin-kpi-sub">${t('kpiSubAllActiveStays')}</div>
           </div>
 
           <!-- Card 12: Total Paid -->
-          <div class="admin-kpi-mini-card" style="border-left:4px solid #38a169;">
+          <div class="admin-kpi-mini-card" style="border-left:4px solid #166534;">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiTotalPaid')}</span>
-              <div class="admin-kpi-icon" style="background:#d1fae5;color:#065f46;">💵</div>
+              <div class="admin-kpi-icon" style="background:#166534;color:#ffffff;font-weight:800;">💵</div>
             </div>
-            <div class="admin-kpi-val" style="color:#065f46;">${totalPaid} JOD</div>
+            <div class="admin-kpi-val">${totalPaid} JOD</div>
             <div class="admin-kpi-sub">${t('kpiSubDepositsVerified')}</div>
           </div>
 
@@ -15874,9 +16145,9 @@ const TRANSLATIONS = {
           <div class="admin-kpi-mini-card" style="border-left:4px solid #C5A059;">
             <div class="admin-kpi-header">
               <span class="admin-kpi-lbl">${t('kpiRemainingBalances')}</span>
-              <div class="admin-kpi-icon" style="background:#fefcbf;color:#b7791f;">⚖️</div>
+              <div class="admin-kpi-icon" style="background:#fbbf24;color:#050b17;font-weight:800;">⚖️</div>
             </div>
-            <div class="admin-kpi-val" style="color:#b7791f;">${remainingBalances} JOD</div>
+            <div class="admin-kpi-val">${remainingBalances} JOD</div>
             <div class="admin-kpi-sub">${t('kpiSubDueUponCheckin')}</div>
           </div>
         </div>
@@ -17992,7 +18263,7 @@ const TRANSLATIONS = {
                   <span>${t('summaryTotal')}</span>
                   <strong>${lookup.total_amount || lookup.total} JOD</strong>
                 </div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:#15803d;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;color:#0a1f16;font-weight:700;">
                   <span>${t('tableDeposit')} (${lookup.bookingFeePercent || 30}%):</span>
                   <strong>${lookup.deposit_amount || lookup.bookingFee || Math.round((lookup.total_amount || lookup.total)*0.3)} JOD (${(lookup.payment_status || lookup.paymentStatus) === 'paid' || (lookup.payment_status || lookup.paymentStatus) === 'verified' || (lookup.payment_status || lookup.paymentStatus) === 'Verified' ? t('paymentStatusVerified') : t('paymentStatusPending')})</strong>
                 </div>
