@@ -4554,8 +4554,8 @@ html[dir="rtl"] .user-menu-dropdown {
 /* ─── BASE MOBILE UTILITIES ──────────────────────────────────────────────── */
 * { -webkit-tap-highlight-color: transparent; }
 
-/* Ensure smooth scrolling on touch devices */
-html { scroll-behavior: smooth; }
+/* Ensure responsive scrolling without wheel hanging */
+html { scroll-behavior: auto !important; }
 
 /* Minimum touch target for all interactive elements */
 @media (max-width: 992px) {
@@ -5059,8 +5059,8 @@ body, .main-content, .page-wrapper {
 /* ─── BASE MOBILE UTILITIES ──────────────────────────────────────────────── */
 * { -webkit-tap-highlight-color: transparent; }
 
-/* Ensure smooth scrolling on touch devices */
-html { scroll-behavior: smooth; }
+/* Ensure responsive scrolling without wheel hanging */
+html { scroll-behavior: auto !important; }
 
 /* Minimum touch target for all interactive elements */
 @media (max-width: 992px) {
@@ -10080,10 +10080,9 @@ html {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
   overflow-x: hidden !important;
-  scrollbar-gutter: stable;
   width: 100% !important;
   max-width: 100vw !important;
-  scroll-behavior: smooth !important;
+  scroll-behavior: auto !important;
   -webkit-overflow-scrolling: touch !important;
 }
 
@@ -10097,7 +10096,6 @@ body {
 }
 
 #app {
-  overflow-x: hidden !important;
   width: 100% !important;
   max-width: 100% !important;
 }
@@ -10115,13 +10113,13 @@ body {
    Globally applied cohesive animation state for primary interactive elements.
    Runs continuously in an infinite loop (animation: heartbeat 2s infinite ease-in-out;)
    and is NOT restricted to mouse :hover. The elements pulse constantly while resting on the page.
-   Performance optimized: eliminates will-change to prevent GPU layer bloat and scroll lagging. */
+   Performance optimized: uses GPU translateZ(0) composite isolation to prevent scroll stuttering. */
 @keyframes heartbeat {
   0%, 100% {
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(0);
   }
 }
 
@@ -10189,26 +10187,26 @@ html:not([data-theme]) {
 }
 
 html[data-theme="emerald"] body,
-html[data-theme="emerald"] p,
-html[data-theme="emerald"] p *,
-html[data-theme="emerald"] h1,
-html[data-theme="emerald"] h2,
-html[data-theme="emerald"] h3,
-html[data-theme="emerald"] h4,
-html[data-theme="emerald"] h5,
-html[data-theme="emerald"] h6,
-html[data-theme="emerald"] h1 *,
-html[data-theme="emerald"] h2 *,
-html[data-theme="emerald"] h3 *,
-html[data-theme="emerald"] h4 *,
-html[data-theme="emerald"] h5 *,
-html[data-theme="emerald"] h6 *,
-html[data-theme="emerald"] span:not(.badge-star):not(.rating-star):not(.btn-primary *):not(.btn-admin-create-res *),
+html[data-theme="emerald"] p:not(.footer *):not(.site-footer *):not(.hero *):not(.top-utility-bar *):not([style*="background:#edf7ed"] *):not([style*="background: #edf7ed"] *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] p *:not(.footer *):not(.site-footer *):not(.hero *):not(.top-utility-bar *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h1:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h2:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h3:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h4:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h5:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h6:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h1 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h2 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h3 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h4 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h5 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] h6 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] span:not(.footer *):not(.site-footer *):not(.hero *):not(.top-utility-bar *):not(.badge-star):not(.rating-star):not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-confirmed *):not(.badge-verified *):not(.badge-paid *):not(.badge-success *):not(.badge-active *):not(.cliq-alias-badge):not(.stat-num):not(.gold-badge):not([style*="background:#0a1f16"] *),
 html[data-theme="emerald"] label,
-html[data-theme="emerald"] strong,
-html[data-theme="emerald"] b,
-html[data-theme="emerald"] em,
-html[data-theme="emerald"] li,
+html[data-theme="emerald"] strong:not(.footer *):not(.hero *):not(.top-utility-bar *):not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-confirmed *):not(.badge-verified *):not(.badge-paid *):not(.badge-success *):not(.badge-active *):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] b:not(.footer *):not(.hero *):not(.top-utility-bar *):not(.btn-primary *):not(.btn-admin-create-res *),
+html[data-theme="emerald"] em:not(.footer *):not(.hero *),
+html[data-theme="emerald"] li:not(.footer *):not(.hero *),
 html[data-theme="emerald"] dt,
 html[data-theme="emerald"] dd,
 html[data-theme="emerald"] table,
@@ -10226,8 +10224,7 @@ html[data-theme="emerald"] .farm-price *,
 html[data-theme="emerald"] .admin-card-title,
 html[data-theme="emerald"] .admin-kpi-val,
 html[data-theme="emerald"] .admin-kpi-lbl,
-html[data-theme="emerald"] .stat-value,
-html[data-theme="emerald"] .stat-num,
+html[data-theme="emerald"] .stat-value:not(.hero *),
 html[data-theme="emerald"] .admin-table th,
 html[data-theme="emerald"] .admin-table td {
   color: #0a1f16 !important;
@@ -10235,15 +10232,63 @@ html[data-theme="emerald"] .admin-table td {
 
 /* Any white background container forces font black */
 .bg-white,
-.card:not(.dark),
+.card:not(.dark):not(.footer):not(.hero),
 .admin-card:not(.dark),
 .modal-card:not(.dark) {
   color: #0a1f16 !important;
 }
 .bg-white h1, .bg-white h2, .bg-white h3, .bg-white p, .bg-white span, .bg-white td, .bg-white th,
-.card:not(.dark) p, .card:not(.dark) span:not(.rating-star):not(.badge-star),
+.card:not(.dark):not(.footer):not(.hero) p, .card:not(.dark):not(.footer):not(.hero) span:not(.rating-star):not(.badge-star),
 .admin-card:not(.dark) p, .admin-card:not(.dark) td, .admin-card:not(.dark) th {
   color: #0a1f16 !important;
+}
+
+/* White / Light Gray Badges & Tags (e.g. 'اختياري' / Optional Tag in Screenshot 3 & 5) -> Black Text */
+.badge-optional,
+span.badge-optional,
+span[style*="background:#e2e8f0"],
+span[style*="background: #e2e8f0"],
+span[style*="background:#edf2f7"],
+span[style*="background: #edf2f7"],
+span[style*="background:#f1f5f9"],
+span[style*="background: #f1f5f9"],
+span[style*="background:#e5e7eb"],
+span[style*="background: #e5e7eb"],
+span[style*="background:#ffffff"],
+span[style*="background: #ffffff"],
+span[style*="background:white"],
+span[style*="background: white"] {
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+}
+
+/* Light Green / Mint Containers in booking wizard or any theme (Screenshot 5) -> Black / Dark Green Text */
+div[style*="background:#edf7ed"],
+div[style*="background: #edf7ed"],
+div[style*="background:#edf7ed"] p,
+div[style*="background:#edf7ed"] span,
+div[style*="background:#edf7ed"] strong,
+div[style*="background: #edf7ed"] p,
+div[style*="background: #edf7ed"] span,
+div[style*="background: #edf7ed"] strong,
+div[style*="background:#ecfdf5"],
+div[style*="background: #ecfdf5"],
+div[style*="background:#ecfdf5"] *,
+div[style*="background:#dcfce7"],
+div[style*="background: #dcfce7"],
+div[style*="background:#dcfce7"] *,
+div[style*="background:#f0fdf4"],
+div[style*="background: #f0fdf4"],
+div[style*="background:#f0fdf4"] * {
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+}
+div[style*="background:#edf7ed"] button[style*="background:#16402e"],
+div[style*="background:#edf7ed"] button[style*="background:#16402e"] *,
+div[style*="background:#edf7ed"] button[style*="background: #16402e"],
+div[style*="background:#edf7ed"] button[style*="background: #16402e"] * {
+  color: #ffffff !important;
+  font-weight: 800 !important;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -10317,11 +10362,11 @@ html[data-theme="midnight"] h3 *,
 html[data-theme="midnight"] h4 *,
 html[data-theme="midnight"] h5 *,
 html[data-theme="midnight"] h6 *,
-html[data-theme="midnight"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *),
+html[data-theme="midnight"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *):not(.badge-optional):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *):not([style*="background: #edf7ed"] *),
 html[data-theme="midnight"] label,
-html[data-theme="midnight"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected):not(.btn-primary):not(.btn-admin-create-res),
-html[data-theme="midnight"] strong:not(.btn-primary *):not(.btn-admin-create-res *),
-html[data-theme="midnight"] b:not(.btn-primary *):not(.btn-admin-create-res *),
+html[data-theme="midnight"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected):not(.btn-primary):not(.btn-admin-create-res):not([style*="background:#edf7ed"]):not([style*="background: #edf7ed"]),
+html[data-theme="midnight"] strong:not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *):not([style*="background: #edf7ed"] *),
+html[data-theme="midnight"] b:not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-optional *):not([style*="background:#edf7ed"] *),
 html[data-theme="midnight"] em,
 html[data-theme="midnight"] small,
 html[data-theme="midnight"] li,
@@ -10396,11 +10441,11 @@ html[data-theme="sunset"] h3 *,
 html[data-theme="sunset"] h4 *,
 html[data-theme="sunset"] h5 *,
 html[data-theme="sunset"] h6 *,
-html[data-theme="sunset"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *),
+html[data-theme="sunset"] span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *):not(.badge-optional):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *):not([style*="background: #edf7ed"] *),
 html[data-theme="sunset"] label,
-html[data-theme="sunset"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected):not(.btn-primary):not(.btn-admin-create-res),
-html[data-theme="sunset"] strong:not(.btn-primary *):not(.btn-admin-create-res *),
-html[data-theme="sunset"] b:not(.btn-primary *):not(.btn-admin-create-res *),
+html[data-theme="sunset"] div:not(.status-badge):not(.badge-submitted):not(.badge-verified):not(.badge-rejected):not(.btn-primary):not(.btn-admin-create-res):not([style*="background:#edf7ed"]):not([style*="background: #edf7ed"]),
+html[data-theme="sunset"] strong:not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *):not([style*="background: #edf7ed"] *),
+html[data-theme="sunset"] b:not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-optional *):not([style*="background:#edf7ed"] *),
 html[data-theme="sunset"] em,
 html[data-theme="sunset"] small,
 html[data-theme="sunset"] li,
@@ -10481,7 +10526,7 @@ html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme]
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) th *,
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td,
 html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) td *,
-html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *) {
+html:not([data-theme="emerald"]):not([data-theme="light"]):not(:not([data-theme])) span:not(.badge-star):not(.rating-star):not(.btn-admin-create-res *):not(.btn-primary *):not(.badge-optional):not(.badge-optional *):not([style*="background:#e2e8f0"] *):not([style*="background:#edf7ed"] *) {
   color: #fbbf24 !important;
 }
 
@@ -10550,6 +10595,39 @@ h1, h2, h3, h4, h5, h6,
 
 /* 6. GREEN BACKGROUND -> FONT COLOR WHITE (#ffffff) & BOLD
    Directive: If background is green, make the text white for all system also for admin pages. */
+.footer,
+.footer *,
+.footer p,
+.footer span,
+.footer a,
+.footer-desc,
+.footer-links a,
+.footer-bottom,
+.footer-bottom p,
+.footer-bottom span,
+.footer-bottom a,
+.site-footer,
+.site-footer *,
+.main-footer,
+.main-footer *,
+.hero,
+.hero p,
+.hero span:not(.stat-num):not(.badge-star):not(.gold-badge),
+.hero-content,
+.hero-subtitle,
+.hero-desc,
+.hero-stat-card .stat-lbl,
+.hero-feature-item span,
+.top-utility-bar,
+.top-utility-bar *,
+.top-bar-contact span,
+.top-bar-contact a,
+.top-utility-bar .top-bar-item,
+.cliq-alias-badge,
+button[style*="background:#16402e"],
+button[style*="background:#16402e"] *,
+button[style*="background: #16402e"],
+button[style*="background: #16402e"] *,
 .badge-confirmed,
 .badge-confirmed *,
 .badge-verified,
@@ -10664,6 +10742,46 @@ h1, h2, h3, h4, h5, h6,
 [style*="background: #059669"] * {
   color: #ffffff !important;
   font-weight: 800 !important;
+}
+
+/* Gold Highlights and Links on Green Backgrounds */
+.footer-title,
+.footer-logo,
+.footer-logo *,
+.footer-links a:hover,
+.footer-bottom a:hover,
+.hero-title,
+.hero .stat-num,
+.hero .gold-badge,
+.hero-badge-gold,
+.top-bar-contact a:hover,
+.top-bar-gold {
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+}
+
+/* Explicit CliQ Alias Badge High-Contrast Styling */
+.cliq-alias-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0a1f16 !important;
+  color: #ffffff !important;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.95rem;
+  font-weight: 800 !important;
+  margin: 0.5rem 0;
+  border: 1px solid #16a34a !important;
+}
+.cliq-copy-btn {
+  background: #c5a059 !important;
+  color: #050b17 !important;
+  font-weight: 800 !important;
+  border: none !important;
+  border-radius: 4px;
+  padding: 2px 8px;
 }
 
 /* 7. COMPREHENSIVE ADMIN PORTAL SYSTEM CONTRAST RULES */
@@ -10789,6 +10907,35 @@ html[data-theme="sunset"] .admin-portal textarea {
 .customer-history-modal .admin-table-container td {
   padding: 12px 16px !important;
 }
+
+/* 9. MODAL HEADER STICKY & Z-INDEX COLLISION PROTECTION */
+.modal-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+}
+html[data-theme="emerald"] .modal-header,
+html[data-theme="light"] .modal-header,
+html:not([data-theme]) .modal-header {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+html[data-theme="midnight"] .modal-header {
+  background: #080f24 !important;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.25) !important;
+}
+html[data-theme="sunset"] .modal-header {
+  background: #1f0817 !important;
+  border-bottom: 1px solid rgba(244, 63, 94, 0.25) !important;
+}
+.wizard-modal-card {
+  position: relative !important;
+  overflow-y: auto !important;
+}
+.wizard-step-node {
+  z-index: 2 !important;
+}
+
 
 
 
@@ -15315,7 +15462,7 @@ const TRANSLATIONS = {
                 <div class="form-group" style="margin-bottom:1.25rem;">
                   <div style="display:flex;justify-content:space-between;align-items:center;">
                     <label class="form-label" style="font-weight:700;">${t('emailAddressLabel')}</label>
-                    <span style="font-size:0.75rem;background:#e2e8f0;padding:2px 6px;border-radius:4px;color:#4a5568;">${t('optionalTag')}</span>
+                    <span class="badge-optional" style="font-size:0.75rem;background:#e2e8f0;padding:2px 6px;border-radius:4px;color:#0a1f16;font-weight:800;">${t('optionalTag')}</span>
                   </div>
                   <input type="email" id="wizCustEmail" class="form-input" placeholder="e.g. yourname@gmail.com" value="${w.customerEmail}" oninput="window.Alora.updateWizardState('customerEmail', this.value, false)" dir="ltr" />
                   <small style="color:var(--neutral-500);font-size:0.8rem;display:block;margin-top:4px;">
@@ -15384,7 +15531,7 @@ const TRANSLATIONS = {
                             ${t('copyBtn')}
                           </button>
                         </div>
-                        <p style="font-size:0.8rem;color:var(--neutral-600);margin:4px 0 0 0;line-height:1.4;">
+                        <p style="font-size:0.8rem;color:var(--neutral-600);margin:4px 0 0 0;line-height:1.4;" dir="auto">
                           ${method.instructions}
                         </p>
                       </div>
@@ -15410,7 +15557,7 @@ const TRANSLATIONS = {
                 <div class="form-group" style="margin-bottom:1.5rem;">
                   <div style="display:flex;justify-content:space-between;align-items:center;">
                     <label class="form-label" style="font-weight:700;">${t('paymentProofLabel')}</label>
-                    <span style="font-size:0.75rem;background:#e2e8f0;padding:2px 6px;border-radius:4px;color:#4a5568;">${t('optionalTag')}</span>
+                    <span class="badge-optional" style="font-size:0.75rem;background:#e2e8f0;padding:2px 6px;border-radius:4px;color:#0a1f16;font-weight:800;">${t('optionalTag')}</span>
                   </div>
                   <input type="text" class="form-input" placeholder="Paste image URL (Optional)" value="${w.paymentProof}" oninput="window.Alora.updateWizardState('paymentProof', this.value, false)" dir="ltr" />
                 </div>
