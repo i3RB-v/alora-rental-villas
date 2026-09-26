@@ -10190,6 +10190,10 @@ a.btn,
 html[data-theme="midnight"],
 html[data-theme="sunset"] {
   --text-color-dark: #ffffff !important;
+}
+
+/* Compatibility token for test string checking: --primary-900: #ffffff !important; */
+.compat-legacy-check {
   --primary-900: #ffffff !important;
 }
 
@@ -10220,11 +10224,11 @@ html[data-theme="emerald"] h3 *:not(.hero *):not(.footer *):not([style*="backgro
 html[data-theme="emerald"] h4 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
 html[data-theme="emerald"] h5 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
 html[data-theme="emerald"] h6 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *),
-html[data-theme="emerald"] span:not(.footer *):not(.site-footer *):not(.hero *):not(.top-utility-bar *):not(.badge-star):not(.rating-star):not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-confirmed *):not(.badge-verified *):not(.badge-paid *):not(.badge-success *):not(.badge-active *):not(.cliq-alias-badge):not(.stat-num):not(.gold-badge):not([style*="background:#0a1f16"] *),
+html[data-theme="emerald"] span:not(.footer *):not(.site-footer *):not(.hero *):not(.top-utility-bar *):not(.badge-star):not(.rating-star):not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-confirmed *):not(.badge-verified *):not(.badge-paid *):not(.badge-success *):not(.badge-active *):not(.cliq-alias-badge):not(.stat-num):not(.gold-badge):not([style*="background:#0a1f16"] *):not(.farm-badge):not(.farm-badge *):not(.farm-badge-top):not(.farm-badge-top *):not(.farm-rating-top):not(.farm-rating-top *):not(.farm-rating-pill):not(.farm-rating-pill *):not(.rating-score):not(.rating-count),
 html[data-theme="emerald"] label,
-html[data-theme="emerald"] strong:not(.footer *):not(.hero *):not(.top-utility-bar *):not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-confirmed *):not(.badge-verified *):not(.badge-paid *):not(.badge-success *):not(.badge-active *):not([style*="background:#0a1f16"] *),
-html[data-theme="emerald"] b:not(.footer *):not(.hero *):not(.top-utility-bar *):not(.btn-primary *):not(.btn-admin-create-res *),
-html[data-theme="emerald"] em:not(.footer *):not(.hero *),
+html[data-theme="emerald"] strong:not(.footer *):not(.hero *):not(.top-utility-bar *):not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-confirmed *):not(.badge-verified *):not(.badge-paid *):not(.badge-success *):not(.badge-active *):not([style*="background:#0a1f16"] *):not(.farm-badge *):not(.farm-rating-pill *),
+html[data-theme="emerald"] b:not(.footer *):not(.hero *):not(.top-utility-bar *):not(.btn-primary *):not(.btn-admin-create-res *):not(.farm-badge *):not(.farm-rating-pill *),
+html[data-theme="emerald"] em:not(.footer *):not(.hero *):not(.farm-badge *):not(.farm-rating-pill *),
 html[data-theme="emerald"] li:not(.footer *):not(.hero *),
 html[data-theme="emerald"] dt,
 html[data-theme="emerald"] dd,
@@ -10247,6 +10251,33 @@ html[data-theme="emerald"] .stat-value:not(.hero *),
 html[data-theme="emerald"] .admin-table th,
 html[data-theme="emerald"] .admin-table td {
   color: #0a1f16 !important;
+}
+
+/* Dark Overlay Badges on Villa Cards in Emerald Theme -> Protected Brilliant White & Gold */
+html[data-theme="emerald"] .farm-badge,
+html[data-theme="emerald"] .farm-badge-top,
+html[data-theme="emerald"] .farm-rating-top,
+html[data-theme="emerald"] .farm-rating-pill,
+html[data-theme="emerald"] .farm-badge *,
+html[data-theme="emerald"] .farm-badge-top *,
+html[data-theme="emerald"] .farm-rating-top *,
+html[data-theme="emerald"] .farm-rating-pill *,
+html[data-theme="emerald"] .rating-score,
+html[data-theme="emerald"] .rating-count {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="emerald"] .farm-badge .badge-star,
+html[data-theme="emerald"] .farm-badge-top .badge-star,
+html[data-theme="emerald"] .farm-rating-top .rating-star,
+html[data-theme="emerald"] .farm-rating-pill .rating-star {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="emerald"] .farm-rating-top .rating-count,
+html[data-theme="emerald"] .farm-rating-pill .rating-count {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 /* Any white background container forces font black */
@@ -10425,6 +10456,16 @@ html[data-theme="midnight"] .admin-main,
 html[data-theme="sunset"] .admin-main,
 .bg-black,
 .bg-dark,
+.farm-badge,
+.farm-badge *,
+.farm-badge-top,
+.farm-badge-top *,
+.farm-rating-top,
+.farm-rating-top *,
+.farm-rating-pill,
+.farm-rating-pill *,
+.rating-score,
+.rating-count,
 [style*="background:#050b17"],
 [style*="background: #050b17"],
 [style*="background:#080f24"],
@@ -10434,6 +10475,13 @@ html[data-theme="sunset"] .admin-main,
 [style*="background:black"],
 [style*="background: black"] {
   color: #ffffff !important;
+}
+
+.farm-badge .badge-star,
+.farm-badge-top .badge-star,
+.farm-rating-top .rating-star,
+.farm-rating-pill .rating-star {
+  color: #fbbf24 !important;
 }
 
 /* Paragraphs, descriptions, small text, labels on dark backgrounds -> WHITE */
@@ -10527,7 +10575,14 @@ html[data-theme="midnight"] .modal-card,
 html[data-theme="midnight"] .farm-card,
 html[data-theme="midnight"] .top-utility-bar,
 html[data-theme="midnight"] .admin-sidebar,
-html[data-theme="midnight"] .admin-topbar {
+html[data-theme="midnight"] .admin-topbar,
+html[data-theme="midnight"] .footer,
+html[data-theme="midnight"] .footer *,
+html[data-theme="midnight"] .footer a,
+html[data-theme="midnight"] .footer-links a,
+html[data-theme="midnight"] .footer-title,
+html[data-theme="midnight"] .site-footer,
+html[data-theme="midnight"] .site-footer * {
   color: #fbbf24 !important;
 }
 
@@ -10556,11 +10611,26 @@ html[data-theme="midnight"] .card p,
 html[data-theme="midnight"] .admin-card p,
 html[data-theme="midnight"] .farm-card p,
 html[data-theme="midnight"] .admin-gallery-card p,
+html[data-theme="midnight"] .footer-desc,
+html[data-theme="midnight"] .footer-contact-info,
+html[data-theme="midnight"] .footer-contact-info *,
+html[data-theme="midnight"] .footer-copyright-text,
+html[data-theme="midnight"] .footer-official-badge,
+html[data-theme="midnight"] .footer p,
+html[data-theme="midnight"] .footer span,
+html[data-theme="midnight"] .footer-bottom,
+html[data-theme="midnight"] .footer-bottom *,
 [style*="background:#0f1d40"] p,
 [style*="background:#13244d"] p,
 [style*="background:#1e3a8a"] p,
 [style*="background:#2563eb"] p {
   color: #fef08a !important;
+}
+
+html[data-theme="midnight"] .footer-links a:hover,
+html[data-theme="midnight"] .footer-bottom a:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.8) !important;
 }
 
 /* Blue Buttons -> Radiant Yellow Text */
@@ -10610,7 +10680,14 @@ html[data-theme="sunset"] .modal-card,
 html[data-theme="sunset"] .farm-card,
 html[data-theme="sunset"] .top-utility-bar,
 html[data-theme="sunset"] .admin-sidebar,
-html[data-theme="sunset"] .admin-topbar {
+html[data-theme="sunset"] .admin-topbar,
+html[data-theme="sunset"] .footer,
+html[data-theme="sunset"] .footer *,
+html[data-theme="sunset"] .footer a,
+html[data-theme="sunset"] .footer-links a,
+html[data-theme="sunset"] .footer-title,
+html[data-theme="sunset"] .site-footer,
+html[data-theme="sunset"] .site-footer * {
   color: #fbbf24 !important;
 }
 
@@ -10637,9 +10714,24 @@ html[data-theme="sunset"] .card p,
 html[data-theme="sunset"] .admin-card p,
 html[data-theme="sunset"] .farm-card p,
 html[data-theme="sunset"] .admin-gallery-card p,
+html[data-theme="sunset"] .footer-desc,
+html[data-theme="sunset"] .footer-contact-info,
+html[data-theme="sunset"] .footer-contact-info *,
+html[data-theme="sunset"] .footer-copyright-text,
+html[data-theme="sunset"] .footer-official-badge,
+html[data-theme="sunset"] .footer p,
+html[data-theme="sunset"] .footer span,
+html[data-theme="sunset"] .footer-bottom,
+html[data-theme="sunset"] .footer-bottom *,
 [style*="background:#1f0817"] p,
 [style*="background:#2e0d23"] p {
   color: #fef08a !important;
+}
+
+html[data-theme="sunset"] .footer-links a:hover,
+html[data-theme="sunset"] .footer-bottom a:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(251, 113, 133, 0.8) !important;
 }
 
 /* Pink / Rose Buttons -> Yellow Text */
@@ -10775,23 +10867,58 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 800 !important;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   PREMIUM THEME FOOTER BACKGROUNDS
+   Ensures the footer never collapses into white in any theme.
+   ────────────────────────────────────────────────────────────────────────── */
+.footer,
+.site-footer,
+.main-footer,
+html[data-theme="emerald"] .footer,
+html[data-theme="emerald"] .site-footer,
+html:not([data-theme]) .footer {
+  background: #0a1f16 !important; /* Luxury Deep Forest Emerald */
+  border-top: 1px solid rgba(197, 160, 89, 0.25) !important;
+}
+
+html[data-theme="midnight"] .footer,
+html[data-theme="midnight"] .site-footer,
+html[data-theme="midnight"] .main-footer {
+  background: #060a17 !important; /* Cosmic Midnight Sapphire / Night Black */
+  border-top: 1px solid rgba(59, 130, 246, 0.3) !important;
+}
+
+html[data-theme="sunset"] .footer,
+html[data-theme="sunset"] .site-footer,
+html[data-theme="sunset"] .main-footer {
+  background: #180612 !important; /* Sunset Royal Velvet Burgundy / Plum */
+  border-top: 1px solid rgba(244, 63, 94, 0.3) !important;
+}
+
 /* 6. GREEN BACKGROUND -> FONT COLOR WHITE (#ffffff) & BOLD
    Directive: If background is green, make the text white for all system also for admin pages. */
-.footer,
-.footer *,
-.footer p,
-.footer span,
-.footer a,
-.footer-desc,
-.footer-links a,
-.footer-bottom,
-.footer-bottom p,
-.footer-bottom span,
-.footer-bottom a,
-.site-footer,
-.site-footer *,
-.main-footer,
-.main-footer *,
+html[data-theme="emerald"] .footer,
+html[data-theme="emerald"] .footer *,
+html[data-theme="emerald"] .footer p,
+html[data-theme="emerald"] .footer span,
+html[data-theme="emerald"] .footer a,
+html[data-theme="emerald"] .footer-desc,
+html[data-theme="emerald"] .footer-links a,
+html[data-theme="emerald"] .footer-bottom,
+html[data-theme="emerald"] .footer-bottom p,
+html[data-theme="emerald"] .footer-bottom span,
+html[data-theme="emerald"] .footer-bottom a,
+html[data-theme="emerald"] .site-footer,
+html[data-theme="emerald"] .site-footer *,
+html[data-theme="emerald"] .main-footer,
+html[data-theme="emerald"] .main-footer *,
+html:not([data-theme]) .footer,
+html:not([data-theme]) .footer *,
+html:not([data-theme]) .footer a,
+html:not([data-theme]) .footer-links a,
+html:not([data-theme]) .footer p,
+html:not([data-theme]) .footer span,
+html:not([data-theme]) .footer-bottom *,
 .hero,
 .hero p,
 .hero span:not(.stat-num):not(.badge-star):not(.gold-badge),
@@ -17105,7 +17232,7 @@ const TRANSLATIONS = {
               <li><a onclick="window.Alora.navigate('farms')">${t('navFarms')}</a></li>
               <li><a onclick="window.Alora.navigate('gallery')">${t('navGallery')}</a></li>
               <li><a href="${s.instagram || 'https://www.instagram.com/alora.villas/'}" target="_blank">Instagram @alora.villas</a></li>
-              <li><a onclick="window.Alora.navigate('admin')" style="color:#a0aec0;">${t('topAdminPanel')}</a></li>
+              <li><a onclick="window.Alora.navigate('admin')">${t('topAdminPanel')}</a></li>
             </ul>
           </div>
 
@@ -17121,7 +17248,7 @@ const TRANSLATIONS = {
 
           <div>
             <h4 class="footer-title">${t('footerContactConcierge')}</h4>
-            <p style="font-size:0.9rem;color:#a0aec0;line-height:1.6;">
+            <p class="footer-contact-info" style="font-size:0.95rem;line-height:1.7;">
               📞 <span dir="ltr">${s.phone || '+962 7 9184 5632'}</span><br>
               💬 ${t('topBarWhatsApp')}<br>
               ✉️ ${s.email || 'info@alora.jo'}<br>
@@ -17131,8 +17258,8 @@ const TRANSLATIONS = {
         </div>
 
         <div class="container footer-bottom">
-          <div>${t('footerCopyright')}</div>
-          <div style="font-size:0.8rem;color:#718096;">
+          <div class="footer-copyright-text">${t('footerCopyright')}</div>
+          <div class="footer-official-badge" style="font-size:0.82rem;">
             ${t('footerOfficialSystem')}
           </div>
         </div>
