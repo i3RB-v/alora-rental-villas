@@ -14283,6 +14283,211 @@ html, body, #app { width: 100% !important; max-width: 100vw !important; overflow
 
 /* ── END ALORA RESPONSIVE SYSTEM v3.0 ── */
 
+/* ==========================================================================
+   MOBILE TOPBAR & NAVBAR READABILITY & ZERO-COLLISION SYSTEM
+   1. Admin button & Choices button always visible on mobile portrait without flip.
+   2. Audit of admin topbar right UI: zero collision between menu toggle & logo.
+   ========================================================================== */
+
+/* PUBLIC NAVBAR CONTROLS */
+.nav-admin-btn {
+  background: rgba(22, 64, 46, 0.12) !important;
+  border: 1.5px solid rgba(22, 64, 46, 0.35) !important;
+  color: var(--primary-900) !important;
+  font-weight: 700 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.35rem !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.nav-admin-btn:hover {
+  background: rgba(22, 64, 46, 0.25) !important;
+  border-color: #16402e !important;
+  color: #16402e !important;
+  transform: translateY(-1px) !important;
+}
+
+html[data-theme="midnight"] .nav-admin-btn {
+  background: rgba(30, 58, 138, 0.35) !important;
+  border-color: #93c5fd !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="sunset"] .nav-admin-btn {
+  background: rgba(136, 19, 55, 0.35) !important;
+  border-color: #fda4af !important;
+  color: #ffffff !important;
+}
+
+/* Ensure mobile header buttons fit comfortably on portrait phone */
+@media (max-width: 768px) {
+  .nav-container, .navbar-container {
+    padding: 0.5rem 0.75rem !important;
+    gap: 0.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    flex-shrink: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .desktop-only-btn {
+    display: none !important;
+  }
+
+  .nav-control-btn {
+    min-width: 38px !important;
+    min-height: 38px !important;
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.8rem !important;
+    border-radius: 9999px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav-control-btn .btn-text.hide-mobile {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    border-radius: 10px !important;
+    flex-shrink: 0 !important;
+    background: #16402e !important;
+    color: #ffffff !important;
+    border: 1.5px solid rgba(197, 160, 89, 0.5) !important;
+    cursor: pointer !important;
+    font-size: 1.2rem !important;
+    line-height: 1 !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  html[data-theme="midnight"] .mobile-menu-btn {
+    background: #0d1733 !important;
+    color: #FFD54F !important;
+    border-color: rgba(59, 130, 246, 0.4) !important;
+  }
+
+  html[data-theme="sunset"] .mobile-menu-btn {
+    background: #1f0817 !important;
+    color: #FFD700 !important;
+    border-color: rgba(255, 215, 0, 0.4) !important;
+  }
+}
+
+/* ADMIN MOBILE TOPBAR AUDIT (ZERO COLLISION ON TOP SCREEN RIGHT) */
+@media (max-width: 900px) {
+  .admin-topbar {
+    padding: 0.65rem 0.85rem 0.75rem !important;
+  }
+
+  .admin-topbar-mobile-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
+  }
+
+  .admin-topbar-mobile-start {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .admin-menu-toggle-btn {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    border-radius: 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #16402e !important;
+    color: #ffffff !important;
+    border: 1.5px solid rgba(197, 160, 89, 0.5) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+  }
+
+  .admin-menu-toggle-btn span {
+    font-size: 1.25rem !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+  }
+
+  html[data-theme="midnight"] .admin-menu-toggle-btn {
+    background: #0d1733 !important;
+    border-color: rgba(59, 130, 246, 0.4) !important;
+    color: #FFD54F !important;
+  }
+  html[data-theme="midnight"] .admin-menu-toggle-btn span {
+    color: #FFD54F !important;
+  }
+
+  html[data-theme="sunset"] .admin-menu-toggle-btn {
+    background: #1f0817 !important;
+    border-color: rgba(255, 215, 0, 0.4) !important;
+    color: #FFD700 !important;
+  }
+  html[data-theme="sunset"] .admin-menu-toggle-btn span {
+    color: #FFD700 !important;
+  }
+
+  .admin-topbar-mobile-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 0.95rem !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .admin-topbar-mobile-quick {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .admin-notif-btn,
+  .admin-topbar-mobile-quick .btn-lang,
+  .admin-topbar-mobile-quick .nav-theme-btn {
+    min-height: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    padding: 0 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -17621,7 +17826,7 @@ const TRANSLATIONS = {
 
   // THEME ICON HELPER
   function getThemeIcon(theme = State.theme) {
-    const icons = { emerald: '🌿', light: '☀️', midnight: '🌌', sunset: '🌅' };
+    const icons = { emerald: '🌿', midnight: '🌌', sunset: '🌅' };
     return icons[theme] || '🌿';
   }
 
@@ -17696,6 +17901,8 @@ const TRANSLATIONS = {
     const currentTheme = State.theme || 'emerald';
     const themeIcon = getThemeIcon(currentTheme);
     const themeLabel = isAr ? 'المظهر' : 'Theme';
+    const isAdminLoggedIn = !!State.currentUser;
+    const adminBtnText = isAdminLoggedIn ? t('topAdminPanel') : t('topAdminLogin');
 
     return `
       ${renderTopUtilityBar()}
@@ -17725,18 +17932,24 @@ const TRANSLATIONS = {
             <!-- Creative Theme & Movement FX Switcher Button (Right beside Language button) -->
             <button class="nav-control-btn nav-theme-btn" onclick="window.Alora.toggleTheme()" title="${isAr ? 'تغيير المظهر والألوان الحركية' : 'Change Theme & Motion FX'}" aria-label="Toggle Theme">
               <span class="theme-sparkle-icon">${themeIcon}</span>
-              <span class="btn-text">${themeLabel}</span>
+              <span class="btn-text hide-mobile">${themeLabel}</span>
             </button>
 
-            <!-- Reserve Button (Desktop/Tablet) -->
-            <button class="btn btn-primary btn-sm btn-nav-reserve" onclick="window.Alora.openBookingWizard()">
+            <!-- Prominent Direct Admin Button (Always accessible on Mobile & Desktop - No flip required) -->
+            <button class="nav-control-btn nav-admin-btn" onclick="window.Alora.navigate('admin')" title="${adminBtnText}" aria-label="Admin Portal">
+              <span class="btn-icon">🔒</span>
+              <span class="btn-text hide-mobile">${adminBtnText}</span>
+            </button>
+
+            <!-- Reserve Button (Desktop/Tablet wide only, hidden on mobile portrait to prevent overflow) -->
+            <button class="btn btn-primary btn-sm btn-nav-reserve desktop-only-btn" onclick="window.Alora.openBookingWizard()">
               <span>📅</span>
               <span>${t('bookNow')}</span>
             </button>
 
-            <!-- Mobile Hamburger Toggle -->
-            <button class="mobile-menu-btn" onclick="window.Alora.toggleMobileMenu()" title="Toggle Menu" aria-label="Toggle Menu">
-              ${State.mobileMenuOpen ? '✕' : '☰'}
+            <!-- Mobile Hamburger Toggle / Choices Button (Always visible on mobile) -->
+            <button class="mobile-menu-btn" onclick="window.Alora.toggleMobileMenu()" title="${isAr ? 'القائمة والخيارات' : 'Menu & Choices'}" aria-label="Toggle Menu">
+              <span style="font-size:1.25rem;line-height:1;">${State.mobileMenuOpen ? '✕' : '☰'}</span>
             </button>
           </div>
         </div>
@@ -19262,15 +19475,16 @@ const TRANSLATIONS = {
           <header class="admin-topbar">
             <!-- Mobile Row 1: Hamburger Menu Button + Logo + Quick Actions -->
             <div class="admin-topbar-mobile-header">
-              <button class="admin-menu-toggle-btn" onclick="window.Alora.toggleAdminMenu()" title="${isAr ? 'فتح قائمة الإدارة' : 'Open Admin Menu'}" aria-label="Toggle Admin Menu">
-                <span style="font-size:1.35rem;line-height:1;">☰</span>
-                <span class="admin-menu-label">${isAr ? 'القائمة' : 'Menu'}</span>
-              </button>
+              <div class="admin-topbar-mobile-start">
+                <button class="admin-menu-toggle-btn" onclick="window.Alora.toggleAdminMenu()" title="${isAr ? 'فتح قائمة الإدارة والخيارات' : 'Open Admin Menu'}" aria-label="Toggle Admin Menu">
+                  <span style="font-size:1.25rem;line-height:1;">☰</span>
+                </button>
 
-              <div class="admin-topbar-mobile-brand">
-                <span style="font-size:1.15rem;">🏡</span>
-                <span style="font-weight:900;color:var(--primary-900);letter-spacing:0.04em;">ALORA</span>
-                <span class="admin-badge" style="font-size:0.65rem;padding:2px 6px;">${t('adminBadge')}</span>
+                <div class="admin-topbar-mobile-brand">
+                  <span style="font-size:1.15rem;">🏡</span>
+                  <span style="font-weight:900;color:var(--primary-900);letter-spacing:0.04em;">ALORA</span>
+                  <span class="admin-badge" style="font-size:0.65rem;padding:2px 6px;">${t('adminBadge')}</span>
+                </div>
               </div>
 
               <div class="admin-topbar-mobile-quick">
@@ -22098,7 +22312,7 @@ const TRANSLATIONS = {
     },
 
     toggleTheme: function() {
-      const themes = ['emerald', 'light', 'midnight', 'sunset'];
+      const themes = ['emerald', 'midnight', 'sunset'];
       const currentIndex = themes.indexOf(State.theme || 'emerald');
       const nextTheme = themes[(currentIndex + 1) % themes.length];
       State.theme = nextTheme;
