@@ -76,6 +76,9 @@
   --transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 
   /* Theme-adaptive surfaces & typography (Emerald default) */
+  --text-primary: #1A1A1A;
+  --text-secondary: #595959;
+  --text-accent: #0A5C36;
   --card-bg: #ffffff;
   --card-border: rgba(10, 31, 22, 0.08);
   --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
@@ -7793,6 +7796,9 @@ html[data-theme="midnight"] {
   --neutral-100: #0f172a;
   --white: #0c1427;
 
+  --text-primary: #F2F2F2;
+  --text-secondary: #B0BEC5;
+  --text-accent: #FFD54F;
   --card-bg: #0d1733;
   --card-border: rgba(59, 130, 246, 0.25);
   --card-shadow: 0 10px 30px rgba(3, 7, 18, 0.6);
@@ -8010,33 +8016,36 @@ html[data-theme="sunset"] {
   --earth-sand: #12040e;
   --earth-sand-dark: #1f0817;
   --earth-stone: #2e0d23;
-  --earth-brown: #f43f5e;
-  --earth-gold: #fb7185;
+  --earth-brown: #d97706;
+  --earth-gold: #FFD700;
   --earth-gold-light: #2a0b20;
 
-  --neutral-900: #fff1f2;
-  --neutral-800: #ffe4e6;
-  --neutral-700: #fecdd3;
-  --neutral-600: #fda4af;
-  --neutral-500: #fb7185;
-  --neutral-400: #f43f5e;
+  --neutral-900: #FFFFFF;
+  --neutral-800: #F8ECEC;
+  --neutral-700: #F0E0E0;
+  --neutral-600: #E2D0D0;
+  --neutral-500: #D9A8A8;
+  --neutral-400: #F8ECEC;
   --neutral-200: #2a0b20;
   --neutral-100: #1a0614;
   --white: #1f0717;
 
+  --text-primary: #F8ECEC;
+  --text-secondary: #D9A8A8;
+  --text-accent: #FFD700;
   --card-bg: #1f0817;
-  --card-border: rgba(244, 63, 94, 0.25);
+  --card-border: rgba(255, 215, 0, 0.25);
   --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   --subcard-bg: rgba(255, 255, 255, 0.06);
-  --subcard-border: rgba(244, 63, 94, 0.2);
+  --subcard-border: rgba(255, 215, 0, 0.2);
   --text-color-dark: #ffffff;
-  --text-color-light: #fff1f2;
-  --text-color-muted: #fda4af;
-  --btn-outline-border: #fda4af;
+  --text-color-light: #F8ECEC;
+  --text-color-muted: #D9A8A8;
+  --btn-outline-border: #D9A8A8;
   --btn-outline-text: #ffffff;
-  --btn-outline-bg: rgba(253, 164, 175, 0.12);
-  --btn-outline-hover-border: #fb7185;
-  --btn-outline-hover-bg: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%);
+  --btn-outline-bg: rgba(255, 255, 255, 0.08);
+  --btn-outline-hover-border: #FFD700;
+  --btn-outline-hover-bg: linear-gradient(135deg, #FFD700 0%, #f59e0b 100%);
   --btn-outline-hover-text: #1a0513;
 }
 
@@ -8200,20 +8209,33 @@ html[data-theme="sunset"] .farm-card-title,
 html[data-theme="sunset"] .section-title,
 html[data-theme="sunset"] .admin-page-title,
 html[data-theme="sunset"] .admin-card-title,
-html[data-theme="sunset"] .kpi-value,
 html[data-theme="sunset"] .modal-title,
 html[data-theme="sunset"] h1, 
 html[data-theme="sunset"] h2, 
 html[data-theme="sunset"] h3, 
 html[data-theme="sunset"] h4 {
-  color: #fff1f2 !important;
+  color: #F8ECEC !important;
+}
+
+html[data-theme="sunset"] .kpi-value,
+html[data-theme="sunset"] .admin-kpi-val {
+  color: #FFD700 !important;
+  font-weight: 800 !important;
 }
 
 html[data-theme="sunset"] .admin-card-subtitle,
 html[data-theme="sunset"] .kpi-title,
-html[data-theme="sunset"] .kpi-subtitle,
+html[data-theme="sunset"] .admin-kpi-lbl,
 html[data-theme="sunset"] .admin-form-label {
-  color: #fda4af !important;
+  color: #D9A8A8 !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme="sunset"] .kpi-subtitle,
+html[data-theme="sunset"] .admin-kpi-sub {
+  color: #F8ECEC !important;
+  opacity: 0.95 !important;
+  font-weight: 500 !important;
 }
 
 html[data-theme="sunset"] .btn-primary {
@@ -13668,8 +13690,229 @@ html[data-theme="midnight"] .btn-cliq-delete:hover {
 .cliq-admin-card[style*="background: white"] .btn-cliq-delete {
   background: #fee2e2 !important;
   border: 1.5px solid #ef4444 !important;
-  color: #991b1b !important;
+/* ==========================================================================
+   ALORA MASTER THEME ARCHITECTURE & READABILITY SYSTEM
+   Standardized Variables: --text-primary, --text-secondary, --text-accent, --card-bg
+   Targeting: WCAG 2.1 AA Compliance (4.5:1 minimum, 7:1+ optimal)
+   ========================================================================== */
+
+/* ─── 1. PALETTE DEFINITIONS & SURFACE VARIABLES ────────────────────────── */
+
+/* Light Theme & Emerald Theme */
+:root,
+html[data-theme="emerald"],
+body.theme-emerald,
+html[data-theme="light"],
+body.theme-light {
+  --text-primary: #1A1A1A;
+  --text-secondary: #595959;
+  --text-accent: #0A5C36;
+  --card-bg: #FFFFFF;
 }
+
+/* Dark Blue / Midnight Sapphire Theme */
+html[data-theme="midnight"],
+html[data-theme="blue"],
+body.theme-midnight {
+  --text-primary: #F2F2F2;
+  --text-secondary: #B0BEC5;
+  --text-accent: #FFD54F;
+  --card-bg: #0D1733;
+}
+
+/* Maroon / Sunset Rose Royale Theme */
+html[data-theme="sunset"],
+html[data-theme="maroon"],
+body.theme-sunset {
+  --text-primary: #F8ECEC;
+  --text-secondary: #D9A8A8;
+  --text-accent: #FFD700;
+  --card-bg: #1F0817;
+}
+
+/* ─── 2. KPI METRICS & COUNTER COLOR STANDARDIZATION ─────────────────────── */
+
+/* A. Light & Emerald Theme: Deep Brand Green (#0A5C36) & High-Contrast Gray (#595959) */
+:root .admin-kpi-val,
+:root .kpi-value,
+:root .metric-val,
+:root .admin-res-total-val,
+html[data-theme="emerald"] .admin-kpi-val,
+html[data-theme="emerald"] .kpi-value,
+html[data-theme="emerald"] .metric-val,
+html[data-theme="emerald"] .admin-res-total-val,
+html[data-theme="light"] .admin-kpi-val,
+html[data-theme="light"] .kpi-value,
+html[data-theme="light"] .metric-val,
+html[data-theme="light"] .admin-res-total-val,
+body.theme-emerald .admin-kpi-val,
+body.theme-light .admin-kpi-val {
+  color: #0A5C36 !important;
+  font-weight: 800 !important;
+}
+
+:root .admin-kpi-lbl,
+:root .kpi-title,
+html[data-theme="emerald"] .admin-kpi-lbl,
+html[data-theme="emerald"] .kpi-title,
+html[data-theme="light"] .admin-kpi-lbl,
+html[data-theme="light"] .kpi-title,
+body.theme-emerald .admin-kpi-lbl,
+body.theme-light .admin-kpi-lbl {
+  color: #595959 !important;
+  font-weight: 700 !important;
+}
+
+:root .admin-kpi-sub,
+:root .kpi-subtitle,
+html[data-theme="emerald"] .admin-kpi-sub,
+html[data-theme="emerald"] .kpi-subtitle,
+html[data-theme="light"] .admin-kpi-sub,
+html[data-theme="light"] .kpi-subtitle,
+body.theme-emerald .admin-kpi-sub,
+body.theme-light .admin-kpi-sub {
+  color: #595959 !important;
+  font-weight: 500 !important;
+}
+
+/* B. Midnight Theme: Soft Gold (#FFD54F) & Muted Navy (#B0BEC5 / #CBD5E1) */
+html[data-theme="midnight"] .admin-kpi-val,
+html[data-theme="midnight"] .kpi-value,
+html[data-theme="midnight"] .metric-val,
+html[data-theme="midnight"] .admin-res-total-val,
+body.theme-midnight .admin-kpi-val,
+body.theme-midnight .kpi-value {
+  color: #FFD54F !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="midnight"] .admin-kpi-lbl,
+html[data-theme="midnight"] .kpi-title,
+body.theme-midnight .admin-kpi-lbl,
+body.theme-midnight .kpi-title {
+  color: #B0BEC5 !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="midnight"] .admin-kpi-sub,
+html[data-theme="midnight"] .kpi-subtitle,
+body.theme-midnight .admin-kpi-sub,
+body.theme-midnight .kpi-subtitle {
+  color: #cbd5e1 !important;
+  font-weight: 500 !important;
+}
+
+html[data-theme="midnight"] .admin-kpi-mini-card .admin-kpi-val[style*="color:#9b2c2c"] {
+  color: #fca5a5 !important;
+}
+
+/* C. Sunset / Maroon Theme: Warm Amber/Gold (#FFD700), Crisp Off-White (#F8ECEC), Soft Warm Gray (#D9A8A8) */
+html[data-theme="sunset"] .admin-kpi-val,
+html[data-theme="sunset"] .kpi-value,
+html[data-theme="sunset"] .metric-val,
+html[data-theme="sunset"] .admin-res-total-val,
+body.theme-sunset .admin-kpi-val,
+body.theme-sunset .kpi-value {
+  color: #FFD700 !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="sunset"] .admin-kpi-lbl,
+html[data-theme="sunset"] .kpi-title,
+body.theme-sunset .admin-kpi-lbl,
+body.theme-sunset .kpi-title {
+  color: #D9A8A8 !important;
+  font-weight: 700 !important;
+}
+
+/* Crisp Off-White: Zero pink degradation for subtext */
+html[data-theme="sunset"] .admin-kpi-sub,
+html[data-theme="sunset"] .kpi-subtitle,
+html[data-theme="sunset"] .admin-kpi-sub *,
+body.theme-sunset .admin-kpi-sub {
+  color: #F8ECEC !important;
+  opacity: 0.95 !important;
+  font-weight: 500 !important;
+}
+
+/* High contrast cancelled status on dark maroon */
+html[data-theme="sunset"] .admin-kpi-mini-card .admin-kpi-val[style*="color:#9b2c2c"] {
+  color: #fca5a5 !important;
+}
+
+/* Complete elimination of pink captions, labels, and timestamps across Sunset */
+html[data-theme="sunset"] .admin-card-subtitle,
+html[data-theme="sunset"] .admin-form-label,
+html[data-theme="sunset"] .wiz-price-lbl,
+html[data-theme="sunset"] .receipt-ref-label,
+html[data-theme="sunset"] .receipt-sub-label,
+html[data-theme="sunset"] .gallery-item-card p,
+html[data-theme="sunset"] .admin-activity-item .activity-time,
+html[data-theme="sunset"] .admin-notif-time,
+html[data-theme="sunset"] .text-muted,
+html[data-theme="sunset"] .subtext {
+  color: #D9A8A8 !important;
+}
+
+html[data-theme="sunset"] .admin-table th,
+html[data-theme="sunset"] table th {
+  color: #F8ECEC !important;
+  background: #190513 !important;
+  border-color: rgba(255, 215, 0, 0.2) !important;
+}
+
+html[data-theme="sunset"] .admin-table td,
+html[data-theme="sunset"] table td {
+  color: #F8ECEC !important;
+}
+
+/* ─── 3. ADAPTIVE KEYBOARD FOCUS RINGS (:focus-visible) ─────────────────── */
+:focus-visible {
+  outline: 2px solid var(--text-accent, #0A5C36) !important;
+  outline-offset: 2px !important;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--text-accent, #0A5C36) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(10, 92, 54, 0.25) !important;
+}
+
+html[data-theme="midnight"] button:focus-visible,
+html[data-theme="midnight"] input:focus-visible,
+html[data-theme="midnight"] select:focus-visible,
+html[data-theme="midnight"] textarea:focus-visible,
+html[data-theme="midnight"] a:focus-visible,
+html[data-theme="midnight"] [tabindex]:focus-visible,
+body.theme-midnight button:focus-visible,
+body.theme-midnight input:focus-visible,
+body.theme-midnight select:focus-visible,
+body.theme-midnight textarea:focus-visible {
+  outline: 2px solid #FFD54F !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(255, 213, 79, 0.3) !important;
+}
+
+html[data-theme="sunset"] button:focus-visible,
+html[data-theme="sunset"] input:focus-visible,
+html[data-theme="sunset"] select:focus-visible,
+html[data-theme="sunset"] textarea:focus-visible,
+html[data-theme="sunset"] a:focus-visible,
+html[data-theme="sunset"] [tabindex]:focus-visible,
+body.theme-sunset button:focus-visible,
+body.theme-sunset input:focus-visible,
+body.theme-sunset select:focus-visible,
+body.theme-sunset textarea:focus-visible {
+  outline: 2px solid #FFD700 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3) !important;
+}
+
 
 
 
@@ -17023,6 +17266,12 @@ const TRANSLATIONS = {
     saveStorage('emailLogs');
   }
 
+  // THEME ICON HELPER
+  function getThemeIcon(theme = State.theme) {
+    const icons = { emerald: '🌿', light: '☀️', midnight: '🌌', sunset: '🌅' };
+    return icons[theme] || '🌿';
+  }
+
   // BRAND LOGO COMPONENT
   function renderAloraLogo(theme = 'dark') {
     const isDarkTheme = (State.theme === 'midnight' || State.theme === 'sunset');
@@ -17092,12 +17341,7 @@ const TRANSLATIONS = {
   function renderNavbar() {
     const isAr = State.lang === 'ar';
     const currentTheme = State.theme || 'emerald';
-    const themeIcons = {
-      emerald: '🌿',
-      midnight: '🌌',
-      sunset: '🌅'
-    };
-    const themeIcon = themeIcons[currentTheme] || '✨';
+    const themeIcon = getThemeIcon(currentTheme);
     const themeLabel = isAr ? 'المظهر' : 'Theme';
 
     return `
@@ -18489,7 +18733,7 @@ const TRANSLATIONS = {
               <span class="btn-icon">🌐</span> <span>${isAr ? 'English' : 'العربية'}</span>
             </button>
             <button type="button" class="nav-control-btn nav-theme-btn" onclick="window.Alora.toggleTheme()" title="${isAr ? 'تغيير المظهر والألوان الحركية' : 'Change Theme & Motion FX'}">
-              <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
+              <span class="theme-sparkle-icon">${getThemeIcon()}</span>
               <span class="btn-text">${isAr ? 'المظهر' : 'Theme'}</span>
             </button>
           </div>
@@ -18645,7 +18889,7 @@ const TRANSLATIONS = {
                   <span class="btn-icon">🌐</span> <span>${State.lang === 'en' ? 'العربية' : 'English'}</span>
                 </button>
                 <button class="btn btn-outline btn-sm nav-theme-btn" style="flex:1;justify-content:center;" onclick="window.Alora.toggleTheme()">
-                  <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
+                  <span class="theme-sparkle-icon">${getThemeIcon()}</span>
                   <span class="btn-text">${isAr ? 'المظهر' : 'Theme'}</span>
                 </button>
               </div>
@@ -18688,7 +18932,7 @@ const TRANSLATIONS = {
 
                 <!-- Theme Switch (Mobile) -->
                 <button class="nav-control-btn nav-theme-btn" style="padding:0.25rem 0.5rem;font-size:0.75rem;min-height:30px;" onclick="window.Alora.toggleTheme()" title="${State.lang === 'ar' ? 'تغيير المظهر والألوان الحركية' : 'Change Theme & Motion FX'}">
-                  <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
+                  <span class="theme-sparkle-icon">${getThemeIcon()}</span>
                 </button>
 
                 <!-- Language Switch -->
@@ -18735,7 +18979,7 @@ const TRANSLATIONS = {
 
               <!-- Theme Switch (Desktop) -->
               <button class="nav-control-btn nav-theme-btn admin-topbar-desktop-only" onclick="window.Alora.toggleTheme()" title="${State.lang === 'ar' ? 'تغيير المظهر والألوان الحركية' : 'Change Theme & Motion FX'}">
-                <span class="theme-sparkle-icon">${State.theme === 'midnight' ? '🌌' : (State.theme === 'sunset' ? '🌅' : '🌿')}</span>
+                <span class="theme-sparkle-icon">${getThemeIcon()}</span>
                 <span class="btn-text">${State.lang === 'ar' ? 'المظهر' : 'Theme'}</span>
               </button>
 
@@ -21501,7 +21745,7 @@ const TRANSLATIONS = {
     },
 
     toggleTheme: function() {
-      const themes = ['emerald', 'midnight', 'sunset'];
+      const themes = ['emerald', 'light', 'midnight', 'sunset'];
       const currentIndex = themes.indexOf(State.theme || 'emerald');
       const nextTheme = themes[(currentIndex + 1) % themes.length];
       State.theme = nextTheme;
@@ -21527,13 +21771,17 @@ const TRANSLATIONS = {
           en: 'Emerald Oasis & Warm Royal Gold 🌿',
           ar: 'الأخضر الزمردي والذهب الملكي الدافئ 🌿'
         },
+        light: {
+          en: 'Classic Minimalist Light ☀️',
+          ar: 'الأبيض الكلاسيكي الهادئ ☀️'
+        },
         midnight: {
           en: 'Royal Midnight Sapphire & Cosmic Gold 🌌',
           ar: 'الأزرق الملكي الليلي والذهب المشع 🌌'
         },
         sunset: {
-          en: 'Sunset Rose Royale & Warm Amber 🌅',
-          ar: 'الوردي المخملي وعنبر الغروب الملكي 🌅'
+          en: 'Royal Maroon & Warm Amber 🌅',
+          ar: 'العنابي المخملي والذهب الدافئ 🌅'
         }
       };
 
