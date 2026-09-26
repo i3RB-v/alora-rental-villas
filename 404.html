@@ -13440,40 +13440,235 @@ html[data-theme="midnight"] .cliq-admin-card p {
   background: rgba(19, 36, 77, 0.6) !important;
   color: #f8fafc !important;
 }
-html[data-theme="midnight"] .cliq-admin-card .btn-xs.btn-outline {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1.5px solid rgba(147, 197, 253, 0.5) !important;
-  color: #ffffff !important;
+
+/* ==========================================================================
+   CLIQ ADMIN ACTION BUTTONS HIGH-CONTRAST SYSTEM
+   Guarantees 100% legibility and distinct chromatic contrast for all CliQ
+   card buttons (Activate, Deactivate, Set Default, Edit, Delete) across
+   light cards, dark cards, Emerald, Light, Midnight, and Sunset themes.
+   ========================================================================== */
+.btn-cliq-activate,
+.btn-cliq-deactivate,
+.btn-cliq-default,
+.btn-cliq-edit,
+.btn-cliq-delete {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  padding: 0.35rem 0.85rem !important;
+  font-size: 0.82rem !important;
   font-weight: 800 !important;
+  border-radius: 9999px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  min-height: 32px !important;
+  line-height: 1 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
-html[data-theme="midnight"] .cliq-admin-card .btn-xs.btn-outline:hover {
-  background: rgba(59, 130, 246, 0.25) !important;
-  border-color: #60a5fa !important;
+
+/* 1. Base / Light & Emerald Card Styling */
+.btn-cliq-activate {
+  background: #166534 !important;
+  border: 1.5px solid #166534 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(22, 101, 52, 0.3) !important;
+}
+.btn-cliq-activate:hover {
+  background: #15803d !important;
+  border-color: #15803d !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-cliq-deactivate {
+  background: #fee2e2 !important;
+  border: 1.5px solid #ef4444 !important;
+  color: #991b1b !important;
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.15) !important;
+}
+.btn-cliq-deactivate:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-cliq-default {
+  background: #fef3c7 !important;
+  border: 1.5px solid #f59e0b !important;
+  color: #92400e !important;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.15) !important;
+}
+.btn-cliq-default:hover {
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: #050b17 !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-cliq-edit {
+  background: #f1f5f9 !important;
+  border: 1.5px solid #64748b !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 6px rgba(100, 116, 139, 0.15) !important;
+}
+.btn-cliq-edit:hover {
+  background: #334155 !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-cliq-delete {
+  background: #fee2e2 !important;
+  border: 1.5px solid #ef4444 !important;
+  color: #991b1b !important;
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.15) !important;
+}
+.btn-cliq-delete:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 2. Sunset Rose Dark Theme */
+html[data-theme="sunset"] .btn-cliq-activate {
+  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
+  border: 1.5px solid #fb7185 !important;
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .btn-cliq-activate:hover {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+  border-color: #f43f5e !important;
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .btn-cliq-deactivate {
+  background: rgba(239, 68, 68, 0.25) !important;
+  border: 1.5px solid #f87171 !important;
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .btn-cliq-deactivate:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .btn-cliq-default {
+  background: rgba(245, 158, 11, 0.25) !important;
+  border: 1.5px solid #fbbf24 !important;
+  color: #fbbf24 !important;
+}
+html[data-theme="sunset"] .btn-cliq-default:hover {
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: #050b17 !important;
+}
+html[data-theme="sunset"] .btn-cliq-edit {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .btn-cliq-edit:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #1a0513 !important;
+}
+html[data-theme="sunset"] .btn-cliq-delete {
+  background: rgba(239, 68, 68, 0.25) !important;
+  border: 1.5px solid #f87171 !important;
+  color: #ffffff !important;
+}
+html[data-theme="sunset"] .btn-cliq-delete:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
   color: #ffffff !important;
 }
 
-html[data-theme="sunset"] .cliq-admin-card {
-  background: #2d0b22 !important;
-  border-color: rgba(251, 113, 133, 0.3) !important;
-  color: #fff1f2 !important;
+/* 3. Midnight Sapphire Dark Theme */
+html[data-theme="midnight"] .btn-cliq-activate {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  border: 1.5px solid #3b82f6 !important;
+  color: #ffffff !important;
 }
-html[data-theme="sunset"] .cliq-admin-card h3 {
+html[data-theme="midnight"] .btn-cliq-activate:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  border-color: #2563eb !important;
+  color: #ffffff !important;
+}
+html[data-theme="midnight"] .btn-cliq-deactivate {
+  background: rgba(239, 68, 68, 0.25) !important;
+  border: 1.5px solid #f87171 !important;
+  color: #ffffff !important;
+}
+html[data-theme="midnight"] .btn-cliq-deactivate:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;
+}
+html[data-theme="midnight"] .btn-cliq-default {
+  background: rgba(245, 158, 11, 0.25) !important;
+  border: 1.5px solid #fbbf24 !important;
   color: #fbbf24 !important;
 }
-html[data-theme="sunset"] .cliq-admin-card p {
-  background: rgba(74, 13, 46, 0.6) !important;
-  color: #fff1f2 !important;
+html[data-theme="midnight"] .btn-cliq-default:hover {
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  color: #050b17 !important;
 }
-html[data-theme="sunset"] .cliq-admin-card .btn-xs.btn-outline {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1.5px solid rgba(251, 113, 133, 0.5) !important;
+html[data-theme="midnight"] .btn-cliq-edit {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
   color: #ffffff !important;
-  font-weight: 800 !important;
 }
-html[data-theme="sunset"] .cliq-admin-card .btn-xs.btn-outline:hover {
-  background: rgba(251, 113, 133, 0.25) !important;
-  border-color: #f43f5e !important;
+html[data-theme="midnight"] .btn-cliq-edit:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #060a17 !important;
+}
+html[data-theme="midnight"] .btn-cliq-delete {
+  background: rgba(239, 68, 68, 0.25) !important;
+  border: 1.5px solid #f87171 !important;
   color: #ffffff !important;
+}
+html[data-theme="midnight"] .btn-cliq-delete:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+/* 4. White Card Fallback Immunity across All Themes */
+.cliq-admin-card[style*="background:#fff"] .btn-cliq-deactivate,
+.cliq-admin-card[style*="background: #fff"] .btn-cliq-deactivate,
+.cliq-admin-card[style*="background:white"] .btn-cliq-deactivate,
+.cliq-admin-card[style*="background: white"] .btn-cliq-deactivate {
+  background: #fee2e2 !important;
+  border: 1.5px solid #ef4444 !important;
+  color: #991b1b !important;
+}
+.cliq-admin-card[style*="background:#fff"] .btn-cliq-default,
+.cliq-admin-card[style*="background: #fff"] .btn-cliq-default,
+.cliq-admin-card[style*="background:white"] .btn-cliq-default,
+.cliq-admin-card[style*="background: white"] .btn-cliq-default {
+  background: #fef3c7 !important;
+  border: 1.5px solid #f59e0b !important;
+  color: #92400e !important;
+}
+.cliq-admin-card[style*="background:#fff"] .btn-cliq-edit,
+.cliq-admin-card[style*="background: #fff"] .btn-cliq-edit,
+.cliq-admin-card[style*="background:white"] .btn-cliq-edit,
+.cliq-admin-card[style*="background: white"] .btn-cliq-edit {
+  background: #f1f5f9 !important;
+  border: 1.5px solid #64748b !important;
+  color: #0f172a !important;
+}
+.cliq-admin-card[style*="background:#fff"] .btn-cliq-delete,
+.cliq-admin-card[style*="background: #fff"] .btn-cliq-delete,
+.cliq-admin-card[style*="background:white"] .btn-cliq-delete,
+.cliq-admin-card[style*="background: white"] .btn-cliq-delete {
+  background: #fee2e2 !important;
+  border: 1.5px solid #ef4444 !important;
+  color: #991b1b !important;
 }
 
 
@@ -19666,19 +19861,19 @@ const TRANSLATIONS = {
               </div>
 
               <!-- Card Actions -->
-              <div style="display:flex;gap:6px;border-top:1px solid var(--neutral-100);padding-top:1rem;margin-top:auto;flex-wrap:wrap;">
-                <button class="btn-xs ${m.active ? 'btn-outline' : 'btn-primary'}" onclick="window.Alora.toggleCliqActive('${m.id}')">
+              <div class="cliq-card-actions" style="display:flex;gap:6px;border-top:1px solid var(--neutral-200);padding-top:1rem;margin-top:auto;flex-wrap:wrap;">
+                <button class="btn-xs ${m.active ? 'btn-cliq-deactivate' : 'btn-cliq-activate'}" onclick="window.Alora.toggleCliqActive('${m.id}')">
                   ${m.active ? (isAr ? 'تعطيل' : 'Deactivate') : (isAr ? 'تفعيل' : 'Activate')}
                 </button>
                 ${!m.isDefault ? `
-                  <button class="btn-xs btn-outline" style="color:#b7791f;" onclick="window.Alora.setCliqAsDefault('${m.id}')">
+                  <button class="btn-xs btn-cliq-default" onclick="window.Alora.setCliqAsDefault('${m.id}')">
                     ${isAr ? 'تعيين كافتراضي' : 'Set Default'}
                   </button>
                 ` : ''}
-                <button class="btn-xs btn-outline" onclick="window.Alora.openEditCliqModal('${m.id}')">
+                <button class="btn-xs btn-cliq-edit" onclick="window.Alora.openEditCliqModal('${m.id}')">
                   ${t('btnEdit')}
                 </button>
-                <button class="btn-xs btn-outline" style="color:#e53e3e;" onclick="window.Alora.deleteCliqMethod('${m.id}')">
+                <button class="btn-xs btn-cliq-delete" onclick="window.Alora.deleteCliqMethod('${m.id}')">
                   ${t('btnDelete')}
                 </button>
               </div>
