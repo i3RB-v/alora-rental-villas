@@ -7673,10 +7673,10 @@ button[style*="background:yellow"],
 button[style*="background:yellow"] *,
 button[style*="background: yellow"],
 button[style*="background: yellow"] *,
-html[data-theme="emerald"] .btn-primary:not(.btn-sm):not(.btn-admin-create-res),
-html[data-theme="emerald"] .btn-primary:not(.btn-sm):not(.btn-admin-create-res) *,
-html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:not(.btn-sm):not(.btn-admin-create-res),
-html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:not(.btn-sm):not(.btn-admin-create-res) * {
+html[data-theme="emerald"] .btn-primary:not(.btn-sm):not(.btn-admin-create-res):not(.btn-res-confirm):not([style*="background:#16402e"]):not([style*="background: #16402e"]),
+html[data-theme="emerald"] .btn-primary:not(.btn-sm):not(.btn-admin-create-res):not(.btn-res-confirm):not([style*="background:#16402e"]):not([style*="background: #16402e"]) *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:not(.btn-sm):not(.btn-admin-create-res):not(.btn-res-confirm):not([style*="background:#16402e"]):not([style*="background: #16402e"]),
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-primary:not(.btn-sm):not(.btn-admin-create-res):not(.btn-res-confirm):not([style*="background:#16402e"]):not([style*="background: #16402e"]) * {
   color: #0a1f16 !important;
   font-weight: 800 !important;
 }
@@ -7686,10 +7686,22 @@ html[data-theme="emerald"] .btn-sm.btn-primary,
 html[data-theme="emerald"] .btn-sm.btn-primary *,
 html[data-theme="emerald"] .btn-admin-create-res,
 html[data-theme="emerald"] .btn-admin-create-res *,
+html[data-theme="emerald"] .btn-res-confirm,
+html[data-theme="emerald"] .btn-res-confirm *,
+html[data-theme="emerald"] button[onclick*="verifyPaymentForBooking"],
+html[data-theme="emerald"] button[onclick*="verifyPaymentForBooking"] *,
+html[data-theme="emerald"] button[onclick*="verifyPaymentDirectly"],
+html[data-theme="emerald"] button[onclick*="verifyPaymentDirectly"] *,
 html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-sm.btn-primary,
 html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-sm.btn-primary *,
 html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-admin-create-res,
-html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-admin-create-res * {
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-admin-create-res *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-res-confirm,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) .btn-res-confirm *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) button[onclick*="verifyPaymentForBooking"],
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) button[onclick*="verifyPaymentForBooking"] *,
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) button[onclick*="verifyPaymentDirectly"],
+html:not([data-theme="midnight"]):not([data-theme="sunset"]) button[onclick*="verifyPaymentDirectly"] * {
   background: #16402e !important;
   color: #ffffff !important;
   font-weight: 800 !important;
@@ -13304,6 +13316,47 @@ html:not([data-theme]) .admin-drawer .admin-nav-badge {
   padding: 1px 7px !important;
 }
 
+/* ==========================================================================
+   CONFIRM & VERIFY PAYMENT ACTION BUTTONS - WHITE TEXT GUARANTEE
+   Ensures that "✓ تدقيق الدفعة وتأكيد الحجز" and all confirmation buttons
+   with green backgrounds ALWAYS render crisp pure white text (#ffffff !important).
+   ========================================================================== */
+.btn-res-confirm,
+.btn-res-confirm *,
+button.btn-res-confirm,
+button.btn-res-confirm *,
+.btn-primary.btn-res-confirm,
+.btn-primary.btn-res-confirm *,
+button[onclick*="verifyPaymentForBooking"],
+button[onclick*="verifyPaymentForBooking"] *,
+button[onclick*="verifyPaymentDirectly"],
+button[onclick*="verifyPaymentDirectly"] *,
+html[data-theme="emerald"] button.btn-res-confirm,
+html[data-theme="emerald"] button.btn-res-confirm *,
+html[data-theme="emerald"] button[onclick*="verifyPaymentForBooking"],
+html[data-theme="emerald"] button[onclick*="verifyPaymentForBooking"] *,
+html[data-theme="emerald"] button[onclick*="verifyPaymentDirectly"],
+html[data-theme="emerald"] button[onclick*="verifyPaymentDirectly"] *,
+html[data-theme="light"] button[onclick*="verifyPaymentForBooking"],
+html[data-theme="light"] button[onclick*="verifyPaymentForBooking"] *,
+html:not([data-theme]) button[onclick*="verifyPaymentForBooking"],
+html:not([data-theme]) button[onclick*="verifyPaymentForBooking"] * {
+  background: #16402e !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.btn-res-confirm:hover,
+.btn-res-confirm:hover *,
+button.btn-res-confirm:hover,
+button.btn-res-confirm:hover *,
+button[onclick*="verifyPaymentForBooking"]:hover,
+button[onclick*="verifyPaymentForBooking"]:hover * {
+  background: #15803d !important;
+  color: #ffffff !important;
+}
+
+
 
 
 
@@ -18795,7 +18848,7 @@ const TRANSLATIONS = {
                       </td>
                       <td>
                         <div style="display:flex;gap:6px;">
-                          <button class="btn-xs btn-primary btn-res-confirm" onclick="window.Alora.verifyPaymentForBooking('${b.id}')" title="Verify Payment & Confirm Reservation">
+                          <button class="btn-xs btn-primary btn-res-confirm" style="background:#16402e !important;color:#ffffff !important;font-weight:800 !important;" onclick="window.Alora.verifyPaymentForBooking('${b.id}')" title="Verify Payment & Confirm Reservation">
                             ${t('btnVerifyPayment')}
                           </button>
                           <button class="btn-xs btn-outline btn-res-reject" style="color:#e53e3e;border-color:#feb2b2;" onclick="window.Alora.rejectPaymentForBooking('${b.id}')">
@@ -18987,7 +19040,7 @@ const TRANSLATIONS = {
                         ${t('btnView')}
                       </button>
                       ${b.bookingStatus === 'Pending' ? `
-                        <button class="btn-xs btn-primary btn-res-confirm" onclick="window.Alora.verifyPaymentForBooking('${b.id}')" title="Confirm Reservation">
+                        <button class="btn-xs btn-primary btn-res-confirm" style="background:#16402e !important;color:#ffffff !important;font-weight:800 !important;" onclick="window.Alora.verifyPaymentForBooking('${b.id}')" title="Confirm Reservation">
                           ${t('btnConfirm')}
                         </button>
                         <button class="btn-xs btn-outline btn-res-reject" style="color:#e53e3e;" onclick="window.Alora.rejectPaymentForBooking('${b.id}')" title="Reject">
@@ -19396,7 +19449,7 @@ const TRANSLATIONS = {
                   <td>
                     <div style="display:flex;gap:4px;">
                       ${p.status !== 'Verified' ? `
-                        <button class="btn-xs btn-primary" onclick="window.Alora.verifyPaymentDirectly('${p.id}')" title="Verify Payment & Confirm Reservation">
+                        <button class="btn-xs btn-primary btn-res-confirm" style="background:#16402e !important;color:#ffffff !important;font-weight:800 !important;" onclick="window.Alora.verifyPaymentDirectly('${p.id}')" title="Verify Payment & Confirm Reservation">
                           ${t('btnVerify')}
                         </button>
                       ` : ''}
@@ -20133,7 +20186,7 @@ const TRANSLATIONS = {
               <!-- Actions Footer Toolbar -->
               <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;border-top:1px solid #e2e8f0;padding-top:1.25rem;">
                 ${b.bookingStatus === 'Pending' ? `
-                  <button class="btn btn-primary" onclick="window.Alora.verifyPaymentForBooking('${b.id}')">
+                  <button class="btn btn-primary btn-res-confirm" style="background:#16402e !important;color:#ffffff !important;font-weight:800 !important;" onclick="window.Alora.verifyPaymentForBooking('${b.id}')">
                     ${t('modalBtnVerifyConfirm')}
                   </button>
                   <button class="btn btn-outline" style="color:#e53e3e;border-color:#feb2b2;" onclick="window.Alora.rejectPaymentForBooking('${b.id}')">
