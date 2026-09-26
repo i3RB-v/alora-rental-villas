@@ -17253,7 +17253,10 @@ const TRANSLATIONS = {
   // GLOBAL APPLICATION STATE
   const State = {
     lang: localStorage.getItem('alora_lang') || 'en',
-    theme: localStorage.getItem('alora_theme') || 'emerald',
+    theme: (function() {
+      const saved = localStorage.getItem('alora_theme');
+      return (saved === 'midnight' || saved === 'sunset') ? saved : 'emerald';
+    })(),
     currentPage: 'home',
     params: {},
     selectedFarmId: null,
@@ -22313,7 +22316,11 @@ const TRANSLATIONS = {
 
     toggleTheme: function() {
       const themes = ['emerald', 'midnight', 'sunset'];
-      const currentIndex = themes.indexOf(State.theme || 'emerald');
+      let currentTheme = State.theme;
+      if (!themes.includes(currentTheme)) {
+        currentTheme = 'emerald';
+      }
+      const currentIndex = themes.indexOf(currentTheme);
       const nextTheme = themes[(currentIndex + 1) % themes.length];
       State.theme = nextTheme;
       localStorage.setItem('alora_theme', nextTheme);
@@ -22337,10 +22344,6 @@ const TRANSLATIONS = {
         emerald: {
           en: 'Emerald Oasis & Warm Royal Gold 🌿',
           ar: 'الأخضر الزمردي والذهب الملكي الدافئ 🌿'
-        },
-        light: {
-          en: 'Classic Minimalist Light ☀️',
-          ar: 'الأبيض الكلاسيكي الهادئ ☀️'
         },
         midnight: {
           en: 'Royal Midnight Sapphire & Cosmic Gold 🌌',
