@@ -11495,10 +11495,10 @@ html[data-theme="midnight"] .admin-sidebar .admin-nav-item:not(.active) *,
 html[data-theme="sunset"] .admin-sidebar .admin-nav-item:not(.active),
 html[data-theme="sunset"] .admin-sidebar .admin-nav-item:not(.active) *,
 html[data-theme="midnight"] .modal-card p,
-html[data-theme="midnight"] .modal-card span:not(.badge-star):not(.rating-star):not(.badge-optional):not(.badge-optional *),
+html[data-theme="midnight"] .modal-card span:not(.badge-star):not(.rating-star):not(.badge-optional):not(.badge-optional *):not(.badge-pending):not(.badge-submitted):not(.badge-verified):not(.badge-confirmed):not(.badge-rejected):not([class*="badge"]),
 html[data-theme="midnight"] .modal-card label,
 html[data-theme="sunset"] .modal-card p,
-html[data-theme="sunset"] .modal-card span:not(.badge-star):not(.rating-star):not(.badge-optional):not(.badge-optional *),
+html[data-theme="sunset"] .modal-card span:not(.badge-star):not(.rating-star):not(.badge-optional):not(.badge-optional *):not(.badge-pending):not(.badge-submitted):not(.badge-verified):not(.badge-confirmed):not(.badge-rejected):not([class*="badge"]),
 html[data-theme="sunset"] .modal-card label {
   color: #fbbf24 !important;
   font-weight: 700 !important;
@@ -13353,6 +13353,126 @@ button.btn-res-confirm:hover *,
 button[onclick*="verifyPaymentForBooking"]:hover,
 button[onclick*="verifyPaymentForBooking"]:hover * {
   background: #15803d !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   MODAL CARD & SUBCARD TEXT CONTRAST GUARANTEE (DARK THEMES)
+   Ensures that reservation details, total stays, payment references, deposit
+   and all key values render in crisp pure white (#ffffff !important) under
+   Midnight Sapphire and Sunset Rose dark themes.
+   ========================================================================== */
+html[data-theme="midnight"] .modal-card strong,
+html[data-theme="midnight"] .modal-card b,
+html[data-theme="midnight"] .modal-body strong,
+html[data-theme="midnight"] .modal-body b,
+html[data-theme="sunset"] .modal-card strong,
+html[data-theme="sunset"] .modal-card b,
+html[data-theme="sunset"] .modal-body strong,
+html[data-theme="sunset"] .modal-body b,
+html[data-theme="midnight"] .modal-res-total,
+html[data-theme="sunset"] .modal-res-total,
+html[data-theme="midnight"] .modal-res-ref,
+html[data-theme="sunset"] .modal-res-ref,
+html[data-theme="midnight"] .modal-res-deposit,
+html[data-theme="sunset"] .modal-res-deposit {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="light"] .modal-res-total,
+html[data-theme="emerald"] .modal-res-total,
+html:not([data-theme]) .modal-res-total,
+html[data-theme="light"] .modal-res-ref,
+html[data-theme="emerald"] .modal-res-ref,
+html:not([data-theme]) .modal-res-ref {
+  color: #0a1f16 !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="light"] .modal-res-deposit,
+html[data-theme="emerald"] .modal-res-deposit,
+html:not([data-theme]) .modal-res-deposit {
+  color: #276749 !important;
+  font-weight: 800 !important;
+}
+
+/* Modal status badge contrast */
+.modal-card .badge-pending,
+.modal-card .badge-submitted,
+.modal-body .badge-pending,
+.modal-body .badge-submitted,
+html[data-theme="midnight"] .modal-card .badge-pending,
+html[data-theme="midnight"] .modal-card .badge-submitted,
+html[data-theme="sunset"] .modal-card .badge-pending,
+html[data-theme="sunset"] .modal-card .badge-submitted {
+  background: #fbbf24 !important;
+  color: #050b17 !important;
+  font-weight: 900 !important;
+}
+
+.modal-card .badge-verified,
+.modal-card .badge-confirmed,
+.modal-body .badge-verified,
+.modal-body .badge-confirmed,
+html[data-theme="midnight"] .modal-card .badge-verified,
+html[data-theme="midnight"] .modal-card .badge-confirmed,
+html[data-theme="sunset"] .modal-card .badge-verified,
+html[data-theme="sunset"] .modal-card .badge-confirmed {
+  background: #16402e !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+}
+
+/* ==========================================================================
+   CLIQ ADMIN CARDS THEME HARMONY
+   Harmonizes CliQ account management cards with Midnight and Sunset themes.
+   ========================================================================== */
+html[data-theme="midnight"] .cliq-admin-card {
+  background: #0f1d40 !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  color: #f8fafc !important;
+}
+html[data-theme="midnight"] .cliq-admin-card h3 {
+  color: #fbbf24 !important;
+}
+html[data-theme="midnight"] .cliq-admin-card p {
+  background: rgba(19, 36, 77, 0.6) !important;
+  color: #f8fafc !important;
+}
+html[data-theme="midnight"] .cliq-admin-card .btn-xs.btn-outline {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid rgba(147, 197, 253, 0.5) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+html[data-theme="midnight"] .cliq-admin-card .btn-xs.btn-outline:hover {
+  background: rgba(59, 130, 246, 0.25) !important;
+  border-color: #60a5fa !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="sunset"] .cliq-admin-card {
+  background: #2d0b22 !important;
+  border-color: rgba(251, 113, 133, 0.3) !important;
+  color: #fff1f2 !important;
+}
+html[data-theme="sunset"] .cliq-admin-card h3 {
+  color: #fbbf24 !important;
+}
+html[data-theme="sunset"] .cliq-admin-card p {
+  background: rgba(74, 13, 46, 0.6) !important;
+  color: #fff1f2 !important;
+}
+html[data-theme="sunset"] .cliq-admin-card .btn-xs.btn-outline {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid rgba(251, 113, 133, 0.5) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+html[data-theme="sunset"] .cliq-admin-card .btn-xs.btn-outline:hover {
+  background: rgba(251, 113, 133, 0.25) !important;
+  border-color: #f43f5e !important;
   color: #ffffff !important;
 }
 
@@ -18114,19 +18234,19 @@ const TRANSLATIONS = {
                   </div>
                   <div class="summary-row">
                     <span style="color:var(--neutral-500);">${t('summaryRef')}</span>
-                    <strong style="font-family:monospace;color:var(--primary-900);">${w.paymentReference || 'N/A'}</strong>
+                    <strong class="modal-res-ref" style="font-family:monospace;">${w.paymentReference || 'N/A'}</strong>
                   </div>
 
                   <!-- Financial Summary -->
                   <div style="margin-top:1rem;padding-top:0.75rem;border-top:1px dashed var(--neutral-300);">
                     <div class="summary-row"><span>${t('summaryTotal')}</span> <strong>${w.total} JOD</strong></div>
-                    <div class="summary-row" style="color:#0a1f16;font-weight:700;">
+                    <div class="summary-row" style="font-weight:700;">
                       <span>${t('summaryDeposit', { percent: w.bookingFeePercent })}</span>
-                      <span>${w.bookingFee} JOD</span>
+                      <span class="modal-res-deposit">${w.bookingFee} JOD</span>
                     </div>
-                    <div class="summary-row" style="font-size:1.15rem;font-weight:900;color:var(--primary-900);padding-top:0.5rem;">
+                    <div class="summary-row" style="font-size:1.15rem;font-weight:900;padding-top:0.5rem;">
                       <span>${t('summaryRemaining')}</span>
-                      <span>${w.remainingAmount} JOD</span>
+                      <span class="modal-res-total">${w.remainingAmount} JOD</span>
                     </div>
                   </div>
                 </div>
@@ -20129,7 +20249,7 @@ const TRANSLATIONS = {
             <div class="modal-body">
               <!-- Customer Section -->
               <div style="background:#f8fafc;padding:1.25rem;border-radius:var(--radius-lg);margin-bottom:1.5rem;border:1px solid #e2e8f0;">
-                <h4 style="font-size:1rem;font-weight:800;color:var(--primary-900);margin:0 0 0.75rem 0;">${t('modalCustomerInfo')}</h4>
+                <h4 style="font-size:1rem;font-weight:800;margin:0 0 0.75rem 0;">${t('modalCustomerInfo')}</h4>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;font-size:0.9rem;">
                   <div><span style="color:var(--neutral-500);">${t('modalCustomerName')}</span> <strong>${formatCustomerName(b.customerName)}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalCustomerPhone')}</span> <strong dir="ltr">${b.customerPhone}</strong></div>
@@ -20142,7 +20262,7 @@ const TRANSLATIONS = {
               <div style="background:#f8fafc;padding:1.25rem;border-radius:var(--radius-lg);margin-bottom:1.5rem;border:1px solid #e2e8f0;display:flex;align-items:center;gap:1rem;">
                 <img src="${farm.images[0]}" alt="${farmName}" style="width:90px;height:70px;border-radius:6px;object-fit:cover;" />
                 <div>
-                  <h4 style="font-size:1.05rem;font-weight:800;color:var(--primary-900);margin:0 0 4px 0;">🏡 ${farmName}</h4>
+                  <h4 style="font-size:1.05rem;font-weight:800;margin:0 0 4px 0;">🏡 ${farmName}</h4>
                   <div style="font-size:0.85rem;color:var(--neutral-600);">${isAr ? 'معرف الفيلا:' : 'Villa ID:'} ${b.farmId}</div>
                   <div style="font-size:0.85rem;color:var(--neutral-500);">${t('modalStandardRate')} ${farm.price || 200} JOD/${isAr ? 'ليلة' : 'night'}</div>
                 </div>
@@ -20150,14 +20270,14 @@ const TRANSLATIONS = {
 
               <!-- Reservation Details Section -->
               <div style="background:#f8fafc;padding:1.25rem;border-radius:var(--radius-lg);margin-bottom:1.5rem;border:1px solid #e2e8f0;">
-                <h4 style="font-size:1rem;font-weight:800;color:var(--primary-900);margin:0 0 0.75rem 0;">${t('modalResSummary')}</h4>
+                <h4 style="font-size:1rem;font-weight:800;margin:0 0 0.75rem 0;">${t('modalResSummary')}</h4>
                 <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:0.75rem;font-size:0.9rem;">
                   <div><span style="color:var(--neutral-500);">${t('modalCheckIn')}</span> <strong>${b.checkIn} (${b.checkInTime || (isAr ? '10:00 صباحاً' : '10:00 AM')})</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalCheckOut')}</span> <strong>${b.checkOut || b.checkIn} (${b.checkOutTime || (isAr ? '10:00 صباحاً' : '10:00 AM')})</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalGuests')}</span> <strong>${b.guests} ${isAr ? 'ضيوف' : 'Guests'}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalStayType')}</span> <strong>${b.stayType === 'overnight' ? t('modalStayOvernight') : t('modalStayDayUse')}</strong></div>
-                  <div><span style="color:var(--neutral-500);">${t('modalTotalStay')}</span> <strong style="font-size:1.1rem;color:var(--primary-900);">${b.total} JOD</strong></div>
-                  <div><span style="color:var(--neutral-500);">${t('modalDeposit')}</span> <strong style="color:#276749;">${b.bookingFee || Math.round(b.total * 0.3)} JOD</strong></div>
+                  <div><span style="color:var(--neutral-500);">${t('modalTotalStay')}</span> <strong class="modal-res-total" style="font-size:1.1rem;">${b.total} JOD</strong></div>
+                  <div><span style="color:var(--neutral-500);">${t('modalDeposit')}</span> <strong class="modal-res-deposit">${b.bookingFee || Math.round(b.total * 0.3)} JOD</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalPaidAmount')}</span> <strong>${b.paidAmount || (b.paymentStatus === 'Verified' ? b.bookingFee : 0)} JOD</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalRemaining')}</span> <strong>${b.remainingAmount || (b.total - (b.paidAmount || 0))} JOD</strong></div>
                 </div>
@@ -20165,11 +20285,11 @@ const TRANSLATIONS = {
 
               <!-- CliQ Payment Section -->
               <div style="background:#f8fafc;padding:1.25rem;border-radius:var(--radius-lg);margin-bottom:1.5rem;border:1px solid #e2e8f0;">
-                <h4 style="font-size:1rem;font-weight:800;color:var(--primary-900);margin:0 0 0.75rem 0;">${t('modalCliqPayment')}</h4>
+                <h4 style="font-size:1rem;font-weight:800;margin:0 0 0.75rem 0;">${t('modalCliqPayment')}</h4>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;font-size:0.9rem;">
                   <div><span style="color:var(--neutral-500);">${t('modalCliqAccount')}</span> <strong>${isAr ? (b.paymentMethodNameAr || (b.paymentMethodName === 'ALORA Booking CliQ' ? 'حساب كليك حجوزات أورا' : 'حساب كليك أورا الرئيسي')) : (b.paymentMethodName || 'ALORA Main CliQ')}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalCliqAlias')}</span> <strong class="cliq-alias-badge" style="padding:2px 6px;font-size:0.8rem;background:#0a1f16 !important;color:#ffffff !important;font-weight:800 !important;">${b.cliqAlias || 'ALORA@INVEST'}</strong></div>
-                  <div><span style="color:var(--neutral-500);">${t('modalTxRef')}</span> <strong style="font-family:monospace;color:var(--primary-900);">${b.paymentReference || '—'}</strong></div>
+                  <div><span style="color:var(--neutral-500);">${t('modalTxRef')}</span> <strong class="modal-res-ref" style="font-family:monospace;">${b.paymentReference || '—'}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalPaymentStatus')}</span> <span class="${payBadge}">${payText}</span></div>
                   <div><span style="color:var(--neutral-500);">${t('modalVerifiedBy')}</span> <strong>${b.verifiedBy || t('modalPendingVerification')}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalVerificationDate')}</span> <span>${b.verifiedDate || t('modalNotVerifiedYet')}</span></div>
