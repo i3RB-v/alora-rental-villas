@@ -8239,11 +8239,13 @@ html[data-theme="sunset"] .admin-kpi-sub {
 }
 
 html[data-theme="sunset"] .btn-primary {
-  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 50%, #f59e0b 100%) !important;
+  background: linear-gradient(135deg, #9f1239 0%, #be123c 50%, #881337 100%) !important;
   background-size: 200% 200% !important;
-  color: #1a0513 !important;
+  color: #ffffff !important;
   font-weight: 800 !important;
-  box-shadow: 0 4px 20px rgba(251, 113, 133, 0.45) !important;
+  border: 1.5px solid rgba(255, 215, 0, 0.45) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+  box-shadow: 0 4px 20px rgba(159, 18, 57, 0.45) !important;
 }
 
 html[data-theme="sunset"] .hero::after {
@@ -10030,11 +10032,12 @@ html[data-theme="sunset"] {
   .btn-admin-create-res,
   .btn-apply-promo,
   .admin-demo-btn {
-    background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
+    background: linear-gradient(135deg, #9f1239 0%, #be123c 50%, #881337 100%) !important;
     color: #ffffff !important;
-    border: 1.5px solid #fb7185 !important;
+    border: 1.5px solid rgba(255, 215, 0, 0.45) !important;
     font-weight: 800 !important;
-    box-shadow: 0 4px 14px rgba(251, 113, 133, 0.35) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+    box-shadow: 0 4px 14px rgba(136, 19, 55, 0.45) !important;
   }
 
   .btn-primary *,
@@ -10048,6 +10051,7 @@ html[data-theme="sunset"] {
   .admin-demo-btn * {
     color: #ffffff !important;
     font-weight: 800 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
   }
 
   /* Mobile Dropdown & Nav Buttons */
@@ -13447,24 +13451,81 @@ html[data-theme="sunset"] .modal-card .badge-confirmed {
 }
 
 /* ==========================================================================
-   CLIQ ADMIN CARDS THEME HARMONY
-   Harmonizes CliQ account management cards with Midnight and Sunset themes.
+   CLIQ ADMIN CARDS THEME HARMONY & IMMUNITY
+   Harmonizes CliQ account management cards across Midnight, Sunset, and Light themes.
    ========================================================================== */
-html[data-theme="midnight"] .cliq-admin-card {
-  background: #0f1d40 !important;
-  border-color: rgba(59, 130, 246, 0.3) !important;
+html[data-theme="sunset"] .cliq-admin-card,
+body.theme-sunset .cliq-admin-card {
+  background: #1f0817 !important;
+  border: 1.5px solid rgba(255, 215, 0, 0.25) !important;
+  color: #F8ECEC !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="sunset"] .cliq-admin-card h3,
+body.theme-sunset .cliq-admin-card h3 {
+  color: #FFD700 !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="sunset"] .cliq-admin-card p,
+body.theme-sunset .cliq-admin-card p {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #F8ECEC !important;
+  border: 1px solid rgba(255, 215, 0, 0.15) !important;
+}
+
+html[data-theme="sunset"] .cliq-admin-card strong,
+body.theme-sunset .cliq-admin-card strong {
+  color: #F8ECEC !important;
+}
+
+html[data-theme="sunset"] .cliq-admin-card .cliq-card-top div,
+body.theme-sunset .cliq-admin-card .cliq-card-top div {
+  color: #D9A8A8 !important;
+}
+
+html[data-theme="sunset"] .cliq-admin-card .cliq-alias-badge,
+body.theme-sunset .cliq-admin-card .cliq-alias-badge {
+  background: #000000 !important;
+  border: 1.5px solid #FFD700 !important;
+  color: #FFD700 !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="midnight"] .cliq-admin-card,
+body.theme-midnight .cliq-admin-card {
+  background: #0d1733 !important;
+  border: 1.5px solid rgba(59, 130, 246, 0.3) !important;
   color: #f8fafc !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
 }
-html[data-theme="midnight"] .cliq-admin-card h3 {
-  color: #fbbf24 !important;
+
+html[data-theme="midnight"] .cliq-admin-card h3,
+body.theme-midnight .cliq-admin-card h3 {
+  color: #FFD54F !important;
+  font-weight: 800 !important;
 }
-html[data-theme="midnight"] .cliq-admin-card p {
+
+html[data-theme="midnight"] .cliq-admin-card p,
+body.theme-midnight .cliq-admin-card p {
   background: rgba(19, 36, 77, 0.6) !important;
   color: #f8fafc !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+}
+
+html[data-theme="midnight"] .cliq-admin-card strong,
+body.theme-midnight .cliq-admin-card strong {
+  color: #ffffff !important;
+}
+
+html[data-theme="midnight"] .cliq-admin-card .cliq-card-top div,
+body.theme-midnight .cliq-admin-card .cliq-card-top div {
+  color: #cbd5e1 !important;
 }
 
 /* ==========================================================================
-   CLIQ ADMIN ACTION BUTTONS HIGH-CONTRAST SYSTEM
+   CLIQ ADMIN ACTION BUTTONS HIGH-CONTRAST SYSTEM (100% WCAG COMPLIANT)
    Guarantees 100% legibility and distinct chromatic contrast for all CliQ
    card buttons (Activate, Deactivate, Set Default, Edit, Delete) across
    light cards, dark cards, Emerald, Light, Midnight, and Sunset themes.
@@ -13489,15 +13550,15 @@ html[data-theme="midnight"] .cliq-admin-card p {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* 1. Base / Light & Emerald Card Styling */
+/* 1. Base / Light Cards Styling (Emerald & Light Themes) */
 .btn-cliq-activate {
-  background: #166534 !important;
+  background: #15803d !important;
   border: 1.5px solid #166534 !important;
   color: #ffffff !important;
   box-shadow: 0 2px 6px rgba(22, 101, 52, 0.3) !important;
 }
 .btn-cliq-activate:hover {
-  background: #15803d !important;
+  background: #16a34a !important;
   border-color: #15803d !important;
   color: #ffffff !important;
   transform: translateY(-1px) !important;
@@ -13518,7 +13579,7 @@ html[data-theme="midnight"] .cliq-admin-card p {
 
 .btn-cliq-default {
   background: #fef3c7 !important;
-  border: 1.5px solid #f59e0b !important;
+  border: 1.5px solid #d97706 !important;
   color: #92400e !important;
   box-shadow: 0 2px 6px rgba(245, 158, 11, 0.15) !important;
 }
@@ -13531,7 +13592,7 @@ html[data-theme="midnight"] .cliq-admin-card p {
 
 .btn-cliq-edit {
   background: #f1f5f9 !important;
-  border: 1.5px solid #64748b !important;
+  border: 1.5px solid #475569 !important;
   color: #0f172a !important;
   box-shadow: 0 2px 6px rgba(100, 116, 139, 0.15) !important;
 }
@@ -13555,141 +13616,212 @@ html[data-theme="midnight"] .cliq-admin-card p {
   transform: translateY(-1px) !important;
 }
 
-/* 2. Sunset Rose Dark Theme */
-html[data-theme="sunset"] .btn-cliq-activate {
-  background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%) !important;
-  border: 1.5px solid #fb7185 !important;
+/* 2. Sunset Rose Dark Theme (SOLID, VIBRANT, OPAQUE WITH CRISP WHITE TEXT) */
+html[data-theme="sunset"] .btn-cliq-activate,
+body.theme-sunset .btn-cliq-activate {
+  background: #15803d !important;
+  border: 1.5px solid #22c55e !important;
   color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3) !important;
 }
-html[data-theme="sunset"] .btn-cliq-activate:hover {
-  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
-  border-color: #f43f5e !important;
+html[data-theme="sunset"] .btn-cliq-activate:hover,
+body.theme-sunset .btn-cliq-activate:hover {
+  background: #16a34a !important;
+  border-color: #4ade80 !important;
   color: #ffffff !important;
-}
-html[data-theme="sunset"] .btn-cliq-deactivate {
-  background: rgba(239, 68, 68, 0.25) !important;
-  border: 1.5px solid #f87171 !important;
-  color: #ffffff !important;
-}
-html[data-theme="sunset"] .btn-cliq-deactivate:hover {
-  background: #dc2626 !important;
-  border-color: #dc2626 !important;
-  color: #ffffff !important;
-}
-html[data-theme="sunset"] .btn-cliq-default {
-  background: rgba(245, 158, 11, 0.25) !important;
-  border: 1.5px solid #fbbf24 !important;
-  color: #fbbf24 !important;
-}
-html[data-theme="sunset"] .btn-cliq-default:hover {
-  background: #f59e0b !important;
-  border-color: #f59e0b !important;
-  color: #050b17 !important;
-}
-html[data-theme="sunset"] .btn-cliq-edit {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
-  color: #ffffff !important;
-}
-html[data-theme="sunset"] .btn-cliq-edit:hover {
-  background: #ffffff !important;
-  border-color: #ffffff !important;
-  color: #1a0513 !important;
-}
-html[data-theme="sunset"] .btn-cliq-delete {
-  background: rgba(239, 68, 68, 0.25) !important;
-  border: 1.5px solid #f87171 !important;
-  color: #ffffff !important;
-}
-html[data-theme="sunset"] .btn-cliq-delete:hover {
-  background: #dc2626 !important;
-  border-color: #dc2626 !important;
-  color: #ffffff !important;
+  transform: translateY(-1px) !important;
 }
 
-/* 3. Midnight Sapphire Dark Theme */
-html[data-theme="midnight"] .btn-cliq-activate {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
-  border: 1.5px solid #3b82f6 !important;
+html[data-theme="sunset"] .btn-cliq-deactivate,
+body.theme-sunset .btn-cliq-deactivate {
+  background: #b91c1c !important;
+  border: 1.5px solid #ef4444 !important;
   color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3) !important;
 }
-html[data-theme="midnight"] .btn-cliq-activate:hover {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
-  border-color: #2563eb !important;
-  color: #ffffff !important;
-}
-html[data-theme="midnight"] .btn-cliq-deactivate {
-  background: rgba(239, 68, 68, 0.25) !important;
-  border: 1.5px solid #f87171 !important;
-  color: #ffffff !important;
-}
-html[data-theme="midnight"] .btn-cliq-deactivate:hover {
+html[data-theme="sunset"] .btn-cliq-deactivate:hover,
+body.theme-sunset .btn-cliq-deactivate:hover {
   background: #dc2626 !important;
-  border-color: #dc2626 !important;
+  border-color: #f87171 !important;
   color: #ffffff !important;
-}
-html[data-theme="midnight"] .btn-cliq-default {
-  background: rgba(245, 158, 11, 0.25) !important;
-  border: 1.5px solid #fbbf24 !important;
-  color: #fbbf24 !important;
-}
-html[data-theme="midnight"] .btn-cliq-default:hover {
-  background: #f59e0b !important;
-  border-color: #f59e0b !important;
-  color: #050b17 !important;
-}
-html[data-theme="midnight"] .btn-cliq-edit {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
-  color: #ffffff !important;
-}
-html[data-theme="midnight"] .btn-cliq-edit:hover {
-  background: #ffffff !important;
-  border-color: #ffffff !important;
-  color: #060a17 !important;
-}
-html[data-theme="midnight"] .btn-cliq-delete {
-  background: rgba(239, 68, 68, 0.25) !important;
-  border: 1.5px solid #f87171 !important;
-  color: #ffffff !important;
-}
-html[data-theme="midnight"] .btn-cliq-delete:hover {
-  background: #dc2626 !important;
-  border-color: #dc2626 !important;
-  color: #ffffff !important;
+  transform: translateY(-1px) !important;
 }
 
-/* 4. White Card Fallback Immunity across All Themes */
-.cliq-admin-card[style*="background:#fff"] .btn-cliq-deactivate,
-.cliq-admin-card[style*="background: #fff"] .btn-cliq-deactivate,
-.cliq-admin-card[style*="background:white"] .btn-cliq-deactivate,
-.cliq-admin-card[style*="background: white"] .btn-cliq-deactivate {
+html[data-theme="sunset"] .btn-cliq-default,
+body.theme-sunset .btn-cliq-default {
+  background: #b45309 !important;
+  border: 1.5px solid #fbbf24 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3) !important;
+}
+html[data-theme="sunset"] .btn-cliq-default:hover,
+body.theme-sunset .btn-cliq-default:hover {
+  background: #d97706 !important;
+  border-color: #fde047 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+html[data-theme="sunset"] .btn-cliq-edit,
+body.theme-sunset .btn-cliq-edit {
+  background: #334155 !important;
+  border: 1.5px solid #94a3b8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(148, 163, 184, 0.25) !important;
+}
+html[data-theme="sunset"] .btn-cliq-edit:hover,
+body.theme-sunset .btn-cliq-edit:hover {
+  background: #475569 !important;
+  border-color: #cbd5e1 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+html[data-theme="sunset"] .btn-cliq-delete,
+body.theme-sunset .btn-cliq-delete {
+  background: #7f1d1d !important;
+  border: 1.5px solid #ef4444 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3) !important;
+}
+html[data-theme="sunset"] .btn-cliq-delete:hover,
+body.theme-sunset .btn-cliq-delete:hover {
+  background: #991b1b !important;
+  border-color: #f87171 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 3. Midnight Sapphire Dark Theme (SOLID, VIBRANT, OPAQUE WITH CRISP WHITE TEXT) */
+html[data-theme="midnight"] .btn-cliq-activate,
+body.theme-midnight .btn-cliq-activate {
+  background: #1d4ed8 !important;
+  border: 1.5px solid #60a5fa !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3) !important;
+}
+html[data-theme="midnight"] .btn-cliq-activate:hover,
+body.theme-midnight .btn-cliq-activate:hover {
+  background: #2563eb !important;
+  border-color: #93c5fd !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+html[data-theme="midnight"] .btn-cliq-deactivate,
+body.theme-midnight .btn-cliq-deactivate {
+  background: #b91c1c !important;
+  border: 1.5px solid #ef4444 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3) !important;
+}
+html[data-theme="midnight"] .btn-cliq-deactivate:hover,
+body.theme-midnight .btn-cliq-deactivate:hover {
+  background: #dc2626 !important;
+  border-color: #f87171 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+html[data-theme="midnight"] .btn-cliq-default,
+body.theme-midnight .btn-cliq-default {
+  background: #b45309 !important;
+  border: 1.5px solid #fbbf24 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3) !important;
+}
+html[data-theme="midnight"] .btn-cliq-default:hover,
+body.theme-midnight .btn-cliq-default:hover {
+  background: #d97706 !important;
+  border-color: #fde047 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+html[data-theme="midnight"] .btn-cliq-edit,
+body.theme-midnight .btn-cliq-edit {
+  background: #1e293b !important;
+  border: 1.5px solid #64748b !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(100, 116, 139, 0.25) !important;
+}
+html[data-theme="midnight"] .btn-cliq-edit:hover,
+body.theme-midnight .btn-cliq-edit:hover {
+  background: #334155 !important;
+  border-color: #94a3b8 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+html[data-theme="midnight"] .btn-cliq-delete,
+body.theme-midnight .btn-cliq-delete {
+  background: #7f1d1d !important;
+  border: 1.5px solid #ef4444 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3) !important;
+}
+html[data-theme="midnight"] .btn-cliq-delete:hover,
+body.theme-midnight .btn-cliq-delete:hover {
+  background: #991b1b !important;
+  border-color: #f87171 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 4. White Card Absolute Fallback Immunity (Never allow white text on white/light cards) */
+.cliq-admin-card:not([style*="background:#1f0817"]):not([style*="background:#0d1733"]):not([style*="background:#0f1d40"]) .btn-cliq-deactivate {
   background: #fee2e2 !important;
   border: 1.5px solid #ef4444 !important;
   color: #991b1b !important;
 }
-.cliq-admin-card[style*="background:#fff"] .btn-cliq-default,
-.cliq-admin-card[style*="background: #fff"] .btn-cliq-default,
-.cliq-admin-card[style*="background:white"] .btn-cliq-default,
-.cliq-admin-card[style*="background: white"] .btn-cliq-default {
+.cliq-admin-card:not([style*="background:#1f0817"]):not([style*="background:#0d1733"]):not([style*="background:#0f1d40"]) .btn-cliq-default {
   background: #fef3c7 !important;
-  border: 1.5px solid #f59e0b !important;
+  border: 1.5px solid #d97706 !important;
   color: #92400e !important;
 }
-.cliq-admin-card[style*="background:#fff"] .btn-cliq-edit,
-.cliq-admin-card[style*="background: #fff"] .btn-cliq-edit,
-.cliq-admin-card[style*="background:white"] .btn-cliq-edit,
-.cliq-admin-card[style*="background: white"] .btn-cliq-edit {
+.cliq-admin-card:not([style*="background:#1f0817"]):not([style*="background:#0d1733"]):not([style*="background:#0f1d40"]) .btn-cliq-edit {
   background: #f1f5f9 !important;
-  border: 1.5px solid #64748b !important;
+  border: 1.5px solid #475569 !important;
   color: #0f172a !important;
 }
-.cliq-admin-card[style*="background:#fff"] .btn-cliq-delete,
-.cliq-admin-card[style*="background: #fff"] .btn-cliq-delete,
-.cliq-admin-card[style*="background:white"] .btn-cliq-delete,
-.cliq-admin-card[style*="background: white"] .btn-cliq-delete {
+.cliq-admin-card:not([style*="background:#1f0817"]):not([style*="background:#0d1733"]):not([style*="background:#0f1d40"]) .btn-cliq-delete {
   background: #fee2e2 !important;
   border: 1.5px solid #ef4444 !important;
+  color: #991b1b !important;
+}
+
+/* 5. Primary Buttons in Sunset Rose Theme (Regal Crimson with High-Contrast White Text) */
+html[data-theme="sunset"] .btn-primary,
+html[data-theme="sunset"] .btn-admin-create-res,
+html[data-theme="sunset"] .admin-btn-primary,
+body.theme-sunset .btn-primary,
+body.theme-sunset .btn-admin-create-res,
+body.theme-sunset .admin-btn-primary {
+  background: linear-gradient(135deg, #9f1239 0%, #be123c 50%, #881337 100%) !important;
+  border: 1.5px solid rgba(255, 215, 0, 0.4) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+  box-shadow: 0 4px 16px rgba(159, 18, 57, 0.4) !important;
+}
+html[data-theme="sunset"] .btn-primary *,
+html[data-theme="sunset"] .btn-admin-create-res *,
+html[data-theme="sunset"] .admin-btn-primary *,
+body.theme-sunset .btn-primary *,
+body.theme-sunset .btn-admin-create-res *,
+body.theme-sunset .admin-btn-primary * {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+html[data-theme="sunset"] .btn-primary:hover,
+html[data-theme="sunset"] .btn-admin-create-res:hover,
+body.theme-sunset .btn-primary:hover,
+body.theme-sunset .btn-admin-create-res:hover {
+  background: linear-gradient(135deg, #be123c 0%, #e11d48 50%, #9f1239 100%) !important;
+  border-color: #FFD700 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
 /* ==========================================================================
    ALORA MASTER THEME ARCHITECTURE & READABILITY SYSTEM
    Standardized Variables: --text-primary, --text-secondary, --text-accent, --card-bg
@@ -20075,8 +20207,8 @@ const TRANSLATIONS = {
               <div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;">
                   <div>
-                    <h3 style="font-size:1.15rem;font-weight:800;color:var(--primary-900);margin:0 0 4px 0;">${cName}</h3>
-                    <div style="font-size:0.85rem;color:var(--neutral-500);">${cDisplay}</div>
+                    <h3 class="cliq-card-title" style="font-size:1.15rem;font-weight:800;margin:0 0 4px 0;">${cName}</h3>
+                    <div class="cliq-card-subtitle" style="font-size:0.85rem;">${cDisplay}</div>
                   </div>
                   <div style="display:flex;gap:6px;">
                     ${m.isDefault ? `<span style="background:#fefcbf;color:#b7791f;padding:3px 8px;border-radius:4px;font-size:0.75rem;font-weight:700;">★ ${t('statusDefault')}</span>` : ''}
@@ -20092,14 +20224,14 @@ const TRANSLATIONS = {
                   ` : ''}
                   <div>
                     <div class="cliq-alias-badge" style="background:#0a1f16 !important;color:#ffffff !important;font-weight:800 !important;">${m.alias}</div>
-                    <div style="font-size:0.85rem;color:var(--neutral-700);margin-top:4px;">
+                    <div class="cliq-card-details" style="font-size:0.85rem;margin-top:4px;">
                       🏦 <strong>${isAr ? 'البنك:' : 'Bank:'}</strong> ${cBank}<br>
                       📞 <strong>${isAr ? 'الهاتف:' : 'Mobile:'}</strong> ${m.accountPhone || '—'}
                     </div>
                   </div>
                 </div>
 
-                <p style="font-size:0.85rem;color:var(--neutral-600);line-height:1.5;background:var(--neutral-50);padding:10px 12px;border-radius:6px;margin:0 0 1rem 0;">
+                <p class="cliq-card-instructions" style="font-size:0.85rem;line-height:1.5;padding:10px 12px;border-radius:6px;margin:0 0 1rem 0;">
                   ${cInstr}
                 </p>
               </div>
