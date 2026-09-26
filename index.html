@@ -25,7 +25,7 @@
   
   <!-- Stylesheets -->
   <style>
-/* Alora - Nature & Luxury Jordanian Farm Rental Design System */
+﻿/* Alora - Nature & Luxury Jordanian Farm Rental Design System */
 :root {
   --primary-900: #0a1f16;
   --primary-800: #11291f;
@@ -14488,6 +14488,139 @@ html[data-theme="sunset"] .nav-admin-btn {
   }
 }
 
+
+/* ====================================================
+   MOBILE PAGE NAV STRIP -- Always-visible horizontal scrollable pill nav
+   Shows all 7 page buttons on mobile without opening the hamburger menu
+   ==================================================== */
+
+/* Hidden on desktop, shown on mobile */
+.mobile-page-nav-strip {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .mobile-page-nav-strip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 8px 12px;
+    background: var(--white, #fff);
+    border-bottom: 1.5px solid var(--neutral-200, #e5e7eb);
+    width: 100%;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .mobile-page-nav-strip::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Pill button base */
+.mpn-pill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex-shrink: 0;
+  min-width: 58px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1.5px solid var(--neutral-200, #e5e7eb);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.12s;
+  font-family: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mpn-pill:active {
+  transform: scale(0.94);
+}
+
+.mpn-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.mpn-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Emerald theme ---- */
+[data-theme="emerald"] .mobile-page-nav-strip {
+  background: var(--white, #fff);
+  border-bottom-color: #d1fae5;
+}
+[data-theme="emerald"] .mpn-pill {
+  color: #166534;
+  border-color: #bbf7d0;
+}
+[data-theme="emerald"] .mpn-pill:hover,
+[data-theme="emerald"] .mpn-pill:focus {
+  background: #d1fae5;
+  border-color: #22c55e;
+  color: #14532d;
+}
+[data-theme="emerald"] .mpn-pill.mpn-active {
+  background: #16a34a;
+  border-color: #15803d;
+  color: #ffffff;
+}
+
+/* ---- Midnight theme ---- */
+[data-theme="midnight"] .mobile-page-nav-strip {
+  background: #0f172a;
+  border-bottom-color: #1e293b;
+}
+[data-theme="midnight"] .mpn-pill {
+  color: #c5a059;
+  border-color: #1e293b;
+}
+[data-theme="midnight"] .mpn-pill:hover,
+[data-theme="midnight"] .mpn-pill:focus {
+  background: #1e293b;
+  border-color: #c5a059;
+  color: #f8e5bb;
+}
+[data-theme="midnight"] .mpn-pill.mpn-active {
+  background: #c5a059;
+  border-color: #a8874b;
+  color: #0f172a;
+}
+
+/* ---- Sunset theme ---- */
+[data-theme="sunset"] .mobile-page-nav-strip {
+  background: #fff7ed;
+  border-bottom-color: #fed7aa;
+}
+[data-theme="sunset"] .mpn-pill {
+  color: #9a3412;
+  border-color: #fed7aa;
+}
+[data-theme="sunset"] .mpn-pill:hover,
+[data-theme="sunset"] .mpn-pill:focus {
+  background: #ffedd5;
+  border-color: #f97316;
+  color: #7c2d12;
+}
+[data-theme="sunset"] .mpn-pill.mpn-active {
+  background: #ea580c;
+  border-color: #c2410c;
+  color: #ffffff;
+}
 </style>
 </head>
 <body>
@@ -17955,6 +18088,38 @@ const TRANSLATIONS = {
               <span style="font-size:1.25rem;line-height:1;">${State.mobileMenuOpen ? '✕' : '☰'}</span>
             </button>
           </div>
+        </div>
+
+        <!-- Mobile Page Navigation Strip (always visible on mobile, no hamburger needed) -->
+        <div class="mobile-page-nav-strip" id="mobilePageNavStrip">
+          <button class="mpn-pill ${State.currentPage === 'home' ? 'mpn-active' : ''}" onclick="window.Alora.navigate('home'); return false;" aria-label="${t('navHome')}">
+            <span class="mpn-icon">🏠</span>
+            <span class="mpn-label">${t('navHome')}</span>
+          </button>
+          <button class="mpn-pill ${State.currentPage === 'farms' ? 'mpn-active' : ''}" onclick="window.Alora.navigate('farms'); return false;" aria-label="${t('navFarms')}">
+            <span class="mpn-icon">🏡</span>
+            <span class="mpn-label">${t('navFarms')}</span>
+          </button>
+          <button class="mpn-pill ${State.currentPage === 'gallery' ? 'mpn-active' : ''}" onclick="window.Alora.navigate('gallery'); return false;" aria-label="${t('navGallery')}">
+            <span class="mpn-icon">🖼️</span>
+            <span class="mpn-label">${t('navGallery')}</span>
+          </button>
+          <button class="mpn-pill" onclick="window.Alora.scrollToSection('why-us'); return false;" aria-label="${t('navWhyUs')}">
+            <span class="mpn-icon">⭐</span>
+            <span class="mpn-label">${t('navWhyUs')}</span>
+          </button>
+          <button class="mpn-pill" onclick="window.Alora.scrollToSection('contact'); return false;" aria-label="${t('navContact')}">
+            <span class="mpn-icon">📞</span>
+            <span class="mpn-label">${t('navContact')}</span>
+          </button>
+          <button class="mpn-pill ${State.currentPage === 'find-booking' ? 'mpn-active' : ''}" onclick="window.Alora.navigate('find-booking'); return false;" aria-label="${t('navFindBooking') || 'Find Booking'}">
+            <span class="mpn-icon">🔍</span>
+            <span class="mpn-label">${t('navFindBooking') || 'Find Booking'}</span>
+          </button>
+          <button class="mpn-pill ${State.currentPage === 'policies' ? 'mpn-active' : ''}" onclick="window.Alora.navigate('policies'); return false;" aria-label="${t('navPolicies') || 'Policies'}">
+            <span class="mpn-icon">📜</span>
+            <span class="mpn-label">${t('navPolicies') || 'Policies'}</span>
+          </button>
         </div>
 
         <!-- Responsive Mobile Dropdown Menu -->
