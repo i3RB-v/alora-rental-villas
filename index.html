@@ -10224,7 +10224,7 @@ html[data-theme="emerald"] h3 *:not(.hero *):not(.footer *):not([style*="backgro
 html[data-theme="emerald"] h4 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *):not(.receipt-voucher-header *),
 html[data-theme="emerald"] h5 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *):not(.receipt-voucher-header *),
 html[data-theme="emerald"] h6 *:not(.hero *):not(.footer *):not([style*="background:#0a1f16"] *):not(.receipt-voucher-header *),
-html[data-theme="emerald"] span:not(.footer *):not(.site-footer *):not(.hero *):not(.top-utility-bar *):not(.badge-star):not(.rating-star):not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-confirmed *):not(.badge-verified *):not(.badge-paid *):not(.badge-success *):not(.badge-active *):not(.cliq-alias-badge):not(.stat-num):not(.gold-badge):not([style*="background:#0a1f16"] *):not(.farm-badge):not(.farm-badge *):not(.farm-badge-top):not(.farm-badge-top *):not(.farm-rating-top):not(.farm-rating-top *):not(.farm-rating-pill):not(.farm-rating-pill *):not(.rating-score):not(.rating-count):not(.receipt-voucher-header *),
+html[data-theme="emerald"] span:not(.footer *):not(.site-footer *):not(.hero *):not(.top-utility-bar *):not(.badge-star):not(.rating-star):not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-confirmed *):not(.badge-verified *):not(.badge-paid *):not(.badge-success *):not(.badge-active *):not(.cliq-alias-badge):not(.cliq-alias-badge *):not(.wiz-cliq-alias-pill):not(.wiz-cliq-alias-pill *):not(.wiz-assigned-code-banner):not(.wiz-assigned-code-banner *):not(.wiz-assigned-label):not(.wiz-assigned-code):not(.stat-num):not(.gold-badge):not([style*="background:#0a1f16"] *):not([style*="background: #0a1f16"] *):not(.farm-badge):not(.farm-badge *):not(.farm-badge-top):not(.farm-badge-top *):not(.farm-rating-top):not(.farm-rating-top *):not(.farm-rating-pill):not(.farm-rating-pill *):not(.rating-score):not(.rating-count):not(.receipt-voucher-header *),
 html[data-theme="emerald"] label,
 html[data-theme="emerald"] strong:not(.footer *):not(.hero *):not(.top-utility-bar *):not(.btn-primary *):not(.btn-admin-create-res *):not(.badge-confirmed *):not(.badge-verified *):not(.badge-paid *):not(.badge-success *):not(.badge-active *):not([style*="background:#0a1f16"] *):not(.farm-badge *):not(.farm-rating-pill *):not(.receipt-voucher-header *),
 html[data-theme="emerald"] b:not(.footer *):not(.hero *):not(.top-utility-bar *):not(.btn-primary *):not(.btn-admin-create-res *):not(.farm-badge *):not(.farm-rating-pill *):not(.receipt-voucher-header *),
@@ -10311,7 +10311,7 @@ html:not([data-theme]) .receipt-icon-badge {
   color: #0a1f16 !important;
 }
 .bg-white h1, .bg-white h2, .bg-white h3, .bg-white p, .bg-white span, .bg-white td, .bg-white th,
-.card:not(.dark):not(.footer):not(.hero) p, .card:not(.dark):not(.footer):not(.hero) span:not(.rating-star):not(.badge-star),
+.card:not(.dark):not(.footer):not(.hero) p, .card:not(.dark):not(.footer):not(.hero) span:not(.rating-star):not(.badge-star):not(.cliq-alias-badge):not(.wiz-cliq-alias-pill):not(.wiz-assigned-code-banner *):not(.wiz-assigned-label):not(.wiz-assigned-code),
 .admin-card:not(.dark) p, .admin-card:not(.dark) td, .admin-card:not(.dark) th {
   color: #0a1f16 !important;
 }
@@ -11097,28 +11097,93 @@ button[style*="background: #16402e"] *,
 }
 
 /* Explicit CliQ Alias Badge High-Contrast Styling */
-.cliq-alias-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.cliq-alias-badge,
+span.cliq-alias-badge,
+div.cliq-alias-badge,
+strong.cliq-alias-badge,
+small.cliq-alias-badge,
+.wiz-cliq-alias-pill,
+html[data-theme="emerald"] .cliq-alias-badge,
+html[data-theme="light"] .cliq-alias-badge,
+html[data-theme="midnight"] .cliq-alias-badge,
+html[data-theme="sunset"] .cliq-alias-badge,
+html:not([data-theme]) .cliq-alias-badge,
+.modal-card .cliq-alias-badge,
+.modal-card .wiz-cliq-alias-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
   background: #0a1f16 !important;
   color: #ffffff !important;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-family: monospace;
-  font-size: 0.95rem;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-family: monospace !important;
+  font-size: 0.95rem !important;
   font-weight: 800 !important;
-  margin: 0.5rem 0;
-  border: 1px solid #16a34a !important;
+  margin: 0.5rem 0 !important;
+  border: 1.5px solid #16a34a !important;
+  letter-spacing: 0.5px !important;
 }
+
+.cliq-alias-badge *,
+.wiz-cliq-alias-pill *,
+.modal-card .cliq-alias-badge *,
+.modal-card .wiz-cliq-alias-pill * {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
 .cliq-copy-btn {
   background: #c5a059 !important;
   color: #050b17 !important;
   font-weight: 800 !important;
   border: none !important;
-  border-radius: 4px;
-  padding: 2px 8px;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
 }
+
+/* Explicit Booking Wizard Reference Code Banner High-Contrast Styling */
+.wiz-assigned-code-banner,
+div.wiz-assigned-code-banner,
+html[data-theme="emerald"] .wiz-assigned-code-banner,
+html[data-theme="light"] .wiz-assigned-code-banner,
+html[data-theme="midnight"] .wiz-assigned-code-banner,
+html[data-theme="sunset"] .wiz-assigned-code-banner,
+html:not([data-theme]) .wiz-assigned-code-banner,
+.modal-card .wiz-assigned-code-banner {
+  background: #0a1f16 !important;
+  color: #ffffff !important;
+  padding: 12px 16px !important;
+  border-radius: 6px !important;
+  border: 1.5px solid #16a34a !important;
+  margin: 1.25rem 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.wiz-assigned-code-banner .wiz-assigned-label,
+.wiz-assigned-label,
+.modal-card .wiz-assigned-label,
+html[data-theme="emerald"] .modal-card .wiz-assigned-label,
+html[data-theme="light"] .modal-card .wiz-assigned-label {
+  font-size: 0.85rem !important;
+  color: #fbbf24 !important;
+  font-weight: 800 !important;
+}
+
+.wiz-assigned-code-banner .wiz-assigned-code,
+.wiz-assigned-code,
+.modal-card .wiz-assigned-code,
+html[data-theme="emerald"] .modal-card .wiz-assigned-code,
+html[data-theme="light"] .modal-card .wiz-assigned-code {
+  font-family: monospace !important;
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  letter-spacing: 1px !important;
+}
+
 
 /* 7. COMPREHENSIVE ADMIN PORTAL SYSTEM CONTRAST RULES */
 .admin-portal,
@@ -11167,11 +11232,12 @@ html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active) *,
 html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active),
 html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active) *,
 html[data-theme="emerald"] .modal-card p,
-html[data-theme="emerald"] .modal-card span:not(.badge-star):not(.rating-star),
+html[data-theme="emerald"] .modal-card span:not(.badge-star):not(.rating-star):not(.cliq-alias-badge):not(.cliq-alias-badge *):not(.wiz-cliq-alias-pill):not(.wiz-cliq-alias-pill *):not(.wiz-assigned-code-banner):not(.wiz-assigned-code-banner *):not(.wiz-assigned-label):not(.wiz-assigned-code):not([style*="background:#0a1f16"] *):not([style*="background: #0a1f16"] *),
 html[data-theme="emerald"] .modal-card label,
 html[data-theme="light"] .modal-card p,
-html[data-theme="light"] .modal-card span:not(.badge-star):not(.rating-star),
-html[data-theme="light"] .modal-card label {
+html[data-theme="light"] .modal-card span:not(.badge-star):not(.rating-star):not(.cliq-alias-badge):not(.cliq-alias-badge *):not(.wiz-cliq-alias-pill):not(.wiz-cliq-alias-pill *):not(.wiz-assigned-code-banner):not(.wiz-assigned-code-banner *):not(.wiz-assigned-label):not(.wiz-assigned-code):not([style*="background:#0a1f16"] *):not([style*="background: #0a1f16"] *),
+html[data-theme="light"] .modal-card label,
+html:not([data-theme]) .modal-card span:not(.badge-star):not(.rating-star):not(.cliq-alias-badge):not(.cliq-alias-badge *):not(.wiz-cliq-alias-pill):not(.wiz-cliq-alias-pill *):not(.wiz-assigned-code-banner):not(.wiz-assigned-code-banner *):not(.wiz-assigned-label):not(.wiz-assigned-code):not([style*="background:#0a1f16"] *):not([style*="background: #0a1f16"] *) {
   color: #0a1f16 !important;
   font-weight: 700 !important;
 }
@@ -17554,7 +17620,7 @@ const TRANSLATIONS = {
                           <span style="font-size:0.75rem;color:var(--neutral-500);">${cliqLoc.bankName}</span>
                         </div>
                         <div style="display:flex;align-items:center;gap:8px;margin:6px 0;">
-                          <span class="cliq-alias-badge" dir="ltr">${method.alias}</span>
+                          <span class="cliq-alias-badge wiz-cliq-alias-pill" dir="ltr" style="background:#0a1f16 !important;color:#ffffff !important;font-weight:800 !important;display:inline-flex;align-items:center;padding:6px 12px;border-radius:6px;border:1.5px solid #16a34a !important;font-family:monospace;font-size:0.95rem;letter-spacing:0.5px;">${method.alias}</span>
                           <button type="button" class="cliq-copy-btn" onclick="event.stopPropagation(); window.Alora.copyToClipboard('${method.alias}', 'CliQ alias')">
                             ${t('copyBtn')}
                           </button>
@@ -17672,9 +17738,9 @@ const TRANSLATIONS = {
                 </div>
 
                 <!-- Reference Code Banner -->
-                <div style="background:#0a1f16;color:#ffffff;padding:12px 16px;border-radius:6px;margin:1.25rem 0;display:flex;justify-content:space-between;align-items:center;">
-                  <span style="font-size:0.85rem;color:#C5A059;font-weight:700;">${t('assignedCode')}</span>
-                  <span style="font-family:monospace;font-size:1.1rem;font-weight:800;color:#ffffff;">${w.bookingNumber}</span>
+                <div class="wiz-assigned-code-banner" style="background:#0a1f16 !important;color:#ffffff !important;padding:12px 16px;border-radius:6px;margin:1.25rem 0;display:flex;justify-content:space-between;align-items:center;border:1px solid #16a34a !important;">
+                  <span class="wiz-assigned-label" style="font-size:0.85rem;color:#fbbf24 !important;font-weight:800;">${t('assignedCode')}</span>
+                  <span class="wiz-assigned-code" style="font-family:monospace;font-size:1.15rem;font-weight:800;color:#ffffff !important;letter-spacing:1px;">${w.bookingNumber}</span>
                 </div>
 
                 <div style="background:#166534;border-left:4px solid #10b981;padding:10px 14px;border-radius:4px;font-size:0.85rem;color:#ffffff;font-weight:700;margin-bottom:1.5rem;">
@@ -18969,7 +19035,7 @@ const TRANSLATIONS = {
                   <td><strong style="color:#276749;">${p.requiredAmount} JOD</strong></td>
                   <td>
                     <div><strong>${isAr ? (p.paymentMethodNameAr || (p.paymentMethodName === 'ALORA Booking CliQ' ? 'حساب كليك حجوزات أورا' : 'حساب كليك أورا الرئيسي')) : (p.paymentMethodName || 'ALORA Main CliQ')}</strong></div>
-                    <small class="cliq-alias-badge" style="padding:2px 6px;font-size:0.75rem;">${p.cliqAlias || 'ALORA@INVEST'}</small>
+                    <small class="cliq-alias-badge" style="padding:2px 6px;font-size:0.75rem;background:#0a1f16 !important;color:#ffffff !important;font-weight:800 !important;">${p.cliqAlias || 'ALORA@INVEST'}</small>
                   </td>
                   <td><span style="font-family:monospace;font-weight:700;">${p.paymentReference || '—'}</span></td>
                   <td>
@@ -19068,7 +19134,7 @@ const TRANSLATIONS = {
                     <img src="${m.qrCode}" alt="CliQ QR" class="cliq-qr-preview" onclick="window.open('${m.qrCode}', '_blank')" title="Click to view QR" />
                   ` : ''}
                   <div>
-                    <div class="cliq-alias-badge">${m.alias}</div>
+                    <div class="cliq-alias-badge" style="background:#0a1f16 !important;color:#ffffff !important;font-weight:800 !important;">${m.alias}</div>
                     <div style="font-size:0.85rem;color:var(--neutral-700);margin-top:4px;">
                       🏦 <strong>${isAr ? 'البنك:' : 'Bank:'}</strong> ${cBank}<br>
                       📞 <strong>${isAr ? 'الهاتف:' : 'Mobile:'}</strong> ${m.accountPhone || '—'}
@@ -19704,7 +19770,7 @@ const TRANSLATIONS = {
                 <h4 style="font-size:1rem;font-weight:800;color:var(--primary-900);margin:0 0 0.75rem 0;">${t('modalCliqPayment')}</h4>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;font-size:0.9rem;">
                   <div><span style="color:var(--neutral-500);">${t('modalCliqAccount')}</span> <strong>${isAr ? (b.paymentMethodNameAr || (b.paymentMethodName === 'ALORA Booking CliQ' ? 'حساب كليك حجوزات أورا' : 'حساب كليك أورا الرئيسي')) : (b.paymentMethodName || 'ALORA Main CliQ')}</strong></div>
-                  <div><span style="color:var(--neutral-500);">${t('modalCliqAlias')}</span> <strong class="cliq-alias-badge" style="padding:2px 6px;font-size:0.8rem;">${b.cliqAlias || 'ALORA@INVEST'}</strong></div>
+                  <div><span style="color:var(--neutral-500);">${t('modalCliqAlias')}</span> <strong class="cliq-alias-badge" style="padding:2px 6px;font-size:0.8rem;background:#0a1f16 !important;color:#ffffff !important;font-weight:800 !important;">${b.cliqAlias || 'ALORA@INVEST'}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalTxRef')}</span> <strong style="font-family:monospace;color:var(--primary-900);">${b.paymentReference || '—'}</strong></div>
                   <div><span style="color:var(--neutral-500);">${t('modalPaymentStatus')}</span> <span class="${payBadge}">${payText}</span></div>
                   <div><span style="color:var(--neutral-500);">${t('modalVerifiedBy')}</span> <strong>${b.verifiedBy || t('modalPendingVerification')}</strong></div>
