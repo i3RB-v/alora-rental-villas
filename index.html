@@ -11204,9 +11204,6 @@ html:not([data-theme]) .admin-card,
 html[data-theme="emerald"] .admin-table,
 html[data-theme="light"] .admin-table,
 html:not([data-theme]) .admin-table,
-html[data-theme="emerald"] .admin-sidebar,
-html[data-theme="light"] .admin-sidebar,
-html:not([data-theme]) .admin-sidebar,
 html[data-theme="emerald"] .admin-header,
 html[data-theme="light"] .admin-header,
 html:not([data-theme]) .admin-header,
@@ -11225,12 +11222,6 @@ html[data-theme="light"] .admin-table th,
 html[data-theme="light"] .admin-table td,
 html:not([data-theme]) .admin-table th,
 html:not([data-theme]) .admin-table td,
-html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active),
-html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active) *,
-html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active),
-html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active) *,
-html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active),
-html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active) *,
 html[data-theme="emerald"] .modal-card p,
 html[data-theme="emerald"] .modal-card span:not(.badge-star):not(.rating-star):not(.cliq-alias-badge):not(.cliq-alias-badge *):not(.wiz-cliq-alias-pill):not(.wiz-cliq-alias-pill *):not(.wiz-assigned-code-banner):not(.wiz-assigned-code-banner *):not(.wiz-assigned-label):not(.wiz-assigned-code):not([style*="background:#0a1f16"] *):not([style*="background: #0a1f16"] *),
 html[data-theme="emerald"] .modal-card label,
@@ -11240,6 +11231,85 @@ html[data-theme="light"] .modal-card label,
 html:not([data-theme]) .modal-card span:not(.badge-star):not(.rating-star):not(.cliq-alias-badge):not(.cliq-alias-badge *):not(.wiz-cliq-alias-pill):not(.wiz-cliq-alias-pill *):not(.wiz-assigned-code-banner):not(.wiz-assigned-code-banner *):not(.wiz-assigned-label):not(.wiz-assigned-code):not([style*="background:#0a1f16"] *):not([style*="background: #0a1f16"] *) {
   color: #0a1f16 !important;
   font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   ADMIN SIDEBAR & DRAWER CHROMATIC HARMONY & CONTRAST
+   The Admin Sidebar is a luxury dark green / black control column (#0a1f16).
+   Inactive navigation items must ALWAYS render crisp pure white (#ffffff !important).
+   Hover state renders luminous gold (#fbbf24 !important).
+   Active state renders rich gold pill with black text or gold glowing pill.
+   ========================================================================== */
+.admin-sidebar,
+html[data-theme="emerald"] .admin-sidebar,
+html[data-theme="light"] .admin-sidebar,
+html:not([data-theme]) .admin-sidebar,
+.admin-drawer,
+html[data-theme="emerald"] .admin-drawer,
+html[data-theme="light"] .admin-drawer,
+html:not([data-theme]) .admin-drawer {
+  background: linear-gradient(180deg, #0a1f16 0%, #11291f 100%) !important;
+  color: #ffffff !important;
+}
+
+.admin-sidebar .admin-nav-item:not(.active),
+.admin-sidebar .admin-nav-item:not(.active) *,
+.admin-sidebar .admin-nav-item:not(.active) span,
+.admin-sidebar .admin-nav-item:not(.active) .admin-nav-label,
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active),
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active) *,
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active) span,
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active) .admin-nav-label,
+html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active),
+html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active) *,
+html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active) span,
+html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active) .admin-nav-label,
+html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active),
+html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active) *,
+html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active) span,
+html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active) .admin-nav-label,
+.admin-drawer .admin-drawer-nav-item:not(.active),
+.admin-drawer .admin-drawer-nav-item:not(.active) *,
+.admin-drawer .admin-drawer-nav-item:not(.active) span,
+.admin-drawer .admin-drawer-nav-item:not(.active) .admin-drawer-tab-label,
+html[data-theme="emerald"] .admin-drawer .admin-drawer-nav-item:not(.active),
+html[data-theme="emerald"] .admin-drawer .admin-drawer-nav-item:not(.active) *,
+html[data-theme="light"] .admin-drawer .admin-drawer-nav-item:not(.active),
+html[data-theme="light"] .admin-drawer .admin-drawer-nav-item:not(.active) * {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+.admin-sidebar .admin-nav-item:not(.active):hover,
+.admin-sidebar .admin-nav-item:not(.active):hover *,
+.admin-sidebar .admin-nav-item:not(.active):hover span,
+.admin-sidebar .admin-nav-item:not(.active):hover .admin-nav-label,
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active):hover,
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active):hover *,
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active):hover span,
+html[data-theme="emerald"] .admin-sidebar .admin-nav-item:not(.active):hover .admin-nav-label,
+html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active):hover,
+html[data-theme="light"] .admin-sidebar .admin-nav-item:not(.active):hover *,
+html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active):hover,
+html:not([data-theme]) .admin-sidebar .admin-nav-item:not(.active):hover *,
+.admin-drawer .admin-drawer-nav-item:not(.active):hover,
+.admin-drawer .admin-drawer-nav-item:not(.active):hover * {
+  color: #fbbf24 !important;
+  background: rgba(197, 160, 89, 0.16) !important;
+}
+
+/* Nav Badge (Notification Count Pills like "6" in sidebar) */
+.admin-sidebar .admin-nav-badge,
+.admin-drawer .admin-nav-badge,
+html[data-theme="emerald"] .admin-sidebar .admin-nav-badge,
+html[data-theme="light"] .admin-sidebar .admin-nav-badge,
+html:not([data-theme]) .admin-sidebar .admin-nav-badge {
+  background: #C5A059 !important;
+  color: #050b17 !important;
+  font-weight: 800 !important;
+  border-radius: 10px !important;
+  padding: 1px 7px !important;
 }
 
 /* Admin Dark Mode (Midnight Sapphire & Sunset Rose) -> Font Yellow (#fbbf24) */
@@ -17868,8 +17938,8 @@ const TRANSLATIONS = {
           <nav class="admin-nav">
             ${adminTabs.map(tab => `
               <div class="admin-nav-item ${State.activeAdminTab === tab.id ? 'active' : ''}" onclick="window.Alora.setAdminTab('${tab.id}')">
-                <span>${tab.icon}</span>
-                <span>${tab.label}</span>
+                <span class="admin-nav-icon">${tab.icon}</span>
+                <span class="admin-nav-label">${tab.label}</span>
                 ${tab.badge > 0 ? `<span class="admin-nav-badge">${tab.badge}</span>` : ''}
               </div>
             `).join('')}
